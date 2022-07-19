@@ -1,0 +1,224 @@
+
+--  MODES  --
+--  normal_mode   = 'n',
+--  insert_mode   = 'i',
+--  visual_mode   = 'v',
+--  vblock_mode   = 'x',
+--  terminal_mode = 't',
+--  command_mode  = 'c',
+
+
+-- MOVE --
+vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
+
+vim.keymap.set('n', 'J', '8j', { noremap = true, silent = true })
+vim.keymap.set('n', 'K', '8k', { noremap = true, silent = true })
+
+vim.keymap.set('v', 'J', '8j', { noremap = true, silent = true })
+vim.keymap.set('v', 'K', '8k', { noremap = true, silent = true })
+
+vim.keymap.set('n', 'H', '^', { noremap = true, silent = true })
+vim.keymap.set('n', 'L', '$', { noremap = true, silent = true })
+vim.keymap.set('o', 'H', '^', { noremap = true, silent = true })
+vim.keymap.set('o', 'L', '$', { noremap = true, silent = true })
+vim.keymap.set('v', 'H', '^', { noremap = true, silent = true })
+vim.keymap.set('v', 'L', '$', { noremap = true, silent = true })
+
+
+-- ALT AREA --
+vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
+
+vim.keymap.set('t', '<ESC>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.keymap.set('t', '<A-h>', '<C-\\><C-n><C-w>h', { noremap = true, silent = true })
+vim.keymap.set('t', '<A-j>', '<C-\\><C-n><C-w>j', { noremap = true, silent = true })
+vim.keymap.set('t', '<A-k>', '<C-\\><C-n><C-w>k', { noremap = true, silent = true })
+vim.keymap.set('t', '<A-l>', '<C-\\><C-n><C-w>l', { noremap = true, silent = true })
+
+
+vim.keymap.set('n', 'q', '<NOP>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '/', '.', { noremap = true, silent = true })
+vim.keymap.set('n', '.', ';', { noremap = true, silent = true })
+vim.keymap.set('n', '\\', 'q', { noremap = true, silent = true })
+
+
+-- CLIPBOARD --
+vim.keymap.set('n', 'p', 'dP', { noremap = true, silent = true })
+
+
+-- SEARCH --
+vim.keymap.set('n', ';f', '/', { noremap = true, silent = false })
+vim.keymap.set('n', '<ESC>', '<CMD>set hls!<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('i', '<A-.>', '<ESC>>>A', { noremap = true, silent = true })
+
+-- INSERT --
+
+vim.keymap.set('n', '<A-u>', 'viw~e', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-u>', '<ESC>viw~ea', { noremap = true, silent = true })
+
+vim.keymap.set('n', ';st', '<CMD>sp | set nonu | terminal<CR>a', { noremap = true, silent = true })
+vim.keymap.set('n', ';vt', '<CMD>vs | set nonu | terminal<CR>a', { noremap = true, silent = true })
+vim.keymap.set('n', ';so', '<C-w>o', { noremap = true, silent = true })
+vim.keymap.set('v', ';so', '<C-w>o', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<RIGHT>', '<CMD>resize +2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<LEFT>', '<CMD>resize -2<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<DOWN>', '<CMD>vertical resize -2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<UP>', '<CMD>vertical resize +2<CR>', { noremap = true, silent = true })
+
+-- INDENT --
+vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
+vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<', '<<', { noremap = true, silent = true })
+vim.keymap.set('n', '>', '>>', { noremap = true, silent = true })
+
+vim.keymap.set('v', '<C-j>', ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<C-k>', ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
+
+vim.keymap.set('n', '<A-u>', 'viw~e', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-u>', '<ESC>viw~ea', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<C-j>', '<C-i>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-k>', '<C-o>', { noremap = true, silent = true })
+
+vim.keymap.set('i', '<A-j>', '<C-n>', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-k>', '<C-p>', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-l>', '<C-y>', { noremap = true, silent = true })
+vim.keymap.set('i', '<S-TAB>', '<ESC>ciw', { noremap = true, silent = true })
+
+vim.keymap.set('c', '<A-k>', '<UP>', { noremap = true, silent = false })
+vim.keymap.set('c', '<A-j>', '<DOWN>', { noremap = true, silent = false })
+vim.keymap.set('c', '<A-h>', '<HOME>', { noremap = true, silent = false })
+vim.keymap.set('c', '<A-l>', '<END>', { noremap = true, silent = false })
+
+vim.keymap.set('n', '<A-=>', '<C-a>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-->', '<C-x>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '+', 'J', { noremap = true, silent = true })
+
+vim.keymap.set('n', ';a', 'ggvG$', { noremap = true, silent = true })
+
+vim.keymap.set('n', ';w', '<CMD>w!<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';q', '<CMD>q!<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('v', ';w', '<ESC><CMD>w!<CR>gv', { noremap = true, silent = true })
+vim.keymap.set('v', ';q', '<ESC><CMD>q!<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<C-q>', '<CMD>qa!<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-q>', '<CMD>qa!<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<SPACE>', ';', { noremap = true, silent = true })
+vim.keymap.set('v', '<SPACE>', ';', { noremap = true, silent = true })
+vim.keymap.set('o', '<SPACE>', ';', { noremap = true, silent = true })
+
+
+vim.keymap.set('n', 'U', '<C-r>', { noremap = true, silent = true })
+
+vim.keymap.set('n', 'm', '%', { remap = true, silent = true })
+
+vim.keymap.set('n', ';m', 'm', { noremap = true, silent = true })
+
+vim.cmd [[
+    nnoremap <silent> yy "+yy
+    vnoremap <silent> y  "+y
+    nnoremap <silent> y  "+y
+    nnoremap <silent> Y  "+Y
+
+    vnoremap <silent> d  "dd
+    nnoremap <silent> d  "dd
+    nnoremap <silent> dp "dp
+    nnoremap <silent> dP "dP
+    nnoremap <silent> dd "ddd
+
+    nnoremap <silent> x "xx
+    vnoremap <silent> x "xx
+    nnoremap <silent> s "ss
+    nnoremap <silent> S "SS
+    vnoremap <silent> s "ss
+
+    nnoremap <silent> c "cc
+    nnoremap <silent> C "CC
+    vnoremap <silent> c "cc
+
+    nnoremap <silent> p  "+p
+    nnoremap <silent> P  "+P
+    nnoremap <silent> cp "cp
+
+    vnoremap <silent> ( A)<ESC>`<i(<ESC>v`>ll
+    vnoremap <silent> [ A]<ESC>`<i[<ESC>v`>ll
+    vnoremap <silent> ;{ A}<ESC>`<i{<ESC>v`>ll
+    vnoremap <silent> " A"<ESC>`<i"<ESC>v`>ll
+    vnoremap <silent> ' A'<ESC>`<i'<ESC>v`>ll
+    vnoremap <silent> ;< A`<ESC>`<i`<ESC>v`>ll
+
+    onoremap <silent> lb :<C-u>normal! f(vib<CR>
+    onoremap <silent> hb :<C-u>normal! F)vib<CR>
+
+    onoremap <silent> l" :<C-u>normal! f"vi"<CR>
+    onoremap <silent> h" :<C-u>normal! F"vi"<CR>
+
+    onoremap <silent> l' :<C-u>normal! f'vi'<CR>
+    onoremap <silent> h' :<C-u>normal! F'vi'<CR>
+
+    onoremap <silent> l< :<C-u>normal! f<vi<<CR>
+    onoremap <silent> l> :<C-u>normal! f<vi<<CR>
+    onoremap <silent> h< :<C-u>normal! F>vi><CR>
+    onoremap <silent> h> :<C-u>normal! F>vi><CR>
+
+    onoremap <silent> l[ :<C-u>normal! f[vi[<CR>
+    onoremap <silent> l] :<C-u>normal! f[vi[<CR>
+    onoremap <silent> h[ :<C-u>normal! F]vi]<CR>
+    onoremap <silent> h] :<C-u>normal! F]vi]<CR>
+
+    onoremap <silent> l{ :<C-u>normal! f{vi{<CR>
+    onoremap <silent> l} :<C-u>normal! f{vi{<CR>
+    onoremap <silent> h{ :<C-u>normal! F{vi{<CR>
+    onoremap <silent> h} :<C-u>normal! F{vi{<CR>
+
+    onoremap <silent> l( :<C-u>normal! f(vi(<CR>
+    onoremap <silent> l) :<C-u>normal! f(vi(<CR>
+    onoremap <silent> h( :<C-u>normal! F)vi)<CR>
+    onoremap <silent> h) :<C-u>normal! F)vi)<CR>
+
+    nnoremap <silent> <C-h> :bp<CR>
+    nnoremap <silent> <C-l> :bn<CR>
+    nnoremap <silent> <C-x> :bdelete<CR>
+]]
+
+-- PLUGINS --
+vim.keymap.set('n', ';e', '<CMD>NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
+
+-- vim.keymap.set('n', ';x', '<CMD>ToggleTerm<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<A-f>', '<CMD>Telescope find_files theme=dropdown previewer=false<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<F1>', '<CMD>StartupTime<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<TAB>', '<C-w>p', { noremap = true, silent = true })
+
+vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<C-t>', "<CMD>TroubleToggle<CR>", { noremap = true, silent = true } )
+
+vim.keymap.set('n', ';0', '<CMD>AerialToggle<CR>', { noremap = true, silent = true } )
+vim.keymap.set('n', ';1', '<CMD>SymbolsOutline<CR>', { noremap = true, silent = true })
+
+-- vim.keymap.set('n', ';r', '<CMD>SnipRun<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', ';2', '<CMD>RnvimrToggle<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', ';r', '<CMD>RunCode<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', ';r', ':SnipRun<CR>', { noremap = true, silent = false })
+
+vim.keymap.set('n', '<F2>', '<CMD>w | source $MYVIMRC<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', ';v', '<CMD>vs<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';s', '<CMD>sp<CR>', { noremap = true, silent = true })
