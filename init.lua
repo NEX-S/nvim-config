@@ -15,9 +15,7 @@ vim.cmd "color nex-color-dark"
 require 'core.keymaps'  -- ~/.config/nvim/lua/core/keymaps.lua
 require 'core.options'  -- ~/.config/nvim/lua/core/options.lua
 require 'core.autocmd'  -- ~/.config/nvim/lua/core/autocmd.lua
-require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
-
--- pcall(vim.cmd, 'source ~/.local/share/nvim/packer_compiled.lua')
+-- require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
 
 require 'plugins.packer_compiled'
 

@@ -55,8 +55,19 @@ require "lualine".setup {
                 },
             }
         },
-        lualine_b = { 'branch', 'diff',
-            {  "diagnostics",
+        lualine_b = { 'branch',
+            {
+               'diff',
+                colored = true, -- Displays a colored diff status if set to true
+                symbols = {
+                    added = '+ ',
+                    modified = ' ',
+                    removed = '- '
+                }, -- Changes the symbols used by the diff.
+                source = nil,
+            },
+            {
+               "diagnostics",
                 sources = { "nvim_diagnostic" },
                 sections = { "error", "warn", "hint", "info" },
                 symbols = {
@@ -70,7 +81,7 @@ require "lualine".setup {
                 always_visible = false,
             }
         },
-        lualine_c = { '% [ %F -  %p%% ]' },
+        lualine_c = { '%F -  %p%% ]' },
         lualine_x = { 'os.date("%H:%M %a")', 'filetype' },
         lualine_y = { '%c -  %B' },
         lualine_z = {'%l - %L' },

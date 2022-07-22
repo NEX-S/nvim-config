@@ -116,10 +116,15 @@ hi  DiagnosticInfo              ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=N
 hi  DiagnosticError             ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#A70458     gui=NONE
 hi  DiagnosticWarn              ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=NONE
 
-hi  DiagnosticVirtualTextHint   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#008FBF     gui=italic
-hi  DiagnosticVirtualTextInfo   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#C7EB61     gui=italic
-hi  DiagnosticVirtualTextError  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#A70458     gui=italic
-hi  DiagnosticVirtualTextWarn   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=italic
+" hi  DiagnosticVirtualTextHint   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#008FBF     gui=italic
+" hi  DiagnosticVirtualTextInfo   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#C7EB61     gui=italic
+" hi  DiagnosticVirtualTextError  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#A70458     gui=italic
+" hi  DiagnosticVirtualTextWarn   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=italic
+
+hi  DiagnosticVirtualTextHint   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
+hi  DiagnosticVirtualTextInfo   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
+hi  DiagnosticVirtualTextError  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
+hi  DiagnosticVirtualTextWarn   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
 
 hi  DiagnosticFloatingError     ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#A70458     gui=NONE
 hi  DiagnosticFloatingHint      ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#008FBF     gui=NONE

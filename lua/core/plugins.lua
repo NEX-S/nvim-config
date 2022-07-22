@@ -64,7 +64,6 @@ packer.startup {
                         lua = "lua $fileName",
                     },
                 }
-
             ]]
         }
 
@@ -560,7 +559,7 @@ packer.startup {
             config = function()
                 require "nvim-treesitter.configs".setup {
                     sync_install = true,
-                    ensure_installed = { 'c', 'lua', 'php', 'markdown', 'python', 'html', 'vim', 'http', 'json' },
+                    ensure_installed = { 'c', 'lua', 'php', 'markdown', 'python', 'html', 'vim', 'http', 'json', 'java', 'go' },
                     highlight = {
                         enable = true,
                         additional_vim_regex_highlighting = false,
