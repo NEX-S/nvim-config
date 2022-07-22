@@ -59,4 +59,4 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "TabEnter" },
 
 -- FIX: Fold Dont Work After Telescope Open File
 -- vim.cmd "autocmd BufRead * autocmd BufWinEnter * ++once normal! zxzR"
---
+

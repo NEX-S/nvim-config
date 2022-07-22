@@ -158,7 +158,7 @@ packer.startup {
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
         use { 'norcalli/nvim-colorizer.lua',
-            ft = { 'vim', 'lua' },
+            ft = { 'vim', 'lua', 'html', 'css', 'yaml' },
             -- event = { 'CursorMoved', 'InsertEnter', },
             config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
         }
@@ -400,6 +400,7 @@ packer.startup {
         -- LUASNIP --
         use { 'rafamadriz/friendly-snippets', event = 'InsertEnter' }
         use { 'L3MON4D3/LuaSnip',
+            event = 'CmdlineEnter',
             after = 'friendly-snippets',
             config = [[ require "luasnip.loaders.from_vscode".lazy_load() ]]
         }
@@ -425,6 +426,18 @@ packer.startup {
         -- LUASNIP COMPLETION
         use { 'saadparwaiz1/cmp_luasnip', after = 'cmp-nvim-lua' }
 
+        use { 'hrsh7th/cmp-calc', after = 'cmp_luasnip' }
+
+        use { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'cmp-calc' }
+
+        use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp-calc' }
+
+        use { 'hrsh7th/cmp-cmdline', after = 'cmp-calc' }
+
+        use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
+
+        use { "rcarriga/cmp-dap", ft = { 'dap-repl', 'dapui_watches' } }
+
         -- use { 'ms-jpq/coq_nvim',
         --     branch = 'coq',
         --     cmd = 'COQnow',
@@ -433,9 +446,9 @@ packer.startup {
         --         require 'plugins.coq_nvim'
         --     end
         -- }
-        --
+
         -- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-        --
+
         -- use { 'ms-jpq/coq.thirdparty',
         --     branch = '3p',
         --     config = [[

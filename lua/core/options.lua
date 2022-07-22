@@ -27,8 +27,8 @@ vim.opt.smarttab      = true
 
 -- vim.opt.smartindent   = true
 -- vim.opt.cindent       = true
-vim.opt.pumblend = 20
-vim.opt.winblend = 20
+vim.opt.pumblend = 25
+vim.opt.winblend = 25
 
 -- BUG: CAUSE INDENT PROBLEM --
 -- vim.opt.paste         = true

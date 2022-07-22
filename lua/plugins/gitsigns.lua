@@ -69,7 +69,7 @@ require"gitsigns".setup {
 
         -- Actions
         map('n', ';gb', function()
-            package.loaded.gitsigns.blame_line{full=true}
+            package.loaded.gitsigns.blame_line { full = true }
         end)
         map('n', ';gd', package.loaded.gitsigns.diffthis)
         map({'n', 'v'}, ';hs', ':Gitsigns stage_hunk<CR>')

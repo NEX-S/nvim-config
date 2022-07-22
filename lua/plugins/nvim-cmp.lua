@@ -29,12 +29,15 @@ local cmp_icons = {
     TypeParameter = "",
 }
 
-local nvim_cmp = require('cmp')
-local luasnip = require('luasnip')
+local nvim_cmp = require "cmp"
+local luasnip  = require "luasnip"
 
 nvim_cmp.setup {
     completion = { keyword_length = 1, },
-    experimental = { ghost_text = true },
+    experimental = {
+        ghost_text = true,
+        native_menu = false,
+    },
     snippet = {
         -- 开启 LuaSnip 代码片段补全
         expand = function(args)
@@ -43,15 +46,12 @@ nvim_cmp.setup {
     },
     -- 补全边框
     window = {
-        completion = nvim_cmp.config.window.bordered(),
-        documentation = nvim_cmp.config.window.bordered(),
+        -- completion = nvim_cmp.config.window.bordered(),
+        -- documentation = nvim_cmp.config.window.bordered(),
     },
     mapping = {
-        ['<C-p>'] = nvim_cmp.mapping.select_prev_item(),
-        ['<C-n>'] = nvim_cmp.mapping.select_next_item(),
-        ['<C-d>'] = nvim_cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = nvim_cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = nvim_cmp.mapping.complete(),
+        ['<A-j>'] = nvim_cmp.mapping.scroll_docs(-4),
+        ['<A-k>'] = nvim_cmp.mapping.scroll_docs(4),
         ['<C-e>'] = nvim_cmp.mapping.close(),
         ["<CR>"] = nvim_cmp.mapping.confirm {
             behavior = nvim_cmp.ConfirmBehavior.Replace,
@@ -70,6 +70,24 @@ nvim_cmp.setup {
             function(fallback)
                 if luasnip.jumpable() then
                     luasnip.jump(1)
+                else
+                    fallback()
+                end
+            end, { "i", "s", }
+        ),
+        ["<A-n>"] = nvim_cmp.mapping(
+            function(fallback)
+                if luasnip.jumpable() then
+                    luasnip.jump(1)
+                else
+                    fallback()
+                end
+            end, { "i", "s", }
+        ),
+        ["<A-p>"] = nvim_cmp.mapping(
+            function(fallback)
+                if luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
                 else
                     fallback()
                 end
@@ -121,8 +139,10 @@ nvim_cmp.setup {
         { name = 'path' },          -- PATH COMPLETION
         { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'nvim_lsp' },      -- LSP COMPLETION
-        { name = 'nvim_lua' },      -- NVIM-API COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'calc' },          -- CLAC COMPLETION
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
     },
     confirm_opts = {
         behavior = nvim_cmp.ConfirmBehavior.Replace,
@@ -130,31 +150,73 @@ nvim_cmp.setup {
     },
 }
 
--- 开启搜索补全 --
--- nvim_cmp.setup.cmdline( '/', {
---     mapping = nvim_cmp.mapping.preset.cmdline(),
---     sources = {
---         { name = 'buffer' }
---     }
--- })
---
---
--- nvim_cmp.setup.cmdline( '?', {
---     mapping = nvim_cmp.mapping.preset.cmdline(),
---     sources = {
---         { name = 'buffer' }
---     }
--- })
+nvim_cmp.setup.filetype('lua', {
+    sources = {
+        { name = 'path' },          -- PATH COMPLETION
+        { name = 'buffer' },        -- BUFFER COMPLETION
+        { name = 'nvim_lsp' },      -- LSP COMPLETION
+        { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'nvim_lua' },      -- NVIM-API COMPLETION
+        { name = 'calc' },          -- CLAC COMPLETION
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
+    },
+})
 
--- 开启命令补全 --
--- nvim_cmp.setup.cmdline(':', {
---     mapping = nvim_cmp.mapping.preset.cmdline(),
+-- NVIM-API COMPLETION
+-- Set configuration for specific filetype.
+-- nvim_cmp.setup.filetype('lua', {
 --     sources = nvim_cmp.config.sources({
---         { name = 'path' }
---     }, {
---         { name = 'cmdline' }
+--         { name = 'nvim_lua' }
 --     })
 -- })
+
+
+-- 开启搜索补全 --
+nvim_cmp.setup.cmdline( '/', {
+    mapping = nvim_cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'nvim_lsp_document_symbol' },
+        { name = 'buffer' },
+    }
+})
+
+
+nvim_cmp.setup.cmdline( '?', {
+    mapping = nvim_cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+-- 开启命令补全 --
+nvim_cmp.setup.cmdline(':', {
+    mapping = nvim_cmp.mapping.preset.cmdline(),
+    sources = nvim_cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
+
+nvim_cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
+    sources = {
+        { name = "dap" },
+    },
+})
+
+nvim_cmp.setup.filetype('lua', {
+    sources = {
+        { name = 'path' },          -- PATH COMPLETION
+        { name = 'buffer' },        -- BUFFER COMPLETION
+        { name = 'nvim_lsp' },      -- LSP COMPLETION
+        { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'nvim_lua' },      -- NVIM-API COMPLETION
+        { name = 'calc' },          -- CLAC COMPLETION
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
+    },
+})
 
 
 -- If you want insert `(` after select function or method item
