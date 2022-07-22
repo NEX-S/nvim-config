@@ -12,7 +12,7 @@ packer.init {
     compile_on_sync = true,
     git = { clone_timeout = 6000 },
     prompt_border = 'single',
-    compile_path = '~/.local/share/nvim/packer_compiled.lua',
+    compile_path = '~/.config/nvim/lua/plugins/packer_compiled.lua',
     keybindings = {
         quit = '<ESC>',
         toggle_info = 'o',
@@ -33,12 +33,12 @@ packer.startup {
     function(use)
         use 'lewis6991/impatient.nvim'
         -- COLORS --
-        use 'folke/tokyonight.nvim'
+        -- use 'folke/tokyonight.nvim'
         -- use 'rafamadriz/neon'
         -- use 'shaunsingh/nord.nvim'
 
         -- PLUGINS --
-        use 'wbthomason/packer.nvim'
+        use { 'wbthomason/packer.nvim', module = 'packer' }
         use 'dstein64/vim-startuptime'
 
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
@@ -46,7 +46,7 @@ packer.startup {
 
         use { 'CRAG666/code_runner.nvim',
             requires = 'nvim-lua/plenary.nvim',
-            -- cmd = { 'RunFile', 'RunCode' },
+            cmd = { 'RunFile', 'RunCode' },
             config = [[
                 require "code_runner".setup {
                     mode = "float",
@@ -62,30 +62,9 @@ packer.startup {
                         sh = "time sh $fileName",
                         html = "time google-chrome-stable $fileName",
                         lua = "lua $fileName",
-                        -- http = require "rest-nvim".run(),
                     },
                 }
 
-                vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "TabEnter" }, {
-                    pattern = { "*.python", "*.php", "*.c", "*.html", "*.sh", "*.lua" },
-                    callback = function ()
-                        vim.keymap.set('n', ';r', '<CMD>RunCode<CR>', { noremap = true, silent = true })
-                    end
-                })
-
-                vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "TabEnter" }, {
-                    pattern = { "init.lua", "keymaps.lua", "options.lua", "autocmd.lua", "*.vim" },
-                    callback = function ()
-                        vim.keymap.set('n', ';r', '<CMD>w | source $MYVIMRC | source %<CR>', { noremap = true, silent = true })
-                    end
-                })
-
-                -- vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "TabEnter" }, {
-                --     pattern = { "*.http" },
-                --     callback = function ()
-                --         vim.keymap.set('n', ';r', '<CMD>lua require "rest-nvim".run()<CR>', { noremap = true, silent = true })
-                --     end
-                -- })
             ]]
         }
 
@@ -134,9 +113,11 @@ packer.startup {
         -- ~/.config/nvim/lua/plugins/telescope.lua
         use { 'nvim-telescope/telescope-fzf-native.nvim',
             cmd = 'Telescope',
-            run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && \
-                cmake --build build --config Release && cmake --install build --prefix build && \
-                yay --noconfirm -S ripgrep'
+            run = [[
+                cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && \
+                cmake --build build --config Release && \
+                cmake --install build --prefix build && \
+            ]]
         }
         use { 'nvim-telescope/telescope.nvim',
             after = 'telescope-fzf-native.nvim',
@@ -166,6 +147,7 @@ packer.startup {
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
+            event = { 'CursorMoved', 'InsertEnter', },
             config = [[
                 require "indent_blankline".setup {
                     char = "¦",
@@ -177,6 +159,8 @@ packer.startup {
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
         use { 'norcalli/nvim-colorizer.lua',
+            ft = { 'vim', 'lua' },
+            -- event = { 'CursorMoved', 'InsertEnter', },
             config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
         }
 
@@ -189,7 +173,18 @@ packer.startup {
                     disable_filetype = { 'TelescopePrompt' },
                     disable_in_macro = true,
                     disable_in_visualblock = true,
+                    enalbe_moveright = true,
+                    enable_afterquote = true,  -- add bracket pairs after quote
+                    enable_check_bracket_line = true,  --- check bracket in same line
+                    enable_bracket_in_quote = true, --
+                    break_undo = true, -- switch for basic rule break undo sequence
+                    check_ts = false,
+                    map_cr = true,
+                    map_bs = true,  -- map the <BS> key
+                    map_c_h = false,  -- Map the <C-h> key to delete a pair
+                    map_c_w = true, -- map <c-w> to delete a pair if possible
                 }
+
             ]]
         }
 
@@ -496,7 +491,7 @@ packer.startup {
             config = [[ require 'plugins.sniprun' ]]
         }
 
-        use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
+        -- use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
 
         -- use { 'xiyaowong/nvim-transparent',
         --     cmd = 'TransparentToggle',
@@ -711,4 +706,10 @@ packer.startup {
     end
 }
 
-pcall(vim.cmd, 'source ~/.local/share/nvim/packer_compiled.lua')
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    pattern = { "plugins.lua" },
+    callback = function ()
+        vim.cmd "source <afile> | PackerSync"
+    end
+})
+

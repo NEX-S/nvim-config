@@ -17,6 +17,10 @@ require 'core.options'  -- ~/.config/nvim/lua/core/options.lua
 require 'core.autocmd'  -- ~/.config/nvim/lua/core/autocmd.lua
 require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
 
+-- pcall(vim.cmd, 'source ~/.local/share/nvim/packer_compiled.lua')
+
+require 'plugins.packer_compiled'
+
 --                       --
 --                       --
 --                  ﴂ ﴃ    --
