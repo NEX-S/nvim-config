@@ -10,7 +10,7 @@
 
 pcall(require, "impatient")
 
-vim.cmd "color nex-color-dark"
+vim.cmd "color nex-color"
 
 require 'core.keymaps'  -- ~/.config/nvim/lua/core/keymaps.lua
 require 'core.options'  -- ~/.config/nvim/lua/core/options.lua
