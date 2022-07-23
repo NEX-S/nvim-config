@@ -400,7 +400,6 @@ packer.startup {
         -- LUASNIP --
         use { 'rafamadriz/friendly-snippets', event = 'InsertEnter' }
         use { 'L3MON4D3/LuaSnip',
-            event = 'CmdlineEnter',
             after = 'friendly-snippets',
             config = [[ require "luasnip.loaders.from_vscode".lazy_load() ]]
         }
@@ -408,9 +407,8 @@ packer.startup {
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
         use { 'hrsh7th/nvim-cmp',
-            -- module = 'cmp',
-            -- event = 'InsertEnter',
             after = 'LuaSnip',
+            event = 'CmdlineEnter',
             config = [[ require 'plugins.nvim-cmp' ]]
         }
 
@@ -418,25 +416,33 @@ packer.startup {
         use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
 
         -- SYSTEM-PATH COMPLETION
-        use { 'hrsh7th/cmp-path', after = 'cmp-buffer' }
+        use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
 
         -- NIVIM-LUA COMPLETION
-        use { 'hrsh7th/cmp-nvim-lua', after = 'cmp-path' }
+        use { 'hrsh7th/cmp-nvim-lua', event = 'InsertEnter' }
 
         -- LUASNIP COMPLETION
-        use { 'saadparwaiz1/cmp_luasnip', after = 'cmp-nvim-lua' }
+        use { 'saadparwaiz1/cmp_luasnip', event = 'InsertEnter' }
 
-        use { 'hrsh7th/cmp-calc', after = 'cmp_luasnip' }
+        -- CALCULATION
+        use { 'hrsh7th/cmp-calc', event = 'InsertEnter' }
 
-        use { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'cmp-calc' }
+        -- ?: /@
+        use { 'hrsh7th/cmp-nvim-lsp-document-symbol', event = 'CmdlineEnter' }
 
-        use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp-calc' }
+        -- LSP-SIGNATURE HELP
+        use { 'hrsh7th/cmp-nvim-lsp-signature-help', event = 'InsertEnter' }
 
-        use { 'hrsh7th/cmp-cmdline', after = 'cmp-calc' }
+        -- CMDLINE COMPLETION
+        use { 'hrsh7th/cmp-cmdline', event = 'CmdlineEnter' }
 
-        use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
+        -- ripgrep COMPLETION
+        use { "lukas-reineke/cmp-rg", event = 'InsertEnter' }
 
+        -- DAP COMPLETION
         use { "rcarriga/cmp-dap", ft = { 'dap-repl', 'dapui_watches' } }
+
+        use { "dmitmel/cmp-cmdline-history", event = 'CmdlineEnter' }
 
         -- use { 'ms-jpq/coq_nvim',
         --     branch = 'coq',

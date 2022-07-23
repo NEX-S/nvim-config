@@ -163,47 +163,54 @@ nvim_cmp.setup.filetype('lua', {
     },
 })
 
--- NVIM-API COMPLETION
--- Set configuration for specific filetype.
--- nvim_cmp.setup.filetype('lua', {
---     sources = nvim_cmp.config.sources({
---         { name = 'nvim_lua' }
---     })
+
+-- 开启搜索补全 --
+-- nvim_cmp.setup.cmdline( '/', {
+--     mapping = nvim_cmp.mapping.preset.cmdline(),
+--     sources = {
+--         { name = 'nvim_lsp_document_symbol' },
+--         { name = 'buffer' },
+--     }
 -- })
 
 
--- 开启搜索补全 --
-nvim_cmp.setup.cmdline( '/', {
-    mapping = nvim_cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'nvim_lsp_document_symbol' },
-        { name = 'buffer' },
-    }
-})
+-- nvim_cmp.setup.cmdline( '?', {
+--     mapping = nvim_cmp.mapping.preset.cmdline(),
+--     sources = {
+--         { name = 'buffer' }
+--     }
+-- })
 
-
-nvim_cmp.setup.cmdline( '?', {
-    mapping = nvim_cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'buffer' }
-    }
-})
+for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
+    nvim_cmp.setup.cmdline(cmd_type, {
+        mapping = nvim_cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = 'cmdline_history' },
+            { name = 'path' },
+            { name = 'buffer' },
+            { name = 'cmdline' },
+            { name = 'nvim_lsp_document_symbol' },
+        },
+    })
+end
 
 -- 开启命令补全 --
-nvim_cmp.setup.cmdline(':', {
-    mapping = nvim_cmp.mapping.preset.cmdline(),
-    sources = nvim_cmp.config.sources({
-        { name = 'path' }
-    }, {
-        { name = 'cmdline' }
-    })
-})
+-- nvim_cmp.setup.cmdline(':', {
+--     mapping = nvim_cmp.mapping.preset.cmdline(),
+--     sources = nvim_cmp.config.sources({
+--         { name = 'path' }
+--     }, {
+--         { name = 'cmdline' }
+--     })
+-- })
 
-nvim_cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
-    sources = {
-        { name = "dap" },
-    },
-})
+nvim_cmp.setup.filetype(
+    { "dap-repl", "dapui_watches" }, {
+        sources = {
+            { name = "dap" },
+        },
+    }
+)
 
 nvim_cmp.setup.filetype('lua', {
     sources = {
