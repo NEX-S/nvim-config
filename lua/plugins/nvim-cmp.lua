@@ -32,11 +32,12 @@ local cmp_icons = {
 local nvim_cmp = require "cmp"
 
 nvim_cmp.setup {
-    completion = { keyword_length = 1, },
+    completion = { keyword_length = 0, },
     experimental = {
         ghost_text = true,
         native_menu = false,
     },
+    -- 补全边框
     window = {
         -- completion = nvim_cmp.config.window.bordered(),
         -- documentation = nvim_cmp.config.window.bordered(),
@@ -58,59 +59,6 @@ nvim_cmp.setup {
                 end
             end, { "i", "s" }
         ),
-        ["<S-Tab>"] = nvim_cmp.mapping(
-            function(fallback)
-                if luasnip.jumpable() then
-                    luasnip.jump(1)
-                else
-                    fallback()
-                end
-            end, { "i", "s", }
-        ),
-        ["<A-n>"] = nvim_cmp.mapping(
-            function(fallback)
-                if luasnip.jumpable() then
-                    luasnip.jump(1)
-                else
-                    fallback()
-                end
-            end, { "i", "s", }
-        ),
-        ["<A-p>"] = nvim_cmp.mapping(
-            function(fallback)
-                if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, { "i", "s", }
-        ),
-        ---------------------------------
-        -- ['<Tab>'] = nvim_cmp.mapping (
-        --     function(fallback)
-        --         if nvim_cmp.visible() then
-        --             nvim_cmp.confirm {
-        --                 select = true,
-        --                 behavior = nvim_cmp.ConfirmBehavior.Insert
-        --             }
-        --         elseif luasnip.expandable() then
-        --             luasnip.expand()
-        --         else
-        --             fallback()
-        --         end
-        --     end, { "i", "s", }
-        -- ),
-        -- ["<S-Tab>"] = nvim_cmp.mapping(
-        --     function(fallback)
-        --         if nvim_cmp.visible() then
-        --             nvim_cmp.select_next_item()
-        --         elseif luasnip.jumpable(1) then
-        --             luasnip.jump(1)
-        --         else
-        --             fallback()
-        --         end
-        --     end, { "i", "s", }
-        -- ),
     },
     -- 补全图标
     formatting = {
@@ -120,9 +68,9 @@ nvim_cmp.setup {
             vim_item.kind = string.format("%s", cmp_icons[vim_item.kind])
             vim_item.menu = ({
                 nvim_lsp = " - LSP",
-                luasnip = " - SNIPPET",
-                buffer = " - BUFFER",
-                path = " - PATH",
+                luasnip  = " - SNIPPET",
+                buffer   = " - BUFFER",
+                path     = " - PATH",
             })[entry.source.name]
             return vim_item
         end,
@@ -158,8 +106,8 @@ nvim_cmp.setup.filetype('lua', {
 nvim_cmp.setup.cmdline(':', {
     mapping = nvim_cmp.mapping.preset.cmdline(),
     sources = {
-        { name = 'cmdline_history' },
         { name = 'cmdline' },
+        { name = 'cmdline_history' },
     },
 })
 

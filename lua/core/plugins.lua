@@ -18,10 +18,10 @@ packer.init {
         toggle_info = 'o',
     },
     display = {
-        working_sym = '',
-        error_sym = '',
-        done_sym = '',
-        removed_sym = '-',
+        working_sym = ' ',
+        error_sym = ' ',
+        done_sym = ' ',
+        removed_sym = ' -',
         moved_sym = '',
         open_fn = function()
             return require "packer.util".float { border = "single" }
@@ -31,15 +31,16 @@ packer.init {
 
 packer.startup {
     function(use)
-        use 'lewis6991/impatient.nvim'
         -- COLORS --
         -- use 'folke/tokyonight.nvim'
         -- use 'rafamadriz/neon'
         -- use 'shaunsingh/nord.nvim'
 
         -- PLUGINS --
-        use 'wbthomason/packer.nvim'
+        use 'lewis6991/impatient.nvim'
         use 'dstein64/vim-startuptime'
+
+        use { 'wbthomason/packer.nvim', module = 'packer' }
 
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }
@@ -432,12 +433,45 @@ packer.startup {
             after = 'friendly-snippets',
             config = [[
                 require "luasnip.loaders.from_vscode".lazy_load()
-                require "cmp".setup {
+
+                local nvim_cmp = require "cmp"
+                local luasnip  = require "luasnip"
+
+                nvim_cmp.setup {
                     snippet = {
                         -- 开启 LuaSnip 代码片段补全
                         expand = function(args)
                             luasnip.lsp_expand(args.body)
                         end,
+                    },
+                    mapping = {
+                        ["<S-Tab>"] = nvim_cmp.mapping(
+                            function(fallback)
+                                if luasnip.jumpable() then
+                                    luasnip.jump(1)
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s", }
+                        ),
+                        ["<A-n>"] = nvim_cmp.mapping(
+                            function(fallback)
+                                if luasnip.jumpable() then
+                                    luasnip.jump(1)
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s", }
+                        ),
+                        ["<A-p>"] = nvim_cmp.mapping(
+                            function(fallback)
+                                if luasnip.jumpable(-1) then
+                                    luasnip.jump(-1)
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s", }
+                        ),
                     },
                 }
             ]]
