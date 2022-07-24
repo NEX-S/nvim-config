@@ -163,46 +163,31 @@ nvim_cmp.setup.filetype('lua', {
     },
 })
 
+nvim_cmp.setup.cmdline(':', {
+    mapping = nvim_cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'cmdline_history' },
+        { name = 'path' },
+        { name = 'cmdline' },
+    },
+})
 
--- 开启搜索补全 --
--- nvim_cmp.setup.cmdline( '/', {
---     mapping = nvim_cmp.mapping.preset.cmdline(),
---     sources = {
---         { name = 'nvim_lsp_document_symbol' },
---         { name = 'buffer' },
---     }
--- })
+nvim_cmp.setup.cmdline('/', {
+    mapping = nvim_cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' },
+        { name = 'nvim_lsp_document_symbol' },
+    },
+})
 
+nvim_cmp.setup.cmdline('?', {
+    mapping = nvim_cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' },
+        { name = 'nvim_lsp_document_symbol' },
+    },
+})
 
--- nvim_cmp.setup.cmdline( '?', {
---     mapping = nvim_cmp.mapping.preset.cmdline(),
---     sources = {
---         { name = 'buffer' }
---     }
--- })
-
-for _, cmd_type in ipairs({ ':', '/', '?', '@' }) do
-    nvim_cmp.setup.cmdline(cmd_type, {
-        mapping = nvim_cmp.mapping.preset.cmdline(),
-        sources = {
-            { name = 'cmdline_history' },
-            { name = 'path' },
-            { name = 'buffer' },
-            { name = 'cmdline' },
-            { name = 'nvim_lsp_document_symbol' },
-        },
-    })
-end
-
--- 开启命令补全 --
--- nvim_cmp.setup.cmdline(':', {
---     mapping = nvim_cmp.mapping.preset.cmdline(),
---     sources = nvim_cmp.config.sources({
---         { name = 'path' }
---     }, {
---         { name = 'cmdline' }
---     })
--- })
 
 nvim_cmp.setup.filetype(
     { "dap-repl", "dapui_watches" }, {
@@ -211,20 +196,6 @@ nvim_cmp.setup.filetype(
         },
     }
 )
-
-nvim_cmp.setup.filetype('lua', {
-    sources = {
-        { name = 'path' },          -- PATH COMPLETION
-        { name = 'buffer' },        -- BUFFER COMPLETION
-        { name = 'nvim_lsp' },      -- LSP COMPLETION
-        { name = 'luasnip' },       -- LUASNIP COMPLETION
-        { name = 'nvim_lua' },      -- NVIM-API COMPLETION
-        { name = 'calc' },          -- CLAC COMPLETION
-        { name = 'nvim_lsp_signature_help' },
-        { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
-    },
-})
-
 
 -- If you want insert `(` after select function or method item
 local nvim_cmp_autopairs = require('nvim-autopairs.completion.cmp')
