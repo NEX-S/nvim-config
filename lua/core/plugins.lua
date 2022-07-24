@@ -391,8 +391,8 @@ packer.startup {
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
         use { 'stevearc/aerial.nvim',
-            ft = 'markdown',
-            -- after = 'lualine.nvim',
+            -- ft = 'markdown',
+            after = 'lualine.nvim',
             module = 'aerial',
             config = [[ require "LSP.aerial" ]]
         }
@@ -418,31 +418,24 @@ packer.startup {
         -- SYSTEM-PATH COMPLETION
         use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
 
-        -- NIVIM-LUA COMPLETION
-        use { 'hrsh7th/cmp-nvim-lua', event = 'InsertEnter' }
-
         -- LUASNIP COMPLETION
         use { 'saadparwaiz1/cmp_luasnip', event = 'InsertEnter' }
 
-        -- CALCULATION
+        -- INSERT ONLY COMPLETION
+        use { 'hrsh7th/cmp-nvim-lsp-signature-help', event = 'InsertEnter' }
+        use { "lukas-reineke/cmp-rg", event = 'InsertEnter' }
         use { 'hrsh7th/cmp-calc', event = 'InsertEnter' }
 
-        -- ?: /@
+        -- CMDLINE ONLY COMPLETION
+        use { 'hrsh7th/cmp-cmdline', event = 'CmdlineEnter' }
+        use { "dmitmel/cmp-cmdline-history", event = 'CmdlineEnter' }
         use { 'hrsh7th/cmp-nvim-lsp-document-symbol', event = 'CmdlineEnter' }
 
-        -- LSP-SIGNATURE HELP
-        use { 'hrsh7th/cmp-nvim-lsp-signature-help', event = 'InsertEnter' }
-
-        -- CMDLINE COMPLETION
-        use { 'hrsh7th/cmp-cmdline', event = 'CmdlineEnter' }
-
-        -- ripgrep COMPLETION
-        use { "lukas-reineke/cmp-rg", event = 'InsertEnter' }
+        -- NIVIM-LUA COMPLETION
+        use { 'hrsh7th/cmp-nvim-lua', ft = 'lua' }
 
         -- DAP COMPLETION
         use { "rcarriga/cmp-dap", ft = { 'dap-repl', 'dapui_watches' } }
-
-        use { "dmitmel/cmp-cmdline-history", event = 'CmdlineEnter' }
 
         -- use { 'ms-jpq/coq_nvim',
         --     branch = 'coq',

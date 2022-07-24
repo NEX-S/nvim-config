@@ -14,11 +14,11 @@ require "aerial".setup {
     min_width = 40,
     backends = {
         ['_']        = { "lsp", "treesitter" },
-        ['html']     = { "lsp", "treesitter" },
         ['python']   = { "lsp", "treesitter" },
         ['c']        = { "lsp", "treesitter" },
         ['lua']      = { "lsp", "treesitter" },
         ['php']      = { "lsp", "treesitter" },
+        ['html']     = { "treesitter" },
         ['markdown'] = { "markdown" },
     },
     icons = {
@@ -91,6 +91,6 @@ require "aerial".setup {
 require "lualine".setup {
     sections = {
         -- lualine_x = { { 'aerial', sep = '  ', dense = true, dense_sep = '  ' }, 'os.date("%H:%M %a")', 'filetype' }
-        lualine_x = { { 'aerial', sep = '', dense = true, dense_sep = '  ' }, 'os.date("%H:%M %a")', 'filetype' }
+        lualine_x = { { 'aerial', sep = '', dense = false, dense_sep = '  ' }, 'os.date("%H:%M %a")', 'filetype' }
     },
 }
