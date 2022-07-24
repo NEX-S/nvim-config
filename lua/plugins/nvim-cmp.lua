@@ -137,9 +137,9 @@ nvim_cmp.setup.filetype(
 )
 
 -- If you want insert `(` after select function or method item
-local nvim_cmp_autopairs = require('nvim-autopairs.completion.cmp')
-nvim_cmp.event:on(
-    'confirm_done',
-    nvim_cmp_autopairs.on_confirm_done()
-)
+-- local nvim_cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- nvim_cmp.event:on(
+--     'confirm_done',
+--     nvim_cmp_autopairs.on_confirm_done()
+-- )
 

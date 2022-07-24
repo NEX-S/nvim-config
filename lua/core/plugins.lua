@@ -167,7 +167,8 @@ packer.startup {
         -- AUTO-PAIRS --
         -- TODO: <M-e>
         use { 'windwp/nvim-autopairs',
-            module = 'nvim-autopairs',
+            event = 'InsertEnter',
+            -- module = 'nvim-autopairs',
             config = [[
                 require "nvim-autopairs".setup {
                     disable_filetype = { 'TelescopePrompt' },
@@ -217,7 +218,8 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
         use { "glepnir/lspsaga.nvim",
             branch = "main",
-            after = 'nvim-lspconfig',
+            -- after = 'nvim-lspconfig',
+            keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", "<A-p>", "A-n", ";x" },
             config = [[ require "LSP.lsp-saga" ]]
         }
 

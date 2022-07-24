@@ -18,7 +18,7 @@ require 'core.autocmd'  -- ~/.config/nvim/lua/core/autocmd.lua
 
 require 'plugins.packer_compiled'
 
--- require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
+require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
 
 --                       --
 --                       --
