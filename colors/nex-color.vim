@@ -240,12 +240,12 @@ hi  TSKeywordFunction     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  TSKeywordOperator     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE
 hi  TSKeywordReturn       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE
 hi  TSLabel               ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D0EE7A     gui=NONE
-hi  TSLiteral             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#5a0219     gui=NONE
+hi  TSLiteral             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#515151     gui=NONE    " ```xxx
 hi  TSMath                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
 hi  TSMethod              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#614f97     gui=NONE    " method name
-hi  TSNamespace           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#5a0219     gui=NONE
+hi  TSNamespace           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
 hi  TSNone                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#585858     gui=NONE    " { xxx }
-hi  TSNote                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#5a0219     gui=NONE
+hi  TSNote                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
 hi  TSNumber              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE
 hi  TSOperator            ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE
 hi  TSParameter           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE

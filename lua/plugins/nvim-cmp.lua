@@ -167,7 +167,6 @@ nvim_cmp.setup.cmdline(':', {
     mapping = nvim_cmp.mapping.preset.cmdline(),
     sources = {
         { name = 'cmdline_history' },
-        { name = 'path' },
         { name = 'cmdline' },
     },
 })
