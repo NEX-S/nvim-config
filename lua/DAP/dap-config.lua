@@ -77,20 +77,20 @@ require "dap.ext.vscode".load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
 
 dap.configurations.c = dap.configurations.cpp
 
-dap.adapters.php = {
-    type = 'executable',
-    command = 'node',
-    args = { '/home/nex/vscode-php-debug/out/phpDebug.js' }
-}
-
-dap.configurations.php = {
-    {
-        type = 'php',
-        request = 'launch',
-        name = 'Listen for Xdebug',
-        port = 9000
-    }
-}
+-- dap.adapters.php = {
+--     type = 'executable',
+--     command = 'node',
+--     args = { '/home/nex/Files/vscode-php-debug/out/phpDebug.js' }
+-- }
+--
+-- dap.configurations.php = {
+--     {
+--         type = 'php',
+--         request = 'launch',
+--         name = 'Listen for Xdebug',
+--         port = 9003
+--     }
+-- }
 
 vim.keymap.set('n', '<C-o>', '<CMD>DapStepOut<CR>', { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-i>', '<CMD>DapStepInto<CR>', { noremap = true, silent = true, buffer = true })

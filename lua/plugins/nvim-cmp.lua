@@ -30,7 +30,6 @@ local cmp_icons = {
 }
 
 local nvim_cmp = require "cmp"
-local luasnip  = require "luasnip"
 
 nvim_cmp.setup {
     completion = { keyword_length = 1, },
@@ -38,13 +37,6 @@ nvim_cmp.setup {
         ghost_text = true,
         native_menu = false,
     },
-    snippet = {
-        -- 开启 LuaSnip 代码片段补全
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
-    -- 补全边框
     window = {
         -- completion = nvim_cmp.config.window.bordered(),
         -- documentation = nvim_cmp.config.window.bordered(),

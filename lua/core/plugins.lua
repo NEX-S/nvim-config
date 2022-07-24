@@ -38,7 +38,7 @@ packer.startup {
         -- use 'shaunsingh/nord.nvim'
 
         -- PLUGINS --
-        use { 'wbthomason/packer.nvim', module = 'packer' }
+        use 'wbthomason/packer.nvim'
         use 'dstein64/vim-startuptime'
 
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
@@ -397,45 +397,51 @@ packer.startup {
             config = [[ require "LSP.aerial" ]]
         }
 
-        -- LUASNIP --
-        use { 'rafamadriz/friendly-snippets', event = 'InsertEnter' }
-        use { 'L3MON4D3/LuaSnip',
-            after = 'friendly-snippets',
-            config = [[ require "luasnip.loaders.from_vscode".lazy_load() ]]
-        }
-
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
         use { 'hrsh7th/nvim-cmp',
-            after = 'LuaSnip',
+            module = 'cmp',
             event = 'CmdlineEnter',
-            config = [[ require 'plugins.nvim-cmp' ]]
+            config = [[ require "plugins.nvim-cmp" ]]
         }
 
         -- BUFFER COMPLETION
         use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
 
-        -- SYSTEM-PATH COMPLETION
-        use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
-
-        -- LUASNIP COMPLETION
-        use { 'saadparwaiz1/cmp_luasnip', event = 'InsertEnter' }
-
         -- INSERT ONLY COMPLETION
-        use { 'hrsh7th/cmp-nvim-lsp-signature-help', event = 'InsertEnter' }
-        use { "lukas-reineke/cmp-rg", event = 'InsertEnter' }
-        use { 'hrsh7th/cmp-calc', event = 'InsertEnter' }
+        use { 'hrsh7th/cmp-path', event = 'InsertEnter' }
+        use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp-path' }
+        use { 'hrsh7th/cmp-calc', after = 'cmp-nvim-lsp-signature-help' }
+        use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
 
         -- CMDLINE ONLY COMPLETION
-        use { 'hrsh7th/cmp-cmdline', event = 'CmdlineEnter' }
         use { "dmitmel/cmp-cmdline-history", event = 'CmdlineEnter' }
-        use { 'hrsh7th/cmp-nvim-lsp-document-symbol', event = 'CmdlineEnter' }
+        use { 'hrsh7th/cmp-cmdline', after = 'cmp-cmdline-history' }
+        use { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'cmp-cmdline-history' }
 
         -- NIVIM-LUA COMPLETION
         use { 'hrsh7th/cmp-nvim-lua', ft = 'lua' }
 
         -- DAP COMPLETION
         use { "rcarriga/cmp-dap", ft = { 'dap-repl', 'dapui_watches' } }
+
+        -- LUASNIP --
+        use { 'saadparwaiz1/cmp_luasnip', event = 'InsertEnter' }
+        use { 'rafamadriz/friendly-snippets', after = 'cmp_luasnip' }
+        use { 'L3MON4D3/LuaSnip',
+            after = 'friendly-snippets',
+            config = [[
+                require "luasnip.loaders.from_vscode".lazy_load()
+                require "cmp".setup {
+                    snippet = {
+                        -- 开启 LuaSnip 代码片段补全
+                        expand = function(args)
+                            luasnip.lsp_expand(args.body)
+                        end,
+                    },
+                }
+            ]]
+        }
 
         -- use { 'ms-jpq/coq_nvim',
         --     branch = 'coq',
@@ -723,4 +729,5 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         vim.cmd "source <afile> | PackerSync"
     end
 })
+
 

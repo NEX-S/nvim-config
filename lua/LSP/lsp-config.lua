@@ -33,7 +33,7 @@ vim.fn.sign_define("DiagnosticSignInfo",  { text = ' ', texthl = "DiagnosticS
 local M = {}
 
     M.capabilities = vim.lsp.protocol.make_client_capabilities()
-    M.capabilities = require('cmp_nvim_lsp').update_capabilities(M.capabilities)
+    M.capabilities = require "cmp_nvim_lsp".update_capabilities(M.capabilities)
 
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
