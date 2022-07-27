@@ -45,13 +45,13 @@ packer.startup {
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }
 
-        use { 'CRAG666/code_runner.nvim',
+        use { 'NEX-S/code_runner.nvim',
             requires = 'nvim-lua/plenary.nvim',
             cmd = { 'RunFile', 'RunCode' },
             config = [[
                 require "code_runner".setup {
                     mode = "float",
-                    startinsert = false,
+                    startinsert = true,
                     float = {
                         border = "single",
                         blend = 30,
@@ -63,6 +63,13 @@ packer.startup {
                         sh = "time sh $fileName",
                         html = "time google-chrome-stable $fileName",
                         lua = "lua $fileName",
+                        http = require "rest-nvim".run,
+                        vim = function ()
+                            vim.cmd "w | source $MYVIMRC | source %"
+                        end,
+                        markdown = function ()
+                            vim.cmd "MarkdownPreviewToggle"
+                        end,
                     },
                 }
             ]]
@@ -205,12 +212,7 @@ packer.startup {
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
-        -- use { 'glepnir/dashboard-nvim',
-        --     event = 'VimEnter',
-        --     config = [[
-        --         require "plugins.dashboard"
-        --     ]]
-        -- }
+        use { 'glepnir/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
@@ -361,15 +363,15 @@ packer.startup {
             run = "cd app && npm install",
             ft = 'markdown',
             -- setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-            config = function ()
-                vim.api.nvim_create_autocmd({ "BufNewFile", "BufCreate", "BufReadPost", "BufEnter", "TabEnter" }, {
-                    pattern = { "*.md" },
-                    callback = function ()
-                        local opts = { noremap = true, silent = true }
-                        vim.keymap.set('n', ';r', '<CMD>MarkdownPreviewToggle<CR>', opts)
-                    end
-                })
-            end
+            -- config = function ()
+            --     vim.api.nvim_create_autocmd({ "BufNewFile", "BufCreate", "BufReadPost", "BufEnter", "TabEnter" }, {
+            --         pattern = { "*.md" },
+            --         callback = function ()
+            --             local opts = { noremap = true, silent = true }
+            --             vim.keymap.set('n', ';r', '<CMD>MarkdownPreviewToggle<CR>', opts)
+            --         end
+            --     })
+            -- end
         }
 
         use { "ferrine/md-img-paste.vim",

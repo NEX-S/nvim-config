@@ -42,40 +42,40 @@ hi  DiffAdd        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg
 hi  DiffChange     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#DE0000   gui=NONE
 hi  DiffDelete     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#AF5F87   gui=NONE
 hi  DiffText       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D7AF5F   gui=NONE
-hi  Operator       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#555555   gui=NONE
-hi  Statement      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#A5A5A5   gui=NONE    " if then end ...
-hi  Special        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#8567A3   gui=NONE    " printf / gets ...
-hi  Identifier     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#AF87D7   gui=NONE    " Args
-hi  Comment        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#525252   gui=italic
-hi  Constant       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#C53B82   gui=NONE
-hi  Type           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#8567A3   gui=italic
-hi  Number         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#afc460   gui=NONE
-hi  Float          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#afc460   gui=italic
-hi  Boolean        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#C53B82   gui=NONE
-hi  Keyword        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#6A6A6A   gui=NONE
-hi  Exception      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#BBE73D   gui=italic,bold
-hi  String         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#AF87D7   gui=italic " <stdlib>
-hi  Function       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#C53B82   gui=NONE
-hi  Delimiter      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#8567A3   gui=NONE " (
-hi  Repeat         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#8567a3   gui=italic " for / while ...
-hi  Include        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#BBE73D   gui=italic
-hi  Define         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#C53B82   gui=italic
-hi  StorageClass   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#BBE73D   gui=italic " extern / const ...
-hi  Structure      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#BBE73D   gui=italic " typedef ...
-hi  Macro          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#BBE73D   gui=italic " define
-hi  Question       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#BBE73D   gui=NONE   " PackerSync
-hi  Conditonal     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#ffffff   gui=NONE
-hi  Label          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#D0EE7A   gui=NONE " PackerStatus
-hi  Character      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#ffffff   gui=NONE
-hi  Typedef        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#000000   gui=NONE
-hi  SpecialChar    ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#000000   gui=NONE
-hi  Tag            ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#ffffff   gui=NONE
-hi  SpecialComment ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#d1771b   gui=NONE
-hi  Debug          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#ffffff   gui=NONE
-hi  ErrorMsg       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#000000   gui=NONE
-hi  WarningMsg     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#000000   gui=NONE
-hi  MoreMsg        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#000000   gui=NONE
-hi  Ignore         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    guifg=#000000   gui=NONE
+hi  Operator       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555   gui=NONE
+hi  Statement      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#A5A5A5   gui=NONE    " if then end ...
+hi  Special        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#8567A3   gui=NONE    " printf / gets ...
+hi  Identifier     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#AF87D7   gui=NONE    " Args
+hi  Comment        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#525252   gui=italic
+hi  Constant       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=NONE
+hi  Type           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#8567A3   gui=italic
+hi  Number         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#afc460   gui=NONE
+hi  Float          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#afc460   gui=italic
+hi  Boolean        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=NONE
+hi  Keyword        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#6A6A6A   gui=NONE
+hi  Exception      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D   gui=italic,bold
+hi  String         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#8567A3   gui=italic " <stdlib>
+hi  Function       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=NONE
+hi  Delimiter      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#8567A3   gui=NONE " (
+hi  Repeat         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#8567A3   gui=italic " for / while ...
+hi  Include        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D   gui=italic
+hi  Define         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=italic
+hi  StorageClass   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D   gui=italic " extern / const ...
+hi  Structure      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D   gui=italic " typedef ...
+hi  Macro          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D   gui=italic " define
+hi  Question       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D   gui=NONE   " PackerSync
+hi  Conditonal     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
+hi  Label          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D0EE7A   gui=NONE " PackerStatus
+hi  Character      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
+hi  Typedef        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#000000   gui=NONE
+hi  SpecialChar    ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#333333   gui=NONE
+hi  Tag            ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
+hi  SpecialComment ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#d1771b   gui=NONE
+hi  Debug          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
+hi  ErrorMsg       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=NONE
+hi  WarningMsg     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#d1771b   gui=NONE
+hi  MoreMsg        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#777777   gui=NONE
+hi  Ignore         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#d1771b   gui=NONE
 
 hi  StatusLineTerm     ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE    guifg=#FFFFFF   gui=NONE
 hi  StatusLineTermNC   ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE    guifg=#FFFFFF   gui=NONE
@@ -279,3 +279,12 @@ hi  TSURI                 ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  TSUnderline           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
 hi  TSVariableBuiltin     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#614f97     gui=NONE    " self
 hi  TSWarning             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
+
+
+hi  DashboardHeader       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  DashboardCenter       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#777777     gui=NONE
+hi  DashboardCenterIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#777777     gui=NONE
+hi  DashboardShortCut     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE
+hi  DashboardFooter       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+
+

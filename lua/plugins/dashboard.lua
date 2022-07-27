@@ -7,30 +7,32 @@ if not dashboard_status then
 end
 
 dashboard.custom_header = {
-    [[                                                                ]],
-    [[                                                                ]],
-    [[                                                                ]],
-    [[    __  ___   _________  __ ____  ____________________________  ]],
-    [[   / / / / | / / ____/ |/ // __ \/ ____/ ____/_  __/ ____/ __ \ ]],
-    [[  / / / /  |/ / __/  |   // /_/ / __/ / /     / / / __/ / / / / ]],
-    [[ / /_/ / /|  / /___ /   |/ ____/ /___/ /___  / / / /___/ /_/ /  ]],
-    [[ \____/_/ |_/_____//_/|_/_/   /_____/\____/ /_/ /_____/_____/   ]],
-    [[                                                                ]],
-    [[                         [ UNEXPECTED ]                         ]],
-    [[                                                                ]],
-    [[                                                                ]],
-    [[                                                                ]],
+    [[                                                                        ]],
+    [[                                                                        ]],
+    [[                                                                        ]],
+    [[        __  ___   _________  __ ____  ____________________________      ]],
+    [[       / / / / | / / ____/ |/ // __ \/ ____/ ____/_  __/ ____/ __ \     ]],
+    [[      / / / /  |/ / __/  |   // /_/ / __/ / /     / / / __/ / / / /     ]],
+    [[     / /_/ / /|  / /___ /   |/ ____/ /___/ /___  / / / /___/ /_/ /      ]],
+    [[     \____/_/ |_/_____//_/|_/_/   /_____/\____/ /_/ /_____/_____/       ]],
+    [[                                                                        ]],
+    [[                             [ UNEXPECTED ]                             ]],
+    [[                                                                        ]],
+    [[                                                                        ]],
+    [[                                                                        ]],
 }
 
 dashboard.custom_center = {
-    { icon = '  ', desc = ' FIND FILE ', shortcut = ' SPC X ', action = ':Telescope find_files' },
-    { icon = '  ', desc = ' FIND FILE ', shortcut = ' SPC X ', action = ':Telescope find_files' },
-    { icon = '  ', desc = ' FIND FILE ', shortcut = ' SPC X ', action = ':Telescope find_files' },
-    { icon = '  ', desc = ' FIND FILE ', shortcut = ' SPC X ', action = ':Telescope find_files' },
-    { icon = '  ', desc = ' FIND FILE ', shortcut = ' SPC X ', action = ':Telescope find_files' },
+    { icon = "  ", desc = " RECENT FILES  ", shortcut = '\t\t\tSPC X       ', action = ':Telescope oldfiles' },
+    { icon = "  ", desc = " FIND FILE  ", shortcut = '\t\t\tSPC X          ', action = ':Telescope find_files' },
+    { icon = " ﱕ ", desc = " LIVE GREP  ", shortcut = '\t\t\tSPC X          ', action = ':Telescope live_grep' },
+    { icon = "  ", desc = " NVIM CONFIG  ",  shortcut = '\t\t\tSPC X       ', action = ':edit $MYVIMRC' },
 }
 
 dashboard.custom_footer = {
+    '',
+    '',
+    '',
     '',
     '',
     '',

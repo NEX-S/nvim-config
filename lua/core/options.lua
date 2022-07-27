@@ -60,7 +60,7 @@ vim.opt.modelines = 0
 -- vim.opt.autoindent = true
 -- vim.opt.smartindent = true
 
-vim.opt.statusline = ' %-60.60([  UNEXPECTED ] [ %F  ]%)%=[ %c -  %B ] [ %l-%L : %p%% ] [ '..os.date("%m-%d %a")..' ] %y '
+-- vim.opt.statusline = ' %-60.60([  UNEXPECTED ] [ %F  ]%)%=[ %c -  %B ] [ %l-%L : %p%% ] [ '..os.date("%m-%d %a")..' ] %y '
 
 -- function _G.custom_fold_text()
 --     local s_pos = vim.v.foldstart

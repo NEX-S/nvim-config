@@ -36,29 +36,24 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end
 })
 
+vim.cmd "autocmd BufRead, BufWinEnter *.http ++once <CMD>set ft=http<CR>"
+
 vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "TabEnter" }, {
-    pattern = { "*.python", "*.php", "*.c", "*.html", "*.sh", "*.lua" },
+    pattern = { "*" },
     callback = function ()
-        vim.keymap.set('n', ';r', '<CMD>RunCode<CR>', { noremap = true, silent = true })
+        vim.keymap.set('n', ';r', ':RunCode<CR>', { noremap = true, silent = true })
     end
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "TabEnter" }, {
-    pattern = { "*.http" },
-    callback = function ()
-        vim.keymap.set('n', ';r', '<CMD>lua require "rest-nvim".run()<CR>', { noremap = true, silent = true })
-    end
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "TabEnter" }, {
-    pattern = { "init.lua", "keymaps.lua", "options.lua", "autocmd.lua", "*.vim" },
+    pattern = { "init.lua", "keymaps.lua", "options.lua", "autocmd.lua", },
     callback = function ()
         vim.keymap.set('n', ';r', '<CMD>w | source $MYVIMRC | source %<CR>', { noremap = true, silent = true })
     end
 })
 
 -- FIX: Fold Dont Work After Telescope Open File
--- vim.cmd "autocmd BufRead * autocmd BufWinEnter * ++once normal! zxzR"
+-- vim.cmd "autocmd BufRead, BufWinEnter * ++once normal! zxzR"
 
 -- vim.api.nvim_create_autocmd({ "CursorMoved"}, {
 --     pattern = { '*' },
