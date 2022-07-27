@@ -1,7 +1,7 @@
 
 require "lspsaga".init_lsp_saga {
     border_style = "single",
-    move_in_saga = { next = 'j', prev = 'k' },
+    move_in_saga = { next = '<C-n>', prev = '<C-p>' },
     diagnostic_header = { " ", " ", " ", " " },
     show_diagnostic_source = true,
     -- add bracket or something with diagnostic source, just have 2 elements

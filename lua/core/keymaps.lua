@@ -202,7 +202,8 @@ vim.keymap.set('n', '<C-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, s
 
 vim.keymap.set('n', '<F1>', '<CMD>StartupTime<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<TAB>', '<C-w>p', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<TAB>', '<C-w>p', { noremap = true, silent = true })
+vim.keymap.set('n', '<TAB>', '<C-w><C-w>', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 
