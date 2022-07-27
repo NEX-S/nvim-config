@@ -33,10 +33,10 @@ vim.opt.winblend = 25
 -- BUG: CAUSE INDENT PROBLEM --
 -- vim.opt.paste         = true
 
--- vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("space:⋅")
 
 -- vim.opt.listchars:append("eol:↴")
-vim.opt.listchars:append('space:·')
+-- vim.opt.listchars:append('space:·')
 
 vim.opt.iskeyword:remove('_')
 

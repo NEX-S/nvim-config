@@ -25,4 +25,3 @@ require 'plugins.packer_compiled' -- ~/.config/nvim/lua/plugins/packer_compiled.
 --                  ﴂ ﴃ    --
 --    﫢               ﮲   --
 -- ﱕ      ﯟ     ﰊ ﰉ ﱢ ﱡ 諸喝卑ﰩ    廓--
-
