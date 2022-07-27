@@ -32,7 +32,7 @@ local cmp_icons = {
 local nvim_cmp = require "cmp"
 
 nvim_cmp.setup {
-    completion = { keyword_length = 0, },
+    completion = { keyword_length = 1, },
     experimental = {
         ghost_text = true,
         native_menu = false,
