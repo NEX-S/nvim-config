@@ -45,7 +45,7 @@ hi  DiffText       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg
 hi  Operator       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555   gui=NONE
 hi  Statement      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#A5A5A5   gui=NONE    " if then end ...
 hi  Special        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#8567A3   gui=NONE    " printf / gets ...
-hi  Identifier     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#AF87D7   gui=NONE    " Args
+hi  Identifier     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=NONE    " Args
 hi  Comment        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#525252   gui=italic
 hi  Constant       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=NONE
 hi  Type           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#8567A3   gui=italic

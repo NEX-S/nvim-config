@@ -36,6 +36,7 @@ dashboard.custom_key = {
     ['f'] = ':edit $MYVIMRC<CR>',
     ['<ESC>'] = '<CMD>q!<CR>',
     ['l'] = '<CMD>lua require "dashboard".call_line_action()<CR>',
+    ['<CR>'] = '<CMD>lua require "dashboard".call_line_action()<CR>',
 }
 
 dashboard.custom_footer = {

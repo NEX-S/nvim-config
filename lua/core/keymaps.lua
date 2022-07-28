@@ -202,8 +202,9 @@ vim.keymap.set('n', '<C-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, s
 
 vim.keymap.set('n', '<F1>', '<CMD>StartupTime<CR>', { noremap = true, silent = true })
 
--- vim.keymap.set('n', '<TAB>', '<C-w>p', { noremap = true, silent = true })
-vim.keymap.set('n', '<TAB>', '<C-w><C-w>', { noremap = true, silent = true })
+vim.keymap.set('n', '<TAB>', '<C-w>p', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<S-TAB>', '<C-w><C-w>', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 
@@ -212,12 +213,11 @@ vim.keymap.set('n', '<C-t>', "<CMD>TroubleToggle<CR>", { noremap = true, silent 
 vim.keymap.set('n', ';0', '<CMD>AerialToggle<CR>', { noremap = true, silent = true } )
 vim.keymap.set('n', ';1', '<CMD>SymbolsOutline<CR>', { noremap = true, silent = true })
 
--- vim.keymap.set('n', ';r', '<CMD>SnipRun<CR>', { noremap = true, silent = true })
-
 vim.keymap.set('n', ';2', '<CMD>RnvimrToggle<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', ';r', '<CMD>RunCode<CR>', { noremap = true, silent = true })
 vim.keymap.set('v', ';r', ':SnipRun<CR>', { noremap = true, silent = false })
+
+vim.keymap.set('n', ';r', '<CMD>w | RunCode<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<F2>', '<CMD>w | source $MYVIMRC<CR>', { noremap = true, silent = true })
 
