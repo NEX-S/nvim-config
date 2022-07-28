@@ -45,7 +45,7 @@ packer.startup {
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }
 
-        use { 'NEX-S/code_runner.nvim',
+        use { 'CRAG666/code_runner.nvim',
             requires = 'nvim-lua/plenary.nvim',
             cmd = { 'RunFile', 'RunCode' },
             config = [[
@@ -212,7 +212,7 @@ packer.startup {
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
-        use { 'glepnir/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
+        use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
