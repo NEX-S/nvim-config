@@ -3,16 +3,17 @@ local M = require "LSP.lsp-config"
 
 local lspconfig = require "lspconfig"
 
+local function root_dir(ft)
+    return lspconfig.util.root_pattern("package.json", "jsconfig.json", ".git")
+        or lspconfig.util.root_pattern("*."..ft)
+        or vim.fn.getcwd()
+end
+
 lspconfig.sumneko_lua.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     single_file_support = true,
-    root_dir = function (fname)
-        return lspconfig.util.root_pattern("tsconfig.json")(fname)
-            or lspconfig.util.root_pattern("package.json", "jsconfig.json", ".git")(fname)
-            or lspconfig.util.root_pattern("*.lua")
-            or vim.fn.getcwd()
-    end,
+    root_dir = root_dir('lua'),
     settings = {
         Lua = {
             diagnostics = { globals = { 'vim', 'use' } },
@@ -30,7 +31,7 @@ lspconfig.pyright.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     single_file_support = true,
-    -- root_dir = require "lspconfig".util.root_pattern('*.py'),
+    root_dir = root_dir('py'),
 }
 
 -- TODO: COMPARE WEATHER USING HTML LSP CAN GET BETTER EXPERIENCE.
@@ -44,12 +45,12 @@ lspconfig.clangd.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     single_file_support = true,
-    -- root_dir = require "lspconfig".util.root_pattern('*.c'),
+    root_dir = root_dir('c'),
 }
 
 lspconfig.intelephense.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     single_file_support = true,
-    -- root_dir = require "lspconfig".util.root_pattern('*.php')
+    root_dir = root_dir('php'),
 }

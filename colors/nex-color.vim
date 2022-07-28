@@ -21,7 +21,7 @@ hi  ModeMsg        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg
 hi  Error          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
 hi  Conceal        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#626262   gui=NONE
 hi  PreProc        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#767676   gui=NONE
-hi  VisualNOS      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#444444   guifg=#DE0000   gui=NONE
+hi  VisualNOS      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#444444   guifg=#000000   gui=NONE
 hi  SpecialKey     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
 hi  FoldColumn     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666   gui=NONE
 hi  PmenuSbar      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
@@ -30,10 +30,10 @@ hi  WildMenu       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg
 hi  Underlined     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=underline
 hi  StatusLine     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#3A3A3A   guifg=#AF87D7   gui=NONE
 hi  StatusLineNC   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#303030   guifg=#767676   gui=NONE
-hi  ColorColumn    ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#DE0000   gui=NONE
+hi  ColorColumn    ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#000000   gui=NONE
 hi  SignColumn     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#767676   gui=NONE
 hi  PmenuThumb     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
-hi  Cursor         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#DE0000   gui=NONE
+hi  Cursor         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#000000   gui=NONE
 hi  SpellBad       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#AF5F87   gui=underline
 hi  SpellCap       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#87AF87   gui=underline
 hi  SpellLocal     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D7AF5F   gui=underline
@@ -287,4 +287,74 @@ hi  DashboardCenterIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  DashboardShortCut     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE
 hi  DashboardFooter       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
 
+hi  AerialKey   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialEnum  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialFile  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE      guifg=#AF87D7     gui=NONE
+hi  AerialLine  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialNull  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE      guifg=#666666     gui=NONE
 
+hi  AerialArray  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialClass  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialEvent  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialField  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+
+hi  AerialGuide1  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide2  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide3  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide4  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide5  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide6  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide7  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide8  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialGuide9  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialLineNC  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialMethod  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialModule  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialNumber  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#afc460     gui=NONE
+hi  AerialObject  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialString  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialStruct  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+
+hi  AerialBoolean   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82     gui=NONE
+hi  AerialKeyIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialPackage   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialConstant  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialEnumIcon  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialFileIcon  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialFunction  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82     gui=NONE
+hi  AerialNullIcon  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialOperator  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialProperty  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialVariable  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+
+hi  AerialArrayIcon  ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialClassIcon  ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialEventIcon  ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialFieldIcon  ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialInterface  ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialNamespace  ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE      guifg=#666666     gui=NONE
+
+hi  AerialEnumMember   ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialMethodIcon   ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialModuleIcon   ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialNumberIcon   ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#afc460     gui=NONE
+hi  AerialObjectIcon   ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialStringIcon   ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#8F73AA     gui=NONE
+hi  AerialStructIcon   ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialBooleanIcon  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialConstructor  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialPackageIcon  ctermbg=NONE ctermfg=NONE cterm=NONE      guibg=NONE      guifg=#666666     gui=NONE
+
+hi  AerialConstantIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialFunctionIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82     gui=NONE
+hi  AerialOperatorIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialPropertyIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialVariableIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialInterfaceIcon  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialNamespaceIcon  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialTypeParameter  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+
+hi  AerialEnumMemberIcon    ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialConstructorIcon   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE
+hi  AerialTypeParameterIcon ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#666666     gui=NONE

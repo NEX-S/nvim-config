@@ -1,8 +1,7 @@
 
-
 local actions = require 'telescope.actions'
 
-require('telescope').setup {
+require "telescope".setup {
     defaults = {
         prompt_prefix = '  ',
         -- prompt_prefix = ' ',
@@ -23,6 +22,7 @@ require('telescope').setup {
             n = {
                 ["j"] = actions.move_selection_next,
                 ["k"] = actions.move_selection_previous,
+                ['l'] = actions.select_tab,
 
                 ["gg"] = actions.move_to_top,
                 ["G"] = actions.move_to_bottom,

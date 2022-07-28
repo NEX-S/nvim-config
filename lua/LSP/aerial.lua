@@ -94,3 +94,4 @@ require "lualine".setup {
         lualine_x = { { 'aerial', sep = '', dense = false, dense_sep = '  ' }, 'os.date("%H:%M %a")', 'filetype' }
     },
 }
+

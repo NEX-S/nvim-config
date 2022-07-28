@@ -89,10 +89,10 @@ local M = {}
                 end,
             })
         end
-        -- if client.name == "tsserver" then
-        --     client.server_capabilities.document_formatting = false -- 0.7 and earlier
-        --     client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-        -- end
+        if client.name == "tsserver" then
+            client.server_capabilities.document_formatting = false -- 0.7 and earlier
+            client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+        end
     end
 
 return M

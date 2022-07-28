@@ -17,11 +17,11 @@
 
 -- require "nvim-tree.view".View.winopts.sidescrolloff = 3
 
-require "nvim-tree".setup { -- BEGIN_DEFAULT_OPTS
+require "nvim-tree".setup {
     auto_reload_on_write = true,
     create_in_closed_folder = false,
-    disable_netrw = false,
-    hijack_cursor = false,
+    disable_netrw = true,
+    hijack_cursor = true,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = false,
     ignore_buffer_on_setup = false,
@@ -38,14 +38,14 @@ require "nvim-tree".setup { -- BEGIN_DEFAULT_OPTS
     view = {
         adaptive_size = false,
         centralize_selection = false,
-        width = 30,
+        width = 35,
         height = 30,
         hide_root_folder = true,
         side = "left",
         preserve_window_proportions = false,
         number = false,
         relativenumber = false,
-        signcolumn = "yes",
+        signcolumn = "no",
         mappings = {
             custom_only = false,
             list = {
@@ -78,9 +78,9 @@ require "nvim-tree".setup { -- BEGIN_DEFAULT_OPTS
         },
         icons = {
             webdev_colors = true,
-            git_placement = "before",
+            git_placement = "after",
             padding = " ",
-            symlink_arrow = " ➛ ",
+            symlink_arrow = "  ",
             show = {
                 file = true,
                 folder = true,
@@ -99,15 +99,15 @@ require "nvim-tree".setup { -- BEGIN_DEFAULT_OPTS
                     empty_open = "",
                     symlink = "",
                     symlink_open = "",
-                    -- git = {
-                    --     unstaged = "✗",
-                    --     staged = "✓",
-                    --     unmerged = "",
-                    --     renamed = "➜",
-                    --     untracked = "★",
-                    --     deleted = "",
-                    --     ignored = "◌",
-                    -- },
+                },
+                git = {
+                    unstaged  = "- ",
+                    staged    = " ",
+                    unmerged  = " ",
+                    renamed   = " ",
+                    untracked = "廓",
+                    deleted   = " ",
+                    ignored   = " ",
                 },
             },
         },
