@@ -23,20 +23,29 @@ vim.opt.expandtab     = true
 vim.opt.list          = true
 vim.opt.hidden        = true
 vim.opt.smarttab      = true
--- vim.opt.autochdir     = true
+vim.opt.autochdir     = true
 
--- vim.opt.smartindent   = true
--- vim.opt.cindent       = true
+vim.opt.mouse = 'nv'
+vim.opt.fileformats = 'unix,mac,dos'
+vim.opt.magic = true
+vim.opt.virtualedit = 'block'
+vim.opt.shiftround = true
+vim.opt.timeout = true
+vim.opt.timeoutlen = 500
+vim.opt.redrawtime = 1500
+vim.opt.infercase = true
+
+
 vim.opt.pumblend = 25
 vim.opt.winblend = 25
 
 -- BUG: CAUSE INDENT PROBLEM --
 -- vim.opt.paste         = true
 
-vim.opt.listchars:append("space:⋅")
+vim.opt.listchars = 'tab: ,nbsp:+,trail:·,extends:→,precedes:←,eol: ,space:·'
+vim.opt.showbreak = '↳  '
 
--- vim.opt.listchars:append("eol:↴")
--- vim.opt.listchars:append('space:·')
+-- vim.opt.listchars:append("space:⋅")
 
 vim.opt.iskeyword:remove('_')
 
@@ -54,11 +63,11 @@ vim.opt.numberwidth   = 3
 
 vim.opt.scrolloff     = 6
 vim.opt.sidescrolloff = 15
-vim.opt.updatetime    = 300
+vim.opt.updatetime    = 100
 
 vim.opt.modelines = 0
--- vim.opt.autoindent = true
--- vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 -- vim.opt.statusline = ' %-60.60([  UNEXPECTED ] [ %F  ]%)%=[ %c -  %B ] [ %l-%L : %p%% ] [ '..os.date("%m-%d %a")..' ] %y '
 

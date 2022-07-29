@@ -34,7 +34,7 @@ dashboard.custom_key = {
     ['s'] = ':Telescope find_files<CR>',
     ['d'] = ':Telescope live_grep<CR>',
     ['f'] = ':edit $MYVIMRC<CR>',
-    ['<ESC>'] = '<CMD>q!<CR>',
+    ['q'] = '<CMD>q!<CR>',
     ['l'] = '<CMD>lua require "dashboard".call_line_action()<CR>',
     ['<CR>'] = '<CMD>lua require "dashboard".call_line_action()<CR>',
 }

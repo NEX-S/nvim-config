@@ -1,6 +1,6 @@
 
 hi  Normal         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#252525   guifg=#777777   gui=NONE
-hi  NonText        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#323232   gui=bold
+hi  NonText        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#303030   gui=bold
 hi  VertSplit      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#353535   gui=NONE
 hi  LineNr         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#252525   guifg=#6F6F6F   gui=italic
 hi  CursorLine     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#282828   guifg=NONE      gui=NONE
