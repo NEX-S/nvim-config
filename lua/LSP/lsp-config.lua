@@ -1,13 +1,12 @@
-
-vim.diagnostic.config {
+vim.diagnostic.config({
     virtual_text = true,
     signs = {
         active = {
-            { name = "DiagnosticSignError", text = ' ' },
-            { name = "DiagnosticSignWarn",  text = '--' },
-            { name = "DiagnosticSignHint",  text = ' ' },
-            { name = "DiagnosticSignInfo",  text = ' ' },
-        }
+            { name = "DiagnosticSignError", text = " " },
+            { name = "DiagnosticSignWarn", text = "--" },
+            { name = "DiagnosticSignHint", text = " " },
+            { name = "DiagnosticSignInfo", text = " " },
+        },
     },
     update_in_insert = false,
     underline = false,
@@ -20,79 +19,80 @@ vim.diagnostic.config {
         header = "",
         prefix = "",
     },
-}
+})
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single", })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single", })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
-vim.fn.sign_define("DiagnosticSignError", { text = ' ', texthl = "DiagnosticSignError",       numhl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignHint",  { text = ' ', texthl = "DiagnosticSignHint",        numhl = "DiagnosticSignHint"  })
-vim.fn.sign_define("DiagnosticSignWarn",  { text = '--', texthl = "DiagnosticSignWarning",     numhl = "DiagnosticSignWarn"  })
-vim.fn.sign_define("DiagnosticSignInfo",  { text = ' ', texthl = "DiagnosticSignInformation", numhl = "DiagnosticSignInfo"  })
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticErrorNr" })
+vim.fn.sign_define("DiagnosticSignHint",  { text = "", texthl = "DiagnosticSignHint",  numhl = "DiagnosticHintNr"  })
+vim.fn.sign_define("DiagnosticSignWarn",  { text = "", texthl = "DiagnosticSignWarn",  numhl = "DiagnosticWarnNr"  })
+vim.fn.sign_define("DiagnosticSignInfo",  { text = "", texthl = "DiagnosticSignInfo",  numhl = "DiagnosticInfoNr"  })
 
 local M = {}
 
-    M.capabilities = vim.lsp.protocol.make_client_capabilities()
-    M.capabilities = require "cmp_nvim_lsp".update_capabilities(M.capabilities)
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
 
-    local function lsp_formatting(bufnr)
-        vim.lsp.buf.format {
-            filter = function(client)
-                -- apply whatever logic you want (in this example, we'll only use null-ls)
-                return client.name == "null-ls"
-            end,
-            bufnr = bufnr,
-        }
-    end
+local function lsp_formatting(bufnr)
+    vim.lsp.buf.format({
+        filter = function(client)
+            -- apply whatever logic you want (in this example, we'll only use null-ls)
+            return client.name == "null-ls"
+        end,
+        bufnr = bufnr,
+    })
+end
+
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
+-- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { noremap = true, silent = true })
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+function M.on_attach(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
-    -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { noremap = true, silent = true })
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
-    -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { noremap = true, silent = true })
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-    -- Use an on_attach function to only map the following keys
-    -- after the language server attaches to the current buffer
-    function M.on_attach(client, bufnr)
-        -- Enable completion triggered by <c-x><c-o>
-        -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- vim.keymap.set('n', ';;D', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set("n", "<C-d>", vim.lsp.buf.definition, bufopts)
+    -- vim.keymap.set('n', ';;h', vim.lsp.buf.hover, bufopts)
+    -- vim.keymap.set('n', ';;i', vim.lsp.buf.implementation, bufopts)
+    -- vim.keymap.set('n', ';;r', vim.lsp.buf.references, bufopts)
+    vim.keymap.set("n", "<A-=>", vim.lsp.buf.format, bufopts)
+    vim.keymap.set("n", "<A-s>", vim.lsp.buf.signature_help, bufopts)
+    -- vim.keymap.set('n', ';;wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    -- vim.keymap.set('n', ';;wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    -- vim.keymap.set('n', ';;wl', function()
+    --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    -- end, bufopts)
+    -- vim.keymap.set('n', ';;D', vim.lsp.buf.type_definition, bufopts)
+    -- vim.keymap.set('n', ';;rn', vim.lsp.buf.rename, bufopts)
+    -- vim.keymap.set('n', ';;ca', vim.lsp.buf.code_action, bufopts)
+    -- vim.keymap.set('n', ';;f', vim.lsp.buf.formatting, bufopts)
 
-        -- Mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    require("aerial").on_attach(client, bufnr)
 
-        -- vim.keymap.set('n', ';;D', vim.lsp.buf.declaration, bufopts)
-        vim.keymap.set('n', '<C-d>', vim.lsp.buf.definition, bufopts)
-        -- vim.keymap.set('n', ';;h', vim.lsp.buf.hover, bufopts)
-        -- vim.keymap.set('n', ';;i', vim.lsp.buf.implementation, bufopts)
-        -- vim.keymap.set('n', ';;r', vim.lsp.buf.references, bufopts)
-        vim.keymap.set('n', '<A-=>', vim.lsp.buf.format, bufopts)
-        vim.keymap.set('n', '<A-s>', vim.lsp.buf.signature_help, bufopts)
-        -- vim.keymap.set('n', ';;wa', vim.lsp.buf.add_workspace_folder, bufopts)
-        -- vim.keymap.set('n', ';;wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        -- vim.keymap.set('n', ';;wl', function()
-        --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        -- end, bufopts)
-        -- vim.keymap.set('n', ';;D', vim.lsp.buf.type_definition, bufopts)
-        -- vim.keymap.set('n', ';;rn', vim.lsp.buf.rename, bufopts)
-        -- vim.keymap.set('n', ';;ca', vim.lsp.buf.code_action, bufopts)
-        -- vim.keymap.set('n', ';;f', vim.lsp.buf.formatting, bufopts)
-
-        require "aerial".on_attach(client, bufnr)
-
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                buffer = bufnr,
-                callback = function()
-                    lsp_formatting(bufnr)
-                end,
-            })
-        end
-        if client.name == "tsserver" then
-            client.server_capabilities.document_formatting = false -- 0.7 and earlier
-            client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-        end
+    -- AUTO-FORMAT
+    -- if client.supports_method("textDocument/formatting") then
+    --     vim.api.nvim_create_autocmd("BufWritePre", {
+    --         buffer = bufnr,
+    --         callback = function()
+    --             lsp_formatting(bufnr)
+    --         end,
+    --     })
+    -- end
+    if client.name == "tsserver" then
+        client.server_capabilities.document_formatting = false -- 0.7 and earlier
+        client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
     end
+end
 
 return M

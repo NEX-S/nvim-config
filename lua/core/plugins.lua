@@ -284,10 +284,10 @@ packer.startup {
 
         -- NULL-LS --
         -- ~/.config/nvim/lua/LSP/null-ls.lua
-        -- use { "jose-elias-alvarez/null-ls.nvim",
-        --     event = { 'CursorMoved', 'InsertEnter' },
-        --     config = [[ require "LSP.null-ls" ]]
-        -- }
+        use { "jose-elias-alvarez/null-ls.nvim",
+            event = { 'CursorMoved', 'InsertEnter' },
+            config = [[ require "LSP.null-ls" ]]
+        }
 
         -- LSP-SAGA --
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua

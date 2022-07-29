@@ -106,12 +106,15 @@ hi  gitcommitSummary           ctermbg=NONE ctermfg=NONE cterm=NONE   guibg=NONE
 " hi  DiagnosticSignWarning      ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=NONE
 " hi  DiagnosticSignInformation  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#C7EB61     gui=NONE
 
-hi  DiagnosticSignHint         ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#555555     gui=NONE
-hi  DiagnosticSignError        ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#C53B82     gui=NONE
-hi  DiagnosticSignWarn         ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=NONE
-hi  DiagnosticSignInfo         ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#555555     gui=NONE
-hi  DiagnosticSignWarning      ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=NONE
-hi  DiagnosticSignInformation  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#555555     gui=NONE
+hi  DiagnosticSignHint         ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#8567a3     gui=italic
+hi  DiagnosticSignError        ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#8567a3     gui=italic
+hi  DiagnosticSignWarn         ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#8567a3     gui=italic
+hi  DiagnosticSignInfo         ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#8567a3     gui=italic
+
+hi  DiagnosticErrorNr          ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#C53B82     gui=italic
+hi  DiagnosticHintNr           ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#008FBF     gui=italic
+hi  DiagnosticInfoNr           ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#C7EB61     gui=italic
+hi  DiagnosticWarnNr           ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=italic
 
 hi  DiagnosticHint              ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#008FBF     gui=NONE
 hi  DiagnosticInfo              ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#C7EB61     gui=NONE
@@ -123,10 +126,10 @@ hi  DiagnosticWarn              ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=N
 " hi  DiagnosticVirtualTextError  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#A70458     gui=italic
 " hi  DiagnosticVirtualTextWarn   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#DEA600     gui=italic
 
-hi  DiagnosticVirtualTextHint   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
-hi  DiagnosticVirtualTextInfo   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
-hi  DiagnosticVirtualTextError  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
-hi  DiagnosticVirtualTextWarn   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#404040     gui=italic
+hi  DiagnosticVirtualTextHint   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#424242     gui=italic
+hi  DiagnosticVirtualTextInfo   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#424242     gui=italic
+hi  DiagnosticVirtualTextError  ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#424242     gui=italic,bold
+hi  DiagnosticVirtualTextWarn   ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#424242     gui=italic,bold
 
 hi  DiagnosticFloatingError     ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#A70458     gui=NONE
 hi  DiagnosticFloatingHint      ctermbg=NONE ctermfg=NONE cterm=NONE     guibg=NONE    guifg=#008FBF     gui=NONE

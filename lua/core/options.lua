@@ -23,7 +23,8 @@ vim.opt.expandtab     = true
 vim.opt.list          = true
 vim.opt.hidden        = true
 vim.opt.smarttab      = true
-vim.opt.autochdir     = true
+
+-- vim.opt.autochdir     = true
 
 vim.opt.mouse = 'nv'
 vim.opt.fileformats = 'unix,mac,dos'
