@@ -52,13 +52,14 @@ packer.startup {
                 require "code_runner".setup {
                     mode = "float",
                     startinsert = true,
+                    close_key = '<ESC>',
                     float = {
                         border = "single",
                         blend = 30,
                     },
                     filetype = {
                         python = "time python3 -u",
-                        c = "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall && time ./$fileNameWithoutExt && rm $fileNameWithoutExt",
+                        c = " cd $dir && clang $fileName -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && time ./bin/$fileNameWithoutExt",
                         php = "time php $fileName",
                         sh = "time sh $fileName",
                         html = "time google-chrome-stable $fileName",

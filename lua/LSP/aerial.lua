@@ -11,14 +11,16 @@ require "aerial".setup {
         -- Raw indentation
         whitespace = " ",
     },
-    min_width = 40,
+    min_width = 35,
     backends = {
         ['_']        = { "lsp", "treesitter" },
         ['python']   = { "lsp", "treesitter" },
         ['c']        = { "lsp", "treesitter" },
         ['lua']      = { "lsp", "treesitter" },
         ['php']      = { "lsp", "treesitter" },
-        ['html']     = { "treesitter" },
+        ['html']     = { "lsp", "treesitter" },
+        ['java']     = { "lsp", "treesitter" },
+        ['go']       = { "lsp", "treesitter" },
         ['markdown'] = { "markdown" },
     },
     icons = {

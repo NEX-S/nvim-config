@@ -1,9 +1,9 @@
 
 local dap = require "dap"
 
-vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpointLine', numhl = 'DapBreakpointNr' })
-vim.fn.sign_define('DapStopped',    { text = '', texthl = 'DapStopped',    linehl = 'DapStoppedLine',    numhl = 'DapStoppedNr' })
-vim.fn.sign_define('DapLogPoint',   { text = 'x', texthl = 'DapLogPoint',   linehl = 'DapLogPointLine',   numhl = 'DapLogPointNr' })
+vim.fn.sign_define('DapBreakpoint', { text = ' ', texthl = 'DapBreakpoint', linehl = 'DapBreakpointLine', numhl = 'DapBreakpointNr' })
+vim.fn.sign_define('DapStopped',    { text = ' ', texthl = 'DapStopped',    linehl = 'DapStoppedLine',    numhl = 'DapStoppedNr' })
+vim.fn.sign_define('DapLogPoint',   { text = 'x',  texthl = 'DapLogPoint',   linehl = 'DapLogPointLine',   numhl = 'DapLogPointNr' })
 
 vim.fn.sign_define('DapBreakpointCondition', { text = 'x', texthl = 'DapBreakpointCondition', linehl = 'DapBreakpointConditionLine', numhl = 'DapBreakpointConditionNr' })
 vim.fn.sign_define('DapBreakpointRejected',  { text = 'x', texthl = 'DapBreakpointRejected',  linehl = 'DapBreakpointRejectedLine',  numhl = 'DapBreakpointRejectedNr' })
