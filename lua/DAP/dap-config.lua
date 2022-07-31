@@ -54,14 +54,14 @@ dap.configurations.cpp = {
         program = function ()
             local dir = vim.fn.expand("%:p:h")
             local fileName = vim.fn.expand("%:t")
-            local fileNameWithoutExt = vim.fn.expand("%:p:h") .."/bin/".. vim.fn.expand("%:t:r")
+            local fileNameWithoutExt = vim.fn.expand("%:t:r")
 
             vim.cmd ":w"
-            vim.fn.system("cd "..dir.." && clang "..fileName.." -I ./ -g -o "..fileNameWithoutExt)
+            vim.fn.system("cd "..dir.." && clang -g "..fileName.." -I ./ ".."-o ./bin/"..fileNameWithoutExt)
 
-            return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
             -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
             -- return vim.fn.input('Path to executable: ', vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r"), 'file')
+            return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
