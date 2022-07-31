@@ -91,7 +91,7 @@ vim.keymap.set('n', '<C-k>', '<C-o>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-j>', '<C-n>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-k>', '<C-p>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-l>', '<C-y>', { noremap = true, silent = true })
-vim.keymap.set('i', '<S-TAB>', '<ESC>ciw', { noremap = true, silent = true })
+-- vim.keymap.set('i', '<S-TAB>', '<CMD>normal! >>A<CR><RIGHT>', { noremap = true, silent = true })
 
 vim.keymap.set('c', '<A-k>', '<UP>', { noremap = true, silent = false })
 vim.keymap.set('c', '<A-j>', '<DOWN>', { noremap = true, silent = false })
@@ -167,9 +167,9 @@ vim.keymap.set('o', 'l)', ':<C-u>normal! f(vi(<CR>', { noremap = true, silent = 
 vim.keymap.set('o', 'h(', ':<C-u>normal! F)vi)<CR>', { noremap = true, silent = true })
 vim.keymap.set('o', 'h)', ':<C-u>normal! F)vi)<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<C-h', '> :bp<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-l', '> :bn<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-x', '> :bdelete<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-h>', '> :bp<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-l>', '> :bn<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-x>', '> :bdelete<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('o', 'lb', ':<C-u>normal! f(vib<CR>', { noremap = true, silent = true })
 vim.keymap.set('o', 'hb', ':<C-u>normal! F)vib<CR>', { noremap = true, silent = true })
@@ -211,3 +211,5 @@ vim.keymap.set('n', '<F2>', '<CMD>w | source $MYVIMRC<CR>', { noremap = true, si
 
 vim.keymap.set('n', ';v', '<CMD>vs<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ';s', '<CMD>sp<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('i', '<A-h>', '<ESC>ciw', { noremap = true, silent = true })

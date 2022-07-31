@@ -2,8 +2,8 @@
 local status, packer = pcall(require, 'packer')
 
 if not status then
-    print('[-] PACKER NOT FOUND')
-    return
+    print('PACKER NOT FOUND.')
+    return nil
 end
 
 -- TODO:
@@ -491,7 +491,7 @@ packer.startup {
         use { 'hrsh7th/cmp-path', event = 'InsertEnter' }
         use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp-path' }
         use { 'hrsh7th/cmp-calc', after = 'cmp-nvim-lsp-signature-help' }
-        use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
+        -- use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
 
         -- CMDLINE ONLY COMPLETION
         use { "dmitmel/cmp-cmdline-history", event = 'CmdlineEnter' }
@@ -527,24 +527,8 @@ packer.startup {
                             function(fallback)
                                 if luasnip.jumpable() then
                                     luasnip.jump(1)
-                                else
-                                    fallback()
-                                end
-                            end, { "i", "s", }
-                        ),
-                        ["<A-n>"] = nvim_cmp.mapping(
-                            function(fallback)
-                                if luasnip.jumpable() then
-                                    luasnip.jump(1)
-                                else
-                                    fallback()
-                                end
-                            end, { "i", "s", }
-                        ),
-                        ["<A-p>"] = nvim_cmp.mapping(
-                            function(fallback)
-                                if luasnip.jumpable(-1) then
-                                    luasnip.jump(-1)
+                                elseif nvim_cmp.visible() then
+                                    nvim_cmp.select_next_item()
                                 else
                                     fallback()
                                 end

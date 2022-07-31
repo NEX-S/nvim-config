@@ -43,22 +43,19 @@ nvim_cmp.setup {
         -- documentation = nvim_cmp.config.window.bordered(),
     },
     mapping = {
-        ['<A-j>'] = nvim_cmp.mapping.scroll_docs(-4),
-        ['<A-k>'] = nvim_cmp.mapping.scroll_docs(4),
+        ['<C-j>'] = nvim_cmp.mapping.scroll_docs(-4),
+        ['<C-k>'] = nvim_cmp.mapping.scroll_docs(4),
         ['<C-e>'] = nvim_cmp.mapping.close(),
-        ["<CR>"] = nvim_cmp.mapping.confirm {
+        ["<TAB>"] = nvim_cmp.mapping.confirm {
+            behavior = nvim_cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ['<A-j>'] = nvim_cmp.mapping.select_next_item(),
+        ['<A-k>'] = nvim_cmp.mapping.select_prev_item(),
+        ["<A-l>"] = nvim_cmp.mapping.confirm {
             behavior = nvim_cmp.ConfirmBehavior.Replace,
             select = false,
         },
-        ["<Tab>"] = nvim_cmp.mapping(
-            function(fallback)
-                if nvim_cmp.visible() then
-                    nvim_cmp.select_next_item()
-                else
-                    fallback()
-                end
-            end, { "i", "s" }
-        ),
     },
     -- 补全图标
     formatting = {
@@ -78,11 +75,11 @@ nvim_cmp.setup {
     sources = nvim_cmp.config.sources {
         { name = 'path' },          -- PATH COMPLETION
         { name = 'buffer' },        -- BUFFER COMPLETION
-        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
-        { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
+        -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
     },
     confirm_opts = {
         behavior = nvim_cmp.ConfirmBehavior.Replace,
@@ -94,12 +91,12 @@ nvim_cmp.setup.filetype('lua', {
     sources = {
         { name = 'path' },          -- PATH COMPLETION
         { name = 'buffer' },        -- BUFFER COMPLETION
-        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'nvim_lua' },      -- NVIM-API COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
-        { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
+        -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
     },
 })
 
