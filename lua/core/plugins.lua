@@ -750,7 +750,7 @@ packer.startup {
 
         -- NVIM-DAP --
         -- ~/.config/nvim/lua/DAP/dap-config.lua
-        use { 'mfussenegger/nvim-dap',
+            use { 'mfussenegger/nvim-dap',
             module = 'dap',
             config = [[ require "DAP.dap-config" ]]
         }

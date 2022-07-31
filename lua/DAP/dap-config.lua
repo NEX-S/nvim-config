@@ -52,7 +52,9 @@ dap.configurations.cpp = {
         type = 'lldb',
         request = 'launch',
         program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
+            -- return vim.fn.input('Path to executable: ', vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r"), 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
@@ -92,8 +94,16 @@ dap.configurations.c = dap.configurations.cpp
 --     }
 -- }
 
-vim.keymap.set('n', '<C-o>', '<CMD>DapStepOut<CR>', { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', '<C-i>', '<CMD>DapStepInto<CR>', { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', '<C-d>', '<CMD>DapContinue<CR>', { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', '<C-j>', '<CMD>DapStepOver<CR>', { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', ';;', '<CMD>DapToggleBreakpoint<CR>', { noremap = true, silent = true, buffer = true })
+-- vim.keymap.set('n', '<C-o>', '<CMD>DapStepOut<CR>', { noremap = true, silent = true, buffer = true })
+-- vim.keymap.set('n', '<C-i>', '<CMD>DapStepInto<CR>', { noremap = true, silent = true, buffer = true })
+-- vim.keymap.set('n', '<C-s>', '<CMD>DapTerminate<CR>', { noremap = true, silent = true, buffer = true })
+-- vim.keymap.set('n', '<C-j>', '<CMD>DapStepOver<CR>', { noremap = true, silent = true, buffer = true })
+-- vim.keymap.set('n', ';;', '<CMD>DapToggleBreakpoint<CR>', { noremap = true, silent = true, buffer = true })
+-- vim.keymap.set('n', '<C-d>', '<CMD>DapContinue<CR>', { noremap = true, silent = true, buffer = true })
+
+vim.keymap.set('n', '<C-o>', dap.step_out, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<C-i>', dap.step_into, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<C-s>', dap.terminate, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<C-j>', dap.step_over, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', ';;', dap.toggle_breakpoint, { noremap = true, silent = true, buffer = true })
+

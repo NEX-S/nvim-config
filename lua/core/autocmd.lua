@@ -29,6 +29,16 @@ local function auto_mkdir ()
     end
 end
 
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--     pattern = { "c" },
+--     callback = function ()
+--         vim.keymap.set('n', '<C-d>',
+--             '<CMD>w<CR><CMD>!cd %:p:h && clang %:t -I ./ -g -o ./bin/%:t:r -Wall<CR>:DapContinue<CR>',
+--             { noremap = true, silent = true }
+--         )
+--     end
+-- })
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
     callback = function ()

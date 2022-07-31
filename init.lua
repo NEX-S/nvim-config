@@ -24,5 +24,10 @@ require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
 --                       --
 --                  ﴂ ﴃ    --
 --    﫢           ﮲   ﱕ    --
-    --   ﯟ     ﰊ ﰉ ﱢ ﱡ 諸喝卑ﰩ    廓--
+--   ﯟ     ﰊ ﰉ ﱢ ﱡ 諸喝卑ﰩ    廓--
 
+-- UbuntuMono Nerd Font Mono
+-- ShureTechMono Nerd Font Mono
+-- CaskaydiaCove Nerd Font Mono
+-- Cousine Nerd Font Mono
+-- MesloLGS Nerd Font Mono

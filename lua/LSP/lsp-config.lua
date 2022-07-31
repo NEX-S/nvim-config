@@ -62,7 +62,7 @@ function M.on_attach(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
     -- vim.keymap.set('n', ';;D', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set("n", "<C-d>", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", "<A-d>", vim.lsp.buf.definition, bufopts)
     -- vim.keymap.set('n', ';;h', vim.lsp.buf.hover, bufopts)
     -- vim.keymap.set('n', ';;i', vim.lsp.buf.implementation, bufopts)
     -- vim.keymap.set('n', ';;r', vim.lsp.buf.references, bufopts)
