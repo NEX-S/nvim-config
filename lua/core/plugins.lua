@@ -285,10 +285,10 @@ packer.startup {
 
         -- NULL-LS --
         -- ~/.config/nvim/lua/LSP/null-ls.lua
-        use { "jose-elias-alvarez/null-ls.nvim",
-            event = { 'CursorMoved', 'InsertEnter' },
-            config = [[ require "LSP.null-ls" ]]
-        }
+        -- use { "jose-elias-alvarez/null-ls.nvim",
+        --     event = { 'CursorMoved', 'InsertEnter' },
+        --     config = [[ require "LSP.null-ls" ]]
+        -- }
 
         -- LSP-SAGA --
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
@@ -587,12 +587,31 @@ packer.startup {
 
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
-        use { 'voldikss/vim-translator',
-            keys = ';t',
+        -- use { 'voldikss/vim-translator',
+        --     keys = ';t',
+        --     config = [[
+        --         vim.g.translator_default_engines = { 'google' }
+        --         vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
+        --         vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
+        --     ]]
+        -- }
+
+        use { 'uga-rosa/translate.nvim',
+            cmd = 'Translate',
             config = [[
-                vim.g.translator_default_engines = { 'bing' }
-                vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
-                vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
+              vim.g.deepl_api_auth_key = '311a6cc3-bc4b-a12d-a59b-ed37c5216eeb:fx'
+                require "translate".setup {
+                    default = {
+                        command = "deepl_free",
+                    },
+                    preset = {
+                        output = {
+                            split = {
+                                append = true,
+                            },
+                        },
+                    },
+                }
             ]]
         }
 

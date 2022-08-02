@@ -10,7 +10,7 @@
 
 pcall(require, "impatient")
 
-pcall(require, 'plugins.packer_compiled')
+pcall(require, "plugins.packer_compiled")
 
 vim.cmd "color nex-color"
 
@@ -31,3 +31,9 @@ require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
 -- CaskaydiaCove Nerd Font Mono
 -- Cousine Nerd Font Mono
 -- MesloLGS Nerd Font Mono
+-- BlexMono Nerd Font Mono
+-- BitstreamVeraSansMono Nerd Font Mono
+-- AurulentSansMono Nerd Font Mono
+-- InconsolataGo Nerd Font Mono
+
+

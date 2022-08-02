@@ -30,15 +30,15 @@ dashboard.custom_center = {
 }
 
 dashboard.custom_key = {
-    ['a'] = ':Telescope oldfiles<CR>',
-    ['s'] = ':Telescope find_files<CR>',
-    ['d'] = ':Telescope live_grep<CR>',
-    ['f'] = ':edit $MYVIMRC<CR>',
-    ['q'] = '<CMD>q!<CR>',
+    ['a']     = ':Telescope oldfiles<CR>',
+    ['s']     = ':Telescope find_files<CR>',
+    ['d']     = ':Telescope live_grep<CR>',
+    ['f']     = ':edit $MYVIMRC<CR>',
+    ['q']     = '<CMD>q!<CR>',
     ['<ESC>'] = '<CMD>q!<CR>',
-    ['o'] = '<CMD>lua require "dashboard".call_line_action()<CR>',
-    ['l'] = '<CMD>lua require "dashboard".call_line_action()<CR>',
-    ['<CR>'] = '<CMD>lua require "dashboard".call_line_action()<CR>',
+    ['o']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
+    ['l']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
+    ['<CR>']  = '<CMD>lua require "dashboard".call_line_action()<CR>',
 }
 
 dashboard.custom_footer = {
