@@ -86,31 +86,11 @@ require "dap.ext.vscode".load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
 
 dap.configurations.c = dap.configurations.cpp
 
--- dap.adapters.php = {
---     type = 'executable',
---     command = 'node',
---     args = { '/home/nex/Files/vscode-php-debug/out/phpDebug.js' }
--- }
---
--- dap.configurations.php = {
---     {
---         type = 'php',
---         request = 'launch',
---         name = 'Listen for Xdebug',
---         port = 9003
---     }
--- }
-
--- vim.keymap.set('n', '<C-o>', '<CMD>DapStepOut<CR>', { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<C-i>', '<CMD>DapStepInto<CR>', { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<C-s>', '<CMD>DapTerminate<CR>', { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<C-j>', '<CMD>DapStepOver<CR>', { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', ';;', '<CMD>DapToggleBreakpoint<CR>', { noremap = true, silent = true, buffer = true })
-
 vim.keymap.set('n', '<C-d>', dap.continue, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-o>', dap.step_out, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-i>', dap.step_into, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-s>', dap.terminate, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-j>', dap.step_over, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<TAB>', dap.step_over, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', ';;', dap.toggle_breakpoint, { noremap = true, silent = true, buffer = true })
 

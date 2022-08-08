@@ -84,7 +84,7 @@ require "lualine".setup {
             }
         },
         lualine_c = {{'[ %F -  %p%% ]', type = 'stl' }},
-        lualine_x = { 'os.date("%H:%M %a")', 'filetype' },
+        lualine_x = { 'os.date("%H:%M %a")', },
         lualine_y = { '%c -  %B' },
         lualine_z = { '%l - %L' },
     },

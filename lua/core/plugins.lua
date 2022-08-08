@@ -38,7 +38,7 @@ packer.startup {
 
         -- PLUGINS --
         use 'lewis6991/impatient.nvim'
-        use 'dstein64/vim-startuptime'
+        -- use 'dstein64/vim-startuptime'
 
         use { 'wbthomason/packer.nvim', module = 'packer' }
 
@@ -160,7 +160,7 @@ packer.startup {
                         -- Line-comment toggle keymap
                         line = ';c',
                         -- Block-comment toggle keymap
-                        block = ';bc',
+                        block = ';b',
                     },
 
                     -- LHS of operator-pending mappings in NORMAL + VISUAL mode
@@ -213,7 +213,7 @@ packer.startup {
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
-        use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
+        -- use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
@@ -230,7 +230,6 @@ packer.startup {
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
         use { 'norcalli/nvim-colorizer.lua',
             ft = { 'vim', 'lua', 'html', 'css', 'yaml' },
-            -- event = { 'CursorMoved', 'InsertEnter', },
             config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
         }
 
@@ -238,7 +237,6 @@ packer.startup {
         -- TODO: <M-e>
         use { 'windwp/nvim-autopairs',
             event = 'InsertEnter',
-            -- module = 'nvim-autopairs',
             config = [[
                 require "nvim-autopairs".setup {
                     disable_filetype = { 'TelescopePrompt' },
@@ -390,16 +388,6 @@ packer.startup {
                 vim.keymap.set('n', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
                 vim.keymap.set('i', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
             ]]
-            -- setup = vim.api.nvim_create_autocmd({ "FileType" }, {
-            --     pattern = { "markdown" },
-            --     callback = function ()
-            --         vim.g.mdip_imgdir = './images'
-            --         vim.g.mdip_imgname = 'image'
-            --         local bufopts = { noremap = true, silent = truel, buffer = true }
-            --         vim.keymap.set('n', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
-            --         vim.keymap.set('i', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
-            --     end
-            -- })
         }
 
         -- LUALINE --
@@ -502,7 +490,7 @@ packer.startup {
         use { 'hrsh7th/cmp-nvim-lua', ft = 'lua' }
 
         -- DAP COMPLETION
-        use { "rcarriga/cmp-dap", ft = { 'dap-repl', 'dapui_watches' } }
+        -- use { "rcarriga/cmp-dap", ft = { 'dap-repl', 'dapui_watches' } }
 
         -- LUASNIP --
         use { 'saadparwaiz1/cmp_luasnip', event = 'InsertEnter' }
@@ -513,7 +501,7 @@ packer.startup {
                 require "luasnip.loaders.from_vscode".lazy_load()
 
                 local nvim_cmp = require "cmp"
-                local luasnip  = require "luasnip"
+                    local luasnip  = require "luasnip"
 
                 nvim_cmp.setup {
                     snippet = {
@@ -523,11 +511,23 @@ packer.startup {
                         end,
                     },
                     mapping = {
-                        ["<S-Tab>"] = nvim_cmp.mapping(
+                        ["<TAB>"] = nvim_cmp.mapping(
                             function(fallback)
                                 if luasnip.jumpable() then
                                     luasnip.jump(1)
                                 elseif nvim_cmp.visible() then
+                                    nvim_cmp.confirm {
+                                        behavior = nvim_cmp.ConfirmBehavior.Replace,
+                                        select = true,
+                                    }
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s", }
+                        ),
+                        ["<S-Tab>"] = nvim_cmp.mapping(
+                            function(fallback)
+                                if nvim_cmp.visible() then
                                     nvim_cmp.select_next_item()
                                 else
                                     fallback()
@@ -587,41 +587,41 @@ packer.startup {
 
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
-        -- use { 'voldikss/vim-translator',
-        --     keys = ';t',
-        --     config = [[
-        --         vim.g.translator_default_engines = { 'google' }
-        --         vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
-        --         vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
-        --     ]]
-        -- }
-
-        use { 'uga-rosa/translate.nvim',
-            cmd = 'Translate',
+        use { 'voldikss/vim-translator',
+            keys = ';t',
             config = [[
-              vim.g.deepl_api_auth_key = '311a6cc3-bc4b-a12d-a59b-ed37c5216eeb:fx'
-                require "translate".setup {
-                    default = {
-                        command = "deepl_free",
-                    },
-                    preset = {
-                        output = {
-                            split = {
-                                append = true,
-                            },
-                        },
-                    },
-                }
+                vim.g.translator_default_engines = { 'google' }
+                vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
+                vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
             ]]
         }
 
+        -- use { 'uga-rosa/translate.nvim',
+        --     cmd = 'Translate',
+        --     config = [[
+        --       vim.g.deepl_api_auth_key = '311a6cc3-bc4b-a12d-a59b-ed37c5216eeb:fx'
+        --         require "translate".setup {
+        --             default = {
+        --                 command = "deepl_free",
+        --             },
+        --             preset = {
+        --                 output = {
+        --                     split = {
+        --                         append = true,
+        --                     },
+        --                 },
+        --             },
+        --         }
+        --     ]]
+        -- }
+
         -- SNIPRUN --
         -- ~/.config/nvim/lua/plugins/sniprun.lua
-        use { 'michaelb/sniprun',
-            run = 'bash ./install.sh',
-            cmd = 'SnipRun',
-            config = [[ require 'plugins.sniprun' ]]
-        }
+        -- use { 'michaelb/sniprun',
+        --     run = 'bash ./install.sh',
+        --     cmd = 'SnipRun',
+        --     config = [[ require 'plugins.sniprun' ]]
+        -- }
 
         -- use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
 
@@ -804,6 +804,14 @@ packer.startup {
             ]]
         }
 
+        -- use {'sakhnik/nvim-gdb',
+        --     ft = { 'c', 'cpp' },
+        --     run = './install.sh',
+        --     config = [[
+        --
+        --     ]]
+        -- }
+
         use { "NTBBloodbath/rest.nvim",
             module = "rest-nvim",
             requires = "nvim-lua/plenary.nvim",
@@ -844,5 +852,4 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         vim.cmd "source <afile> | PackerSync"
     end
 })
-
 

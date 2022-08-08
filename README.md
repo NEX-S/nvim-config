@@ -3,8 +3,3 @@
 DEPENDENCIES:
 + ripgrep
 + xclip
-
-
-## LICENSE
-
-MIT

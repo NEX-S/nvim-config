@@ -46,10 +46,6 @@ nvim_cmp.setup {
         ['<C-j>'] = nvim_cmp.mapping.scroll_docs(-4),
         ['<C-k>'] = nvim_cmp.mapping.scroll_docs(4),
         ['<C-e>'] = nvim_cmp.mapping.close(),
-        ["<TAB>"] = nvim_cmp.mapping.confirm {
-            behavior = nvim_cmp.ConfirmBehavior.Replace,
-            select = true,
-        },
         ['<A-j>'] = nvim_cmp.mapping.select_next_item(),
         ['<A-k>'] = nvim_cmp.mapping.select_prev_item(),
         ["<A-l>"] = nvim_cmp.mapping.confirm {
@@ -89,10 +85,10 @@ nvim_cmp.setup {
 
 nvim_cmp.setup.filetype('lua', {
     sources = {
+        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'path' },          -- PATH COMPLETION
         { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
-        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'nvim_lua' },      -- NVIM-API COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
@@ -125,13 +121,13 @@ nvim_cmp.setup.cmdline('?', {
 })
 
 
-nvim_cmp.setup.filetype(
-    { "dap-repl", "dapui_watches" }, {
-        sources = {
-            { name = "dap" },
-        },
-    }
-)
+-- nvim_cmp.setup.filetype(
+--     { "dap-repl", "dapui_watches" }, {
+--         sources = {
+--             { name = "dap" },
+--         },
+--     }
+-- )
 
 -- If you want insert `(` after select function or method item
 -- local nvim_cmp_autopairs = require('nvim-autopairs.completion.cmp')

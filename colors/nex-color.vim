@@ -15,8 +15,8 @@ hi  MatchParen     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg
 hi  Pmenu          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#2a2a2a   guifg=NONE      gui=italic " text-object-top
 hi  PmenuSel       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=NONE      gui=bold
 hi  Directory      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#AF87D7   gui=bold
-hi  Todo           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#FF9121   gui=bold,italic
-hi  Warning        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#FF9121   gui=NONE
+hi  Todo           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D66F01   gui=bold,italic
+hi  Warning        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D66F01   gui=NONE
 hi  ModeMsg        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#767676   gui=NONE
 hi  Error          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff   gui=NONE
 hi  Conceal        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#626262   gui=NONE
@@ -252,15 +252,15 @@ hi  TSNote                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  TSNumber              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE
 hi  TSOperator            ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE
 hi  TSParameter           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE
-hi  TSParameterReference  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#FF9121     gui=NONE
+hi  TSParameterReference  ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D66F01     gui=NONE
 hi  TSPreProc             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#767676     gui=NONE
 hi  TSPunctBracket        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE
 hi  TSProperty            ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE
 hi  TSPunctDelimiter      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444444     gui=NONE    " ; :
-hi  TSPunctSpecial        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82     gui=NONE
+hi  TSPunctSpecial        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#6c5b9e     gui=BOLD    " Markdown: #
 hi  TSRepeat              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE    " for while
-hi  TSStorageClass        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#FF9121     gui=NONE
-hi  TSStrike              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#FF9121     gui=NONE
+hi  TSStorageClass        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D66F01     gui=NONE
+hi  TSStrike              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#D66F01     gui=NONE
 hi  TSString              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#585858     gui=italic
 hi  TSStringEscape        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#363636     gui=NONE    " \n
 hi  TSStringRegex         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
@@ -272,7 +272,7 @@ hi  TSTagAttribute        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  TSTagDelimiter        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
 hi  TSText                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#585858     gui=NONE
 hi  TSTextReference       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
-hi  TSTitle               ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
+hi  TSTitle               ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#6c5b9e     gui=BOLD
 hi  TSTodo                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
 hi  TSType                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE    " void
 hi  TSTypeBuiltin         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE    " boolean

@@ -86,7 +86,6 @@ vim.keymap.set('n', '<C-k>', '<C-o>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-j>', '<C-n>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-k>', '<C-p>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-l>', '<C-y>', { noremap = true, silent = true })
--- vim.keymap.set('i', '<S-TAB>', '<CMD>normal! >>A<CR><RIGHT>', { noremap = true, silent = true })
 
 vim.keymap.set('c', '<A-k>', '<UP>', { noremap = true, silent = false })
 vim.keymap.set('c', '<A-j>', '<DOWN>', { noremap = true, silent = false })
@@ -103,9 +102,9 @@ vim.keymap.set('n', ';a', 'ggvG$', { noremap = true, silent = true })
 vim.keymap.set('n', ';w', '<CMD>w!<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ';q', '<CMD>q!<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', ';t', ':Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
-vim.keymap.set('v', ';t', ':Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
-vim.keymap.set('x', ';t', ':Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
+-- vim.keymap.set('n', ';t', 'viw:Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
+-- vim.keymap.set('v', ';t', ':Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
+-- vim.keymap.set('x', ';t', ':Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
 
 vim.keymap.set('v', ';w', '<ESC><CMD>w!<CR>gv', { noremap = true, silent = true })
 vim.keymap.set('v', ';q', '<ESC><CMD>q!<CR>', { noremap = true, silent = true })
@@ -191,7 +190,12 @@ vim.keymap.set('n', '<F1>', '<CMD>StartupTime<CR>', { noremap = true, silent = t
 
 vim.keymap.set('n', '<TAB>', '<C-w>p', { noremap = true, silent = true })
 
+-- vim.keymap.set('v', '<TAB>', 's<BS><TAB>', { noremap = true, silent = true })
+-- vim.keymap.set('v', '<SPACE>', 's<SPACE>', { noremap = true, silent = true })
+
+
 vim.keymap.set('n', '<S-TAB>', '<C-w><C-w>', { noremap = true, silent = true })
+-- vim.keymap.set('v', '<S-TAB>', '<SPACE><BS><TAB>', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 

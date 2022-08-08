@@ -36,4 +36,3 @@ require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
 -- AurulentSansMono Nerd Font Mono
 -- InconsolataGo Nerd Font Mono
 
-
