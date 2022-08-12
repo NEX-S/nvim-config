@@ -1,12 +1,13 @@
 
-hi  Normal         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#252525   guifg=#777777   gui=NONE
+hi  Normal         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#252525   guifg=#828282   gui=NONE
 hi  NonText        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#303030   gui=NONE
 hi  VertSplit      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#353535   gui=NONE
 hi  LineNr         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#252525   guifg=#6F6F6F   gui=italic
 hi  CursorLine     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#282828   guifg=NONE      gui=NONE
 hi  CursorLineNr   ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#282828   guifg=#8F73AA   gui=italic " 8f8f8f
-hi  Visual         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#292929   guifg=NONE      gui=bold,italic
-hi  Folded         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#292929   guifg=#606060   gui=italic
+hi  Visual         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#232323   guifg=NONE      gui=bold
+hi  Folded         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#232323   guifg=#494949   gui=italic
+hi  CursorLineFold ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=#ffffff   guifg=#000000   gui=NONE
 
 hi  Search         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=bold " #BBE73D
 hi  IncSearch      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82   gui=bold " #BBE73D

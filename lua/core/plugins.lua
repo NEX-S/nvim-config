@@ -38,7 +38,7 @@ packer.startup {
 
         -- PLUGINS --
         use 'lewis6991/impatient.nvim'
-        -- use 'dstein64/vim-startuptime'
+        use 'dstein64/vim-startuptime'
 
         use { 'wbthomason/packer.nvim', module = 'packer' }
 
@@ -55,7 +55,7 @@ packer.startup {
                     close_key = '<ESC>',
                     float = {
                         border = "single",
-                        blend = 30,
+                        blend = 20,
                     },
                     filetype = {
                         python = "time python3 -u",

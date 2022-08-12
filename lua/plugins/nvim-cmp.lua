@@ -70,8 +70,8 @@ nvim_cmp.setup {
     },
     sources = nvim_cmp.config.sources {
         { name = 'path' },          -- PATH COMPLETION
-        { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
