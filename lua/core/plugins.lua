@@ -292,8 +292,8 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
         use { "glepnir/lspsaga.nvim",
             branch = "version_2",
-            after = 'nvim-lspconfig',
-            -- keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", "<A-p>", "<A-n>", ";x" },
+            -- after = 'nvim-lspconfig',
+            keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", ";D", "<A-p>", "<A-n>", ";x" },
             config = [[ require "LSP.lsp-saga" ]]
         }
 

@@ -220,7 +220,7 @@ hi  TSAttribute           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  TSBoolean             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82     gui=NONE
 hi  TSCharacter           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#555555     gui=NONE
 hi  TSCharacterSpecial    ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
-hi  TSComment             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444444     gui=NONE
+hi  TSComment             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#484848     gui=NONE
 hi  TSConstBuiltin        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE    " NULL
 hi  TSConditional         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82     gui=NONE    " switch case if then
 hi  TSConstMacro          ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE
@@ -268,8 +268,8 @@ hi  TSStringRegex         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  TSStringSpecial       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
 hi  TSStrong              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
 hi  TSSymbol              ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
-hi  TSTag                 ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
-hi  TSTagAttribute        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
+hi  TSTag                 ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#6c5b9e     gui=NONE    " <xxxx>
+hi  TSTagAttribute        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#9EB73D     gui=NONE    " href=
 hi  TSTagDelimiter        ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
 hi  TSText                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#585858     gui=NONE
 hi  TSTextReference       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#444f1a     gui=NONE
@@ -279,8 +279,8 @@ hi  TSType                ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE    
 hi  TSTypeBuiltin         ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#BBE73D     gui=NONE    " boolean
 hi  TSTypeDefinition      ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
 hi  TSTypeQualifier       ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
-hi  TSURI                 ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
-hi  TSUnderline           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
+hi  TSUnderline           ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#000000     gui=NONE
+hi  TSURI                 ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#C53B82     gui=NONE
 hi  TSVariableBuiltin     ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#614f97     gui=NONE    " self
 hi  TSWarning             ctermbg=NONE ctermfg=NONE cterm=NONE    guibg=NONE      guifg=#ffffff     gui=NONE
 
