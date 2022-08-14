@@ -56,7 +56,7 @@ vim.keymap.set('n', "gh",    require "lspsaga.signaturehelp".signature_help,  op
 vim.keymap.set('n', "gD",    require "lspsaga.finder".lsp_finder,             opt )
 vim.keymap.set('n', "go",    require "lspsaga.hover".render_hover_doc,        opt )
 vim.keymap.set('n', "<C-r>", require "lspsaga.rename".lsp_rename,             opt )
-vim.keymap.set('n', "gd",    require "lspsaga.definition".preview_definition, opt )
+vim.keymap.set('n', "gd", "<CMD>Lspsaga preview_definition<CR>", opt )
 
 vim.keymap.set('n', ";d",    require "lspsaga.diagnostic".show_line_diagnostics, opt )
 vim.keymap.set('n', "<A-p>", require "lspsaga.diagnostic".goto_prev, opt )
