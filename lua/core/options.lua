@@ -60,6 +60,7 @@ vim.opt.background = 'dark'
 vim.opt.signcolumn = 'yes:1'
 
 vim.opt.showtabline   = 0
+vim.opt.cmdheight     = 0
 vim.opt.laststatus    = 0
 vim.opt.tabstop       = 4
 vim.opt.softtabstop   = 4

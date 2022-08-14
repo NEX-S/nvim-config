@@ -52,8 +52,6 @@ vim.keymap.set('n', 'p', 'dP', { noremap = true, silent = true })
 
 -- SEARCH --
 vim.keymap.set('n', ';f', '/', { noremap = true, silent = false })
-vim.keymap.set('n', '<ESC>', '<CMD>set hls!<CR>', { noremap = true, silent = true })
-
 vim.keymap.set('i', '<A-.>', '<ESC>>>A', { noremap = true, silent = true })
 
 -- INSERT --

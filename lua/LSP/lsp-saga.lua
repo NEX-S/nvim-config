@@ -51,16 +51,23 @@ require "lspsaga".init_lsp_saga {
 
 
 local opt = { noremap = true, silent = true }
-vim.keymap.set('n', "ga",    require "lspsaga.codeaction".code_action,        opt )
-vim.keymap.set('n', "gh",    require "lspsaga.signaturehelp".signature_help,  opt )
-vim.keymap.set('n', "gD",    require "lspsaga.finder".lsp_finder,             opt )
-vim.keymap.set('n', "go",    require "lspsaga.hover".render_hover_doc,        opt )
-vim.keymap.set('n', "<C-r>", require "lspsaga.rename".lsp_rename,             opt )
-vim.keymap.set('n', "gd", "<CMD>Lspsaga preview_definition<CR>", opt )
+vim.keymap.set('n', "<C-r>", "<CMD>Lspsaga rename<CR>",             opt)
+vim.keymap.set('n', "go",    "<CMD>Lspsaga hover_doc<CR>",          opt)
+vim.keymap.set('n', "gD",    "<CMD>Lspsaga lsp_finder<CR>",         opt)
+vim.keymap.set('n', "gh",    "<CMD>Lspsaga signature_help<CR>",     opt)
+vim.keymap.set('n', "gd",    "<CMD>Lspsaga preview_definition<CR>", opt)
 
-vim.keymap.set('n', ";d",    require "lspsaga.diagnostic".show_line_diagnostics, opt )
-vim.keymap.set('n', "<A-p>", require "lspsaga.diagnostic".goto_prev, opt )
-vim.keymap.set('n', "<A-n>",  require "lspsaga.diagnostic".goto_next, opt )
+vim.keymap.set('n', "ga",    "<CMD>Lspsaga code_action<CR>",            opt)
+vim.keymap.set('v', "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>", opt)
 
-vim.keymap.set("n", ";x", "<CMD>Lspsaga open_floaterm<CR>", opt )
-vim.keymap.set("t", "<ESC>", "<CMD>Lspsaga close_floaterm<CR>", opt )
+vim.keymap.set('n', ";d",    "<CMD>Lspsaga show_line_diagnostics<CR>",   opt)
+vim.keymap.set('n', ";D",    "<CMD>Lspsaga show_cursor_diagnostics<CR>", opt)
+
+vim.keymap.set('n', "<A-p>", "<CMD>Lspsaga diagnostic_jump_prev<CR>", opt)
+vim.keymap.set('n', "<A-n>", "<CMD>Lspsaga diagnostic_jump_next<CR>", opt)
+
+vim.keymap.set("n", ";x",    "<CMD>Lspsaga open_floaterm<CR>",  opt)
+vim.keymap.set("n", "<ESC>", "<CMD>set hls! | Lspsaga close_floaterm<CR>", opt)
+
+-- vim.keymap.set("n", "<C-f>", function() require "lspsaga.action".smart_scroll_with_saga(1) end, opt)
+-- vim.keymap.set("n", "<C-b>", function() require "lspsaga.action".smart_scroll_with_saga(-1) end, opt)
