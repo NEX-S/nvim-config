@@ -1,13 +1,14 @@
 vim.diagnostic.config({
     virtual_text = true,
-    signs = {
-        active = {
-            { name = "DiagnosticSignError", text = " " },
-            { name = "DiagnosticSignWarn", text = "--" },
-            { name = "DiagnosticSignHint", text = " " },
-            { name = "DiagnosticSignInfo", text = " " },
-        },
-    },
+    -- signs = {
+    --     active = {
+    --         { name = "DiagnosticSignError", text =" " },
+    --         { name = "DiagnosticSignWarn", text = "--" },
+    --         { name = "DiagnosticSignHint", text = " " },
+    --         { name = "DiagnosticSignInfo", text = " " },
+    --     },
+    -- },
+    signs = false,
     update_in_insert = false,
     underline = false,
     severity_sort = true,
@@ -21,13 +22,21 @@ vim.diagnostic.config({
     },
 })
 
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, {
+--         -- Disable signs
+--         signs = false,
+--     }
+-- )
+
+
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
-vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticErrorNr" })
-vim.fn.sign_define("DiagnosticSignHint",  { text = "", texthl = "DiagnosticSignHint",  numhl = "DiagnosticHintNr"  })
-vim.fn.sign_define("DiagnosticSignWarn",  { text = "", texthl = "DiagnosticSignWarn",  numhl = "DiagnosticWarnNr"  })
-vim.fn.sign_define("DiagnosticSignInfo",  { text = "", texthl = "DiagnosticSignInfo",  numhl = "DiagnosticInfoNr"  })
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError", numhl = "DiagnosticErrorNr" })
+vim.fn.sign_define("DiagnosticSignHint",  { text = "--", texthl = "DiagnosticSignHint",  numhl = "DiagnosticHintNr"  })
+vim.fn.sign_define("DiagnosticSignWarn",  { text = " ", texthl = "DiagnosticSignWarn",  numhl = "DiagnosticWarnNr"  })
+vim.fn.sign_define("DiagnosticSignInfo",  { text = " ", texthl = "DiagnosticSignInfo",  numhl = "DiagnosticInfoNr"  })
 
 local M = {}
 
@@ -78,7 +87,7 @@ function M.on_attach(client, bufnr)
     -- vim.keymap.set('n', ';;ca', vim.lsp.buf.code_action, bufopts)
     -- vim.keymap.set('n', ';;f', vim.lsp.buf.formatting, bufopts)
 
-    require("aerial").on_attach(client, bufnr)
+    require "aerial".on_attach(client, bufnr)
 
     -- AUTO-FORMAT
     -- if client.supports_method("textDocument/formatting") then
@@ -89,10 +98,6 @@ function M.on_attach(client, bufnr)
     --         end,
     --     })
     -- end
-    if client.name == "tsserver" then
-        client.server_capabilities.document_formatting = false -- 0.7 and earlier
-        client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-    end
 end
 
 return M

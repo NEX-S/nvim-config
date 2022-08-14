@@ -57,7 +57,7 @@ dap.configurations.cpp = {
             local fileNameWithoutExt = vim.fn.expand("%:t:r")
 
             vim.cmd ":w"
-            vim.fn.system("cd "..dir.." && clang -g "..fileName.." -I ./ ".."-o ./bin/"..fileNameWithoutExt)
+            vim.fn.system("cd "..dir.." && clang -std=gnu2x -g "..fileName.." -I ./ ".."-o ./bin/"..fileNameWithoutExt)
 
             -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
             -- return vim.fn.input('Path to executable: ', vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r"), 'file')

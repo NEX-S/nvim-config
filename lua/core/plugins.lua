@@ -59,7 +59,7 @@ packer.startup {
                     },
                     filetype = {
                         python = "time python3 -u",
-                        c = " cd $dir && clang $fileName -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && time ./bin/$fileNameWithoutExt",
+                        c = "cd $dir && clang $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
                         php = "time php $fileName",
                         sh = "time sh $fileName",
                         html = "time google-chrome-stable $fileName",
@@ -291,9 +291,9 @@ packer.startup {
         -- LSP-SAGA --
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
         use { "glepnir/lspsaga.nvim",
-            branch = "main",
-            -- after = 'nvim-lspconfig',
-            keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", "<A-p>", "<A-n>", ";x" },
+            branch = "version_2",
+            after = 'nvim-lspconfig',
+            -- keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", "<A-p>", "<A-n>", ";x" },
             config = [[ require "LSP.lsp-saga" ]]
         }
 
@@ -811,6 +811,12 @@ packer.startup {
         --
         --     ]]
         -- }
+
+        -- DECREPT BASE64
+        use { "taybart/b64.nvim",
+            -- key = { '<A-b>', '<A-B>' },
+            module = 'b64',
+        }
 
         use { "NTBBloodbath/rest.nvim",
             module = "rest-nvim",
