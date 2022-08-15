@@ -12,7 +12,7 @@ packer.init {
     compile_on_sync = true,
     git = { clone_timeout = 6000 },
     prompt_border = 'single',
-    compile_path = '~/.config/nvim/lua/plugins/packer_compiled.lua',
+    compile_path = '~/.cache/nvim/plugin/packer_compiled.lua',
     keybindings = {
         quit = '<ESC>',
         toggle_info = 'o',
@@ -37,10 +37,9 @@ packer.startup {
         -- use 'shaunsingh/nord.nvim'
 
         -- PLUGINS --
+        use 'wbthomason/packer.nvim'
         use 'lewis6991/impatient.nvim'
         use 'dstein64/vim-startuptime'
-
-        use { 'wbthomason/packer.nvim', module = 'packer' }
 
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }

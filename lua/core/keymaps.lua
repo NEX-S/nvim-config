@@ -52,6 +52,8 @@ vim.keymap.set('n', 'p', 'dP', { noremap = true, silent = true })
 
 -- SEARCH --
 vim.keymap.set('n', ';f', '/', { noremap = true, silent = false })
+vim.keymap.set('n', '<ESC>', '<CMD>set hls!<CR>', { noremap = true, silent = true })
+
 vim.keymap.set('i', '<A-.>', '<ESC>>>A', { noremap = true, silent = true })
 
 -- INSERT --
@@ -186,11 +188,12 @@ vim.keymap.set('n', '<C-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, s
 
 vim.keymap.set('n', '<F1>', '<CMD>StartupTime<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<S-TAB>', '<C-w>p', { noremap = true, silent = true })
-vim.keymap.set('n', '<TAB>', '<C-w><C-w>', { noremap = true, silent = true })
 
 -- vim.keymap.set('v', '<TAB>', 's<BS><TAB>', { noremap = true, silent = true })
 -- vim.keymap.set('v', '<SPACE>', 's<SPACE>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<TAB>', '<C-w><C-w>', { noremap = true, silent = true })
+vim.keymap.set('n', '<S-TAB>', '<C-w>p', { noremap = true, silent = true })
 
 -- vim.keymap.set('v', '<S-TAB>', '<SPACE><BS><TAB>', { noremap = true, silent = true })
 
