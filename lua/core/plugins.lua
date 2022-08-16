@@ -456,12 +456,12 @@ packer.startup {
 
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
-        -- use { 'stevearc/aerial.nvim',
-        --     -- ft = 'markdown',
-        --     after = 'lualine.nvim',
-        --     module = 'aerial',
-        --     config = [[ require "LSP.aerial" ]]
-        -- }
+        use { 'stevearc/aerial.nvim',
+            -- ft = 'markdown',
+            after = 'lualine.nvim',
+            module = 'aerial',
+            config = [[ require "LSP.aerial" ]]
+        }
 
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua

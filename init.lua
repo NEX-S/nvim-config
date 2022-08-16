@@ -33,3 +33,34 @@ require 'core.colorscheme' -- ~/.config/nvim/lua/core/colorscheme.lua
 -- AurulentSansMono Nerd Font Mono
 -- InconsolataGo Nerd Font Mono
 
+-- File           
+-- Module         
+-- Namespace      ﱕ
+-- Package        
+-- Class          
+-- Method         
+-- Property       
+-- Field          
+-- Constructor    
+-- Enum           
+-- Interface      
+-- Function       
+-- Variable       
+-- Constant       
+-- String         
+-- Number         
+-- Boolean        
+-- Array          
+-- Object         
+-- Key            
+-- Null           
+-- EnumMember     
+-- Struct         ﯟ
+-- Event          
+-- Operator       
+-- TypeParameter  
+-- TypeAlias      
+-- Parameter      
+-- StaticMethod   ﴂ
+-- Macro          
+

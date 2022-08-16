@@ -113,7 +113,7 @@ function M.on_attach(client, bufnr)
     -- vim.keymap.set('n', ';;ca', vim.lsp.buf.code_action, bufopts)
     -- vim.keymap.set('n', ';;f', vim.lsp.buf.formatting, bufopts)
 
-    -- require "aerial".on_attach(client, bufnr)
+    require "aerial".on_attach(client, bufnr)
 
     -- AUTO-FORMAT
     -- if client.supports_method("textDocument/formatting") then
