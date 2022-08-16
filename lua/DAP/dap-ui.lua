@@ -69,3 +69,46 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
+vim.api.nvim_set_hl(0, "NvimDapVirtualText", { bg = "NONE", fg = "#484848", })
+vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { bg = "NONE", fg = "#484848", })
+    vim.api.nvim_set_hl(0, "NvimDapVirtualTextError", { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "NvimDapVirtualTextInfo", { bg = "NONE", fg = "#9EB73D", })
+
+vim.api.nvim_set_hl(0, "DapBreakpoint", { bg = "#232323", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "DapBreakpointNr", { bg = "#232323", fg = "#6F6F6F", italic = true })
+vim.api.nvim_set_hl(0, "DapBreakpointLine", { bg = "#232323", fg = "NONE", })
+
+vim.api.nvim_set_hl(0, "DapStopped", { bg = "#292929", fg = "#D0EE7A", })
+vim.api.nvim_set_hl(0, "DapStoppedNr", { bg = "#292929", fg = "#D0EE7A", })
+vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#292929", fg = "NONE", })
+
+vim.api.nvim_set_hl(0, "DapLogPoint", { bg = "NONE", fg = "#9EB73D", })
+
+vim.api.nvim_set_hl(0, "DapUILineNumber", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapUIDecoration", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapUIFrameName", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapUIFloatBorder", { bg = "NONE", fg = "#353535", })
+
+vim.api.nvim_set_hl(0, "DapUIType", { bg = "NONE", fg = "#C53B82", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "DapUIScope", { bg = "NONE", fg = "#AF87D7", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "DapUIValue", { bg = "NONE", fg = "#AF87D7", })
+vim.api.nvim_set_hl(0, "DapUISource", { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "DapUIThread", { bg = "NONE", fg = "#008FBF", italic = true })
+vim.api.nvim_set_hl(0, "DapUIVariable", { bg = "NONE", fg = "#9EB73D", italic = true })
+
+vim.api.nvim_set_hl(0, "DapUIWatchesEmpty", { bg = "NONE", fg = "#AF87D7", })
+vim.api.nvim_set_hl(0, "DapUIWatchesError", { bg = "NONE", fg = "#AF87D7", })
+vim.api.nvim_set_hl(0, "DapUIWatchesValue", { bg = "NONE", fg = "#AF87D7", })
+vim.api.nvim_set_hl(0, "DapUIModifiedValue", { bg = "NONE", fg = "#AF87D7", })
+vim.api.nvim_set_hl(0, "DapUIStoppedThread", { bg = "NONE", fg = "#AF87D7", })
+
+vim.api.nvim_set_hl(0, "DapUIBreakpointsInfo", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapUIBreakpointsLine", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapUIBreakpointsPath", { bg = "NONE", fg = "#9EB73D", })
+
+vim.api.nvim_set_hl(0, "DapBreakpointCondition", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapBreakpointRejected", { bg = "NONE", fg = "#9EB73D", })
+
+vim.api.nvim_set_hl(0, "DapUIBreakpointsCurrentLine", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapUIBreakpointsDisabledLine", { bg = "NONE", fg = "#9EB73D", })
+

@@ -87,5 +87,12 @@ require"gitsigns".setup {
         -- Text object
         map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end
-}
+        }
+
+vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "NONE", fg = "#9EB73D", italic = true })
+vim.api.nvim_set_hl(0, "GitSignsChange", { bg = "NONE", fg = "#008fbf", italic = true })
+vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = "NONE", fg = "#C53B82", italic = true })
+vim.api.nvim_set_hl(0, "GitSignsChangeDelete", { bg = "NONE", fg = "#DEA600", italic = true })
+vim.api.nvim_set_hl(0, "GitSignsTopDelete", { bg = "NONE", fg = "#C53B82", italic = true })
+vim.api.nvim_set_hl(0, "gitcommitSummary", { bg = "NONE", fg = "#D0EE7A", bold = true, italic = true })
 

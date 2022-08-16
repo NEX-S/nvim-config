@@ -291,8 +291,8 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
         use { "glepnir/lspsaga.nvim",
             branch = "version_2",
-            -- after = 'nvim-lspconfig',
-            keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", ";D", "<A-p>", "<A-n>", ";x" },
+            after = 'nvim-lspconfig',
+            -- keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", ";D", "<A-p>", "<A-n>", ";x", ";0", ";9" },
             config = [[ require "LSP.lsp-saga" ]]
         }
 
@@ -456,12 +456,12 @@ packer.startup {
 
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
-        use { 'stevearc/aerial.nvim',
-            -- ft = 'markdown',
-            after = 'lualine.nvim',
-            module = 'aerial',
-            config = [[ require "LSP.aerial" ]]
-        }
+        -- use { 'stevearc/aerial.nvim',
+        --     -- ft = 'markdown',
+        --     after = 'lualine.nvim',
+        --     module = 'aerial',
+        --     config = [[ require "LSP.aerial" ]]
+        -- }
 
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
@@ -660,85 +660,17 @@ packer.startup {
         --     ]]
         -- }
 
-        use { 'windwp/nvim-ts-autotag', event = 'InsertEnter' }
-        use { 'nvim-treesitter/nvim-treesitter-context',
-            after = 'nvim-treesitter',
-            config = [[
-                require "treesitter-context".setup {
-                    enable = true,
-                    max_lines = 0,
-                    patterns = {
-                        default = {
-                            'class',
-                            'function',
-                            'method',
-                            'for',
-                            'while',
-                            'if',
-                            'switch',
-                            'case',
-                        },
-                    },
-                    zindex = 20, -- The Z-index of the context window
-                    mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-                }
-            ]]
-        }
-        use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
+        -- TREESITTER
+        -- ~/.config/nvim/lua/plugins/treesitter.lua
         use { 'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
             ft = { 'c', 'lua', 'php', 'markdown', 'python', 'html', 'vim', 'http', 'json' },
-            config = function()
-                require "nvim-treesitter.configs".setup {
-                    sync_install = true,
-                    ensure_installed = { 'c', 'lua', 'php', 'markdown', 'python', 'html', 'vim', 'http', 'json', 'java', 'go' },
-                    highlight = {
-                        enable = true,
-                        additional_vim_regex_highlighting = false,
-                        disable = {},
-                    },
-                    autotag = {
-                        enable = true,
-                        filetypes = { 'html', 'xml' },
-                    },
-                    indent = { enable = true },
-                    textobjects = {
-                        select = {
-                            enable = true,
-                            -- Automatically jump forward to textobj, similar to targets.vim
-                            lookahead = true,
-                            keymaps = {
-                                -- You can use the capture groups defined in textobjects.scm
-                                ["af"] = "@function.outer",
-                                ["if"] = "@function.inner",
-                                ["ac"] = "@class.outer",
-                                ["ic"] = "@class.inner",
-                            },
-                        },
-                        move = {
-                            enable = true,
-                            set_jumps = true, -- whether to set jumps in the jumplist
-                            goto_next_start = {
-                                ["]m"] = "@function.outer",
-                                ["]]"] = "@class.outer",
-                            },
-                            goto_next_end = {
-                                ["]M"] = "@function.outer",
-                                ["]["] = "@class.outer",
-                            },
-                            goto_previous_start = {
-                                ["[m"] = "@function.outer",
-                                ["[["] = "@class.outer",
-                            },
-                            goto_previous_end = {
-                                ["[M"] = "@function.outer",
-                                ["[]"] = "@class.outer",
-                            },
-                        },
-                    },
-                }
-            end
+            config = [[ require "plugins.treesitter" ]]
         }
+        use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
+        use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter"  }
+
+        use { 'windwp/nvim-ts-autotag', event = 'InsertEnter' }
 
         -- 聚焦当前 函数/方法
         -- use { 'folke/twilight.nvim',
@@ -774,7 +706,7 @@ packer.startup {
         }
 
         -- NVIM-DAP-UI --
-        -- ~/.config/nvim/lua/DAP/dap-ui.lua
+            -- ~/.config/nvim/lua/DAP/dap-ui.lua
         use { 'rcarriga/nvim-dap-ui',
             keys = { ';;', '<C-d>' },
             config = [[ require "DAP.dap-ui" ]]
