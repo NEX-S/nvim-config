@@ -12,7 +12,7 @@ vim.api.nvim_set_hl(0, "ModeMsg",      { bg = "NONE", fg = "#767676", })
 vim.api.nvim_set_hl(0, "Error",        { bg = "NONE", fg = "#ffffff", })
 vim.api.nvim_set_hl(0, "Conceal",      { bg = "NONE", fg = "#626262", })
 vim.api.nvim_set_hl(0, "PreProc",      { bg = "NONE", fg = "#767676", })
-vim.api.nvim_set_hl(0, "SpecialKey",   { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "SpecialKey",   { bg = "NONE", fg = "#6c5b9e", })
 vim.api.nvim_set_hl(0, "FoldColumn",   { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "PmenuSbar",    { bg = "NONE", fg = "#ffffff", })
 vim.api.nvim_set_hl(0, "WildMenu",     { bg = "NONE", fg = "#D75F5F", })
@@ -97,3 +97,4 @@ vim.api.nvim_set_hl(0, "SpellLocal",   { bg = "NONE", fg = "#D7AF5F", underline 
 
 vim.api.nvim_set_hl(0, "Exception",    { bg = "NONE", fg = "#BBE73D", italic = true, bold = true })
 vim.api.nvim_set_hl(0, "Todo",         { bg = "NONE", fg = "#D66F01", italic = true, bold = true })
+

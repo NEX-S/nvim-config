@@ -236,7 +236,7 @@ packer.startup {
         -- TODO: <M-e>
         use { 'windwp/nvim-autopairs',
             event = 'InsertEnter',
-            config = [[
+            config = function ()
                 require "nvim-autopairs".setup {
                     disable_filetype = { 'TelescopePrompt' },
                     disable_in_macro = true,
@@ -250,10 +250,19 @@ packer.startup {
                     map_cr = true,
                     map_bs = true,  -- map the <BS> key
                     map_c_h = false,  -- Map the <C-h> key to delete a pair
-                    map_c_w = true, -- map <c-w> to delete a pair if possible
+                    map_c_w = false, -- map <c-w> to delete a pair if possible
+                    fast_wrap = {
+                        map = '<S-TAB>',
+                        chars = { '{', '[', '(', '"', "'" },
+                        pattern = [=[[%'%"%)%>%]%)%}%,]]=],
+                        end_key = '$',
+                        keys = 'qwertyuiopzxcvbnmasdfghjkl',
+                        check_comma = true,
+                        highlight = 'Search',
+                        highlight_grey='Comment'
+                    },
                 }
-
-            ]]
+            end
         }
 
         -- LSP COMPLETION
@@ -492,50 +501,12 @@ packer.startup {
         -- use { "rcarriga/cmp-dap", ft = { 'dap-repl', 'dapui_watches' } }
 
         -- LUASNIP --
+        -- ~/.config/nvim/lua/plugins/luasnip.lua
         use { 'saadparwaiz1/cmp_luasnip', event = 'InsertEnter' }
         use { 'rafamadriz/friendly-snippets', after = 'cmp_luasnip' }
         use { 'L3MON4D3/LuaSnip',
             after = 'friendly-snippets',
-            config = [[
-                require "luasnip.loaders.from_vscode".lazy_load()
-
-                local nvim_cmp = require "cmp"
-                    local luasnip  = require "luasnip"
-
-                nvim_cmp.setup {
-                    snippet = {
-                        -- 开启 LuaSnip 代码片段补全
-                        expand = function(args)
-                            luasnip.lsp_expand(args.body)
-                        end,
-                    },
-                    mapping = {
-                        ["<TAB>"] = nvim_cmp.mapping(
-                            function(fallback)
-                                if luasnip.jumpable() then
-                                    luasnip.jump(1)
-                                elseif nvim_cmp.visible() then
-                                    nvim_cmp.confirm {
-                                        behavior = nvim_cmp.ConfirmBehavior.Replace,
-                                        select = true,
-                                    }
-                                else
-                                    fallback()
-                                end
-                            end, { "i", "s", }
-                        ),
-                        ["<S-Tab>"] = nvim_cmp.mapping(
-                            function(fallback)
-                                if nvim_cmp.visible() then
-                                    nvim_cmp.select_next_item()
-                                else
-                                    fallback()
-                                end
-                            end, { "i", "s", }
-                        ),
-                    },
-                }
-            ]]
+            config = [[ require "plugins.luasnip" ]]
         }
 
         -- use { 'ms-jpq/coq_nvim',
