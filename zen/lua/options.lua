@@ -76,25 +76,6 @@ vim.opt.modelines = 0
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
--- vim.opt.statusline = ' %-60.60([  UNEXPECTED ] [ %F  ]%)%=[ %c -  %B ] [ %l-%L : %p%% ] [ '..os.date("%m-%d %a")..' ] %y '
-
--- function _G.custom_fold_text()
---     local s_pos = vim.v.foldstart
---     local e_pos = vim.v.foldend
---     local sta_line = vim.fn.getline(s_pos)
---     local end_line = vim.fn.trim(vim.fn.getline(e_pos))
---     local sub = string.gsub(sta_line, '\t', string.rep(' ', vim.o.tabstop))
---     local lnum = e_pos - s_pos + 1
---     local dash = '  ' .. vim.v.folddashes .. " [ "
---     local offset = 17
---     local IDE_width = 80
---     local gap = string.rep('-', IDE_width - #sub - #end_line - offset)
---     gap = ' ] ' .. gap .. ' [ '
---     return dash .. sub .. " ... " .. end_line .. gap .. lnum .. " LINES ]"
--- end
-
--- vim.opt.foldtext = "v:lua.custom_fold_text()"
-
 vim.opt.foldnestmax = 9
 vim.opt.foldminlines = 4
 

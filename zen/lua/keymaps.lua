@@ -1,12 +1,4 @@
 
---  MODES  --
---  normal_mode   = 'n',
---  insert_mode   = 'i',
---  visual_mode   = 'v',
---  vblock_mode   = 'x',
---  terminal_mode = 't',
---  command_mode  = 'c',
-
 vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
@@ -23,6 +15,8 @@ vim.keymap.set('o', 'L', '$', { noremap = true, silent = true })
 vim.keymap.set('v', 'H', '^', { noremap = true, silent = true })
 vim.keymap.set('v', 'L', '$', { noremap = true, silent = true })
 
+
+-- ALT AREA --
 vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true })
@@ -41,6 +35,7 @@ vim.keymap.set('n', '\\', 'q', { noremap = true, silent = true })
 vim.keymap.set('n', 'p', 'dP', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';f', '/', { noremap = true, silent = false })
+
 vim.keymap.set('n', '<ESC>', '<CMD>set hls!<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('i', '<A-.>', '<ESC>>>A', { noremap = true, silent = true })
@@ -54,6 +49,7 @@ vim.keymap.set('n', '<LEFT>', '<CMD>resize -2<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<DOWN>', '<CMD>vertical resize -2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<UP>', '<CMD>vertical resize +2<CR>', { noremap = true, silent = true })
 
+-- INDENT --
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 
@@ -87,10 +83,6 @@ vim.keymap.set('n', ';a', 'ggvG$', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';w', '<CMD>w!<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ';q', '<CMD>q!<CR>', { noremap = true, silent = true })
-
--- vim.keymap.set('n', ';t', 'viw:Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
--- vim.keymap.set('v', ';t', ':Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
--- vim.keymap.set('x', ';t', ':Translate ZH -source=EN -parse_after=window -output=floating<CR>', { noremap = true, silent = true})
 
 vim.keymap.set('v', ';w', '<ESC><CMD>w!<CR>gv', { noremap = true, silent = true })
 vim.keymap.set('v', ';q', '<ESC><CMD>q!<CR>', { noremap = true, silent = true })
@@ -165,26 +157,16 @@ vim.keymap.set('o', "h'", ":<C-u>normal! F'vi'<CR>", { noremap = true, silent = 
 
 vim.keymap.set('n', ';e', '<CMD>NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<A-f>', '<CMD>Telescope find_files theme=dropdown previewer=false<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, silent = true })
-
 vim.keymap.set('n', '<F1>', '<CMD>StartupTime<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<F2>', '<CMD>w | source $MYVIMRC<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<TAB>', '<C-w><C-w>', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-TAB>', '<C-w>p', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 
-vim.keymap.set('n', ';0', '<CMD>AerialToggle<CR>', { noremap = true, silent = true } )
-
-vim.keymap.set('v', ';r', ':SnipRun<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', ';r', '<CMD>w | RunCode<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';v', '<CMD>vs<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ';s', '<CMD>sp<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('i', '<A-h>', '<ESC>ciw', { noremap = true, silent = true })
-
-vim.keymap.set('v', '<A-b>', ':<C-u>lua require "b64".encode()<CR>', { noremap = true, silent = true })
-    vim.keymap.set('v', '<A-B>', ':<C-u>lua require "b64".decode()<CR>', { noremap = true, silent = true })

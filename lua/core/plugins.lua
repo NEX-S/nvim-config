@@ -1,4 +1,3 @@
-
 local status, packer = pcall(require, 'packer')
 
 if not status then
@@ -40,6 +39,9 @@ packer.startup {
         use 'wbthomason/packer.nvim'
         use 'lewis6991/impatient.nvim'
         use 'dstein64/vim-startuptime'
+        use 'yianwillis/vimcdoc'
+
+        -- use { 'yianwillis/vimcdoc', cmd = 'h' }
 
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }
@@ -233,11 +235,12 @@ packer.startup {
         }
 
         -- AUTO-PAIRS --
-        -- TODO: <M-e>
         use { 'windwp/nvim-autopairs',
             event = 'InsertEnter',
             config = function ()
-                require "nvim-autopairs".setup {
+                local autopairs = require "nvim-autopairs"
+
+                autopairs.setup {
                     disable_filetype = { 'TelescopePrompt' },
                     disable_in_macro = true,
                     disable_in_visualblock = true,
@@ -261,6 +264,12 @@ packer.startup {
                         highlight = 'Search',
                         highlight_grey='Comment'
                     },
+                }
+                local Rule = require "nvim-autopairs.rule"
+                local cond = require "nvim-autopairs.conds"
+
+                autopairs.add_rules {
+                    Rule(">", ">"):with_pair(cond.none()):with_move(cond.done()),
                 }
             end
         }
@@ -640,6 +649,7 @@ packer.startup {
         }
         use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
         use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter"  }
+        use { 'p00f/nvim-ts-rainbow', after = "nvim-treesitter" }
 
         use { 'windwp/nvim-ts-autotag', event = 'InsertEnter' }
 

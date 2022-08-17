@@ -3,7 +3,7 @@ local types = require "luasnip.util.types"
 
 require "luasnip".config.setup {
     region_check_events = "CursorHold,InsertEnter,InsertLeave",
-    delete_check_events = "TextChanged,InsertEnter",
+    delete_check_events = "TextChanged,InsertEnter,InsertLeave",
     ext_opts = {
         [types.choiceNode] = { active = { virt_text = {{ "", "LuasnipChoiceNodeActive" }} } },
         [types.insertNode] = { active = { virt_text = {{ "", "LuasnipInsertNodeActive" }} } },
