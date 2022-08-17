@@ -178,7 +178,8 @@ vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';0', '<CMD>AerialToggle<CR>', { noremap = true, silent = true } )
 
-vim.keymap.set('v', ';r', ':SnipRun<CR>', { noremap = true, silent = false })
+-- vim.keymap.set('v', ';r', ':SnipRun<CR>', { noremap = true, silent = false })
+vim.keymap.set('v', ';r', '<CMD>MdEval<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', ';r', '<CMD>w | RunCode<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';v', '<CMD>vs<CR>', { noremap = true, silent = true })

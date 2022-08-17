@@ -268,8 +268,11 @@ packer.startup {
                 local Rule = require "nvim-autopairs.rule"
                 local cond = require "nvim-autopairs.conds"
 
+                -- C/CPP <harder.h> FIX
                 autopairs.add_rules {
-                    Rule(">", ">"):with_pair(cond.none()):with_move(cond.done()),
+                    Rule(">", ">", { "c", "cpp" })
+                   :with_pair(cond.none())
+                   :with_move(cond.done()),
                 }
             end
         }
@@ -405,6 +408,27 @@ packer.startup {
                 vim.keymap.set('n', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
                 vim.keymap.set('i', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
             ]]
+        }
+
+        -- MDEVAL --
+        use { 'jubnzv/mdeval.nvim',
+            ft = "markdown",
+            config = function ()
+                require "mdeval".setup {
+                    -- Don't ask before executing code blocks
+                    require_confirmation = false,
+                    eval_options = {
+                        c = {
+                            command = {"clang", "-std=gnu2x"},
+                            default_header = [[
+                                #include <stdio.h>
+                                #include <stdlib.h>
+                            ]]
+                        },
+                    },
+                }
+                vim.g.markdown_fenced_languages = { 'python', 'c', 'lua', 'html', 'php', 'go', 'bash' }
+            end
         }
 
         -- LUALINE --
@@ -601,6 +625,7 @@ packer.startup {
         --     cmd = 'SnipRun',
         --     config = [[ require 'plugins.sniprun' ]]
         -- }
+
 
         -- use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
 
