@@ -11,7 +11,7 @@ packer.init {
     compile_on_sync = true,
     git = { clone_timeout = 6000 },
     prompt_border = 'single',
-    compile_path = '~/.config/nvim/lua/plugins/packer_compiled.lua',
+   compile_path = '~/.cache/nvim/packer_compiled.lua',
     keybindings = {
         quit = '<ESC>',
         toggle_info = 'o',

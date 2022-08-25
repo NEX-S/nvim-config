@@ -9,13 +9,14 @@
 --                                                                  --
 
 pcall(require, "impatient")
+pcall(vim.cmd, "luafile ~/.cache/nvim/packer_compiled.lua")
 
 require 'core.keymaps'  -- ~/.config/nvim/lua/core/keymaps.lua
 require 'core.options'  -- ~/.config/nvim/lua/core/options.lua
 require 'core.autocmd'  -- ~/.config/nvim/lua/core/autocmd.lua
-require 'core.plugins'  -- ~/.config/nvim/lua/core/plugins.lua
+require 'core.x-color'  -- ~/.config/nvim/lua/core/x-color.lua
 
-require 'core.colorscheme' -- ~/.config/nvim/lua/core/colorscheme.lua
+require 'plugins.packer'  -- ~/.config/nvim/lua/plugins/packer.lua
 
 --                       --
 --                       --
