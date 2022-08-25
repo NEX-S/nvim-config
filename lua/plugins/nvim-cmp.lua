@@ -65,7 +65,7 @@ nvim_cmp.setup {
                 buffer   = " - BUFFER",
                 path     = " - PATH",
                 calc     = " - CALC",
-                nvim_lua = " - LUA API",
+                nvim_lua = " - NVIM-API",
                 nvim_lsp_signature_help = " - SIGNATURE",
             })[entry.source.name]
             return vim_item

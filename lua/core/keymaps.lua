@@ -188,4 +188,6 @@ vim.keymap.set('n', ';s', '<CMD>sp<CR>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-h>', '<ESC>ciw', { noremap = true, silent = true })
 
 vim.keymap.set('v', '<A-b>', ':<C-u>lua require "b64".encode()<CR>', { noremap = true, silent = true })
-    vim.keymap.set('v', '<A-B>', ':<C-u>lua require "b64".decode()<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('v', '<A-B>', ':<C-u>lua require "b64".decode()<CR>', { noremap = true, silent = true })
+

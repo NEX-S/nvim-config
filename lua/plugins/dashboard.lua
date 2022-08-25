@@ -36,8 +36,8 @@ dashboard.custom_key = {
     ['f']     = ':edit $MYVIMRC<CR>',
     ['q']     = '<CMD>q!<CR>',
     ['<ESC>'] = '<CMD>q!<CR>',
-    ['o']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
     ['l']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
+    ['o']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
     ['<CR>']  = '<CMD>lua require "dashboard".call_line_action()<CR>',
 }
 
@@ -52,9 +52,9 @@ dashboard.custom_footer = {
     '「 路漫漫其修远兮 吾将上下而求索 」'
 }
 
-vim.api.nvim_set_hl(0, "DashboardHeader", { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "DashboardCenter", { bg = "NONE", fg = "#777777", })
+vim.api.nvim_set_hl(0, "DashboardHeader",     { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "DashboardCenter",     { bg = "NONE", fg = "#777777", })
 vim.api.nvim_set_hl(0, "DashboardCenterIcon", { bg = "NONE", fg = "#777777", })
-    vim.api.nvim_set_hl(0, "DashboardShortCut", { bg = "NONE", fg = "#555555", })
-vim.api.nvim_set_hl(0, "DashboardFooter", { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "DashboardShortCut",   { bg = "NONE", fg = "#555555", })
+vim.api.nvim_set_hl(0, "DashboardFooter",     { bg = "NONE", fg = "#666666", })
 

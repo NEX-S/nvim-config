@@ -24,16 +24,6 @@ require 'plugins.packer'  -- ~/.config/nvim/lua/plugins/packer.lua
 --    﫢           ﮲   ﱕ    --
 --   ﯟ     ﰊ ﰉ ﱢ ﱡ 諸喝卑ﰩ    廓--
 
--- UbuntuMono Nerd Font Mono
--- ShureTechMono Nerd Font Mono
--- CaskaydiaCove Nerd Font Mono
--- Cousine Nerd Font Mono
--- MesloLGS Nerd Font Mono
--- BlexMono Nerd Font Mono
--- BitstreamVeraSansMono Nerd Font Mono
--- AurulentSansMono Nerd Font Mono
--- InconsolataGo Nerd Font Mono
-
 -- File           
 -- Module         
 -- Namespace      ﱕ

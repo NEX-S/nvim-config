@@ -212,7 +212,7 @@ packer.startup {
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
-        -- use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
+        use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
