@@ -14,9 +14,9 @@ require "lspsaga".init_lsp_saga {
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {
         enable = true,
-        sign = false,
+        sign = true,
         sign_priority = 20,
-        virtual_text = true,
+        virtual_text = false,
     },
     finder_icons = {
         def = '  ',

@@ -1,16 +1,14 @@
 
 require"gitsigns".setup {
     signs = {
-        -- add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        -- change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        -- add          = { hl = 'GitSignsAdd'   , text = ' +',  numhl='GitSignsAddNr'   , linehl='GitSignsAddLn' },
-        -- change       = { hl = 'GitSignsChange', text = ' ',  numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+        -- add          = { hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+        -- change       = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        -- delete       = { hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
 
         add          = { hl = 'GitSignsAdd'   , text = '▎', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
         change       = { hl = 'GitSignsChange', text = '▎', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = { hl = 'GitSignsDelete', text = '▎',  numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
-
-        topdelete    = { hl = 'GitSignsTopDelete', text = '▎', numhl='GitSignsTopDeleteNr', linehl='GitSignsTopDeleteLn' },
+        delete       = { hl = 'GitSignsDelete', text = '▎', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+        topdelete    = { hl = 'GitSignsTopDelete'   , text = '▎', numhl='GitSignsTopDeleteNr'   , linehl='GitSignsTopDeleteLn' },
         changedelete = { hl = 'GitSignsChangeDelete', text = '▎', numhl='GitSignsChangeDeleteNr', linehl='GitSignsChangeDeleteLn' },
     },
     signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`

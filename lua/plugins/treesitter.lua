@@ -79,7 +79,7 @@ require "treesitter-context".setup {
 vim.api.nvim_set_hl(0, "rainbowcol1",  { bg = "NONE", fg = "#C53B82", })    -- ( )
 vim.api.nvim_set_hl(0, "rainbowcol2",  { bg = "NONE", fg = "#C53B82", })    -- { }
 vim.api.nvim_set_hl(0, "rainbowcol3",  { bg = "NONE", fg = "#b4de3b", })    -- { }
-vim.api.nvim_set_hl(0, "rainbowcol4",  { bg = "NONE", fg = "#6545c3", })    -- { }
+vim.api.nvim_set_hl(0, "rainbowcol4",  { bg = "NONE", fg = "#6C5B9E", })    -- { }
 vim.api.nvim_set_hl(0, "rainbowcol5",  { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "rainbowcol6",  { bg = "NONE", fg = "#525252", })
 vim.api.nvim_set_hl(0, "rainbowcol7",  { bg = "NONE", fg = "#614F97", })
