@@ -22,7 +22,7 @@ packer.init {
         done_sym = ' ',
         removed_sym = ' -',
         moved_sym = '',
-        open_fn = function()
+        open_fn = function ()
             return require "packer.util".float { border = "single" }
         end,
     }
@@ -36,13 +36,10 @@ packer.startup {
         -- use 'shaunsingh/nord.nvim'
 
         -- PLUGINS --
-        -- use { 'wbthomason/packer.nvim', module = "packer" }
-        use 'wbthomason/packer.nvim'
+        use { 'wbthomason/packer.nvim', module = "packer" }
         use 'lewis6991/impatient.nvim'
         use 'dstein64/vim-startuptime'
         use 'yianwillis/vimcdoc'
-
-        -- use { 'yianwillis/vimcdoc', cmd = 'h' }
 
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }

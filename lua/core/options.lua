@@ -103,4 +103,4 @@ vim.wo.foldmethod = "expr"
 vim.wo.foldexpr   = "nvim_treesitter#foldexpr()"
 vim.opt.fillchars = "fold: "
 
-vim.opt.runtimepath:prepend('~/.cache/nvim')
+-- vim.opt.runtimepath:prepend('~/.cache/nvim')

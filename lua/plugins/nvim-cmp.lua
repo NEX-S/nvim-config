@@ -64,6 +64,9 @@ nvim_cmp.setup {
                 luasnip  = " - SNIPPET",
                 buffer   = " - BUFFER",
                 path     = " - PATH",
+                calc     = " - CALC",
+                nvim_lua = " - LUA API",
+                nvim_lsp_signature_help = " - SIGNATURE",
             })[entry.source.name]
             return vim_item
         end,
@@ -80,6 +83,18 @@ nvim_cmp.setup {
     confirm_opts = {
         behavior = nvim_cmp.ConfirmBehavior.Replace,
         select = false,
+    },
+    -- FIX: include in C
+    snippet = {
+        expand = function(args)
+            local pos =  vim.api.nvim_win_get_cursor(0)
+            local  line = vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1] , false)[1]
+            if vim.startswith(line, "#include") then
+                return args.body:sub(1, -2)
+            else
+                require "luasnip".lsp_expand(args.body)
+            end
+        end
     },
 }
 
