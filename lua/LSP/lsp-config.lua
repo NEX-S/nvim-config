@@ -1,28 +1,28 @@
 
-vim.api.nvim_set_hl(0, "DiagnosticSignHint", { bg = "NONE", fg = "#8567a3", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticSignHint",  { bg = "NONE", fg = "#8567a3", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticSignWarn",  { bg = "NONE", fg = "#8567a3", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticSignInfo",  { bg = "NONE", fg = "#8567a3", italic = true })
 vim.api.nvim_set_hl(0, "DiagnosticSignError", { bg = "NONE", fg = "#8567a3", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { bg = "NONE", fg = "#8567a3", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { bg = "NONE", fg = "#8567a3", italic = true })
 
-vim.api.nvim_set_hl(0, "DiagnosticErrorNr", { bg = "NONE", fg = "#C53B82", italic = true,bold = true })
-vim.api.nvim_set_hl(0, "DiagnosticHintNr", { bg = "NONE", fg = "#008FBF", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticInfoNr", { bg = "NONE", fg = "#C7EB61", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticWarnNr", { bg = "NONE", fg = "#DEA600", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticHintNr",  { bg = "NONE", fg = "#008FBF", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticInfoNr",  { bg = "NONE", fg = "#C7EB61", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticWarnNr",  { bg = "NONE", fg = "#DEA600", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticErrorNr", { bg = "NONE", fg = "#C53B82", italic = true, bold = true })
 
-vim.api.nvim_set_hl(0, "DiagnosticHint", { bg = "NONE", fg = "#008FBF", })
-vim.api.nvim_set_hl(0, "DiagnosticInfo", { bg = "NONE", fg = "#C7EB61", })
+vim.api.nvim_set_hl(0, "DiagnosticHint",  { bg = "NONE", fg = "#008FBF", })
+vim.api.nvim_set_hl(0, "DiagnosticInfo",  { bg = "NONE", fg = "#C7EB61", })
+vim.api.nvim_set_hl(0, "DiagnosticWarn",  { bg = "NONE", fg = "#DEA600", })
 vim.api.nvim_set_hl(0, "DiagnosticError", { bg = "NONE", fg = "#A70458", })
-vim.api.nvim_set_hl(0, "DiagnosticWarn", { bg = "NONE", fg = "#DEA600", })
 
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "NONE", fg = "#424242", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "NONE", fg = "#424242", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "NONE", fg = "#424242", italic = true,bold = true })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "NONE", fg = "#424242", italic = true,bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint",  { bg = "NONE", fg = "#424242", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo",  { bg = "NONE", fg = "#424242", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn",  { bg = "NONE", fg = "#424242", italic = true, bold = true })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "NONE", fg = "#424242", italic = true, bold = true })
 
+vim.api.nvim_set_hl(0, "DiagnosticFloatingHint",  { bg = "NONE", fg = "#008FBF", })
+vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo",  { bg = "NONE", fg = "#C7EB61", })
+vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn",  { bg = "NONE", fg = "#DEA600", })
 vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { bg = "NONE", fg = "#A70458", })
-vim.api.nvim_set_hl(0, "DiagnosticFloatingHint", { bg = "NONE", fg = "#008FBF", })
-vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo", { bg = "NONE", fg = "#C7EB61", })
-vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn", { bg = "NONE", fg = "#DEA600", })
 
 vim.diagnostic.config {
     virtual_text = true,

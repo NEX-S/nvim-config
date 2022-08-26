@@ -5,7 +5,6 @@ if not status then
     return nil
 end
 
--- TODO:
 packer.init {
     auto_clean = true,
     compile_on_sync = true,
@@ -298,6 +297,8 @@ packer.startup {
                 require "LSP.lsp-setup"
             ]]
         }
+
+        -- use { 'simrat39/inlay-hints.nvim', module = 'inlay-hints' }
 
         -- NULL-LS --
         -- ~/.config/nvim/lua/LSP/null-ls.lua
