@@ -13,10 +13,10 @@ require "lspsaga".init_lsp_saga {
     code_action_num_shortcut = true,
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {
-        enable = true,
-        sign = true,
+        enable = false,
+        sign = false,
         sign_priority = 20,
-        virtual_text = false,
+        virtual_text = true,
     },
     finder_icons = {
         def = '  ',

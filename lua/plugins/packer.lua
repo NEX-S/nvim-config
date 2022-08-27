@@ -37,8 +37,8 @@ packer.startup {
         -- PLUGINS --
         use { 'wbthomason/packer.nvim', module = "packer" }
         use 'lewis6991/impatient.nvim'
-        use 'dstein64/vim-startuptime'
-        use 'yianwillis/vimcdoc'
+        -- use 'dstein64/vim-startuptime'
+        -- use 'yianwillis/vimcdoc'
 
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }
@@ -98,6 +98,7 @@ packer.startup {
         -- ~/.config/nvim/lua/plugins/gitsigns.lua
         use { 'lewis6991/gitsigns.nvim',
             event = 'CursorMoved',
+            branch = 'tl141',
             tag = 'release',
             config = [[ require 'plugins.gitsigns' ]]
         }
