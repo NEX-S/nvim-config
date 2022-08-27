@@ -76,13 +76,13 @@ require "treesitter-context".setup {
 }
 
 -- RAINBOW BRACKET --
-vim.api.nvim_set_hl(0, "rainbowcol1",  { bg = "NONE", fg = "#C53B82", })    -- ( )
-vim.api.nvim_set_hl(0, "rainbowcol2",  { bg = "NONE", fg = "#C53B82", })    -- { }
-vim.api.nvim_set_hl(0, "rainbowcol3",  { bg = "NONE", fg = "#b4de3b", })    -- { }
-vim.api.nvim_set_hl(0, "rainbowcol4",  { bg = "NONE", fg = "#6C5B9E", })    -- { }
-vim.api.nvim_set_hl(0, "rainbowcol5",  { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "rainbowcol6",  { bg = "NONE", fg = "#525252", })
-vim.api.nvim_set_hl(0, "rainbowcol7",  { bg = "NONE", fg = "#614F97", })
+vim.api.nvim_set_hl(0, "rainbowcol1",  { bg = "NONE", fg = "#ffffff", })    -- ( )
+vim.api.nvim_set_hl(0, "rainbowcol2",  { bg = "NONE", fg = "#C53B82", })    -- {1}
+vim.api.nvim_set_hl(0, "rainbowcol3",  { bg = "NONE", fg = "#6C5B9E", })    -- {2}
+vim.api.nvim_set_hl(0, "rainbowcol4",  { bg = "NONE", fg = "#666666", })    -- {3}
+vim.api.nvim_set_hl(0, "rainbowcol5",  { bg = "NONE", fg = "#C53B82", })    -- {4}
+vim.api.nvim_set_hl(0, "rainbowcol6",  { bg = "NONE", fg = "#6C5B9E", })    -- {5}
+vim.api.nvim_set_hl(0, "rainbowcol7",  { bg = "NONE", fg = "#666666", })    -- {6}
 
 -- TS HIGHLIGHT --
 vim.api.nvim_set_hl(0, "TSAnnotation",          { bg = "NONE", fg = "#FFFFFF", })

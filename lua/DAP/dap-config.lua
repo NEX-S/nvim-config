@@ -62,7 +62,7 @@ dap.configurations.cpp = {
             -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
             -- return vim.fn.input('Path to executable: ', vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r"), 'file')
             return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
-                end,
+        end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
         args = {},
@@ -86,11 +86,27 @@ require "dap.ext.vscode".load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
 
 dap.configurations.c = dap.configurations.cpp
 
-vim.keymap.set('n', '<C-d>', dap.continue, { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', '<C-o>', dap.step_out, { noremap = true, silent = true, buffer = true })
+-- dap.configurations.lua = {
+--     {
+--         type = 'nlua',
+--         request = 'attach',
+--         name = "Attach to running Neovim instance",
+--         host = '127.0.0.1',
+--         port = 8088,
+--     }
+-- }
+--
+-- dap.adapters.nlua = function (callback, config)
+--     callback({ type = 'server', host = config.host, port = config.port })
+-- end
+--
+-- vim.keymap.set('n', '<F3>', require "osv".run_this, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<C-d>', dap.continue,  { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<C-o>', dap.step_out,  { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-i>', dap.step_into, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-s>', dap.terminate, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-j>', dap.step_over, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<TAB>', dap.step_over, { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', ';;', dap.toggle_breakpoint, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', ';;'   , dap.toggle_breakpoint, { noremap = true, silent = true, buffer = true })
 

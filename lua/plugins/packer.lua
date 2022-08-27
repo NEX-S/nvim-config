@@ -741,6 +741,8 @@ packer.startup {
             ]]
         }
 
+        -- use { 'jbyuki/one-small-step-for-vimkind', module = "osv" }
+
         -- use {'sakhnik/nvim-gdb',
         --     ft = { 'c', 'cpp' },
         --     run = './install.sh',
