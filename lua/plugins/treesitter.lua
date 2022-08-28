@@ -76,7 +76,7 @@ require "treesitter-context".setup {
 }
 
 -- RAINBOW BRACKET --
-vim.api.nvim_set_hl(0, "rainbowcol1",  { bg = "NONE", fg = "#ffffff", })    -- ( )
+vim.api.nvim_set_hl(0, "rainbowcol1",  { bg = "NONE", fg = "#555555", })    -- (f)
 vim.api.nvim_set_hl(0, "rainbowcol2",  { bg = "NONE", fg = "#C53B82", })    -- {1}
 vim.api.nvim_set_hl(0, "rainbowcol3",  { bg = "NONE", fg = "#6C5B9E", })    -- {2}
 vim.api.nvim_set_hl(0, "rainbowcol4",  { bg = "NONE", fg = "#666666", })    -- {3}

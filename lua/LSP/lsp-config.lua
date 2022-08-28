@@ -89,6 +89,8 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = t
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 function M.on_attach(client, bufnr)
+
+    -- require "lsp-inlayhints".on_attach(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 

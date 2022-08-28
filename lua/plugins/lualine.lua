@@ -90,3 +90,37 @@ require "lualine".setup {
     },
 }
 
+vim.api.nvim_set_hl(0, "lualine_a_normal", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_b_normal", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_c_normal", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_x_normal", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_y_normal", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_z_normal", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+
+vim.api.nvim_set_hl(0, "lualine_a_insert", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_b_insert", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_c_insert", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_x_insert", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_y_insert", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_z_insert", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+
+vim.api.nvim_set_hl(0, "lualine_a_visual", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_b_visual", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_c_visual", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_x_visual", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_y_visual", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_z_visual", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+
+vim.api.nvim_set_hl(0, "lualine_a_replace", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_b_replace", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_c_replace", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_x_replace", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_y_replace", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_z_replace", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+
+vim.api.nvim_set_hl(0, "lualine_a_inactive", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_b_inactive", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_c_inactive", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_x_inactive", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_y_inactive", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })
+vim.api.nvim_set_hl(0, "lualine_z_inactive", { bg = "NONE", fg = "#ffffff", bold = false, italic = true })

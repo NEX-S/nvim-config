@@ -60,7 +60,7 @@
 
 vim.api.nvim_set_hl(0, "CursorLine",   { bg = "#282828", fg = "NONE", })
 vim.api.nvim_set_hl(0, "VisualNOS",    { bg = "#444444", fg = "#000000", })
-vim.api.nvim_set_hl(0, "Normal",       { bg = "#252525", fg = "#828282", })
+vim.api.nvim_set_hl(0, "Normal",       { bg = "#252525", fg = "#727272", })
 vim.api.nvim_set_hl(0, "StatusLine",   { bg = "#3A3A3A", fg = "#AF87D7", })
 vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#303030", fg = "#767676", })
 

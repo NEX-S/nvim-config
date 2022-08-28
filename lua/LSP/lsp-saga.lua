@@ -82,104 +82,40 @@ require "lspsaga".init_lsp_saga {
         -- auto refresh when change buffer
         auto_refresh = true,
     },
+    custom_kind = {
+        File          =  { "", "#FFFFFF" },
+        Module        =  { "", "#FFFFFF" },
+        Namespace     =  { "ﱕ", "#FFFFFF" },
+        Package       =  { "", "#FFFFFF" },
+        Class         =  { "", "#FFFFFF" },
+        Method        =  { "", "#FFFFFF" },
+        Property      =  { "", "#FFFFFF" },
+        Field         =  { "", "#FFFFFF" },
+        Constructor   =  { "", "#FFFFFF" },
+        Enum          =  { "", "#FFFFFF" },
+        Interface     =  { "", "#FFFFFF" },
+        Function      =  { "", "#FFFFFF" },
+        Variable      =  { "", "#FFFFFF" },
+        Constant      =  { "", "#FFFFFF" },
+        String        =  { "", "#FFFFFF" },
+        Number        =  { "", "#FFFFFF" },
+        Boolean       =  { "", "#FFFFFF" },
+        Array         =  { "", "#FFFFFF" },
+        Object        =  { "", "#FFFFFF" },
+        Key           =  { "", "#FFFFFF" },
+        Null          =  { "", "#FFFFFF" },
+        EnumMember    =  { "", "#FFFFFF" },
+        Struct        =  { "ﯟ", "#FFFFFF" },
+        Event         =  { "", "#FFFFFF" },
+        Operator      =  { "", "#FFFFFF" },
+        TypeParameter =  { "", "#FFFFFF" },
+        TypeAlias     =  { "", "#FFFFFF" },
+        Parameter     =  { "", "#FFFFFF" },
+        StaticMethod  =  { "ﴂ", "#FFFFFF" },
+        Macro         =  { "", "#FFFFFF" },
+
+    },
 }
-
-local icons = require "lspsaga.lspkind"
-
-    icons[1][2]   = ""   -- File
-    icons[2][2]   = ""   -- Module
-    icons[3][2]   = ""   -- Namespace
-    icons[4][2]   = ""   -- Package
-    icons[5][2]   = ""   -- Class
-    icons[6][2]   = ""   -- Method
-    icons[7][2]   = ""   -- Property
-    icons[8][2]   = ""   -- Field
-    icons[9][2]   = ""   -- Constructor
-    icons[10][2]  = ""   -- Enum
-    icons[11][2]  = ""   -- Interface
-    icons[12][2]  = ""  -- Function
-    icons[13][2]  = ""   -- Variable
-    icons[14][2]  = ""   -- Constant
-    icons[15][2]  = ""   -- String
-    icons[16][2]  = ""   -- Number
-    icons[17][2]  = ""   -- Boolean
-    icons[18][2]  = ""   -- Array
-    icons[19][2]  = ""   -- Object
-    icons[20][2]  = ""   -- Key
-    icons[21][2]  = ""   -- Null
-    icons[22][2]  = ""   -- EnumMember
-    icons[23][2]  = ""   -- Struct
-    icons[24][2]  = ""   -- Event
-    icons[25][2]  = ""   -- Operator
-    icons[26][2]  = ""   -- TypeParameter
-    icons[252][2] = ""   -- TypeAlias
-    icons[253][2] = ""   -- Parameter
-    icons[254][2] = ""   -- StaticMethod
-    icons[255][2] = ""   -- Macro
-
-    -- icons[1][2]    =  " "  -- File          
-    -- icons[2][2]    =  " "  -- Module         
-    -- icons[3][2]    =  "ﱕ "  -- Namespace     
-    -- icons[4][2]    =  " "  -- Package       
-    -- icons[5][2]    =  " "  -- Class         
-    -- icons[6][2]    =  " "  -- Method        
-    -- icons[7][2]    =  " "  -- Property       
-    -- icons[8][2]    =  " "  -- Field          
-    -- icons[9][2]    =  " "  -- Constructor    
-    -- icons[10][2]   =  " "  -- Enum          了
-    -- icons[11][2]   =  " "  -- Interface     練
-    -- icons[12][2]   =  " "  -- Function      
-    -- icons[13][2]   =  " "  -- Variable      
-    -- icons[14][2]   =  " "  -- Constant      
-    -- icons[15][2]   =  " "  -- String        
-    -- icons[16][2]   =  " "  -- Number        
-    -- icons[17][2]   =  " "  -- Boolean       ◩
-    -- icons[18][2]   =  " "  -- Array         
-    -- icons[19][2]   =  ""   -- Object        
-    -- icons[20][2]   =  " "  -- Key           
-    -- icons[21][2]   =  " "  -- Null          ﳠ
-    -- icons[22][2]   =  " "  -- EnumMember    
-    -- icons[23][2]   =  "ﯟ "  -- Struct        
-    -- icons[24][2]   =  " "  -- Event         
-    -- icons[25][2]   =  " "  -- Operator      
-    -- icons[26][2]   =  " "  -- TypeParameter 
-    -- icons[252][2]  =  " "  -- TypeAlias     
-    -- icons[253][2]  =  " "  -- Parameter     
-    -- icons[254][2]  =  "ﴂ "  -- StaticMethod  ﴂ
-    -- icons[255][2]  =  " "  -- Macro         
-
--- require "lspsaga.lspkind" {
---     { "File",           " ",  "#ffffff" },
---     { "Module",         " ",  "#ffffff" },
---     { "Namespace",      " ",  "#ffffff" },
---     { "Package",        " ",  "#ffffff" },
---     { "Class",          " ",  "#ffffff" },
---     { "Method",         " ",  "#ffffff" },
---     { "Property",       " ",  "#ffffff" },
---     { "Field",          " ",  "#ffffff" },
---     { "Constructor",    " ",  "#ffffff" },
---     { "Enum",           "了",  "#ffffff" },
---     { "Interface",      "練",  "#ffffff" },
---     { "Function",       " ",  "#ffffff" },
---     { "Variable",       " ",  "#ffffff" },
---     { "Constant",       " ",  "#ffffff" },
---     { "String",         " ",  "#ffffff" },
---     { "Number",         " ",  "#ffffff" },
---     { "Boolean",        "◩ ",  "#ffffff" },
---     { "Array",          " ",  "#ffffff" },
---     { "Object",         " ",  "#ffffff" },
---     { "Key",            " ",  "#ffffff" },
---     { "Null",           "ﳠ ",  "#ffffff" },
---     { "EnumMember",     " ",  "#ffffff" },
---     { "Struct",         " ",  "#ffffff" },
---     { "Event",          " ",  "#ffffff" },
---     { "Operator",       " ",  "#ffffff" },
---     { "TypeParameter",  " ",  "#ffffff" },
---     { "TypeAlias",      " ",  "#ffffff" },
---     { "Parameter",      " ",  "#ffffff" },
---     { "StaticMethod",   "ﴂ ",  "#ffffff" },
---     { "Macro",          " ",  "#ffffff" },
--- }
 
 local opt = { noremap = true, silent = true }
 
