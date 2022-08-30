@@ -73,11 +73,9 @@ vim.api.nvim_set_hl(0, "Conceal",      { bg = "NONE", fg = "#626262", })
 vim.api.nvim_set_hl(0, "PreProc",      { bg = "NONE", fg = "#767676", })
 vim.api.nvim_set_hl(0, "SpecialKey",   { bg = "NONE", fg = "#6c5b9e", })
 vim.api.nvim_set_hl(0, "FoldColumn",   { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "PmenuSbar",    { bg = "NONE", fg = "#D33FFF", })
 vim.api.nvim_set_hl(0, "WildMenu",     { bg = "NONE", fg = "#D75F5F", })
 vim.api.nvim_set_hl(0, "ColorColumn",  { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "SignColumn",   { bg = "NONE", fg = "#767676", })
-vim.api.nvim_set_hl(0, "PmenuThumb",   { bg = "NONE", fg = "#D33FFF", })
 vim.api.nvim_set_hl(0, "Cursor",       { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "DiffAdd",      { bg = "NONE", fg = "#87AF87", })
 vim.api.nvim_set_hl(0, "DiffChange",   { bg = "NONE", fg = "#008FBF", })
@@ -129,7 +127,6 @@ vim.api.nvim_set_hl(0, "Visual",       { bg = "#232323", fg = "NONE", bold = tru
 vim.api.nvim_set_hl(0, "Search",       { bg = "NONE", fg = "#C53B82", bold = true })
 vim.api.nvim_set_hl(0, "IncSearch",    { bg = "NONE", fg = "#C53B82", bold = true })
 vim.api.nvim_set_hl(0, "MatchParen",   { bg = "NONE", fg = "#C53B82", bold = true })
-vim.api.nvim_set_hl(0, "PmenuSel",     { bg = "NONE", fg = "NONE",    bold = true })
 vim.api.nvim_set_hl(0, "Directory",    { bg = "NONE", fg = "#AF87D7", bold = true })
 vim.api.nvim_set_hl(0, "Title",        { bg = "NONE", fg = "#C6C6C6", bold = true })
 
@@ -146,7 +143,6 @@ vim.api.nvim_set_hl(0, "StorageClass", { bg = "NONE", fg = "#BBE73D", italic = t
 
 vim.api.nvim_set_hl(0, "LineNr",       { bg = "#252525", fg = "#6F6F6F", italic = true })
 vim.api.nvim_set_hl(0, "Folded",       { bg = "#232323", fg = "#494949", italic = true })
-vim.api.nvim_set_hl(0, "Pmenu",        { bg = "#2a2a2a", fg = "NONE",    italic = true })
 vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#282828", fg = "#6c5b9e", italic = true })
 
 vim.api.nvim_set_hl(0, "Underlined",   { bg = "NONE", fg = "#D33FFF", underline = true })
@@ -156,4 +152,10 @@ vim.api.nvim_set_hl(0, "SpellLocal",   { bg = "NONE", fg = "#D7AF5F", underline 
 
 vim.api.nvim_set_hl(0, "Exception",    { bg = "NONE", fg = "#BBE73D", italic = true, bold = true })
 vim.api.nvim_set_hl(0, "Todo",         { bg = "NONE", fg = "#D66F01", italic = true, bold = true })
+
+vim.api.nvim_set_hl(0, "Pmenu",        { bg = "#292929", fg = "#686868", })
+vim.api.nvim_set_hl(0, "PmenuSel",     { bg = "#2f2f2f", fg = "NONE", bold = true })
+
+vim.api.nvim_set_hl(0, "PmenuSbar",    { bg = "#313131", fg = "#D33FFF", })
+vim.api.nvim_set_hl(0, "PmenuThumb",   { bg = "#434343", fg = "#D33FFF", })
 

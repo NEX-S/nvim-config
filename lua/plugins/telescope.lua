@@ -48,8 +48,8 @@ vim.api.nvim_set_hl(0, "TelescopePromptNormal",   { bg = "NONE", fg = "#614F97",
 vim.api.nvim_set_hl(0, "TelescopePreviewNormal",  { bg = "NONE", fg = "#614F97", bold = false, italic = false })
 
 vim.api.nvim_set_hl(0, "TelescopePromptPrefix",   { bg = "NONE", fg = "#D0EE7A", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopePreviewTitle",   { bg = "NONE", fg = "#9EB730", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopeResultsTitle",   { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle",   { bg = "NONE", fg = "#9EB730", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle",   { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopePreviewLine",    { bg = "NONE", fg = "#C53B82", bold = true, italic = false  })
 vim.api.nvim_set_hl(0, "TelescopeSelection",      { bg = "NONE", fg = "#C53B82", bold = true, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
