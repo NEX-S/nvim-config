@@ -3,3 +3,4 @@
 DEPENDENCIES:
 + ripgrep
 + xclip
++ npm

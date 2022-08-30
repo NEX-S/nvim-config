@@ -35,7 +35,7 @@ vim.diagnostic.config {
     --     },
     -- },
     signs = false,
-    update_in_insert = false,
+    update_in_insert = true,
     underline = false,
     severity_sort = true,
     float = {
@@ -68,16 +68,6 @@ local M = {}
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
-
-local function lsp_formatting(bufnr)
-    vim.lsp.buf.format({
-        filter = function(client)
-            -- apply whatever logic you want (in this example, we'll only use null-ls)
-            return client.name == "null-ls"
-        end,
-        bufnr = bufnr,
-    })
-end
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -115,7 +105,7 @@ function M.on_attach(client, bufnr)
     -- vim.keymap.set('n', ';;ca', vim.lsp.buf.code_action, bufopts)
     -- vim.keymap.set('n', ';;f', vim.lsp.buf.formatting, bufopts)
 
-    require "aerial".on_attach(client, bufnr)
+    -- require "aerial".on_attach(client, bufnr)
 
     -- AUTO-FORMAT
     -- if client.supports_method("textDocument/formatting") then

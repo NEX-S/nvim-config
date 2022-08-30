@@ -1,0 +1,29 @@
+{
+  "!": {
+    "prefix": "!",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "\t<head>",
+      "\t\t<meta charset=\"UTF-8\">",
+      "\t\t<title>${1:Title}</title>",
+      "\t</head>",
+      "\t<body>",
+      "\t\t${0:Content}",
+      "\t</body>",
+      "</html>"
+    ],
+    "description": "HTML - Template for a html document",
+    "scope": "text.html"
+  },
+  "<html>": {
+    "prefix": "<html>",
+    "body": [
+      "<html lang=\"en\">",
+      "\t${0:Content}",
+      "</html>"
+    ],
+    "description": "HTML - Defines on html document",
+    "scope": "text.html"
+  }
+}

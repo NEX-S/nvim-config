@@ -30,7 +30,7 @@ packer.init {
 packer.startup {
     function(use)
         -- COLORS --
-        -- use 'folke/tokyonight.nvim'
+        use 'folke/tokyonight.nvim'
         -- use 'rafamadriz/neon'
         -- use 'shaunsingh/nord.nvim'
 
@@ -60,7 +60,10 @@ packer.startup {
                         c = "cd $dir && clang $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
                         php = "time php $fileName",
                         sh = "time sh $fileName",
-                        html = "time google-chrome-stable $fileName",
+                        html = function ()
+                            local file = vim.fn.expand("%:t")
+                            vim.fn.system("google-chrome-stable "..file)
+                        end,
                         lua = "lua $fileName",
                         http = require "rest-nvim".run,
                         vim = function ()
@@ -97,7 +100,7 @@ packer.startup {
         -- GITSIGNS --
         -- ~/.config/nvim/lua/plugins/gitsigns.lua
         use { 'lewis6991/gitsigns.nvim',
-            event = 'CursorMoved',
+            event = { 'CursorMoved', 'InsertEnter' },
             branch = 'tl141',
             tag = 'release',
             config = [[ require 'plugins.gitsigns' ]]
@@ -220,7 +223,7 @@ packer.startup {
             config = [[
                 require "indent_blankline".setup {
                     char = "¦",
-                    show_first_indent_level = false,
+                    show_first_indent_level = true,
                 }
             ]]
         }
@@ -282,7 +285,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
         use { "williamboman/nvim-lsp-installer",
-            after = 'lualine.nvim',
+            after = "lualine.nvim",
             config = [[
                 require "nvim-lsp-installer".setup {
                     automatic_installation = true,
@@ -348,7 +351,6 @@ packer.startup {
         -- LSP-SAGA --
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
         use { "glepnir/lspsaga.nvim",
-            branch = "version_2",
             after = 'nvim-lspconfig',
             -- keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", ";D", "<A-p>", "<A-n>", ";x", ";0", ";9" },
             config = [[ require "LSP.lsp-saga" ]]
@@ -423,7 +425,7 @@ packer.startup {
 
         use { "iamcco/markdown-preview.nvim",
             run = "cd app && npm install",
-            ft = 'markdown',
+            ft = { "markdown", "html" },
             -- setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
             -- config = function ()
             --     vim.api.nvim_create_autocmd({ "BufNewFile", "BufCreate", "BufReadPost", "BufEnter", "TabEnter" }, {
@@ -471,7 +473,7 @@ packer.startup {
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
         use { "nvim-lualine/lualine.nvim",
-            event = { "CursorMoved", "InsertEnter" },
+            event = "VimEnter",
             config = [[ require "plugins.lualine" ]]
         }
 
@@ -535,12 +537,12 @@ packer.startup {
 
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
-        use { 'stevearc/aerial.nvim',
-            -- ft = 'markdown',
-            after = 'lualine.nvim',
-            module = 'aerial',
-            config = [[ require "LSP.aerial" ]]
-        }
+        -- use { 'stevearc/aerial.nvim',
+        --     -- ft = 'markdown',
+        --     -- after = "lualine.nvim",
+        --     module = "aerial",
+        --     config = [[ require "LSP.aerial" ]]
+        -- }
 
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
@@ -552,11 +554,16 @@ packer.startup {
 
         -- BUFFER COMPLETION
         use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter' } }
+        use { 'ray-x/cmp-treesitter', after = 'cmp-buffer' }
 
         -- INSERT ONLY COMPLETION
         use { 'hrsh7th/cmp-path', event = 'InsertEnter' }
         use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp-path' }
         use { 'hrsh7th/cmp-calc', after = 'cmp-nvim-lsp-signature-help' }
+        use { 'tzachar/cmp-tabnine',
+            after = "cmp-treesitter",
+            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnin && ./install.sh"
+        }
         -- use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
 
         -- CMDLINE ONLY COMPLETION
@@ -712,8 +719,41 @@ packer.startup {
         use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
         use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter"  }
         use { 'p00f/nvim-ts-rainbow', after = "nvim-treesitter" }
+        use { 'm-demare/hlargs.nvim',
+            after = "nvim-treesitter",
+            config = function ()
+                require "hlargs".setup {
+                    color = '#BBE73D',
+                    highlight = {},
+                    excluded_filetypes = {},
+                    paint_arg_declarations = true,
+                    paint_arg_usages = true,
+                    hl_priority = 10000,
+                    excluded_argnames = {
+                        declarations = {},
+                        usages = {
+                            python = { 'self', 'cls' },
+                            lua = { 'self' }
+                        }
+                    },
+                    performance = {
+                        parse_delay = 1,
+                        slow_parse_delay = 50,
+                        max_iterations = 400,
+                        max_concurrent_partial_parses = 30,
+                        debounce = {
+                            partial_parse = 3,
+                            partial_insert_mode = 100,
+                            total_parse = 700,
+                            slow_parse = 5000
+                        }
+                    }
+                }
+            end
+        }
 
         use { 'windwp/nvim-ts-autotag', event = 'InsertEnter' }
+        -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
 
         -- 聚焦当前 函数/方法
         -- use { 'folke/twilight.nvim',
@@ -824,9 +864,10 @@ packer.startup {
                 }
             ]]
         }
-
     end
 }
+
+
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = { "plugins.lua" },

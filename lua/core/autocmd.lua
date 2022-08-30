@@ -64,11 +64,3 @@ vim.cmd "autocmd BufRead, BufWinEnter *.http ++once <CMD>set ft=http<CR>"
 
 -- FIX: Fold Dont Work After Telescope Open File
 -- vim.cmd "autocmd BufRead, BufWinEnter * ++once normal! zxzR"
-
--- vim.api.nvim_create_autocmd({ "CursorMoved"}, {
---     pattern = { '*' },
---     callback = function ()
---         print("Hello")
---     end
--- })
-

@@ -26,7 +26,7 @@ vim.opt.smarttab      = true
 
 -- vim.opt.autochdir     = true
 
--- vim.opt.mouse = 'v'
+vim.opt.mouse = ''
 vim.opt.fileformats = 'unix,mac,dos'
 vim.opt.magic = true
 vim.opt.virtualedit = 'block'
@@ -45,9 +45,10 @@ vim.opt.winblend = 25
 
 vim.opt.showbreak = '↳  '
 
--- vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("space:·")
+vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("space:·")
 vim.opt.listchars:append("tab: ")
+-- vim.opt.listchars:append("eol:↲")
 vim.opt.listchars:append("eol: ")
 vim.opt.listchars:append("trail:-")
 vim.opt.listchars:append("nbsp:b")

@@ -2,17 +2,24 @@
 local types = require "luasnip.util.types"
 
 require "luasnip".config.setup {
-    region_check_events = "CursorHold,InsertEnter,InsertLeave",
-    delete_check_events = "TextChanged,InsertEnter,InsertLeave",
+    -- history = false,
+    updateevents = 'TextChanged,TextChangedI',
+    -- region_check_events = "CursorHold,InsertEnter,InsertLeave",
+    -- delete_check_events = "TextChanged,InsertEnter,InsertLeave",
+    region_check_events = "TextChangedI",
+    delete_check_events = "TextChangedI",
     ext_opts = {
         [types.choiceNode] = { active = { virt_text = {{ "", "LuasnipChoiceNodeActive" }} } },
         [types.insertNode] = { active = { virt_text = {{ "", "LuasnipInsertNodeActive" }} } },
     },
 }
 vim.api.nvim_set_hl(0, "LuasnipChoiceNodeActive", { bg = "NONE", fg = "#D0EE7A", })
-vim.api.nvim_set_hl(0, "LuasnipInsertNodeActive", { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "LuasnipInsertNodeActive", { bg = "#282828", fg = "#C53B82", })
 
-require "luasnip.loaders.from_vscode".lazy_load()
+require "luasnip.loaders.from_vscode".lazy_load {}
+require "luasnip.loaders.from_vscode".lazy_load {
+    paths = { "./snippets" }
+}
 
 local nvim_cmp = require "cmp"
 local luasnip  = require "luasnip"
@@ -28,7 +35,7 @@ nvim_cmp.setup {
         ["<TAB>"] = nvim_cmp.mapping(
             function(fallback)
                 if luasnip.expand_or_locally_jumpable() then
-                    luasnip.expand_or_jump()
+                    luasnip.expand_or_jump(-1)
                 elseif nvim_cmp.visible() then
                     nvim_cmp.confirm {
                         behavior = nvim_cmp.ConfirmBehavior.Replace,

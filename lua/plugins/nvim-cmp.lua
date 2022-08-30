@@ -60,12 +60,14 @@ nvim_cmp.setup {
             -- Kind icons
             vim_item.kind = string.format("%s", cmp_icons[vim_item.kind])
             vim_item.menu = ({
-                nvim_lsp = " - LSP",
-                luasnip  = " - SNIPPET",
-                buffer   = " - BUFFER",
-                path     = " - PATH",
-                calc     = " - CALC",
-                nvim_lua = " - NVIM-API",
+                nvim_lsp    = " - LSP",
+                luasnip     = " - SNIPPET",
+                buffer      = " - BUFFER",
+                path        = " - PATH",
+                calc        = " - CALC",
+                nvim_lua    = " - NVIM-API",
+                treesitter  = " - TS",
+                cmp_tabnine = " - TABNINE",
                 nvim_lsp_signature_help = " - SIGNATURE",
             })[entry.source.name]
             return vim_item
@@ -74,8 +76,10 @@ nvim_cmp.setup {
     sources = nvim_cmp.config.sources {
         { name = 'path' },          -- PATH COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'treesitter' },     -- TREESITTER
         { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'nvim_lsp' },      -- LSP COMPLETION
+        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
@@ -100,11 +104,13 @@ nvim_cmp.setup {
 
 nvim_cmp.setup.filetype('lua', {
     sources = {
-        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'path' },          -- PATH COMPLETION
+        { name = 'treesitter' },    -- TREESITTER
         { name = 'buffer' },        -- BUFFER COMPLETION
-        { name = 'luasnip' },       -- LUASNIP COMPLETION
         { name = 'nvim_lua' },      -- NVIM-API COMPLETION
+        { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'nvim_lsp' },      -- LSP COMPLETION
+        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
@@ -124,6 +130,7 @@ nvim_cmp.setup.cmdline('/', {
     sources = {
         { name = 'buffer' },
         { name = 'nvim_lsp_document_symbol' },
+        { name = 'treesitter' },
     },
 })
 
@@ -132,6 +139,7 @@ nvim_cmp.setup.cmdline('?', {
     sources = {
         { name = 'buffer' },
         { name = 'nvim_lsp_document_symbol' },
+        { name = 'treesitter' },
     },
 })
 

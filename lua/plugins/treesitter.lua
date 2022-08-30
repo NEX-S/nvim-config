@@ -85,11 +85,11 @@ vim.api.nvim_set_hl(0, "rainbowcol6",  { bg = "NONE", fg = "#6C5B9E", })    -- {
 vim.api.nvim_set_hl(0, "rainbowcol7",  { bg = "NONE", fg = "#666666", })    -- {6}
 
 -- TS HIGHLIGHT --
-vim.api.nvim_set_hl(0, "TSAnnotation",          { bg = "NONE", fg = "#FFFFFF", })
-vim.api.nvim_set_hl(0, "TSAttribute",           { bg = "NONE", fg = "#FFFFFF", })
+vim.api.nvim_set_hl(0, "TSAnnotation",          { bg = "NONE", fg = "#000000", })
+vim.api.nvim_set_hl(0, "TSAttribute",           { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "TSBoolean",             { bg = "NONE", fg = "#C53B82", })
 vim.api.nvim_set_hl(0, "TSCharacter",           { bg = "NONE", fg = "#555555", })
-vim.api.nvim_set_hl(0, "TSCharacterSpecial",    { bg = "NONE", fg = "#FFFFFF", })
+vim.api.nvim_set_hl(0, "TSCharacterSpecial",    { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "TSComment",             { bg = "NONE", fg = "#484848", })
 vim.api.nvim_set_hl(0, "TSConstBuiltin",        { bg = "NONE", fg = "#BBE73D", })
 vim.api.nvim_set_hl(0, "TSConditional",         { bg = "NONE", fg = "#C53B82", })
@@ -99,9 +99,9 @@ vim.api.nvim_set_hl(0, "TSConstructor",         { bg = "NONE", fg = "#C53B82", }
 vim.api.nvim_set_hl(0, "TSDanger",              { bg = "NONE", fg = "#4000F1", })
 vim.api.nvim_set_hl(0, "TSDebug",               { bg = "NONE", fg = "#4000F1", })
 vim.api.nvim_set_hl(0, "TSDefine",              { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "TSEmphasis",            { bg = "NONE", fg = "#FFFFFF", })
-vim.api.nvim_set_hl(0, "TSEnvironment",         { bg = "NONE", fg = "#FFFFFF", })
-vim.api.nvim_set_hl(0, "TSEnvironmentName",     { bg = "NONE", fg = "#FFFFFF", })
+vim.api.nvim_set_hl(0, "TSEmphasis",            { bg = "NONE", fg = "#614F97", bold = false, italic = true })   -- html: <i>xxx</i>
+vim.api.nvim_set_hl(0, "TSEnvironment",         { bg = "NONE", fg = "#000000", })
+vim.api.nvim_set_hl(0, "TSEnvironmentName",     { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "TSException",           { bg = "NONE", fg = "#BBE73D", })
 vim.api.nvim_set_hl(0, "TSField",               { bg = "NONE", fg = "#535353", })
 vim.api.nvim_set_hl(0, "TSFloat",               { bg = "NONE", fg = "#AFC460", })

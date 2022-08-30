@@ -46,6 +46,15 @@ lspconfig.clangd.setup {
     capabilities = M.capabilities,
     single_file_support = true,
     -- root_dir = root_dir('c'),
+    cmd = {
+        "clangd",
+        -- "--background-index",
+        -- "--clang-tidy",
+        -- "--clang-tidy-checks=performance-*,bugprone-*",
+        -- "--all-scopes-completion",
+        -- "--completion-style=detailed",
+        -- "--header-insertion=iwyu",
+    }
 }
 
 lspconfig.intelephense.setup {

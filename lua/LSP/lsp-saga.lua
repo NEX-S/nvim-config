@@ -1,4 +1,6 @@
 
+vim.api.nvim_set_hl(8, "TSvariable", { bg = "NONE", fg = '#C53B82', bold = true, italic = false, underline = true })
+
 require "lspsaga".init_lsp_saga {
     border_style = "single",
     saga_winblend = 20,
@@ -13,10 +15,10 @@ require "lspsaga".init_lsp_saga {
     code_action_num_shortcut = true,
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {
-        enable = false,
+        enable = true,
         sign = false,
         sign_priority = 20,
-        virtual_text = true,
+        virtual_text = false,
     },
     finder_icons = {
         def = '  ',
@@ -24,13 +26,14 @@ require "lspsaga".init_lsp_saga {
         link = '  ',
     },
     -- preview lines of lsp_finder and definition preview
-    max_preview_lines = 16,
+    max_preview_lines = 5,
+    finder_preview_hl_ns = 8,
     finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "i",
+        open = "l",
+        vsplit = "v",
+        split = "s",
         tabe = "t",
-        quit = "q",
+        quit = "<ESC>",
         scroll_down = "<A-n>",
         scroll_up = "<A-p>", -- quit can be a table
     },
@@ -42,10 +45,10 @@ require "lspsaga".init_lsp_saga {
     definition_preview_icon = "  ",
     -- 顶栏
     symbol_in_winbar = {
-        enable = false,
-        in_custom = false,
+        enable = true,
+        in_custom = true,
         separator = '  ',
-        show_file = true,
+        show_file = false,
         click_support = function(node, clicks, button, modifiers)
             -- To see all avaiable details: vim.pretty_print(node)
             local st = node.range.start
@@ -83,37 +86,36 @@ require "lspsaga".init_lsp_saga {
         auto_refresh = true,
     },
     custom_kind = {
-        File          =  { "", "#FFFFFF" },
-        Module        =  { "", "#FFFFFF" },
-        Namespace     =  { "ﱕ", "#FFFFFF" },
-        Package       =  { "", "#FFFFFF" },
-        Class         =  { "", "#FFFFFF" },
-        Method        =  { "", "#FFFFFF" },
-        Property      =  { "", "#FFFFFF" },
-        Field         =  { "", "#FFFFFF" },
-        Constructor   =  { "", "#FFFFFF" },
-        Enum          =  { "", "#FFFFFF" },
-        Interface     =  { "", "#FFFFFF" },
-        Function      =  { "", "#FFFFFF" },
-        Variable      =  { "", "#FFFFFF" },
-        Constant      =  { "", "#FFFFFF" },
-        String        =  { "", "#FFFFFF" },
-        Number        =  { "", "#FFFFFF" },
-        Boolean       =  { "", "#FFFFFF" },
-        Array         =  { "", "#FFFFFF" },
-        Object        =  { "", "#FFFFFF" },
-        Key           =  { "", "#FFFFFF" },
-        Null          =  { "", "#FFFFFF" },
-        EnumMember    =  { "", "#FFFFFF" },
-        Struct        =  { "ﯟ", "#FFFFFF" },
-        Event         =  { "", "#FFFFFF" },
-        Operator      =  { "", "#FFFFFF" },
-        TypeParameter =  { "", "#FFFFFF" },
-        TypeAlias     =  { "", "#FFFFFF" },
-        Parameter     =  { "", "#FFFFFF" },
-        StaticMethod  =  { "ﴂ", "#FFFFFF" },
-        Macro         =  { "", "#FFFFFF" },
-
+        File          =  { " ", "#AF87D7" },
+        Module        =  { " ", "#666666" },
+        Namespace     =  { "ﱕ ", "#666666" },
+        Package       =  { " ", "#666666" },
+        Class         =  { " ", "#BBE73D" },
+        Method        =  { " ", "#C53B82" },
+        Property      =  { " ", "#666666" },
+        Field         =  { " ", "#666666" },
+        Constructor   =  { " ", "#666666" },
+        Enum          =  { " ", "#666666" },
+        Interface     =  { " ", "#666666" },
+        Function      =  { " ", "#C53B82" },
+        Variable      =  { " ", "#BBE73D" },
+        Constant      =  { " ", "#666666" },
+        String        =  { " ", "#444444" },
+        Number        =  { " ", "#AFC460" },
+        Boolean       =  { " ", "#C53B82" },
+        Array         =  { " ", "#614F97" },
+        Object        =  { " ", "#666666" },
+        Key           =  { " ", "#666666" },
+        Null          =  { " ", "#C53B82" },
+        EnumMember    =  { " ", "#666666" },
+        Struct        =  { "ﯟ ", "#666666" },
+        Event         =  { " ", "#666666" },
+        Operator      =  { " ", "#666666" },
+        TypeParameter =  { " ", "#666666" },
+        TypeAlias     =  { " ", "#666666" },
+        Parameter     =  { " ", "#8567A3" },
+        StaticMethod  =  { "ﴂ ", "#666666" },
+        Macro         =  { " ", "#666666" },
     },
 }
 
@@ -183,42 +185,11 @@ vim.api.nvim_set_hl(0, "FinderSpinnerTitle",      { bg = "NONE", fg = "#666666",
 vim.api.nvim_set_hl(0, "FinderSpinner",           { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "DefinitionPreviewTitle",  { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "SagaShadow",              { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "LSOutlinePreviewBorder",  { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "OutlineIndentEvn",        { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "OutlineIndentOdd",        { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "OutlineFoldPrefix",       { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "OutlineDetail",           { bg = "NONE", fg = "#666666", })
 
-vim.api.nvim_set_hl(0, "LspSagaWinbarKey",            { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarSep",            { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarEnum",           { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarFile",           { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarNull",           { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarArray",          { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarClass",          { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarEvent",          { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarField",          { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarMacro",          { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarMethod",         { bg = "NONE", fg = "#614F97", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarModule",         { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarNumber",         { bg = "NONE", fg = "#BBE73D", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarObject",         { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarString",         { bg = "NONE", fg = "#585858", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarStruct",         { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarBoolean",        { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarPackage",        { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarConstant",       { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarFunction",       { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarOperator",       { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarProperty",       { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarVariable",       { bg = "NONE", fg = "#614F97", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarInterface",      { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarNamespace",      { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarParameter",      { bg = "NONE", fg = "#BBE73D", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarTypeAlias",      { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWarnTrunCateLine",     { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarEnumMember",     { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarConstructor",    { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarStaticMethod",   { bg = "NONE", fg = "#727272", })
-vim.api.nvim_set_hl(0, "LspSagaWinbarTypeParameter",  { bg = "NONE", fg = "#727272", })
+-- Outline
+vim.api.nvim_set_hl(0, "LSOutlinePreviewBorder",  { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "OutlineIndentEvn",        { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "OutlineIndentOdd",        { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "OutlineFoldPrefix",       { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "OutlineDetail",           { bg = "NONE", fg = "#383838", })
 
