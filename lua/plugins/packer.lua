@@ -285,7 +285,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
         use { "williamboman/nvim-lsp-installer",
-            after = "lualine.nvim",
+            -- event = "VimEnter",
             config = [[
                 require "nvim-lsp-installer".setup {
                     automatic_installation = true,
@@ -352,7 +352,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
         use { "glepnir/lspsaga.nvim",
             after = 'nvim-lspconfig',
-            -- keys = { "ga", "gh", "gD", "go", "<C-r>", "gd", ";d", ";D", "<A-p>", "<A-n>", ";x", ";0", ";9" },
+            -- branch = 'version_2.1',
             config = [[ require "LSP.lsp-saga" ]]
         }
 
@@ -473,7 +473,7 @@ packer.startup {
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
         use { "nvim-lualine/lualine.nvim",
-            event = "VimEnter",
+            after = "lspsaga.nvim",
             config = [[ require "plugins.lualine" ]]
         }
 

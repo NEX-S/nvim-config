@@ -49,28 +49,6 @@ require "lspsaga".init_lsp_saga {
         in_custom = true,
         separator = '  ',
         show_file = false,
-        click_support = function(node, clicks, button, modifiers)
-            -- To see all avaiable details: vim.pretty_print(node)
-            local st = node.range.start
-            local en = node.range['end']
-            if button == "l" then
-                if clicks == 2 then
-                    -- double left click to do nothing
-                else -- jump to node's starting line+char
-                    vim.fn.cursor(st.line + 1, st.character + 1)
-                end
-            elseif button == "r" then
-                if modifiers == "s" then
-                    print "lspsaga" -- shift right click to print "lspsaga"
-                end -- jump to node's ending line+char
-                vim.fn.cursor(en.line + 1, en.character + 1)
-            elseif button == "m" then
-                -- middle click to visual select node
-                vim.fn.cursor(st.line + 1, st.character + 1)
-                vim.cmd "normal v"
-                vim.fn.cursor(en.line + 1, en.character + 1)
-            end
-        end
     },
     show_outline = {
         win_position = 'right',
@@ -193,3 +171,38 @@ vim.api.nvim_set_hl(0, "OutlineIndentOdd",        { bg = "NONE", fg = "#ffffff",
 vim.api.nvim_set_hl(0, "OutlineFoldPrefix",       { bg = "NONE", fg = "#ffffff", })
 vim.api.nvim_set_hl(0, "OutlineDetail",           { bg = "NONE", fg = "#383838", })
 
+vim.api.nvim_set_hl(0, "LspSagaWinbarSep",   { bg = "#292929", fg = "#555555" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarKey",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarSep",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarEnum",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarFile",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarNull",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarArray", { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarClass", { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarEvent", { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarField", { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarMacro", { bg = "#292929", fg = "#666666" })
+
+vim.api.nvim_set_hl(0, "LspSagaWinbarMethod",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarModule",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarNumber",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarObject",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarString",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarStruct",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarBoolean",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarPackage",  { bg = "#292929", fg = "#666666" })
+
+vim.api.nvim_set_hl(0, "LspSagaWinbarConstant",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarFunction",   { bg = "#292929", fg = "#C53B82", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "LspSagaWinbarOperator",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarProperty",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarVariable",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarInterface",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarNamespace",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarParameter",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarTypeAlias",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarEnumMember", { bg = "#292929", fg = "#666666" })
+
+vim.api.nvim_set_hl(0, "LspSagaWinbarConstructor",   { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarStaticMethod",  { bg = "#292929", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarTypeParameter", { bg = "#292929", fg = "#666666" })

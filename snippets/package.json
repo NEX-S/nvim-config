@@ -4,6 +4,26 @@
       {
         "language": "html",
         "path": "./html.json"
+      },
+      {
+        "language": "c",
+        "path": "./c.json"
+      },
+      {
+        "language": "python",
+        "path": "./python.json"
+      },
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      },
+      {
+        "language": "go",
+        "path": "./go.json"
+      },
+      {
+        "language": "php",
+        "path": "./php.json"
       }
     ]
   }

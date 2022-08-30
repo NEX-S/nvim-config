@@ -1,0 +1,16 @@
+{
+  "main": {
+    "prefix": "!",
+    "description": "- Standard C Program Template",
+    "body": [
+        "#include <stdio.h>",
+        "#include <stdlib.h>",
+        "",
+        "int main (int argc, char * argv[])",
+        "{",
+        "\t${0:- CODE}",
+        "\treturn 0;",
+        "}"
+    ]
+  }
+}

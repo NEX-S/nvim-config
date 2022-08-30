@@ -39,6 +39,7 @@ vim.opt.infercase = true
 
 vim.opt.pumblend = 25
 vim.opt.winblend = 25
+vim.opt.pumheight = 18
 
 -- BUG: CAUSE INDENT PROBLEM --
 -- vim.opt.paste         = true

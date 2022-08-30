@@ -1,17 +1,5 @@
 
-local function statusline_symbols()
-    local ok, lspsaga_symbol = pcall(require, 'lspsaga.symbolwinbar')
-    if ok then
-        return lspsaga_symbol.get_symbol_node()
-    end
-end
-
-local events = { 'BufEnter', 'BufWinEnter', 'CursorMoved' }
-
-vim.api.nvim_create_autocmd(events, {
-    pattern = '*',
-    callback = statusline_symbols,
-})
+local symbol_node = require "lspsaga.symbolwinbar".get_symbol_node
 
 require "lualine".setup {
     globalstatus = true,
@@ -22,8 +10,8 @@ require "lualine".setup {
             normal = {
                 a = { fg = '#767676', bg = '#404040', gui = 'bold' },
                 b = { fg = '#595959', bg = '#303030', gui = 'NONE' },
-                c = { fg = '#525252', bg = '#888888', gui = 'NONE' },
-                x = { fg = '#646464', bg = '#888888', gui = 'NONE' },
+                c = { fg = '#525252', bg = '#292929', gui = 'NONE' },
+                x = { fg = '#646464', bg = '#292929', gui = 'NONE' },
                 y = { fg = '#666666', bg = '#323232', gui = 'italic' },
                 z = { fg = '#888888', bg = '#444444', gui = 'bold,italic' },
             },
@@ -97,10 +85,12 @@ require "lualine".setup {
                 source = nil,
             },
         },
-        lualine_c = {{'[ %F -  %p%% ]', type = 'stl' }},
-        lualine_x = { { statusline_symbols }, 'os.date("%H:%M %a")', },
+        -- lualine_c = {{'[ %F -  %p%% ]', type = 'stl' }},
+        lualine_x = { { symbol_node }, 'os.date("%H:%M %a")', },
         lualine_y = { '%c -  %B' },
         lualine_z = { '%l - %L' },
     },
 }
+
+vim.api.nvim_set_hl(0, "lualine_a_diagnostics_hint_normal", { bg = "#404040", fg = "#C7EB61" })
 
