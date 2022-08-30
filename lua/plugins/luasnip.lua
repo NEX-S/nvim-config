@@ -2,7 +2,7 @@
 local types = require "luasnip.util.types"
 
 require "luasnip".config.setup {
-    -- history = false,
+    history = false,
     updateevents = 'TextChanged,TextChangedI',
     -- region_check_events = "CursorHold,InsertEnter,InsertLeave",
     -- delete_check_events = "TextChanged,InsertEnter,InsertLeave",

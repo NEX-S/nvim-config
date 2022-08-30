@@ -168,7 +168,6 @@ vim.keymap.set('n', ';e', '<CMD>NvimTreeFindFileToggle<CR>', { noremap = true, s
 vim.keymap.set('n', '<A-f>', '<CMD>Telescope find_files theme=dropdown previewer=false<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<F1>', '<CMD>StartupTime<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<F2>', '<CMD>w | source $MYVIMRC<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<TAB>', '<C-w><C-w>', { noremap = true, silent = true })

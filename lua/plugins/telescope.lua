@@ -4,8 +4,7 @@ local actions = require 'telescope.actions'
 require "telescope".setup {
     defaults = {
         prompt_prefix = '  ',
-        -- prompt_prefix = ' ',
-        selection_caret = '  ',
+        selection_caret = '  ',
         mappings = {
             i = {
                 ["<A-j>"] = actions.move_selection_next,
@@ -42,4 +41,63 @@ require "telescope".setup {
     }
 }
 
-require('telescope').load_extension('fzf')
+require "telescope".load_extension('fzf')
+
+vim.api.nvim_set_hl(0, "TelescopePromptTitle",    { bg = "NONE", fg = "#614F97", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePromptNormal",   { bg = "NONE", fg = "#614F97", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewNormal",  { bg = "NONE", fg = "#614F97", bold = false, italic = false })
+
+vim.api.nvim_set_hl(0, "TelescopePromptPrefix",   { bg = "NONE", fg = "#D0EE7A", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle",   { bg = "NONE", fg = "#9EB730", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle",   { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewLine",    { bg = "NONE", fg = "#C53B82", bold = true, italic = false  })
+vim.api.nvim_set_hl(0, "TelescopeSelection",      { bg = "NONE", fg = "#C53B82", bold = true, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeMatching",       { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeBorder",         { bg = "NONE", fg = "#323232", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder",   { bg = "NONE", fg = "#323232", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder",  { bg = "NONE", fg = "#323232", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder",  { bg = "NONE", fg = "#323232", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePromptCounter",  { bg = "NONE", fg = "#424242", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsNormal",  { bg = "NONE", fg = "#595959", bold = false, italic = false })
+
+vim.api.nvim_set_hl(0, "TelescopeNormal",        { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeTitle",         { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeMultiIcon",     { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewDate",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewLink",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewPipe",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewRead",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewSize",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewUser",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewBlock",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewGroup",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewMatch",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewWrite",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsClass",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsField",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewHyphen",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewSocket",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewSticky",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsLineNr",   { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsMethod",   { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsNumber",   { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsStruct",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeMultiSelection",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewCharDev",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewExecute",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewMessage",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsComment",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsDiffAdd",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsConstant",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsFileIcon",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsFunction",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsOperator",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsVariable",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewDirectory",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsDiffChange",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsDiffDelete",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsIdentifier",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsDiffUntracked",     { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsSpecialComment",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewMessageFillchar",   { bg = "NONE", fg = "#000000", bold = false, italic = false })

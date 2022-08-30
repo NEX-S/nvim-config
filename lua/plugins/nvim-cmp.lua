@@ -34,7 +34,7 @@ local nvim_cmp = require "cmp"
 nvim_cmp.setup {
     completion = { keyword_length = 1, },
     experimental = {
-        ghost_text = true,
+        ghost_text = false,
         native_menu = false,
     },
     -- 补全边框
@@ -66,8 +66,9 @@ nvim_cmp.setup {
                 path        = " - PATH",
                 calc        = " - CALC",
                 nvim_lua    = " - NVIM-API",
-                treesitter  = " - TS",
+                -- treesitter  = " - TS",
                 cmp_tabnine = " - TABNINE",
+                copilot     = " - COPILOT",
                 nvim_lsp_signature_help = " - SIGNATURE",
             })[entry.source.name]
             return vim_item
@@ -76,10 +77,11 @@ nvim_cmp.setup {
     sources = nvim_cmp.config.sources {
         { name = 'path' },          -- PATH COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
-        { name = 'treesitter' },     -- TREESITTER
+        -- { name = 'treesitter' },     -- TREESITTER
         { name = 'buffer' },        -- BUFFER COMPLETION
+        { name = 'copilot' },
         { name = 'nvim_lsp' },      -- LSP COMPLETION
-        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
+        -- { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
@@ -105,12 +107,13 @@ nvim_cmp.setup {
 nvim_cmp.setup.filetype('lua', {
     sources = {
         { name = 'path' },          -- PATH COMPLETION
-        { name = 'treesitter' },    -- TREESITTER
+        -- { name = 'treesitter' },    -- TREESITTER
+        { name = 'copilot' },
         { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'nvim_lua' },      -- NVIM-API COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
         { name = 'nvim_lsp' },      -- LSP COMPLETION
-        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
+        -- { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
@@ -130,7 +133,7 @@ nvim_cmp.setup.cmdline('/', {
     sources = {
         { name = 'buffer' },
         { name = 'nvim_lsp_document_symbol' },
-        { name = 'treesitter' },
+        -- { name = 'treesitter' },
     },
 })
 
@@ -139,7 +142,7 @@ nvim_cmp.setup.cmdline('?', {
     sources = {
         { name = 'buffer' },
         { name = 'nvim_lsp_document_symbol' },
-        { name = 'treesitter' },
+        -- { name = 'treesitter' },
     },
 })
 

@@ -27,7 +27,7 @@ require "lspsaga".init_lsp_saga {
     },
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 5,
-    finder_preview_hl_ns = 8,
+    -- finder_preview_hl_ns = 8,
     finder_action_keys = {
         open = "l",
         vsplit = "v",
@@ -99,11 +99,10 @@ require "lspsaga".init_lsp_saga {
 
 local opt = { noremap = true, silent = true }
 
-vim.keymap.set('n', ';9',    "<CMD>LSoutlineToggle<CR>",            opt)
-vim.keymap.set('n', "go",    "<CMD>Lspsaga hover_doc<CR>",          opt)
-vim.keymap.set('n', "gD",    "<CMD>Lspsaga lsp_finder<CR>",         opt)
-vim.keymap.set('n', "gh",    "<CMD>Lspsaga signature_help<CR>",     opt)
-vim.keymap.set('n', "gd",    "<CMD>Lspsaga preview_definition<CR>", opt)
+vim.keymap.set('n', "gh", "<CMD>Lspsaga hover_doc<CR>", opt)
+vim.keymap.set('n', "gs", "<CMD>Lspsaga signature_help<CR>", opt)
+vim.keymap.set('n', "gD", "*N<CMD>set hls | Lspsaga lsp_finder<CR>", opt)
+vim.keymap.set('n', "gd", "*N<CMD>set hls | Lspsaga preview_definition<CR>", opt)
 
 vim.keymap.set('n', "ga",    "<CMD>Lspsaga code_action<CR>",             opt)
 vim.keymap.set('v', "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>",  opt)

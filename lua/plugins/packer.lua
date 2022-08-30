@@ -28,7 +28,7 @@ packer.init {
 }
 
 packer.startup {
-    function(use)
+    function (use)
         -- COLORS --
         use 'folke/tokyonight.nvim'
         -- use 'rafamadriz/neon'
@@ -553,16 +553,21 @@ packer.startup {
 
         -- BUFFER COMPLETION
         use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter' } }
-        use { 'ray-x/cmp-treesitter', after = 'cmp-buffer' }
+        -- use { 'ray-x/cmp-treesitter', after = 'cmp-buffer' }
 
         -- INSERT ONLY COMPLETION
         use { 'hrsh7th/cmp-path', event = 'InsertEnter' }
         use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp-path' }
         use { 'hrsh7th/cmp-calc', after = 'cmp-nvim-lsp-signature-help' }
-        use { 'tzachar/cmp-tabnine',
-            after = "cmp-treesitter",
-            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnin && ./install.sh"
-        }
+
+        -- use { 'tzachar/cmp-tabnine',
+        --     after = "cmp-treesitter",
+        --     run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh"
+        -- }
+
+        use { 'github/copilot.vim' }
+        use { 'hrsh7th/cmp-copilot', after = 'cmp-path' }
+
         -- use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
 
         -- CMDLINE ONLY COMPLETION
