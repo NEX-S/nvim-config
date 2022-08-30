@@ -285,7 +285,6 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
         use { "williamboman/nvim-lsp-installer",
-            -- event = "VimEnter",
             config = [[
                 require "nvim-lsp-installer".setup {
                     automatic_installation = true,
