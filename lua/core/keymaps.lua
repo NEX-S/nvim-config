@@ -175,8 +175,6 @@ vim.keymap.set('n', '<S-TAB>', '<C-w>p', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 
-vim.keymap.set('n', ';0', '<CMD>LSoutlineToggle<CR>', { noremap = true, silent = true } )
-
 -- vim.keymap.set('v', ';r', ':SnipRun<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', ';r', '<CMD>w | RunCode<CR>', { noremap = true, silent = true })
 

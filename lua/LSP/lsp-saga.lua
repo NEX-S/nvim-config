@@ -15,10 +15,10 @@ require "lspsaga".init_lsp_saga {
     code_action_num_shortcut = true,
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {
-        enable = true,
+        enable = false,
         sign = false,
         sign_priority = 20,
-        virtual_text = false,
+        virtual_text = true,
     },
     finder_icons = {
         def = '  ',
@@ -41,14 +41,15 @@ require "lspsaga".init_lsp_saga {
         quit = "<ESC>",
         exec = "l",
     },
-    rename_action_quit = "<C-c>",
+    rename_action_quit = "<ESC>",
+    rename_in_select = true,
     definition_preview_icon = "  ",
     -- 顶栏
     symbol_in_winbar = {
         enable = true,
         in_custom = true,
         separator = '  ',
-        show_file = false,
+        show_file = true,
     },
     show_outline = {
         win_position = 'right',
@@ -99,21 +100,22 @@ require "lspsaga".init_lsp_saga {
 
 local opt = { noremap = true, silent = true }
 
-vim.keymap.set('n', "gh", "<CMD>Lspsaga hover_doc<CR>", opt)
-vim.keymap.set('n', "gs", "<CMD>Lspsaga signature_help<CR>", opt)
-vim.keymap.set('n', "gD", "*N<CMD>set hls | Lspsaga lsp_finder<CR>", opt)
-vim.keymap.set('n', "gd", "*N<CMD>set hls | Lspsaga preview_definition<CR>", opt)
+vim.keymap.set("n", "gh", "<CMD>Lspsaga hover_doc<CR>", opt)
+vim.keymap.set("n", "gs", "<CMD>Lspsaga signature_help<CR>", opt)
+vim.keymap.set("n", "gi", "*N<CMD>set hls | Lspsaga lsp_finder<CR>", opt)
+vim.keymap.set("n", "gd", "*N<CMD>set hls | Lspsaga preview_definition<CR>", opt)
 
-vim.keymap.set('n', "ga",    "<CMD>Lspsaga code_action<CR>",             opt)
-vim.keymap.set('v', "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>",  opt)
-vim.keymap.set('n', ";d",    "<CMD>Lspsaga show_line_diagnostics<CR>",   opt)
+vim.keymap.set("n", "ga",    "<CMD>Lspsaga code_action<CR>",             opt)
+vim.keymap.set("v", "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>",  opt)
+vim.keymap.set("n", ";d",    "<CMD>Lspsaga show_line_diagnostics<CR>",   opt)
 vim.keymap.set("n", ";x",    "<CMD>Lspsaga open_floaterm<CR>",           opt)
-vim.keymap.set('n', ";D",    "<CMD>Lspsaga show_cursor_diagnostics<CR>", opt)
+vim.keymap.set("n", ";D",    "<CMD>Lspsaga show_cursor_diagnostics<CR>", opt)
+vim.keymap.set("n", ";o",    "<CMD>LSoutlineToggle<CR>",                 opt)
 
-vim.keymap.set('n', "<C-r>", "<CMD>Lspsaga rename<CR>",               opt)
-vim.keymap.set('n', "<A-p>", "<CMD>Lspsaga diagnostic_jump_prev<CR>", opt)
-vim.keymap.set('n', "<A-n>", "<CMD>Lspsaga diagnostic_jump_next<CR>", opt)
-vim.keymap.set('n', "<ESC>", "<CMD>set hls! | Lspsaga close_floaterm<CR>", opt)
+vim.keymap.set("n", "<C-r>", "<CMD>Lspsaga rename<CR>",               opt)
+vim.keymap.set("n", "<A-p>", "<CMD>Lspsaga diagnostic_jump_prev<CR>", opt)
+vim.keymap.set("n", "<A-n>", "<CMD>Lspsaga diagnostic_jump_next<CR>", opt)
+vim.keymap.set("n", "<ESC>", "<CMD>set hls! | Lspsaga close_floaterm<CR>", opt)
 
 -- vim.keymap.set("n", "<C-f>", function() require "lspsaga.action".smart_scroll_with_saga(1) end, opt)
 -- vim.keymap.set("n", "<C-b>", function() require "lspsaga.action".smart_scroll_with_saga(-1) end, opt)
