@@ -16,4 +16,3 @@ pcall(vim.cmd, "luafile ~/.cache/nvim/packer_compiled.lua")
 
 require "plugins"  -- ~/.config/nvim/lua/plugins/init.lua
 
-

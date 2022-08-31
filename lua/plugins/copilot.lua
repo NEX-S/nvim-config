@@ -21,10 +21,10 @@ vim.g.copilot_not_tab_map = true
 
 vim.keymap.set('i', "<A-l>", "copilot#Accept('<CR>')", { noremap = true, silent = true, expr = true })
 
-vim.keymap.set('i', "<A-n>", "<PLUG>copilot-next", { noremap = true, silent = true })
-vim.keymap.set('i', "<A-p>", "<PLUG>copilot-previout", { noremap = true, silent = true })
+vim.keymap.set('i', "<A-n>", "<CMD>copilot-next<CR>", { noremap = true, silent = true })
+vim.keymap.set('i', "<A-p>", "<CMD>copilot-previout<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#FFFFFF", bg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "CopilotSuggestion", { bg = "NONE", fg = "#444444", bold = false, italic = true })
 
 -- vim.cmd([[
 --     imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")

@@ -219,7 +219,7 @@ packer.startup {
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
-            event = { 'CursorMoved', 'InsertEnter', },
+            event = 'CursorHold',
             config = [[
                 require "indent_blankline".setup {
                     char = "¦",
@@ -285,7 +285,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
         use { "williamboman/nvim-lsp-installer",
-            event = { "InsertEnter", "CursorMoved", "CursorHold" },
+            event = "CursorHold",
             config = [[
                 require "nvim-lsp-installer".setup {
                     automatic_installation = true,
@@ -350,9 +350,8 @@ packer.startup {
 
         -- LSP-SAGA --
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
-        use { "glepnir/lspsaga.nvim",
+        use { "NEX-S/lspsaga.nvim",
             after = 'nvim-lspconfig',
-            -- branch = 'version_2.1',
             config = [[ require "LSP.lsp-saga" ]]
         }
 
@@ -566,6 +565,8 @@ packer.startup {
         --     run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh"
         -- }
 
+        -- COPILOT
+        -- ~/.config/nvim/lua/plugins/copilot.lua
         use { 'github/copilot.vim',
             after = "nvim-lspconfig",
             config = [[ require "plugins.copilot" ]]
