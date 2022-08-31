@@ -30,7 +30,7 @@ packer.init {
 packer.startup {
     function (use)
         -- COLORS --
-        use 'folke/tokyonight.nvim'
+        -- use 'folke/tokyonight.nvim'
         -- use 'rafamadriz/neon'
         -- use 'shaunsingh/nord.nvim'
 
@@ -285,6 +285,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
         use { "williamboman/nvim-lsp-installer",
+            event = { "InsertEnter", "CursorMoved", "CursorHold" },
             config = [[
                 require "nvim-lsp-installer".setup {
                     automatic_installation = true,
@@ -565,7 +566,11 @@ packer.startup {
         --     run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh"
         -- }
 
-        use { 'github/copilot.vim' }
+        use { 'github/copilot.vim',
+            after = "nvim-lspconfig",
+            config = [[ require "plugins.copilot" ]]
+        }
+
         use { 'hrsh7th/cmp-copilot', after = 'cmp-path' }
 
         -- use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }

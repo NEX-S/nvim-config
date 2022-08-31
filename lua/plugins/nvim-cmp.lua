@@ -185,9 +185,9 @@ vim.api.nvim_set_hl(0, "CmpItemAbbrMatch",      { bg = "NONE", fg = "#6C5B9E", b
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { bg = "NONE", fg = "#6C5B9E", bold = false, italic = false })
 
 vim.api.nvim_set_hl(0, "CmpItemKindClass",    { bg = "NONE", fg = "#AFC460", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "CmpItemKindMethod",   { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "CmpItemKindSnippet",  { bg = "NONE", fg = "#AF87D7", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "CmpItemKindMethod",   { bg = "NONE", fg = "#AF87D7", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#AF87D7", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "CmpItemKindSnippet",  { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
 
 vim.api.nvim_set_hl(0, "CmpItemKindEnum",   { bg = "NONE", fg = "#666666", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "CmpItemKindFile",   { bg = "NONE", fg = "#666666", bold = false, italic = false })
@@ -246,4 +246,5 @@ vim.api.nvim_set_hl(0, "CmpItemKindEnumMemberDefault",  { bg = "NONE", fg = "#66
 vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", { bg = "NONE", fg = "#666666", bold = false, italic = false })
 
 vim.api.nvim_set_hl(0, "CmpItemKindTypeParameterDefault",   { bg = "NONE", fg = "#666666", bold = false, italic = false })
+
 

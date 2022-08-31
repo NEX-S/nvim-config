@@ -14,5 +14,6 @@ require 'core.x-color'  -- ~/.config/nvim/lua/core/x-color.lua
 
 pcall(vim.cmd, "luafile ~/.cache/nvim/packer_compiled.lua")
 
-require 'plugins.packer'  -- ~/.config/nvim/lua/plugins/packer.lua
+require "plugins"  -- ~/.config/nvim/lua/plugins/init.lua
+
 

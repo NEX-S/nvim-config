@@ -49,7 +49,7 @@ require "lspsaga".init_lsp_saga {
         enable = true,
         in_custom = true,
         separator = '  ',
-        show_file = true,
+        show_file = false,
     },
     show_outline = {
         win_position = 'right',
