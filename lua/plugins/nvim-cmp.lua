@@ -45,15 +45,16 @@ local cmp_icons = {
 local nvim_cmp = require "cmp"
 
 nvim_cmp.setup {
-    -- view = {
-    --     entries = "native"
-    -- },
     completion = { keyword_length = 1, },
     experimental = {
-        ghost_text = true,
+        ghost_text = false,
     },
     -- 补全边框
     window = {
+        completion = {
+            col_offset = 0,
+            side_padding = 0,
+        },
         -- completion = nvim_cmp.config.window.bordered(),
         -- documentation = nvim_cmp.config.window.bordered(),
     },
@@ -94,7 +95,7 @@ nvim_cmp.setup {
         { name = 'luasnip' },       -- LUASNIP COMPLETION
         -- { name = 'treesitter' },     -- TREESITTER
         { name = 'buffer' },        -- BUFFER COMPLETION
-        { name = 'copilot' },
+        -- { name = 'copilot' },
         { name = 'nvim_lsp' },      -- LSP COMPLETION
         -- { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
@@ -123,7 +124,7 @@ nvim_cmp.setup.filetype('lua', {
     sources = {
         { name = 'path' },          -- PATH COMPLETION
         -- { name = 'treesitter' },    -- TREESITTER
-        { name = 'copilot' },
+        -- { name = 'copilot' },
         { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'nvim_lua' },      -- NVIM-API COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
@@ -246,5 +247,6 @@ vim.api.nvim_set_hl(0, "CmpItemKindEnumMemberDefault",  { bg = "NONE", fg = "#66
 vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", { bg = "NONE", fg = "#666666", bold = false, italic = false })
 
 vim.api.nvim_set_hl(0, "CmpItemKindTypeParameterDefault",   { bg = "NONE", fg = "#666666", bold = false, italic = false })
+
 
 

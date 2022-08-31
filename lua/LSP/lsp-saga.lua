@@ -4,10 +4,10 @@ vim.api.nvim_set_hl(8, "TSvariable", { bg = "NONE", fg = '#C53B82', bold = true,
 require "lspsaga".init_lsp_saga {
     border_style = "single",
     saga_winblend = 20,
-    float_term = {
-        winblend = 25,
-        shadow_background = false,
-    },
+    -- float_term = {
+    --     winblend = 25,
+    --     shadow_background = false,
+    -- },
     move_in_saga = { next = '<C-n>', prev = '<C-p>' },
     diagnostic_header = { " ", " ", " ", " " },
     show_diagnostic_source = true,
@@ -31,7 +31,7 @@ require "lspsaga".init_lsp_saga {
     },
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 10,
-    definition_preview_quit = '<ESC>',
+    -- definition_preview_quit = '<ESC>',
     -- finder_preview_hl_ns = 8,
     finder_action_keys = {
         open = "l",

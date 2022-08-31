@@ -1,106 +1,81 @@
 
-vim.api.nvim_set_hl(0, "CursorLine",   { bg = "#282828", fg = "NONE", })
-vim.api.nvim_set_hl(0, "VisualNOS",    { bg = "#444444", fg = "#000000", })
-vim.api.nvim_set_hl(0, "Normal",       { bg = "#252525", fg = "#727272", })
-vim.api.nvim_set_hl(0, "StatusLine",   { bg = "#3A3A3A", fg = "#AF87D7", })
-vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#303030", fg = "#767676", })
+vim.cmd [[
+    hi CursorLine    guibg=#282828 guifg=NONE
+    hi Normal        guibg=#252525 guifg=#727272
+    hi StatusLineNC  guibg=#303030 guifg=#767676
 
-vim.api.nvim_set_hl(0, "NonText",      { bg = "NONE", fg = "#323232", })
-vim.api.nvim_set_hl(0, "VertSplit",    { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "Warning",      { bg = "NONE", fg = "#D66F01", })
-vim.api.nvim_set_hl(0, "ModeMsg",      { bg = "NONE", fg = "#767676", })
-vim.api.nvim_set_hl(0, "Error",        { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "Conceal",      { bg = "NONE", fg = "#626262", })
-vim.api.nvim_set_hl(0, "PreProc",      { bg = "NONE", fg = "#767676", })
-vim.api.nvim_set_hl(0, "SpecialKey",   { bg = "NONE", fg = "#6c5b9e", })
-vim.api.nvim_set_hl(0, "FoldColumn",   { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "WildMenu",     { bg = "NONE", fg = "#D75F5F", })
-vim.api.nvim_set_hl(0, "ColorColumn",  { bg = "NONE", fg = "#000000", })
-vim.api.nvim_set_hl(0, "SignColumn",   { bg = "NONE", fg = "#767676", })
-vim.api.nvim_set_hl(0, "Cursor",       { bg = "NONE", fg = "#000000", })
-vim.api.nvim_set_hl(0, "DiffAdd",      { bg = "NONE", fg = "#87AF87", })
-vim.api.nvim_set_hl(0, "DiffChange",   { bg = "NONE", fg = "#008FBF", })
-vim.api.nvim_set_hl(0, "DiffDelete",   { bg = "NONE", fg = "#AF5F87", })
-vim.api.nvim_set_hl(0, "DiffText",     { bg = "NONE", fg = "#D7AF5F", })
-vim.api.nvim_set_hl(0, "Operator",     { bg = "NONE", fg = "#555555", })
-vim.api.nvim_set_hl(0, "Statement",    { bg = "NONE", fg = "#A5A5A5", })
-vim.api.nvim_set_hl(0, "Special",      { bg = "NONE", fg = "#8567A3", })
-vim.api.nvim_set_hl(0, "Identifier",   { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "Constant",     { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "Number",       { bg = "NONE", fg = "#afc460", })
-vim.api.nvim_set_hl(0, "Boolean",      { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "Keyword",      { bg = "NONE", fg = "#6A6A6A", })
-vim.api.nvim_set_hl(0, "Function",     { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "Delimiter",    { bg = "NONE", fg = "#8567A3", })
-vim.api.nvim_set_hl(0, "Question",     { bg = "NONE", fg = "#BBE73D", })
-vim.api.nvim_set_hl(0, "Conditonal",   { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "Label",        { bg = "NONE", fg = "#D0EE7A", })
-vim.api.nvim_set_hl(0, "Character",    { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "Typedef",      { bg = "NONE", fg = "#000000", })
-vim.api.nvim_set_hl(0, "SpecialChar",  { bg = "NONE", fg = "#333333", })
-vim.api.nvim_set_hl(0, "Tag",          { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "Debug",        { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "ErrorMsg",     { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "WarningMsg",   { bg = "NONE", fg = "#d1771b", })
-vim.api.nvim_set_hl(0, "MoreMsg",      { bg = "NONE", fg = "#777777", })
-vim.api.nvim_set_hl(0, "Ignore",       { bg = "NONE", fg = "#d1771b", })
-vim.api.nvim_set_hl(0, "QuickFixLine", { bg = "NONE", fg = "#DE0000", })
+    hi NonText       guibg=NONE guifg=#323232
+    hi VertSplit     guibg=NONE guifg=#353535
+    hi Warning       guibg=NONE guifg=#D66F01
+    hi ModeMsg       guibg=NONE guifg=#767676
+    hi Error         guibg=NONE guifg=#D33FFF
+    hi PreProc       guibg=NONE guifg=#767676
+    hi SpecialKey    guibg=NONE guifg=#6c5b9e
+    hi FoldColumn    guibg=NONE guifg=#666666
+    hi WildMenu      guibg=NONE guifg=#D75F5F
+    hi SignColumn    guibg=NONE guifg=#767676
+    hi Cursor        guibg=NONE guifg=#000000
+    hi DiffAdd       guibg=NONE guifg=#87AF87
+    hi DiffChange    guibg=NONE guifg=#008FBF
+    hi DiffDelete    guibg=NONE guifg=#AF5F87
+    hi DiffText      guibg=NONE guifg=#D7AF5F
+    hi Operator      guibg=NONE guifg=#555555
+    hi Statement     guibg=NONE guifg=#A5A5A5
+    hi Special       guibg=NONE guifg=#8567A3
+    hi Identifier    guibg=NONE guifg=#C53B82
+    hi Constant      guibg=NONE guifg=#C53B82
+    hi Number        guibg=NONE guifg=#afc460
+    hi Boolean       guibg=NONE guifg=#C53B82
+    hi Keyword       guibg=NONE guifg=#6A6A6A
+    hi Function      guibg=NONE guifg=#C53B82
+    hi Delimiter     guibg=NONE guifg=#8567A3
+    hi Question      guibg=NONE guifg=#BBE73D
+    hi Label         guibg=NONE guifg=#D0EE7A
+    hi SpecialChar   guibg=NONE guifg=#333333
+    hi ErrorMsg      guibg=NONE guifg=#C53B82
+    hi WarningMsg    guibg=NONE guifg=#d1771b
+    hi Ignore        guibg=NONE guifg=#d1771b
 
-vim.api.nvim_set_hl(0, "TabLine",      { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "TabLineFill",  { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "TabLineSel",   { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "CursorColumn", { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "SpellRare",    { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "htmlTag",      { bg = "NONE", fg = "#000000", })
-vim.api.nvim_set_hl(0, "htmlEndTag",   { bg = "NONE", fg = "#000000", })
+    hi diffAdded     guibg=NONE guifg=#9EB73D
+    hi diffRemoved   guibg=NONE guifg=#C53B82
 
-vim.api.nvim_set_hl(0, "diffAdded",    { bg = "NONE", fg = "#9EB73D", })
-vim.api.nvim_set_hl(0, "diffRemoved",  { bg = "NONE", fg = "#C53B82", })
+    hi helpHyperTextJump  guibg=NONE guifg=#AF87D7
 
-vim.api.nvim_set_hl(0, "StatusLineTerm",    { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "StatusLineTermNC",  { bg = "NONE", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "helpHyperTextJump", { bg = "NONE", fg = "#AF87D7", })
+    hi SpecialComment  guibg=NONE guifg=#d1771b
 
-vim.api.nvim_set_hl(0, "SpecialComment", { bg = "NONE", fg = "#d1771b", })
-vim.api.nvim_set_hl(0, "CursorLineFold", { bg = "#D33FFF", fg = "#000000", })
+    hi Visual        guibg=#232323 guifg=NONE gui=bold
+    hi Search        guibg=NONE guifg=#C53B82 gui=bold
+    hi IncSearch     guibg=NONE guifg=#C53B82 gui=bold
+    hi MatchParen    guibg=NONE guifg=#C53B82 gui=bold
+    hi Directory     guibg=NONE guifg=#AF87D7 gui=bold
+    hi Title         guibg=NONE guifg=#C6C6C6 gui=bold
 
-vim.api.nvim_set_hl(0, "Visual",       { bg = "#232323", fg = "NONE", bold = true })
-vim.api.nvim_set_hl(0, "Search",       { bg = "NONE", fg = "#C53B82", bold = true })
-vim.api.nvim_set_hl(0, "IncSearch",    { bg = "NONE", fg = "#C53B82", bold = true })
-vim.api.nvim_set_hl(0, "MatchParen",   { bg = "NONE", fg = "#C53B82", bold = true })
-vim.api.nvim_set_hl(0, "Directory",    { bg = "NONE", fg = "#AF87D7", bold = true })
-vim.api.nvim_set_hl(0, "Title",        { bg = "NONE", fg = "#C6C6C6", bold = true })
+    hi Type          guibg=NONE guifg=#8567A3 gui=italic
+    hi Comment       guibg=NONE guifg=#525252 gui=italic
+    hi Float         guibg=NONE guifg=#afc460 gui=italic
+    hi String        guibg=NONE guifg=#8567A3 gui=italic
+    hi Repeat        guibg=NONE guifg=#8567A3 gui=italic
+    hi Include       guibg=NONE guifg=#BBE73D gui=italic
+    hi Define        guibg=NONE guifg=#C53B82 gui=italic
+    hi Structure     guibg=NONE guifg=#BBE73D gui=italic
+    hi Macro         guibg=NONE guifg=#BBE73D gui=italic
+    hi StorageClass  guibg=NONE guifg=#BBE73D gui=italic
 
-vim.api.nvim_set_hl(0, "Type",         { bg = "NONE", fg = "#8567A3", italic = true })
-vim.api.nvim_set_hl(0, "Comment",      { bg = "NONE", fg = "#525252", italic = true })
-vim.api.nvim_set_hl(0, "Float",        { bg = "NONE", fg = "#afc460", italic = true })
-vim.api.nvim_set_hl(0, "String",       { bg = "NONE", fg = "#8567A3", italic = true })
-vim.api.nvim_set_hl(0, "Repeat",       { bg = "NONE", fg = "#8567A3", italic = true })
-vim.api.nvim_set_hl(0, "Include",      { bg = "NONE", fg = "#BBE73D", italic = true })
-vim.api.nvim_set_hl(0, "Define",       { bg = "NONE", fg = "#C53B82", italic = true })
-vim.api.nvim_set_hl(0, "Structure",    { bg = "NONE", fg = "#BBE73D", italic = true })
-vim.api.nvim_set_hl(0, "Macro",        { bg = "NONE", fg = "#BBE73D", italic = true })
-vim.api.nvim_set_hl(0, "StorageClass", { bg = "NONE", fg = "#BBE73D", italic = true })
+    hi LineNr        guibg=#252525 guifg=#6F6F6F gui=italic
+    hi Folded        guibg=#232323 guifg=#494949 gui=italic
+    hi CursorLineNr  guibg=#282828 guifg=#6c5b9e gui=italic
 
-vim.api.nvim_set_hl(0, "LineNr",       { bg = "#252525", fg = "#6F6F6F", italic = true })
-vim.api.nvim_set_hl(0, "Folded",       { bg = "#232323", fg = "#494949", italic = true })
-vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#282828", fg = "#6c5b9e", italic = true })
+    hi Exception     guibg=NONE guifg=#BBE73D gui=italic,bold
+    hi Todo          guibg=NONE guifg=#D66F01 gui=italic,bold
 
-vim.api.nvim_set_hl(0, "Underlined",   { bg = "NONE", fg = "#D33FFF", underline = true })
-vim.api.nvim_set_hl(0, "SpellBad",     { bg = "NONE", fg = "#AF5F87", underline = true })
-vim.api.nvim_set_hl(0, "SpellCap",     { bg = "NONE", fg = "#87AF87", underline = true })
-vim.api.nvim_set_hl(0, "SpellLocal",   { bg = "NONE", fg = "#D7AF5F", underline = true })
+    hi Pmenu         guibg=#292929 guifg=#686868
+    hi PmenuSel      guibg=#2f2f2f guifg=NONE gui=bold
 
-vim.api.nvim_set_hl(0, "Exception",    { bg = "NONE", fg = "#BBE73D", italic = true, bold = true })
-vim.api.nvim_set_hl(0, "Todo",         { bg = "NONE", fg = "#D66F01", italic = true, bold = true })
+    hi PmenuSbar     guibg=#313131 guifg=#D33FFF
+    hi PmenuThumb    guibg=#434343 guifg=#D33FFF
 
-vim.api.nvim_set_hl(0, "Pmenu",        { bg = "#292929", fg = "#686868", })
-vim.api.nvim_set_hl(0, "PmenuSel",     { bg = "#2f2f2f", fg = "NONE", bold = true })
-
-vim.api.nvim_set_hl(0, "PmenuSbar",    { bg = "#313131", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "PmenuThumb",   { bg = "#434343", fg = "#D33FFF", })
-
-
+    hi CursorLine    guibg=#282828 guifg=NONE
+]]
 
 vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
@@ -264,4 +239,90 @@ vim.keymap.set('n', ';s', '<CMD>sp<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('i', '<A-h>', '<ESC>ciw', { noremap = true, silent = true })
 
+
+vim.opt.writebackup = false
+vim.opt.showmatch   = false
+vim.opt.wrap        = false
+vim.opt.backup      = false
+vim.opt.swapfile    = false
+vim.opt.showmode    = false
+vim.opt.foldenable  = false
+
+vim.opt.termguicolors = true
+vim.opt.number        = true
+vim.opt.cursorline    = true
+vim.opt.undofile      = true
+vim.opt.showcmd       = true
+vim.opt.lazyredraw    = true
+vim.opt.splitbelow    = true
+vim.opt.splitright    = true
+vim.opt.incsearch     = true
+vim.opt.ignorecase    = true
+vim.opt.smartcase     = true
+vim.opt.wildmenu      = true
+vim.opt.expandtab     = true
+vim.opt.list          = true
+vim.opt.hidden        = true
+vim.opt.smarttab      = true
+
+vim.opt.autochdir     = true
+
+vim.opt.mouse = ''
+vim.opt.fileformats = 'unix,mac,dos'
+vim.opt.magic = true
+vim.opt.virtualedit = 'block'
+vim.opt.shiftround = true
+vim.opt.timeout = true
+vim.opt.timeoutlen = 500
+vim.opt.redrawtime = 1500
+vim.opt.infercase = true
+
+vim.opt.pumblend = 25
+vim.opt.winblend = 25
+vim.opt.pumheight = 18
+
+vim.opt.paste         = true
+
+vim.opt.showbreak = '↳  '
+
+vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("space:·")
+vim.opt.listchars:append("tab: ")
+vim.opt.listchars:append("eol:↲")
+-- vim.opt.listchars:append("eol: ")
+vim.opt.listchars:append("trail:-")
+vim.opt.listchars:append("nbsp:b")
+vim.opt.listchars:append("extends:c")
+vim.opt.listchars:append("precedes:d")
+
+vim.opt.iskeyword:remove('_')
+
+vim.opt.background = 'dark'
+vim.opt.signcolumn = 'yes:1'
+
+vim.opt.showtabline   = 0
+vim.opt.cmdheight     = 0
+vim.opt.laststatus    = 0
+vim.opt.tabstop       = 4
+vim.opt.softtabstop   = 4
+vim.opt.shiftwidth    = 4
+vim.opt.conceallevel  = 0
+vim.opt.numberwidth   = 3
+
+vim.opt.scrolloff     = 6
+vim.opt.sidescrolloff = 15
+vim.opt.updatetime    = 100
+
+vim.opt.modelines = 0
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+
+vim.opt.foldnestmax = 9
+vim.opt.foldminlines = 4
+
+-- FOLD SETTINGS --
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr   = "nvim_treesitter#foldexpr()"
+vim.opt.fillchars = "fold: "
 

@@ -57,7 +57,6 @@
 --  WildMenu	'wildmenu' 补全的当前匹配。
 --  'statusline' 语法允许在状态行和标尺 (通过 'rulerformat') 上使用 9 种不同的高亮。这些高亮组的名字是 User1 到 User9。
 
-
 vim.api.nvim_set_hl(0, "CursorLine",   { bg = "#282828", fg = "NONE", })
 vim.api.nvim_set_hl(0, "VisualNOS",    { bg = "#444444", fg = "#000000", })
 vim.api.nvim_set_hl(0, "Normal",       { bg = "#252525", fg = "#727272", })
@@ -68,7 +67,7 @@ vim.api.nvim_set_hl(0, "NonText",      { bg = "NONE", fg = "#323232", })
 vim.api.nvim_set_hl(0, "VertSplit",    { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "Warning",      { bg = "NONE", fg = "#D66F01", })
 vim.api.nvim_set_hl(0, "ModeMsg",      { bg = "NONE", fg = "#767676", })
-vim.api.nvim_set_hl(0, "Error",        { bg = "NONE", fg = "#D33FFF", })
+vim.api.nvim_set_hl(0, "Error",        { bg = "NONE", fg = "#C53B82", })
 vim.api.nvim_set_hl(0, "Conceal",      { bg = "NONE", fg = "#626262", })
 vim.api.nvim_set_hl(0, "PreProc",      { bg = "NONE", fg = "#767676", })
 vim.api.nvim_set_hl(0, "SpecialKey",   { bg = "NONE", fg = "#6c5b9e", })
@@ -145,7 +144,7 @@ vim.api.nvim_set_hl(0, "LineNr",       { bg = "#252525", fg = "#6F6F6F", italic 
 vim.api.nvim_set_hl(0, "Folded",       { bg = "#232323", fg = "#494949", italic = true })
 vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#282828", fg = "#6c5b9e", italic = true })
 
-vim.api.nvim_set_hl(0, "Underlined",   { bg = "NONE", fg = "#D33FFF", underline = true })
+vim.api.nvim_set_hl(0, "Underlined",   { bg = "NONE", fg = "#6C5B9E", underline = true })
 vim.api.nvim_set_hl(0, "SpellBad",     { bg = "NONE", fg = "#AF5F87", underline = true })
 vim.api.nvim_set_hl(0, "SpellCap",     { bg = "NONE", fg = "#87AF87", underline = true })
 vim.api.nvim_set_hl(0, "SpellLocal",   { bg = "NONE", fg = "#D7AF5F", underline = true })
@@ -156,6 +155,8 @@ vim.api.nvim_set_hl(0, "Todo",         { bg = "NONE", fg = "#D66F01", italic = t
 vim.api.nvim_set_hl(0, "Pmenu",        { bg = "#292929", fg = "#686868", })
 vim.api.nvim_set_hl(0, "PmenuSel",     { bg = "#2f2f2f", fg = "NONE", bold = true })
 
-vim.api.nvim_set_hl(0, "PmenuSbar",    { bg = "#313131", fg = "#D33FFF", })
-vim.api.nvim_set_hl(0, "PmenuThumb",   { bg = "#434343", fg = "#D33FFF", })
+vim.api.nvim_set_hl(0, "PmenuSbar",    { bg = "#313131", fg = "#000000", })
+vim.api.nvim_set_hl(0, "PmenuThumb",   { bg = "#434343", fg = "#000000", })
+
+vim.api.nvim_set_hl(0, "CursorLine",   { bg = "#282828", fg = "NONE", })
 

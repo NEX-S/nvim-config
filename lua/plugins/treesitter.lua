@@ -152,5 +152,5 @@ vim.api.nvim_set_hl(0, "TSVariableBuiltin",     { bg = "NONE", fg = "#614F97", }
 vim.api.nvim_set_hl(0, "TSWarning",             { bg = "NONE", fg = "#FFFFFF", })
 vim.api.nvim_set_hl(0, "TSTitle",               { bg = "NONE", fg = "#6C5B9E", bold   = true })
 vim.api.nvim_set_hl(0, "TSPunctSpecial",        { bg = "NONE", fg = "#6C5B9E", bold   = true })
-vim.api.nvim_set_hl(0, "TSString",              { bg = "NONE", fg = "#585858", italic = true })
+vim.api.nvim_set_hl(0, "TSString",              { bg = "NONE", fg = "#585858", italic = false })
 

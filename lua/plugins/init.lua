@@ -99,12 +99,11 @@ packer.startup {
 
         -- GITSIGNS --
         -- ~/.config/nvim/lua/plugins/gitsigns.lua
-        use { 'lewis6991/gitsigns.nvim',
-            event = { 'CursorMoved', 'InsertEnter' },
-            branch = 'tl141',
-            tag = 'release',
-            config = [[ require 'plugins.gitsigns' ]]
-        }
+        -- use { 'lewis6991/gitsigns.nvim',
+        --     event = { 'CursorMoved', 'InsertEnter' },
+        --     tag = 'release',
+        --     config = [[ require 'plugins.gitsigns' ]]
+        -- }
 
         -- TOGGLETERM --
         -- use { 'akinsho/toggleterm.nvim',
@@ -350,7 +349,8 @@ packer.startup {
 
         -- LSP-SAGA --
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
-        use { "NEX-S/lspsaga.nvim",
+        -- use { "NEX-S/lspsaga.nvim",
+        use { "glepnir/lspsaga.nvim",
             after = 'nvim-lspconfig',
             config = [[ require "LSP.lsp-saga" ]]
         }
@@ -572,7 +572,7 @@ packer.startup {
             config = [[ require "plugins.copilot" ]]
         }
 
-        use { 'hrsh7th/cmp-copilot', after = 'cmp-path' }
+        -- use { 'hrsh7th/cmp-copilot', after = 'cmp-path' }
 
         -- use { "lukas-reineke/cmp-rg", after = 'cmp-calc' }
 
