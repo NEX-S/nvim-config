@@ -170,13 +170,13 @@ vim.api.nvim_set_hl(0, "FinderSpinnerBorder",     { bg = "NONE", fg = "#353535",
 vim.api.nvim_set_hl(0, "FinderSpinnerTitle",      { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "FinderSpinner",           { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "DefinitionPreviewTitle",  { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "SagaShadow",              { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "SagaShadow",              { bg = "NONE", fg = "#000000", })
 
 -- Outline
 vim.api.nvim_set_hl(0, "LSOutlinePreviewBorder",  { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "OutlineIndentEvn",        { bg = "NONE", fg = "#ffffff", })
 vim.api.nvim_set_hl(0, "OutlineIndentOdd",        { bg = "NONE", fg = "#ffffff", })
-vim.api.nvim_set_hl(0, "OutlineFoldPrefix",       { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "OutlineFoldPrefix",       { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "OutlineDetail",           { bg = "NONE", fg = "#383838", })
 
 vim.api.nvim_create_autocmd("BufEnter", {

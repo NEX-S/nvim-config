@@ -10,10 +10,10 @@ packer.init {
     compile_on_sync = true,
     git = { clone_timeout = 6000 },
     prompt_border = 'single',
-   compile_path = '~/.cache/nvim/packer_compiled.lua',
+    compile_path = '~/.cache/nvim/packer_compiled.lua',
     keybindings = {
         quit = '<ESC>',
-        toggle_info = 'o',
+        toggle_info = 'l',
     },
     display = {
         working_sym = ' ',
@@ -99,11 +99,10 @@ packer.startup {
 
         -- GITSIGNS --
         -- ~/.config/nvim/lua/plugins/gitsigns.lua
-        -- use { 'lewis6991/gitsigns.nvim',
-        --     event = { 'CursorMoved', 'InsertEnter' },
-        --     tag = 'release',
-        --     config = [[ require 'plugins.gitsigns' ]]
-        -- }
+        use { 'lewis6991/gitsigns.nvim',
+            event = { 'CursorMoved', 'CursorHold', 'CursorHoldI' },
+            config = [[ require 'plugins.gitsigns' ]]
+        }
 
         -- TOGGLETERM --
         -- use { 'akinsho/toggleterm.nvim',
@@ -218,7 +217,7 @@ packer.startup {
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
-            event = 'CursorHold',
+            event = { 'CursorHold','CursorHoldI', 'CursorMoved' },
             config = [[
                 require "indent_blankline".setup {
                     char = "¦",
@@ -284,7 +283,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
         use { "williamboman/nvim-lsp-installer",
-            event = "CursorHold",
+            event = { "CursorHold", "CursorHoldI", "CursorMoved", "InsertEnter" },
             config = [[
                 require "nvim-lsp-installer".setup {
                     automatic_installation = true,
@@ -349,9 +348,10 @@ packer.startup {
 
         -- LSP-SAGA --
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
-        -- use { "NEX-S/lspsaga.nvim",
-        use { "glepnir/lspsaga.nvim",
+        -- use { "glepnir/lspsaga.nvim",
+        use { "NEX-S/lspsaga.nvim",
             after = 'nvim-lspconfig',
+            -- keys = { "gd", "gi", "<C-r>", ";x", ";o" },
             config = [[ require "LSP.lsp-saga" ]]
         }
 
@@ -557,13 +557,14 @@ packer.startup {
 
         -- INSERT ONLY COMPLETION
         use { 'hrsh7th/cmp-path', event = 'InsertEnter' }
-        use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp-path' }
+        use { 'saadparwaiz1/cmp_luasnip', after = 'cmp-path' }
+        use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp_luasnip' }
         use { 'hrsh7th/cmp-calc', after = 'cmp-nvim-lsp-signature-help' }
 
-        -- use { 'tzachar/cmp-tabnine',
-        --     after = "cmp-treesitter",
-        --     run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh"
-        -- }
+        use { 'tzachar/cmp-tabnine',
+            event = "InsertCharPre",
+            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh"
+        }
 
         -- COPILOT
         -- ~/.config/nvim/lua/plugins/copilot.lua
@@ -589,12 +590,12 @@ packer.startup {
 
         -- LUASNIP --
         -- ~/.config/nvim/lua/plugins/luasnip.lua
-        use { 'saadparwaiz1/cmp_luasnip', event = 'InsertEnter' }
-        use { 'rafamadriz/friendly-snippets', after = 'cmp_luasnip' }
         use { 'L3MON4D3/LuaSnip',
-            after = 'friendly-snippets',
+            after = 'cmp_luasnip',
             config = [[ require "plugins.luasnip" ]]
         }
+
+        -- use { 'rafamadriz/friendly-snippets', after = 'cmp_luasnip' }
 
         -- use { 'ms-jpq/coq_nvim',
         --     branch = 'coq',
@@ -727,7 +728,7 @@ packer.startup {
             config = [[ require "plugins.treesitter" ]]
         }
         use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
-        use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter"  }
+        -- use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter"  }
         use { 'p00f/nvim-ts-rainbow', after = "nvim-treesitter" }
         use { 'm-demare/hlargs.nvim',
             after = "nvim-treesitter",
@@ -762,7 +763,7 @@ packer.startup {
             end
         }
 
-        use { 'windwp/nvim-ts-autotag', event = 'InsertEnter' }
+        use { 'windwp/nvim-ts-autotag', ft = "html" }
         -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
 
         -- 聚焦当前 函数/方法
@@ -877,10 +878,8 @@ packer.startup {
     end
 }
 
-
-
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    pattern = { "plugins.lua" },
+    pattern = { "init.lua" },
     callback = function ()
         vim.cmd "source <afile> | PackerSync"
     end

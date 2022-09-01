@@ -16,8 +16,8 @@
     "description": "HTML - Template for a html document",
     "scope": "text.html"
   },
-  "<html>": {
-    "prefix": "<html>",
+  "html": {
+    "prefix": "html",
     "body": [
       "<html lang=\"en\">",
       "\t${0:Content}",

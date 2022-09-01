@@ -4,10 +4,8 @@ local types = require "luasnip.util.types"
 require "luasnip".config.setup {
     history = false,
     updateevents = 'TextChanged,TextChangedI',
-    -- region_check_events = "CursorHold,InsertEnter,InsertLeave",
-    -- delete_check_events = "TextChanged,InsertEnter,InsertLeave",
-    region_check_events = "TextChangedI",
-    delete_check_events = "TextChangedI",
+    region_check_events = "CursorHold,InsertEnter,InsertLeave",
+    delete_check_events = "TextChanged,InsertEnter,InsertLeave",
     ext_opts = {
         [types.choiceNode] = { active = { virt_text = {{ "", "LuasnipChoiceNodeActive" }} } },
         [types.insertNode] = { active = { virt_text = {{ "", "LuasnipInsertNodeActive" }} } },
@@ -16,7 +14,7 @@ require "luasnip".config.setup {
 vim.api.nvim_set_hl(0, "LuasnipChoiceNodeActive", { bg = "NONE", fg = "#D0EE7A", })
 vim.api.nvim_set_hl(0, "LuasnipInsertNodeActive", { bg = "#282828", fg = "#C53B82", })
 
-require "luasnip.loaders.from_vscode".lazy_load {}
+-- require "luasnip.loaders.from_vscode".lazy_load {}
 require "luasnip.loaders.from_vscode".lazy_load {
     paths = { "./snippets" }
 }

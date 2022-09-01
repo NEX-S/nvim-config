@@ -1,5 +1,5 @@
 
-local symbol_node = require "lspsaga.symbolwinbar".get_symbol_node
+local sym_node = require "lspsaga.symbolwinbar".get_symbol_node
 
 require "lualine".setup {
     globalstatus = true,
@@ -86,7 +86,7 @@ require "lualine".setup {
             },
         },
         lualine_c = {{'[ %F -  %p%% ]', type = 'stl' }},
-        lualine_x = { { symbol_node }, 'os.date("%H:%M %a")', },
+        lualine_x = { { sym_node }, 'os.date("%H:%M %a")', },
         lualine_y = { '%c -  %B' },
         lualine_z = { '%l - %L' },
     },

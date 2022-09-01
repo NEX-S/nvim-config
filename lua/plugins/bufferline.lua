@@ -5,7 +5,7 @@
 --     return
 -- end
 
-require('bufferline').setup {
+require "bufferline".setup {
     options = {
         mode = "buffers",
         middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"

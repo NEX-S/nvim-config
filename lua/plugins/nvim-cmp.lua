@@ -47,7 +47,7 @@ local nvim_cmp = require "cmp"
 nvim_cmp.setup {
     completion = { keyword_length = 1, },
     experimental = {
-        ghost_text = false,
+        ghost_text = true,
     },
     -- 补全边框
     window = {
@@ -97,7 +97,7 @@ nvim_cmp.setup {
         { name = 'buffer' },        -- BUFFER COMPLETION
         -- { name = 'copilot' },
         { name = 'nvim_lsp' },      -- LSP COMPLETION
-        -- { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
+        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
@@ -129,7 +129,7 @@ nvim_cmp.setup.filetype('lua', {
         { name = 'nvim_lua' },      -- NVIM-API COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
         { name = 'nvim_lsp' },      -- LSP COMPLETION
-        -- { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
+        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },

@@ -127,7 +127,7 @@ vim.api.nvim_set_hl(0, "Search",       { bg = "NONE", fg = "#C53B82", bold = tru
 vim.api.nvim_set_hl(0, "IncSearch",    { bg = "NONE", fg = "#C53B82", bold = true })
 vim.api.nvim_set_hl(0, "MatchParen",   { bg = "NONE", fg = "#C53B82", bold = true })
 vim.api.nvim_set_hl(0, "Directory",    { bg = "NONE", fg = "#AF87D7", bold = true })
-vim.api.nvim_set_hl(0, "Title",        { bg = "NONE", fg = "#C6C6C6", bold = true })
+vim.api.nvim_set_hl(0, "Title",        { bg = "NONE", fg = "#C53B82", bold = true })
 
 vim.api.nvim_set_hl(0, "Type",         { bg = "NONE", fg = "#8567A3", italic = true })
 vim.api.nvim_set_hl(0, "Comment",      { bg = "NONE", fg = "#525252", italic = true })
