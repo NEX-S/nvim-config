@@ -8,38 +8,38 @@ require "lualine".setup {
         -- theme = 'palenight',
         theme = {
             normal = {
-                a = { fg = '#767676', bg = '#404040', gui = 'bold' },
-                b = { fg = '#595959', bg = '#303030', gui = 'NONE' },
+                a = { fg = '#828282', bg = '#404040', gui = 'bold' },
+                b = { fg = 'NONE', bg = '#313131', gui = 'NONE' },
                 c = { fg = '#525252', bg = '#292929', gui = 'NONE' },
-                x = { fg = '#646464', bg = '#292929', gui = 'NONE' },
-                y = { fg = '#666666', bg = '#323232', gui = 'italic' },
-                z = { fg = '#888888', bg = '#444444', gui = 'bold,italic' },
+                x = { fg = '#545454', bg = '#292929', gui = 'NONE' },
+                y = { fg = '#727272', bg = '#313131', gui = 'italic' },
+                z = { fg = '#8c72d9', bg = '#393939', gui = 'bold,italic' },
             },
             insert = {
-                b = { fg = '#707070', bg = '#303030', gui = 'NONE' },
+                b = { fg = 'NONE', bg = '#313131', gui = 'NONE' },
                 c = { fg = '#525252', bg = '#292929', gui = 'NONE' },
-                x = { fg = '#646464', bg = '#292929', gui = 'NONE' },
-                y = { fg = '#777777', bg = '#343434', gui = 'italic' },
-                z = { fg = '#BBE73D', bg = '#444444', gui = 'italic' },
+                x = { fg = '#545454', bg = '#292929', gui = 'NONE' },
+                y = { fg = '#727272', bg = '#313131', gui = 'italic' },
+                z = { fg = '#AFC460', bg = '#393939', gui = 'bold,italic' },
             },
             visual = {
-                b = { fg = '#707070', bg = '#303030', gui = 'NONE' },
+                b = { fg = 'NONE', bg = '#303030', gui = 'NONE' },
                 c = { fg = '#525252', bg = '#292929', gui = 'NONE' },
-                x = { fg = '#646464', bg = '#292929', gui = 'NONE' },
-                y = { fg = '#777777', bg = '#343434', gui = 'italic' },
-                z = { fg = '#C53B82', bg = '#444444', gui = 'italic' },
+                x = { fg = '#545454', bg = '#292929', gui = 'NONE' },
+                y = { fg = '#727272', bg = '#313131', gui = 'italic' },
+                z = { fg = '#C53B82', bg = '#393939', gui = 'bold,italic' },
             },
             replace  = { z = { fg = '#6C5B9E', bg = '#424242', gui ='bold,italic' }, },
-            inactive = { a = { fg = '#8f8f8f', bg = '#323232', gui = 'NONE' }, },
+            inactive = { a = { fg = '#767676', bg = '#323232', gui = 'NONE' }, },
         },
         -- section_separators = { left = '', right = '' },
         -- component_separators = { left = '', right = '|' },
 
         -- section_separators = { left = '', right = ''},
-        -- component_separators = { left = '', right = '\\' },
+        component_separators = { left = '', right = '\\' },
 
         section_separators = { left = '', right = ''},
-        component_separators = { left = '', right = '\\' },
+        -- component_separators = { left = '', right = '\\' },
         disabled_filetypes = {
             "dashboard",
         },
@@ -49,13 +49,16 @@ require "lualine".setup {
     sections = {
         lualine_a = {
             {
-                "branch",
-                -- TODO: ADD DOT
+                "filename",
+                file_stauts = true,
                 show_modified_status = true,
+                newfile_stauts = true,
+                path = 0,
                 symbols = {
                     modified = ' ',
-                    alternate_file = ' o',
-                    directory = ' z',
+                    readonly = ' -',
+                    newfile = ' +',
+                    unnamed = ' x',
                 },
             },
             {
@@ -76,23 +79,25 @@ require "lualine".setup {
         lualine_b = {
             {
                 'diff',
-                colored = true, -- Displays a colored diff status if set to true
+                colored = true,
                 symbols = {
                     added = '+ ',
                     modified = ' ',
                     removed = '- '
-                }, -- Changes the symbols used by the diff.
+                },
                 source = nil,
             },
         },
-        lualine_c = {{'[ %F -  %p%% ]', type = 'stl' }},
-        lualine_x = { { sym_node }, 'os.date("%H:%M %a")', },
+        lualine_c = {
+            { '[ %F -  %p%% ]', type = 'stl' },
+        },
+        lualine_x = { { sym_node }, "os.date('%H:%M %a')", },
         lualine_y = { '%c -  %B' },
         lualine_z = { '%l - %L' },
     },
 }
 
-vim.api.nvim_set_hl(0, "lualine_a_diagnostics_hint_normal", { bg = "#404040", fg = "#C7EB61" })
+vim.api.nvim_set_hl(0, "lualine_a_diagnostics_hint_normal", { bg = "#404040", fg = "#AFC460" })
 
 vim.api.nvim_set_hl(0, "LspSagaWinbarSep",   { bg = "#292929", fg = "#555555" })
 vim.api.nvim_set_hl(0, "LspSagaWinbarKey",   { bg = "#292929", fg = "#686868" })
@@ -117,7 +122,7 @@ vim.api.nvim_set_hl(0, "LspSagaWinbarPackage",  { bg = "#292929", fg = "#686868"
 vim.api.nvim_set_hl(0, "LspSagaWinbarConstant",   { bg = "#292929", fg = "#D1771B" })
 vim.api.nvim_set_hl(0, "LspSagaWinbarFunction",   { bg = "#292929", fg = "#C53B82", bold = true, italic = true })
 vim.api.nvim_set_hl(0, "LspSagaWinbarOperator",   { bg = "#292929", fg = "#686868" })
-vim.api.nvim_set_hl(0, "LspSagaWinbarProperty",   { bg = "#292929", fg = "#8567A3" })
+vim.api.nvim_set_hl(0, "LspSagaWinbarProperty",   { bg = "#292929", fg = "#6a5a9d" })
 vim.api.nvim_set_hl(0, "LspSagaWinbarVariable",   { bg = "#292929", fg = "#686868" })
 vim.api.nvim_set_hl(0, "LspSagaWinbarInterface",  { bg = "#292929", fg = "#D1771B" })
 vim.api.nvim_set_hl(0, "LspSagaWinbarNamespace",  { bg = "#292929", fg = "#686868" })

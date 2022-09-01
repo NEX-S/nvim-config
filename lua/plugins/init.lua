@@ -104,19 +104,6 @@ packer.startup {
             config = [[ require 'plugins.gitsigns' ]]
         }
 
-        -- TOGGLETERM --
-        -- use { 'akinsho/toggleterm.nvim',
-        --     tag = 'v1.*',
-        --     cmd = 'ToggleTerm',
-        --     config = [[
-        --         require('toggleterm').setup {
-        --             start_in_insert = true,
-        --             direction = 'float',
-        --             float_opts = { border = 'single' }
-        --         }
-        --     ]]
-        -- }
-
         -- TELESCOPE --
         -- ~/.config/nvim/lua/plugins/telescope.lua
         use { 'nvim-telescope/telescope-fzf-native.nvim',
@@ -276,8 +263,6 @@ packer.startup {
             end
         }
 
-        -- LSP COMPLETION
-        use { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" }
 
         -- LSP-INSTALLER --
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
@@ -299,45 +284,6 @@ packer.startup {
                 require "LSP.lsp-setup"
             ]]
         }
-
-        -- use { 'simrat39/inlay-hints.nvim', module = 'inlay-hints' }
-        -- use { 'lvimuser/lsp-inlayhints.nvim',
-        --     module = "lsp-inlayhints",
-        --     config = function ()
-        --         require "lsp-inlayhints".setup {
-        --             inlay_hints = {
-        --                 parameter_hints = {
-        --                     show = true,
-        --                     prefix = "- ",
-        --                     separator = " : ",
-        --                     remove_colon_start = false,
-        --                     remove_colon_end = true,
-        --                 },
-        --                 type_hints = {
-        --                     -- type and other hints
-        --                     show = true,
-        --                     prefix = "xx",
-        --                     separator = "oo",
-        --                     remove_colon_start = false,
-        --                     remove_colon_end = false,
-        --                 },
-        --                 only_current_line = false,
-        --                 -- separator between types and parameter hints. Note that type hints are
-        --                 -- shown before parameter
-        --                 labels_separator = "bbb",
-        --                 -- whether to align to the length of the longest line in the file
-        --                 max_len_align = false,
-        --                 -- padding from the left if max_len_align is true
-        --                 max_len_align_padding = 1,
-        --                 -- highlight group
-        --                 highlight = "LspInlayHint",
-        --             },
-        --             enabled_at_startup = true,
-        --             debug_mode = false,
-        --         }
-        --         vim.api.nvim_set_hl(0, "LspInlayHint", { bg = 'NONE', fg = '#444444', bold = false, italic = false })
-        --     end
-        -- }
 
         -- NULL-LS --
         -- ~/.config/nvim/lua/LSP/null-ls.lua
@@ -368,60 +314,6 @@ packer.startup {
         --     ]]
         -- }
 
-        -- LSP SIGNATURE --
-        -- ~/.config/nvim/lua/LSP/lsp-signature.lua
-        -- use { 'ray-x/lsp_signature.nvim',
-        --     after = 'nvim-lspconfig',
-        --     -- module = 'lsp_signature',
-        --     config = [[
-        --         require "LSP.lsp-signature"
-        --     ]]
-        --
-        -- }
-
-        -- NVIM-NAVIC --
-        -- ~/.config/nvim/lua/plugins/nvim-navic.lua
-        -- use { 'SmiteshP/nvim-navic',
-        --     module = 'nvim-navic',
-        --     config = [[
-        --         require('nvim-navic').setup {
-        --             icons = {
-        --                 File          = " ",
-        --                 Module        = " ",
-        --                 Namespace     = " ",
-        --                 Package       = " ",
-        --                 Class         = " ",
-        --                 Method        = " ",
-        --                 Property      = " ",
-        --                 Field         = " ",
-        --                 Constructor   = " ",
-        --                 Enum          = "練",
-        --                 Interface     = "練",
-        --                 Function      = " ",
-        --                 Variable      = " ",
-        --                 Constant      = " ",
-        --                 String        = " ",
-        --                 Number        = " ",
-        --                 Boolean       = "◩ ",
-        --                 Array         = " ",
-        --                 Object        = " ",
-        --                 Key           = " ",
-        --                 Null          = "ﳠ ",
-        --                 EnumMember    = " ",
-        --                 Struct        = " ",
-        --                 Event         = " ",
-        --                 Operator      = " ",
-        --                 TypeParameter = " ",
-        --             },
-        --             highlight = false,
-        --             --           
-        --             separator = "  ",
-        --             depth_limit = 0,
-        --             depth_limit_indicator = "..",
-        --         }
-        --     ]]
-        -- }
-
         use { "iamcco/markdown-preview.nvim",
             run = "cd app && npm install",
             ft = { "markdown", "html" },
@@ -448,91 +340,12 @@ packer.startup {
             ]]
         }
 
-        -- MDEVAL --
-        -- use { 'jubnzv/mdeval.nvim',
-        --     ft = "markdown",
-        --     config = function ()
-        --         require "mdeval".setup {
-        --             -- Don't ask before executing code blocks
-        --             require_confirmation = false,
-        --             eval_options = {
-        --                 c = {
-        --                     command = {"clang", "-std=gnu2x"},
-        --                     default_header = [[
-        --                         #include <stdio.h>
-        --                         #include <stdlib.h>
-        --                     ]]
-        --                 },
-        --             },
-        --         }
-        --         vim.g.markdown_fenced_languages = { 'python', 'c', 'lua', 'html', 'php', 'go', 'bash' }
-        --     end
-        -- }
-
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
         use { "nvim-lualine/lualine.nvim",
             after = "lspsaga.nvim",
             config = [[ require "plugins.lualine" ]]
         }
-
-        -- use { 'simrat39/symbols-outline.nvim',
-        --     cmd = 'SymbolsOutline',
-        --     config = function ()
-        --         vim.g.symbols_outline = {
-        --             highlight_hovered_item = true,
-        --             show_guides = true,
-        --             auto_preview = true,
-        --             position = 'right',
-        --             relative_width = true,
-        --             width = 25,
-        --             auto_close = false,
-        --             show_numbers = false,
-        --             show_relative_numbers = false,
-        --             show_symbol_details = true,
-        --             preview_bg_highlight = 'Pmenu',
-        --             keymaps = { -- These keymaps can be a string or a table for multiple keys
-        --                 close = {"<Esc>", "q"},
-        --                 goto_location = "<Cr>",
-        --                 focus_location = "o",
-        --                 hover_symbol = "<C-space>",
-        --                 toggle_preview = "K",
-        --                 rename_symbol = "r",
-        --                 code_actions = "a",
-        --             },
-        --             lsp_blacklist = {},
-        --             symbol_blacklist = {},
-        --             symbols = {
-        --                 File = {icon = "", hl = "TSURI"},
-        --                 Module = {icon = "", hl = "TSNamespace"},
-        --                 Namespace = {icon = "", hl = "TSNamespace"},
-        --                 Package = {icon = "", hl = "TSNamespace"},
-        --                 Class = {icon = "𝓒", hl = "TSType"},
-        --                 Method = {icon = "ƒ", hl = "TSMethod"},
-        --                 Property = {icon = "", hl = "TSMethod"},
-        --                 Field = {icon = "", hl = "TSField"},
-        --                 Constructor = {icon = "", hl = "TSConstructor"},
-        --                 Enum = {icon = "ℰ", hl = "TSType"},
-        --                 Interface = {icon = "ﰮ", hl = "TSType"},
-        --                 Function = {icon = "", hl = "TSFunction"},
-        --                 Variable = {icon = "", hl = "TSConstant"},
-        --                 Constant = {icon = "", hl = "TSConstant"},
-        --                 String = {icon = "𝓐", hl = "TSString"},
-        --                 Number = {icon = "#", hl = "TSNumber"},
-        --                 Boolean = {icon = "⊨", hl = "TSBoolean"},
-        --                 Array = {icon = "", hl = "TSConstant"},
-        --                 Object = {icon = "⦿", hl = "TSType"},
-        --                 Key = {icon = "🔐", hl = "TSType"},
-        --                 Null = {icon = "NULL", hl = "TSType"},
-        --                 EnumMember = {icon = "", hl = "TSField"},
-        --                 Struct = {icon = "𝓢", hl = "TSType"},
-        --                 Event = {icon = "🗲", hl = "TSType"},
-        --                 Operator = {icon = "+", hl = "TSOperator"},
-        --                 TypeParameter = {icon = "𝙏", hl = "TSParameter"}
-        --             }
-        --         }
-        --     end
-        -- }
 
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
@@ -546,8 +359,8 @@ packer.startup {
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
         use { 'hrsh7th/nvim-cmp',
-            module = 'cmp',
-            event = 'CmdlineEnter',
+            module = "cmp",
+            event = { 'CmdlineEnter', 'InsertEnter' },
             config = [[ require "plugins.nvim-cmp" ]]
         }
 
@@ -561,9 +374,26 @@ packer.startup {
         use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp_luasnip' }
         use { 'hrsh7th/cmp-calc', after = 'cmp-nvim-lsp-signature-help' }
 
+        -- LSP COMPLETION
+        use { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" }
+
         use { 'tzachar/cmp-tabnine',
-            event = "InsertCharPre",
-            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh"
+            after = "cmp-path",
+            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh",
+            config = function ()
+                -- :CmpTabnineHub
+                require "cmp_tabnine.config".setup {
+                    max_lines = 300,
+                    max_num_results = 10,
+                    sort = true,
+                    run_on_every_keystroke = true,
+                    snippet_placeholder = '..',
+                    ignored_file_types = {
+                        -- html = true
+                    },
+                    show_prediction_strength = true
+                }
+            end
         }
 
         -- COPILOT
@@ -618,30 +448,31 @@ packer.startup {
         --     ]]
         -- }
 
-        -- use { 'petertriho/nvim-scrollbar',
-        --     config = [[
-        --         require('scrollbar').setup {}
-        --     ]]
-        -- }
+        -- SCROLLBAR
+        -- ~/.config/nvim/lua/plugins/scrollbar.lua
+        use { 'petertriho/nvim-scrollbar',
+            event = { "CursorMoved", "CursorHold", "InsertEnter" },
+            config = [[
+                require "plugins.scrollbar"
+            ]]
+        }
 
-        -- use { 'kevinhwang91/nvim-hlslens',
-        --     keys = { '/', '*', '#', '?' },
-        --     config = [[
-        --         require('hlslens').setup {
-        --             -- calm_down = true,
-        --             nearest_only = true,
-        --         }
-        --
-        --         local opts = { noremap = true, silent = true }
-        --         vim.keymap.set('n', '*', "*<CMD>lua require('hlslens').start()<CR>", opts)
-        --         vim.keymap.set('n', '#', "#<CMD>lua require('hlslens').start()<CR>", opts)
-        --         vim.keymap.set('n', 'g*', "g*<CMD>lua require('hlslens').start()<CR>", opts)
-        --         vim.keymap.set('n', 'g#', "g#<CMD>lua require('hlslens').start()<CR>", opts)
-        --
-        --         vim.keymap.set('n', 'n', "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require('hlslens').start()<CR>", opts)
-        --         vim.keymap.set('n', 'N', "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require('hlslens').start()<CR>", opts)
-        --     ]]
-        -- }
+        use { 'kevinhwang91/nvim-hlslens',
+            module = "hlslens",
+            -- event = "CmdlineEnter",
+            -- keys = { '*', '#', '?', },
+            config = [[
+                require "hlslens".setup {
+                    calm_down = true,
+                    auto_enable = true,
+                    enable_incsearch = false,
+                    nearest_only = true,
+                    nearest_float_when = 'auto',
+                    float_shadow_blend = 20,
+                    virt_priority = 100,
+                }
+            ]]
+        }
 
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
@@ -684,41 +515,21 @@ packer.startup {
 
         -- use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
 
-        -- use { 'xiyaowong/nvim-transparent',
-        --     cmd = 'TransparentToggle',
-        --     config = [[
-        --         require("transparent").setup {
-        --             enable = true, -- boolean: enable transparent
-        --             extra_groups = { -- table/string: additional groups that should be cleared
-        --                 -- In particular, when you set it to 'all', that means all available groups
-        --                 -- example of akinsho/nvim-bufferline.lua
-        --                 "BufferLineTabClose",
-        --                 "BufferlineBufferSelected",
-        --                 "BufferLineFill",
-        --                 "BufferLineBackground",
-        --                 "BufferLineSeparator",
-        --                 "BufferLineIndicatorSelected",
-        --             },
-        --             exclude = {}, -- table: groups you don't want to clear
-        --         }
-        --     ]]
-        -- }
-
         -- 分屏变暗 --
-        -- use { 'sunjon/shade.nvim',
-        --     event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
-        --     config = [[
-        --         require('shade').setup {
-        --             overlay_opacity = 60,
-        --             opacity_step = 1,
-        --             keys = {
-        --                 brightness_up    = '<C-Up>',
-        --                 brightness_down  = '<C-Down>',
-        --                 toggle           = '<F8>',
-        --             }
-        --         }
-        --     ]]
-        -- }
+        use { 'sunjon/shade.nvim',
+            event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
+            config = [[
+                require "shade".setup {
+                    overlay_opacity = 50,
+                    opacity_step = 1,
+                    keys = {
+                        brightness_up    = '<C-Up>',
+                        brightness_down  = '<C-Down>',
+                        toggle           = '<F8>',
+                    }
+                }
+            ]]
+        }
 
         -- TREESITTER
         -- ~/.config/nvim/lua/plugins/treesitter.lua
@@ -734,7 +545,7 @@ packer.startup {
             after = "nvim-treesitter",
             config = function ()
                 require "hlargs".setup {
-                    color = '#BBE73D',
+                    color = '#9D7CD8',
                     highlight = {},
                     excluded_filetypes = {},
                     paint_arg_declarations = true,
@@ -767,30 +578,30 @@ packer.startup {
         -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
 
         -- 聚焦当前 函数/方法
-        -- use { 'folke/twilight.nvim',
-        -- cmd = 'Twilight',
-        --     config = [[
-        --         require('twilight').setup {
-        --             dimming = {
-        --                 alpha = 0.25, -- amount of dimming
-        --                 -- we try to get the foreground from the highlight groups or fallback color
-        --                 color = { "Normal", "#ffffff" },
-        --                 inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
-        --             },
-        --             context = 10, -- amount of lines we will try to show around the current line
-        --             treesitter = true, -- use treesitter when available for the filetype
-        --             -- treesitter is used to automatically expand the visible text,
-        --             -- but you can further control the types of nodes that should always be fully expanded
-        --             expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-        --                 "function",
-        --                 "method",
-        --                 "table",
-        --                 "if_statement",
-        --             },
-        --             exclude = {}, -- exclude these filetypes
-        --         }
-        --     ]]
-        -- }
+        use { 'folke/twilight.nvim',
+            cmd = 'Twilight',
+            config = [[
+                require('twilight').setup {
+                    dimming = {
+                        alpha = 0.25, -- amount of dimming
+                        -- we try to get the foreground from the highlight groups or fallback color
+                        color = { "Normal", "#ffffff" },
+                        inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+                    },
+                    context = 10, -- amount of lines we will try to show around the current line
+                    treesitter = true, -- use treesitter when available for the filetype
+                    -- treesitter is used to automatically expand the visible text,
+                    -- but you can further control the types of nodes that should always be fully expanded
+                    expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+                        "function",
+                        "method",
+                        "table",
+                        "if_statement",
+                    },
+                    exclude = {}, -- exclude these filetypes
+                }
+            ]]
+        }
 
         -- NVIM-DAP --
         -- ~/.config/nvim/lua/DAP/dap-config.lua

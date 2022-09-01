@@ -187,3 +187,11 @@ vim.keymap.set('v', '<A-b>', ':<C-u>lua require "b64".encode()<CR>', { noremap =
 
 vim.keymap.set('v', '<A-B>', ':<C-u>lua require "b64".decode()<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', '*', "*<CMD>lua require 'hlslens'.start()<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '#', "#<CMD>lua require 'hlslens'.start()<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', 'g*', "g*<CMD>lua require 'hlslens'.start()<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', 'g#', "g#<CMD>lua require 'hlslens'.start()<CR>", { noremap = true, silent = true })
+
+vim.keymap.set('n', 'n', "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require('hlslens').start()<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', 'N', "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require('hlslens').start()<CR>", { noremap = true, silent = true })
+

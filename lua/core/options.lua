@@ -6,6 +6,7 @@ vim.opt.backup      = false
 vim.opt.swapfile    = false
 vim.opt.showmode    = false
 vim.opt.foldenable  = false
+vim.opt.syntax      = "off"
 
 vim.opt.termguicolors = true
 vim.opt.number        = true
@@ -71,7 +72,7 @@ vim.opt.conceallevel  = 0
 vim.opt.numberwidth   = 3
 
 vim.opt.scrolloff     = 6
-vim.opt.sidescrolloff = 15
+vim.opt.sidescrolloff = 10
 vim.opt.updatetime    = 100
 
 vim.opt.modelines = 0

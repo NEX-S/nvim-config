@@ -53,7 +53,7 @@ require "lspsaga".init_lsp_saga {
     symbol_in_winbar = {
         enable = true,
         in_custom = true,
-        separator = '  ',
+        separator = '  ',
         show_file = false,
     },
     show_outline = {
@@ -76,17 +76,18 @@ require "lspsaga".init_lsp_saga {
         Package       =  { " ", "#666666" },
         Class         =  { " ", "#BBE73D" },
         Method        =  { " ", "#C53B82" },
-        Property      =  { " ", "#585858" },
+        -- Property      =  { " ", "#6A5A9D" },
+        Property      =  { "- ", "#6A5A9D" },
         Field         =  { "ﯟ ", "#666666" },
         Constructor   =  { " ", "#666666" },
         Enum          =  { " ", "#666666" },
         Interface     =  { " ", "#666666" },
         Function      =  { " ", "#C53B82" },
         Variable      =  { " ", "#696969" },
-        Constant      =  { "- ", "#614F97" },
+        Constant      =  { " ", "#614F97" },
         String        =  { " ", "#444444" },
         Number        =  { " ", "#AFC460" },
-        Boolean       =  { " ", "#C53B82" },
+        Boolean       =  { " ", "#C53B82" },
         Array         =  { " ", "#614F97" },
         Object        =  { " ", "#666666" },
         Key           =  { " ", "#666666" },
@@ -97,7 +98,7 @@ require "lspsaga".init_lsp_saga {
         Operator      =  { " ", "#666666" },
         TypeParameter =  { " ", "#666666" },
         TypeAlias     =  { " ", "#666666" },
-        Parameter     =  { " ", "#8567A3" },
+        Parameter     =  { " ", "#8567A3" },
         StaticMethod  =  { " ", "#666666" },
         Macro         =  { "廓", "#666666" },
     },
@@ -128,13 +129,13 @@ vim.keymap.set("n", "<ESC>", "<CMD>set hls! | Lspsaga close_floaterm<CR>", opt)
 vim.api.nvim_set_hl(0, "LspSagaHoverBorder",             { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaTermBorder",              { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspFloatWinBorder",              { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaAutoPrew",                { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaAutoPrew",                { bg = "NONE", fg = "#BBE73D", })
 vim.api.nvim_set_hl(0, "LspSagaAutoPreview",             { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaBorderTitle",             { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaCodeActionBorder",        { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionContent",       { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionTitle",         { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionTrunCateLine",  { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaCodeActionContent",       { bg = "NONE", fg = "#000000", })
+vim.api.nvim_set_hl(0, "LspSagaCodeActionTitle",         { bg = "NONE", fg = "#000000", })
+vim.api.nvim_set_hl(0, "LspSagaCodeActionTrunCateLine",  { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaDefPreviewBorder",        { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaDiagnosticBorder",        { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaDiagnosticHeader",        { bg = "NONE", fg = "#929292", })
@@ -142,20 +143,20 @@ vim.api.nvim_set_hl(0, "LspSagaDiagnosticError",         { bg = "NONE", fg = "#9
 vim.api.nvim_set_hl(0, "LspSagaDiagnosticWarn",          { bg = "NONE", fg = "#929292", })
 vim.api.nvim_set_hl(0, "LspSagaDiagnosticInfo",          { bg = "NONE", fg = "#929292", })
 vim.api.nvim_set_hl(0, "LspSagaDiagnosticHint",          { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticSource",        { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticTruncateLine",  { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaErrorTrunCateLine",       { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaFinderSelection",         { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaHintTrunCateLine",        { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaHoverTrunCateLine",       { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaInfoTrunCateLine",        { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticSource",        { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticTruncateLine",  { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaErrorTrunCateLine",       { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaFinderSelection",         { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "LspSagaHintTrunCateLine",        { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaHoverTrunCateLine",       { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaInfoTrunCateLine",        { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaLightBulb",               { bg = "NONE", fg = "#BBE73D", })
 vim.api.nvim_set_hl(0, "LspSagaLspFinderBorder",         { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaRenameBorder",            { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaRenameMatch",             { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "LspSagaShTrunCateLine",          { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaShTrunCateLine",          { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaSignatureHelpBorder",     { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaTrunCatgeLine",           { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaTrunCatgeLine",           { bg = "NONE", fg = "#353535", })
 
 vim.api.nvim_set_hl(0, "TargetFileName",          { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "FinderParam",             { bg = "NONE", fg = "#666666", })
@@ -167,7 +168,7 @@ vim.api.nvim_set_hl(0, "References",              { bg = "NONE", fg = "#666666",
 vim.api.nvim_set_hl(0, "DefinitionCount",         { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "ReferencesCount",         { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "FinderSpinnerBorder",     { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "FinderSpinnerTitle",      { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "FinderSpinnerTitle",      { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "FinderSpinner",           { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "DefinitionPreviewTitle",  { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "SagaShadow",              { bg = "NONE", fg = "#000000", })
@@ -179,11 +180,3 @@ vim.api.nvim_set_hl(0, "OutlineIndentOdd",        { bg = "NONE", fg = "#ffffff",
 vim.api.nvim_set_hl(0, "OutlineFoldPrefix",       { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "OutlineDetail",           { bg = "NONE", fg = "#383838", })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-    nested = true,
-    callback = function ()
-        if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0) == "lspsagaoutline" then
-            vim.cmd "quit"
-        end
-    end
-})

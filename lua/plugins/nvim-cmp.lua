@@ -53,7 +53,7 @@ nvim_cmp.setup {
     window = {
         completion = {
             col_offset = 0,
-            side_padding = 0,
+            side_padding = 1,
         },
         -- completion = nvim_cmp.config.window.bordered(),
         -- documentation = nvim_cmp.config.window.bordered(),
@@ -61,7 +61,7 @@ nvim_cmp.setup {
     mapping = {
         ['<C-j>'] = nvim_cmp.mapping.scroll_docs(-4),
         ['<C-k>'] = nvim_cmp.mapping.scroll_docs(4),
-        ['<C-e>'] = nvim_cmp.mapping.close(),
+        ['<C-h>'] = nvim_cmp.mapping.close(),
         ['<A-j>'] = nvim_cmp.mapping.select_next_item(),
         ['<A-k>'] = nvim_cmp.mapping.select_prev_item(),
         ["<A-l>"] = nvim_cmp.mapping.confirm {
@@ -72,9 +72,8 @@ nvim_cmp.setup {
     -- 补全图标
     formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
+        format = function (entry, vim_item)
             -- Kind icons
-            vim_item.kind = string.format("%s", cmp_icons[vim_item.kind])
             vim_item.menu = ({
                 nvim_lsp    = " - LSP",
                 luasnip     = " - SNIPPET",
@@ -87,19 +86,20 @@ nvim_cmp.setup {
                 copilot     = " - COPILOT",
                 nvim_lsp_signature_help = " - SIGNATURE",
             })[entry.source.name]
+            vim_item.kind = string.format("%s", cmp_icons[vim_item.kind])
             return vim_item
         end,
     },
     sources = nvim_cmp.config.sources {
         { name = 'path' },          -- PATH COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
-        -- { name = 'treesitter' },     -- TREESITTER
         { name = 'buffer' },        -- BUFFER COMPLETION
-        -- { name = 'copilot' },
         { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
+        -- { name = 'treesitter' },     -- TREESITTER
+        -- { name = 'copilot' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
     },
     confirm_opts = {
@@ -108,7 +108,7 @@ nvim_cmp.setup {
     },
     -- FIX: include in C
     snippet = {
-        expand = function(args)
+        expand = function (args)
             local pos =  vim.api.nvim_win_get_cursor(0)
             local  line = vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1] , false)[1]
             if vim.startswith(line, "#include") then
@@ -119,6 +119,8 @@ nvim_cmp.setup {
         end
     },
 }
+
+-- require "cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 nvim_cmp.setup.filetype('lua', {
     sources = {
@@ -247,6 +249,4 @@ vim.api.nvim_set_hl(0, "CmpItemKindEnumMemberDefault",  { bg = "NONE", fg = "#66
 vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", { bg = "NONE", fg = "#666666", bold = false, italic = false })
 
 vim.api.nvim_set_hl(0, "CmpItemKindTypeParameterDefault",   { bg = "NONE", fg = "#666666", bold = false, italic = false })
-
-
 

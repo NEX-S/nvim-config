@@ -1,4 +1,21 @@
 
+-- • fg (or foreground): color name or "#RRGGBB", see note.
+-- • bg (or background): color name or "#RRGGBB", see note.
+-- • sp (or special): color name or "#RRGGBB"
+-- • blend: integer between 0 and 100
+-- • bold: boolean
+-- • standout: boolean
+-- • underline: boolean
+-- • undercurl: boolean
+-- • underdouble: boolean
+-- • underdotted: boolean
+-- • underdashed: boolean
+-- • strikethrough: boolean
+-- • italic: boolean
+-- • reverse: boolean
+-- • nocombine: boolean
+-- • link: name of another highlight group to link to, see
+
 --  ColorColumn	用于 'colorcolumn' 设置的列。
 --  Conceal		代替隐藏文本的填充字符 (见 'conceallevel')。
 --  Cursor		光标所在的字符。
@@ -141,7 +158,7 @@ vim.api.nvim_set_hl(0, "Macro",        { bg = "NONE", fg = "#BBE73D", italic = t
 vim.api.nvim_set_hl(0, "StorageClass", { bg = "NONE", fg = "#BBE73D", italic = true })
 
 vim.api.nvim_set_hl(0, "LineNr",       { bg = "#252525", fg = "#6F6F6F", italic = true })
-vim.api.nvim_set_hl(0, "Folded",       { bg = "#232323", fg = "#494949", italic = true })
+vim.api.nvim_set_hl(0, "Folded",       { bg = "#232323", fg = "#494949", })
 vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#282828", fg = "#6c5b9e", italic = true })
 
 vim.api.nvim_set_hl(0, "Underlined",   { bg = "NONE", fg = "#6C5B9E", underline = true })
@@ -160,3 +177,8 @@ vim.api.nvim_set_hl(0, "PmenuThumb",   { bg = "#434343", fg = "#000000", })
 
 vim.api.nvim_set_hl(0, "CursorLine",   { bg = "#282828", fg = "NONE", })
 
+
+vim.api.nvim_set_hl(0, "HlSearchNear", { bg = "NONE", fg = "#C53B82" })
+vim.api.nvim_set_hl(0, "HlSearchLens", { bg = "NONE", fg = "#444444" })
+vim.api.nvim_set_hl(0, "HlSearchLensNear", { bg = "NONE", fg = "#a8bc5c" })
+vim.api.nvim_set_hl(0, "HlSearchFloat", { bg = "NONE", fg = "#000000" })
