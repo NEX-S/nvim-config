@@ -1,13 +1,25 @@
 
 local dap = require "dap"
 
--- vim.fn.sign_define('DapBreakpoint', { text = ' ', texthl = 'DapBreakpoint', linehl = 'DapBreakpointLine', numhl = 'DapBreakpointNr' })
-vim.fn.sign_define('DapBreakpoint', { text = ' ', texthl = 'DapBreakpoint', linehl = 'DapBreakpointLine', numhl = 'DapBreakpointNr' })
+-- vim.fn.sign_define('DapBreakpoint', { text = ' ', texthl = 'DapBreakpoint', linehl = 'DapBreakpointLine', numhl = 'DapBreakpointNr' })
+vim.fn.sign_define('DapBreakpoint', { text = ' ', texthl = 'DapBreakpoint', linehl = 'DapBreakpointLine', numhl = 'DapBreakpointNr' })
 vim.fn.sign_define('DapStopped',    { text = ' ', texthl = 'DapStopped',    linehl = 'DapStoppedLine',    numhl = 'DapStoppedNr' })
 vim.fn.sign_define('DapLogPoint',   { text = 'x',  texthl = 'DapLogPoint',   linehl = 'DapLogPointLine',   numhl = 'DapLogPointNr' })
 
 vim.fn.sign_define('DapBreakpointCondition', { text = 'x', texthl = 'DapBreakpointCondition', linehl = 'DapBreakpointConditionLine', numhl = 'DapBreakpointConditionNr' })
 vim.fn.sign_define('DapBreakpointRejected',  { text = 'x', texthl = 'DapBreakpointRejected',  linehl = 'DapBreakpointRejectedLine',  numhl = 'DapBreakpointRejectedNr' })
+
+vim.api.nvim_set_hl(0, "DapLogPoint", { bg = "NONE", fg = "#9EB73D", })
+
+vim.api.nvim_set_hl(0, "DapBreakpoint",     { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "DapBreakpointNr",   { bg = "#232323", fg = "NONE", italic = true })
+vim.api.nvim_set_hl(0, "DapBreakpointLine", { bg = "#232323", fg = "NONE", })
+vim.api.nvim_set_hl(0, "DapBreakpointCondition", { bg = "NONE", fg = "#9EB73D", })
+vim.api.nvim_set_hl(0, "DapBreakpointRejected",  { bg = "NONE", fg = "#9EB73D", })
+
+vim.api.nvim_set_hl(0, "DapStopped",     { bg = "#292929", fg = "#AFC460", })
+vim.api.nvim_set_hl(0, "DapStoppedNr",   { bg = "#292929", fg = "#AFC460", italic = true })
+vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#292929", fg = "NONE", })
 
 dap.adapters.python = {
     type = 'executable';
