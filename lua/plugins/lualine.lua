@@ -66,7 +66,7 @@ require "lualine".setup {
                 sources = { "nvim_diagnostic" },
                 sections = { "error", "warn", "hint", "info" },
                 symbols = {
-                    error = ' ',
+                    error = '✕ ',
                     warn = ' ',
                     hint = ' ',
                     info = ' ',
