@@ -43,6 +43,9 @@ packer.startup {
         use { 'nvim-lua/plenary.nvim', module = 'plenary' }
         use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' }
 
+        use { 'RRethy/nvim-align', cmd = 'Align' }
+        -- use { 'Vonr/align.nvim', module = 'align' }
+
         use { 'CRAG666/code_runner.nvim',
             requires = 'nvim-lua/plenary.nvim',
             cmd = { 'RunFile', 'RunCode' },
@@ -200,7 +203,7 @@ packer.startup {
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
-        use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
+        -- use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
@@ -216,9 +219,57 @@ packer.startup {
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
         use { 'norcalli/nvim-colorizer.lua',
-            ft = { 'vim', 'lua', 'html', 'css', 'yaml' },
+            ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown' },
             config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
         }
+
+        -- use { "max397574/colortils.nvim",
+        --     cmd = "Colortils",
+        --     config = [[
+        --         require "colortils".setup {
+        --             -- Register in which color codes will be copied
+        --             register = "+",
+        --             -- Preview for colors, if it contains `%s` this will be replaced with a hex color code of the color
+        --             color_preview =  "█ %s",
+        --             -- The default in which colors should be saved
+        --             -- This can be hex, hsl or rgb
+        --             default_format = "hex",
+        --             -- Border for the float
+        --             border = "rounded",
+        --             -- Some mappings which are used inside the tools
+        --             mappings = {
+        --                 -- increment values
+        --                 increment = "l",
+        --                 -- decrement values
+        --                 decrement = "h",
+        --                 -- increment values with bigger steps
+        --                 increment_big = "L",
+        --                 -- decrement values with bigger steps
+        --                 decrement_big = "H",
+        --                 -- set values to the minimum
+        --                 min_value = "0",
+        --                 -- set values to the maximum
+        --                 max_value = "$",
+        --                 -- save the current color in the register specified above with the format specified above
+        --                 set_register_default_format = "<cr>",
+        --                 -- save the current color in the register specified above with a format you can choose
+        --                 set_register_cjoose_format = "g<cr>",
+        --                 -- replace the color under the cursor with the current color in the format specified above
+        --                 replace_default_format = "<m-cr>",
+        --                 -- replace the color under the cursor with the current color in a format you can choose
+        --                 replace_choose_format = "g<m-cr>",
+        --                 -- export the current color to a different tool
+        --                 export = "E",
+        --                 -- set the value to a certain number (done by just entering numbers)
+        --                 set_value = "c",
+        --                 -- toggle transparency
+        --                 transparency = "T",
+        --                 -- choose the background (for transparent colors)
+        --                 choose_background = "B",
+        --             }
+        --         }
+        --     ]]
+        -- }
 
         -- AUTO-PAIRS --
         use { 'windwp/nvim-autopairs',
@@ -358,7 +409,7 @@ packer.startup {
 
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
-        use { 'hrsh7th/nvim-cmp',
+        use { 'NEX-S/nvim-cmp',
             module = "cmp",
             event = { 'CmdlineEnter', 'InsertEnter' },
             config = [[ require "plugins.nvim-cmp" ]]
@@ -539,40 +590,40 @@ packer.startup {
             config = [[ require "plugins.treesitter" ]]
         }
         use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
-        -- use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter"  }
+        use { 'nvim-treesitter/nvim-treesitter-textobjects', commit = "e581902a35f315b6998d8354d20cc4a0dfc0cf6e", after = "nvim-treesitter"  }
         use { 'p00f/nvim-ts-rainbow', after = "nvim-treesitter" }
-        use { 'm-demare/hlargs.nvim',
-            after = "nvim-treesitter",
-            config = function ()
-                require "hlargs".setup {
-                    color = '#9D7CD8',
-                    highlight = {},
-                    excluded_filetypes = {},
-                    paint_arg_declarations = true,
-                    paint_arg_usages = true,
-                    hl_priority = 10000,
-                    excluded_argnames = {
-                        declarations = {},
-                        usages = {
-                            python = { 'self', 'cls' },
-                            lua = { 'self' }
-                        }
-                    },
-                    performance = {
-                        parse_delay = 1,
-                        slow_parse_delay = 50,
-                        max_iterations = 400,
-                        max_concurrent_partial_parses = 30,
-                        debounce = {
-                            partial_parse = 3,
-                            partial_insert_mode = 100,
-                            total_parse = 700,
-                            slow_parse = 5000
-                        }
-                    }
-                }
-            end
-        }
+        -- use { 'm-demare/hlargs.nvim',
+        --     after = "nvim-treesitter",
+        --     config = function ()
+        --         require "hlargs".setup {
+        --             color = '#9D7CD8',
+        --             highlight = {},
+        --             excluded_filetypes = {},
+        --             paint_arg_declarations = true,
+        --             paint_arg_usages = true,
+        --             hl_priority = 10000,
+        --             excluded_argnames = {
+        --                 declarations = {},
+        --                 usages = {
+        --                     python = { 'self', 'cls' },
+        --                     lua = { 'self' }
+        --                 }
+        --             },
+        --             performance = {
+        --                 parse_delay = 1,
+        --                 slow_parse_delay = 50,
+        --                 max_iterations = 400,
+        --                 max_concurrent_partial_parses = 30,
+        --                 debounce = {
+        --                     partial_parse = 3,
+        --                     partial_insert_mode = 100,
+        --                     total_parse = 700,
+        --                     slow_parse = 5000
+        --                 }
+        --             }
+        --         }
+        --     end
+        -- }
 
         use { 'windwp/nvim-ts-autotag', ft = "html" }
         -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }

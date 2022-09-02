@@ -82,7 +82,7 @@
             "switch (${1:expression}) {",
             "\tcase ${2:value}:\n\t\t${3:statement}\n\t\tbreak;",
             "\tcase ${4:value}:\n\t\t${5:statement}\n\t\tbreak;",
-            "\tdefault:\n\t\t${6:statement};",
+            "\tdefault:\n\t\t${0:statement};",
             "}"
         ]
     },

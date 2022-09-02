@@ -47,7 +47,7 @@ local nvim_cmp = require "cmp"
 nvim_cmp.setup {
     completion = { keyword_length = 1, },
     experimental = {
-        ghost_text = true,
+        ghost_text = { hl_group = 'CmpGhostText' },
     },
     -- 补全边框
     window = {
@@ -91,10 +91,10 @@ nvim_cmp.setup {
         end,
     },
     sources = nvim_cmp.config.sources {
-        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'path' },          -- PATH COMPLETION
-        { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
+        { name = 'buffer' },        -- BUFFER COMPLETION
+        { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         { name = 'nvim_lsp_signature_help' },
@@ -249,4 +249,7 @@ vim.api.nvim_set_hl(0, "CmpItemKindEnumMemberDefault",  { bg = "NONE", fg = "#66
 vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", { bg = "NONE", fg = "#666666", bold = false, italic = false })
 
 vim.api.nvim_set_hl(0, "CmpItemKindTypeParameterDefault",   { bg = "NONE", fg = "#666666", bold = false, italic = false })
+
+vim.api.nvim_set_hl(0, "CmpGhostText",  { bg = "NONE", fg = "#444444", italic = false })
+
 
