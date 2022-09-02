@@ -1,16 +1,107 @@
 {
-  "main": {
-    "prefix": "!",
-    "description": "- Standard C Program Template",
-    "body": [
-        "#include <stdio.h>",
-        "#include <stdlib.h>",
-        "",
-        "int main (int argc, char * argv[])",
-        "{",
-        "\t${0:- CODE}",
-        "\treturn 0;",
-        "}"
-    ]
-  }
+    "include \"": {
+        "prefix": "#include \"\"",
+        "body": "#include \"${1:header.h}\"$0"
+    },
+    "include <": {
+        "prefix": "#include <>",
+        "body": "#include <${1:header.h}>$0"
+    },
+    "main": {
+        "prefix": "main",
+        "description": "- STANDARD C TEMPLATE",
+        "body": [
+            "#include <stdio.h>",
+            "#include <stdlib.h>",
+            "",
+            "int main (int argc, char * argv[])",
+            "{",
+            "\t${0:- CODE}",
+            "\treturn 0;",
+            "}"
+        ]
+    },
+    "if": {
+        "prefix": "if",
+        "description": "- IF STATEMENT",
+        "body": [
+            "if (${1:expression}) {",
+            "\t${0:statement}",
+            "}"
+        ]
+    },
+    "else": {
+        "prefix": "else",
+        "description": "- ELSE STATEMENT",
+        "body": [
+            "else {",
+            "\t${0:statement}",
+            "}"
+        ]
+    },
+    "else if": {
+        "prefix": "elif",
+        "description": "- ELSE IF STATEMENT",
+        "body": [
+            "else if {",
+            "\t${0:statement}",
+            "}"
+        ]
+    },
+    "for": {
+        "prefix": "for",
+        "description": "- FOR LOOP",
+        "body": [
+            "for ( ${1:init-statement}; ${2:condition}; ${3:expression}) {",
+            "\t${0:- CODE}",
+            "}"
+        ]
+    },
+    "while": {
+        "prefix": "while",
+        "description": "- WHILE LOOP",
+        "body": [
+            "while (${1:condition}) {",
+            "\t${0:- CODE}",
+            "}"
+        ]
+    },
+    "do-while": {
+        "prefix": "do",
+        "description": "- DO-WHILE LOOP",
+        "body": [
+            "do {",
+            "\t${0:- CODE}",
+            "} while (${1:condition});"
+        ]
+    },
+    "switch": {
+        "prefix": "switch",
+        "description": "SWITCH STATEMENT",
+        "body": [
+            "switch (${1:expression}) {",
+            "\tcase ${2:value}:\n\t\t${3:statement}\n\t\tbreak;",
+            "\tcase ${4:value}:\n\t\t${5:statement}\n\t\tbreak;",
+            "\tdefault:\n\t\t${6:statement};",
+            "}"
+        ]
+    },
+    "case": {
+        "prefix": "case",
+        "body": [
+            "case ${1:value}:",
+            "\t${2:statement}",
+            "\tbreak;$0"
+        ]
+    },
+    "printf": {
+        "prefix": "printf",
+        "description": "- GENERIC PRINTF() SNIPPET",
+        "body": ["printf(\"${1:content}\"${0});"]
+    },
+    "scanf": {
+        "prefix": "scanf",
+        "description": "- GENERIC SCANF() SNIPPET",
+        "body": ["scanf(\"%$1\", &$0);"]
+    }
 }

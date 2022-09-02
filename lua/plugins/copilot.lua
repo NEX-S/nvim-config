@@ -15,8 +15,11 @@ vim.g.copilot_filetypes = {
 }
 
 -- vim.g.copilot_no_tab_map = true
+
 -- vim.g.copilot_assume_mapped = true
 -- vim.g.copilot_tab_fallback = ""
+
+-- vim.cmd "let g:copilot_no_tab_map = v:true"
 
 vim.keymap.set('i', "<A-l>", "copilot#Accept('<CR>')", { noremap = true, silent = true, expr = true })
 
