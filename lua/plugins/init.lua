@@ -565,14 +565,14 @@ packer.startup {
         -- }
 
 
-        -- use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
+        use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
 
         -- 分屏变暗 --
         use { 'sunjon/shade.nvim',
-            event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
+            -- event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
             config = [[
                 require "shade".setup {
-                    overlay_opacity = 50,
+                    overlay_opacity = 60,
                     opacity_step = 1,
                     keys = {
                         brightness_up    = '<C-Up>',

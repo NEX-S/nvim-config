@@ -33,8 +33,8 @@ vim.opt.magic = true
 vim.opt.virtualedit = 'block'
 vim.opt.shiftround = true
 vim.opt.timeout = true
-vim.opt.timeoutlen = 500
-vim.opt.redrawtime = 1500
+vim.opt.timeoutlen = 2000
+vim.opt.redrawtime = 15000
 vim.opt.infercase = true
 
 

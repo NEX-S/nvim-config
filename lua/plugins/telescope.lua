@@ -9,7 +9,7 @@ require "telescope".setup {
             i = {
                 ["<A-j>"] = actions.move_selection_next,
                 ["<A-k>"] = actions.move_selection_previous,
-                -- ['<TAB>'] = actions.select_tab,
+                ['<TAB>'] = actions.select_tab,
 
                 ["<C-s>"] = actions.select_horizontal,
                 ["<C-v>"] = actions.select_vertical,
