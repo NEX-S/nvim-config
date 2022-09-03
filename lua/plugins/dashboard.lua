@@ -23,10 +23,10 @@ dashboard.custom_header = {
 }
 
 dashboard.custom_center = {
-    { icon = "  ", desc = " RECENT FILES  ", shortcut = '\t\t\tSPC X       ', action = ':Telescope oldfiles' },
-    { icon = "  ", desc = " FIND FILE  ", shortcut = '\t\t\tSPC X          ', action = ':Telescope find_files' },
-    { icon = " ﱕ ", desc = " LIVE GREP  ", shortcut = '\t\t\tSPC X          ', action = ':Telescope live_grep' },
-    { icon = "  ", desc = " NVIM CONFIG  ",  shortcut = '\t\t\tSPC X       ', action = ':edit $MYVIMRC' },
+    { icon = "  ", desc = " RECENT FILES ", shortcut = '  \t\t\tSPC X          ', action = ':Telescope oldfiles' },
+    { icon = "  ", desc = " FIND FILE    ", shortcut = '  \t\t\tSPC X          ', action = ':Telescope find_files' },
+    { icon = " ﱕ ", desc = " LIVE GREP    ", shortcut = '  \t\t\tSPC X          ', action = ':Telescope live_grep' },
+    { icon = "  ", desc = " NVIM CONFIG  ", shortcut = '  \t\t\tSPC X          ', action = ':edit $MYVIMRC' },
 }
 
 dashboard.custom_key = {
