@@ -1,0 +1,78 @@
+{
+  "function": {
+    "prefix": "func",
+    "body":["[ `${1:CODE}` ] $0"]
+  },
+  "italic": {
+    "prefix": "itaic",
+    "body":["_${1:CODE}_ $0"]
+  },
+  "bold": {
+    "prefix": "bold",
+    "body":["**${1:CODE}** $0"]
+  },
+  "bold_itailc": {
+    "prefix": "bold_italic",
+    "body":["***${1:CODE}*** $0"]
+  },
+  "line": {
+    "prefix": "line",
+    "body":["----\n$0"]
+  },
+  "Python Code": {
+    "prefix": "pycode",
+    "body": [
+        "```python",
+        "${0}",
+        "```"
+    ]
+  },
+  "PHP Code": {
+    "prefix": "phpcode",
+    "body": [
+        "```php",
+        "${0}",
+        "```"
+    ]
+  },
+  "HTML Code": {
+    "prefix": "htmlcode",
+    "body": [
+        "```html",
+        "${0}",
+        "```"
+    ]
+  },
+  "Lua Code": {
+    "prefix": "luacode",
+    "body": [
+        "```lua",
+        "${0}",
+        "```"
+    ]
+  },
+  "JAVA Code": {
+    "prefix": "javacode",
+    "body": [
+        "```java",
+        "${0}",
+        "```"
+    ]
+  },
+  "Bash Code": {
+    "prefix": "bashcode",
+    "body": [
+        "```bash",
+        "${0}",
+        "```"
+    ]
+  },
+  "C Code": {
+    "prefix": "ccode",
+    "body": [
+        "```c",
+        "${0}",
+        "```"
+    ]
+  }
+}

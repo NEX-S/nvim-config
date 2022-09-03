@@ -30,40 +30,12 @@ nvim_cmp.setup {
         end,
     },
     mapping = {
-        ["<TAB>"] = nvim_cmp.mapping(
-            function(fallback)
-                if luasnip.jumpable() then
-                    luasnip.jump(1)
-                elseif nvim_cmp.visible() then
-                    nvim_cmp.select_next_item()
-                else
-                    fallback()
-                end
-            end, { "i", "s", }
-        ),
-        ["<S-Tab>"] = nvim_cmp.mapping(
-            function(fallback)
-                if nvim_cmp.visible() then
-                    nvim_cmp.confirm {
-                        behavior = nvim_cmp.ConfirmBehavior.Replace,
-                        select = true,
-                    }
-                elseif luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, { "i", "s", }
-        ),
         -- ["<TAB>"] = nvim_cmp.mapping(
         --     function(fallback)
-        --         if luasnip.expand_or_locally_jumpable() then
-        --             luasnip.expand_or_jump()
+        --         if luasnip.jumpable() then
+        --             luasnip.jump(1)
         --         elseif nvim_cmp.visible() then
-        --             nvim_cmp.confirm {
-        --                 behavior = nvim_cmp.ConfirmBehavior.Replace,
-        --                 select = true,
-        --             }
+        --             nvim_cmp.select_next_item()
         --         else
         --             fallback()
         --         end
@@ -72,14 +44,42 @@ nvim_cmp.setup {
         -- ["<S-Tab>"] = nvim_cmp.mapping(
         --     function(fallback)
         --         if nvim_cmp.visible() then
-        --             nvim_cmp.select_next_item()
-        --         elseif luasnip.expand_or_locally_jumpable() then
+        --             nvim_cmp.confirm {
+        --                 behavior = nvim_cmp.ConfirmBehavior.Replace,
+        --                 select = true,
+        --             }
+        --         elseif luasnip.jumpable(-1) then
         --             luasnip.jump(-1)
         --         else
         --             fallback()
         --         end
         --     end, { "i", "s", }
         -- ),
+        ["<TAB>"] = nvim_cmp.mapping(
+            function(fallback)
+                if luasnip.expand_or_locally_jumpable() then
+                    luasnip.expand_or_jump()
+                elseif nvim_cmp.visible() then
+                    nvim_cmp.confirm {
+                        behavior = nvim_cmp.ConfirmBehavior.Replace,
+                        select = true,
+                    }
+                else
+                    fallback()
+                end
+            end, { "i", "s", }
+        ),
+        ["<S-Tab>"] = nvim_cmp.mapping(
+            function(fallback)
+                if nvim_cmp.visible() then
+                    nvim_cmp.select_next_item()
+                elseif luasnip.expand_or_locally_jumpable() then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { "i", "s", }
+        ),
     },
 }
 

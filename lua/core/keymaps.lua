@@ -7,6 +7,8 @@
 --  terminal_mode = 't',
 --  command_mode  = 'c',
 
+local NS = { noremap = true, silent = true }
+
 vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
@@ -34,14 +36,15 @@ vim.keymap.set('t', '<A-j>', '<C-\\><C-n><C-w>j', { noremap = true, silent = tru
 vim.keymap.set('t', '<A-k>', '<C-\\><C-n><C-w>k', { noremap = true, silent = true })
 vim.keymap.set('t', '<A-l>', '<C-\\><C-n><C-w>l', { noremap = true, silent = true })
 
-vim.keymap.set('n', '/', '.', { noremap = true, silent = true })
-vim.keymap.set('n', '.', ';', { noremap = true, silent = true })
+-- vim.keymap.set('n', "'", ';', { noremap = true, silent = true })
+vim.keymap.set('n', '/', ';', { noremap = true, silent = true })
 vim.keymap.set('n', '\\', 'q', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'p', 'dP', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';f', '/', { noremap = true, silent = false })
 vim.keymap.set('n', '<ESC>', '<CMD>set hls!<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('i', '<ESC>', '<ESC>l', { noremap = true, silent = true })
 
 vim.keymap.set('i', '<A-.>', '<ESC>>>A', { noremap = true, silent = true })
 
@@ -104,6 +107,7 @@ vim.keymap.set('o', '<SPACE>', ';', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'U', '<C-r>', { noremap = true, silent = true })
 
+-- vim.keymap.set('n', 'm', '%', { remap = true, silent = true })
 vim.keymap.set('n', 'm', '%', { remap = true, silent = true })
 
 vim.keymap.set('n', ';m', 'm', { noremap = true, silent = true })
@@ -165,8 +169,8 @@ vim.keymap.set('o', "h'", ":<C-u>normal! F'vi'<CR>", { noremap = true, silent = 
 
 vim.keymap.set('n', ';e', '<CMD>NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<C-f>', '<CMD>Telescope find_files theme=dropdown previewer=false<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';t', '<CMD>Telescope find_files theme=dropdown previewer=false<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';T', '<CMD>Telescope live_grep<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<F2>', '<CMD>w | source $MYVIMRC<CR>', { noremap = true, silent = true })
 
@@ -223,3 +227,12 @@ vim.keymap.set('n', 'N', "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua 
 --     end,
 --     NS
 -- )
+
+-- vim.keymap.set( 'n', ';0', '<CMD>AerialToggle!<CR>',  { noremap = true, silent = true})
+-- vim.keymap.set( 'n', ';j',  '<CMD>AerialPrev<CR>',    { noremap = true, silent = true})
+-- vim.keymap.set( 'n', ';k',  '<CMD>AerialNext<CR>',    { noremap = true, silent = true})
+-- vim.keymap.set( 'n', '[[', '<CMD>AerialPrevUp<CR>',   { noremap = true, silent = true})
+-- vim.keymap.set( 'n', ']]', '<CMD>AerialNextUp<CR>',   { noremap = true, silent = true})
+
+-- vim.keymap.set('n', '<A-.>', 'n', NS)
+-- vim.keymap.set('n', '<A-,>', 'N', NS)

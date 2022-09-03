@@ -1,5 +1,13 @@
 
 require "aerial".setup {
+    on_attach = function (bufnr)
+        local NS = { noremap = true, silent = true }
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ';0', '<CMD>AerialToggle!<CR>', NS)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ';j', '<CMD>AerialPrev<CR>',    NS)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ';k', '<CMD>AerialNext<CR>',    NS)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<CMD>AerialPrevUp<CR>',  NS)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<CMD>AerialNextUp<CR>',  NS)
+    end,
     show_guides = false,
     guides = {
         -- When the child item has a sibling below it
@@ -12,48 +20,49 @@ require "aerial".setup {
         whitespace = " ",
     },
     min_width = 35,
-    backends = {
-        ['_']        = { "lsp", "treesitter" },
-        ['python']   = { "lsp", "treesitter" },
-        ['c']        = { "lsp", "treesitter" },
-        ['lua']      = { "lsp", "treesitter" },
-        ['php']      = { "lsp", "treesitter" },
-        ['html']     = { "lsp", "treesitter" },
-        ['java']     = { "lsp", "treesitter" },
-        ['go']       = { "lsp", "treesitter" },
-        ['markdown'] = { "markdown" },
-    },
+    backends = { "lsp", "treesitter", "markdown" },
+    -- backends = {
+    --     ['_']        = { "lsp", "treesitter" },
+    --     ['python']   = { "lsp", "treesitter" },
+    --     ['c']        = { "lsp", "treesitter" },
+    --     ['lua']      = { "lsp", "treesitter" },
+    --     ['php']      = { "lsp", "treesitter" },
+    --     ['html']     = { "lsp", "treesitter" },
+    --     ['java']     = { "lsp", "treesitter" },
+    --     ['go']       = { "lsp", "treesitter" },
+    --     ['markdown'] = { "markdown" },
+    -- },
     icons = {
-        ['Constructor'] = 'Constructor',
-        ['Enum'] = 'Enum',
-        ['EnumMember'] = 'EnumMember',
-        ['Event'] = 'Event',
-        ['File'] = 'File',
-        --  
-        ['Interface'] = '',
-        ['Key'] = 'Key',
-        ['Namespace'] = 'Namespace',
-        ['Operator'] = 'Operator',
-        ['Package'] = 'Package',
-        ['TypeParameter'] = 'TypeParameter',
-
-        ['Field']    = " ﯟ",
-        ['Function'] = " ",
-        --  
-        ['Variable'] = " ",
-        ['Boolean']  = " ",
-        ['Property'] = " ",
-        ['String']   = " ﱕ",
-        ['Array']    = " ",
-        ['class']    = " ",
-        ['Method']   = " ",
-        --  
-        ['Struct']   = " ",
-        ['Module']   = " ",
-        ['Object']   = " ",
-        ['Number']   = " ",
-        ['Constant'] = " ",
-        ['Null']     = " ",
+        ['File']          = " ",
+        ['Module']        = " ",
+        ['Namespace']     = " ﱕ",
+        ['Package']       = " ",
+        ['Class']         = " ",
+        ['Method']        = " ",
+        ['Property']      = " ",
+        ['Field']         = " ﯟ",
+        ['Constructor']   = " ",
+        ['Enum']          = " ",
+        ['Interface']     = " ",
+        ['Function']      = " ",
+        ['Variable']      = " ",
+        ['Constant']      = " ",
+        ['String']        = " ",
+        ['Number']        = " ",
+        ['Boolean']       = " ",
+        ['Array']         = " ",
+        ['Object']        = " ",
+        ['Key']           = " -",
+        ['Null']          = " ",
+        ['EnumMember']    = " ",
+        ['Struct']        = " ",
+        ['Event']         = " ",
+        ['Operator']      = " ",
+        ['TypeParameter'] = " ",
+        ['TypeAlias']     = " ",
+        ['Parameter']     = " ",
+        ['StaticMethod']  = " ",
+        ['Macro']         = "廓",
     },
     --                      
     --                      
@@ -61,40 +70,44 @@ require "aerial".setup {
     --    﫢               ﮲  
     -- ﱕ      ﯟ     ﰊ ﰉ ﱢ ﱡ 諸喝卑ﰩ   
     filter_kind = {
-        'Array',
-        'Boolean',
-        'Class',
-        'Constant',
-        'Constructor',
-        'Enum',
-        'EnumMember',
-        'Event',
-        'Field',
         'File',
-        'Function',
-        'Interface',
-        'Key',
-        'Method',
         'Module',
         'Namespace',
-        'Null',
-        'Number',
-        'Object',
-        'Operator',
         'Package',
+        'Class',
+        'Method',
         'Property',
+        'Field',
+        'Constructor',
+        'Enum',
+        'Interface',
+        'Function',
+        'Variable',
+        'Constant',
         'String',
+        'Number',
+        'Boolean',
+        'Array',
+        'Object',
+        'Key',
+        'Null',
+        'EnumMember',
         'Struct',
+        'Event',
+        'Operator',
         'TypeParameter',
-        'Variable'
+        'TypeAlias',
+        'Parameter',
+        'StaticMethod',
+        'Macro',
     },
 }
 
-require "lualine".setup {
-    sections = {
-        lualine_x = { { 'aerial', sep = '', dense = false, dense_sep = '  ' }, 'os.date("%H:%M %a")', }
-    },
-}
+-- require "lualine".setup {
+--     sections = {
+--         lualine_x = { { 'aerial', sep = '', dense = false, dense_sep = '  ' }, 'os.date("%H:%M %a")', }
+--     },
+-- }
 
 vim.api.nvim_set_hl(0, "AerialKey",  { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialEnum", { bg = "NONE", fg = "#666666", })
@@ -103,7 +116,7 @@ vim.api.nvim_set_hl(0, "AerialLine", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialNull", { bg = "NONE", fg = "#666666", })
 
 vim.api.nvim_set_hl(0, "AerialArray", { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "AerialClass", { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "AerialClass", { bg = "NONE", fg = "#666666", bold = true, italic = true })
 vim.api.nvim_set_hl(0, "AerialEvent", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialField", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialGuide", { bg = "NONE", fg = "#666666", })
@@ -128,10 +141,10 @@ vim.api.nvim_set_hl(0, "AerialStruct", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialBoolean",  { bg = "NONE", fg = "#C53B82", })
 vim.api.nvim_set_hl(0, "AerialKeyIcon",  { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialPackage",  { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "AerialConstant", { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "AerialConstant", { bg = "NONE", fg = "#614F97", bold = true })
 vim.api.nvim_set_hl(0, "AerialEnumIcon", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialFileIcon", { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "AerialFunction", { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "AerialFunction", { bg = "NONE", fg = "#C53B82", italic = true })
 vim.api.nvim_set_hl(0, "AerialNullIcon", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialOperator", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialProperty", { bg = "NONE", fg = "#666666", })
@@ -155,7 +168,7 @@ vim.api.nvim_set_hl(0, "AerialBooleanIcon", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialConstructor", { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialPackageIcon", { bg = "NONE", fg = "#666666", })
 
-vim.api.nvim_set_hl(0, "AerialConstantIcon",  { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "AerialConstantIcon",  { bg = "NONE", fg = "#614F97", })
 vim.api.nvim_set_hl(0, "AerialFunctionIcon",  { bg = "NONE", fg = "#C53B82", })
 vim.api.nvim_set_hl(0, "AerialOperatorIcon",  { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "AerialPropertyIcon",  { bg = "NONE", fg = "#666666", })

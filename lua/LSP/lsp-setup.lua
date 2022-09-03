@@ -35,11 +35,11 @@ lspconfig.pyright.setup {
 }
 
 -- TODO: COMPARE WEATHER USING HTML LSP CAN GET BETTER EXPERIENCE.
--- lspconfig.html.setup {
---     on_attach = M.on_attach,
---     capabilities = M.capabilities,
---     -- root_dir = require "lspconfig".util.root_pattern('*.html'),
--- }
+lspconfig.html.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    -- root_dir = require "lspconfig".util.root_pattern('*.html'),
+}
 
 lspconfig.clangd.setup {
     on_attach = M.on_attach,
@@ -63,3 +63,21 @@ lspconfig.intelephense.setup {
     single_file_support = true,
     root_dir = root_dir('php'),
 }
+
+lspconfig.jsonls.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    single_file_support = true,
+}
+
+lspconfig.marksman.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    single_file_support = true,
+}
+
+-- lspconfig.grammarly.setup {
+--     on_attach = M.on_attach,
+--     capabilities = M.capabilities,
+--     single_file_support = true,
+-- }

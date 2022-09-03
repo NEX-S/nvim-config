@@ -27,30 +27,56 @@ require "nvim-treesitter.configs".setup {
             lookahead = true,
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
+                -- ["ia"] = "@attribute.inner",
+                -- ["aa"] = "@attribute.outer",
+
+                ["ib"] = "@block.inner",
+                ["ab"] = "@block.outer",
+
+                ["c"] = "@call.inner",  -- all call args
+                ["C"] = "@call.outer",
+
                 ["ic"] = "@class.inner",
+                ["ac"] = "@class.outer",
+
+                ["ii"] = "@conditional.inner",  -- if
+                ["ai"] = "@conditional.outer",  -- if
+
+                ["aF"] = "@frame.inner",
+                ["iF"] = "@frame.outer",
+
+                ["if"] = "@function.inner", -- function
+                ["af"] = "@function.outer", -- funiction
+
+                ["il"] = "@loop.inner", -- loop
+                ["al"] = "@loop.outer", -- loop
+
+                ["ia"] = "@parameter.inner",  -- args
+                ["aa"] = "@parameter.outer",  -- args
+
+                ["/"] = "@comment.outer",
+                -- ["is"] = "@scopename.inner",
+                ["is"] = "@statement.outer", -- statement
             },
         },
         move = {
             enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
-                ["]m"] = "@function.outer",
-                ["]]"] = "@class.outer",
+                ["<A-.>"] = "@function.outer",
+                ["<C-.>"] = "@class.outer",
             },
             goto_next_end = {
-                ["]M"] = "@function.outer",
-                ["]["] = "@class.outer",
+                ["<A-e>"] = "@function.outer",
+                ["<C-e>"] = "@class.outer",
             },
             goto_previous_start = {
-                ["[m"] = "@function.outer",
-                ["[["] = "@class.outer",
+                ["<A-,>"] = "@function.outer",
+                ["<C-,>"] = "@class.outer",
             },
             goto_previous_end = {
-                ["[M"] = "@function.outer",
-                ["[]"] = "@class.outer",
+                ["<A-E>"] = "@function.outer",
+                ["<C-P>"] = "@class.outer",
             },
         },
     },

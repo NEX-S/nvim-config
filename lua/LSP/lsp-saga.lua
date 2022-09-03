@@ -1,6 +1,4 @@
 
-vim.api.nvim_set_hl(8, "TSvariable", { bg = "NONE", fg = '#C53B82', bold = true, italic = false, underline = true })
-
 require "lspsaga".init_lsp_saga {
     border_style = "single",
     saga_winblend = 20,
@@ -31,6 +29,9 @@ require "lspsaga".init_lsp_saga {
     },
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 10,
+    definition_action_keys = {
+        quit = "<ESC>",
+    },
     -- definition_preview_quit = '<ESC>',
     -- finder_preview_hl_ns = 8,
     finder_action_keys = {
@@ -70,37 +71,36 @@ require "lspsaga".init_lsp_saga {
         auto_refresh = true,
     },
     custom_kind = {
-        File          =  { "",  "#AF87D7" },
-        Module        =  { "",  "#666666" },
-        Namespace     =  { "ﱕ ", "#666666" },
-        Package       =  { " ", "#666666" },
-        Class         =  { " ", "#BBE73D" },
-        Method        =  { " ", "#C53B82" },
-        -- Property      =  { " ", "#6A5A9D" },
-        Property      =  { "- ", "#6A5A9D" },
-        Field         =  { "ﯟ ", "#666666" },
-        Constructor   =  { " ", "#666666" },
-        Enum          =  { " ", "#666666" },
-        Interface     =  { " ", "#666666" },
-        Function      =  { " ", "#C53B82" },
-        Variable      =  { " ", "#696969" },
-        Constant      =  { " ", "#614F97" },
-        String        =  { " ", "#444444" },
-        Number        =  { " ", "#AFC460" },
-        Boolean       =  { " ", "#C53B82" },
-        Array         =  { " ", "#614F97" },
-        Object        =  { " ", "#666666" },
-        Key           =  { " ", "#666666" },
-        Null          =  { " ", "#C53B82" },
-        EnumMember    =  { " ", "#666666" },
-        Struct        =  { " ", "#666666" },
-        Event         =  { " ", "#666666" },
-        Operator      =  { " ", "#666666" },
-        TypeParameter =  { " ", "#666666" },
-        TypeAlias     =  { " ", "#666666" },
-        Parameter     =  { " ", "#8567A3" },
-        StaticMethod  =  { " ", "#666666" },
-        Macro         =  { "廓", "#666666" },
+        File          =  { "", },
+        Module        =  { "", },
+        Namespace     =  { "ﱕ " },
+        Package       =  { " " },
+        Class         =  { " " },
+        Method        =  { " " },
+        Property      =  { " " },
+        Field         =  { "ﯟ " },
+        Constructor   =  { " " },
+        Enum          =  { " " },
+        Interface     =  { " " },
+        Function      =  { " " },
+        Variable      =  { " " },
+        Constant      =  { " " },
+        String        =  { " " },
+        Number        =  { " " },
+        Boolean       =  { " " },
+        Array         =  { " " },
+        Object        =  { " " },
+        Key           =  { "- " },
+        Null          =  { " " },
+        EnumMember    =  { " " },
+        Struct        =  { " " },
+        Event         =  { " " },
+        Operator      =  { " " },
+        TypeParameter =  { " " },
+        TypeAlias     =  { " " },
+        Parameter     =  { " " },
+        StaticMethod  =  { " " },
+        Macro         =  { "廓" },
     },
 }
 
@@ -116,7 +116,10 @@ vim.keymap.set("v", "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>",  opt)
 vim.keymap.set("n", ";d",    "<CMD>Lspsaga show_line_diagnostics<CR>",   opt)
 vim.keymap.set("n", ";x",    "<CMD>Lspsaga open_floaterm<CR>",           opt)
 vim.keymap.set("n", ";D",    "<CMD>Lspsaga show_cursor_diagnostics<CR>", opt)
-vim.keymap.set("n", ";o",    "<CMD>LSoutlineToggle<CR>",                 opt)
+
+vim.keymap.set("n", ";o",    "<CMD>LSoutlineToggle<CR>",         opt)
+
+-- vim.keymap.set("n", ";o", LSOutLineHighLight,         opt)
 
 vim.keymap.set("n", "<C-r>", "<CMD>Lspsaga rename<CR>",               opt)
 vim.keymap.set("n", "<A-p>", "<CMD>Lspsaga diagnostic_jump_prev<CR>", opt)
@@ -146,7 +149,7 @@ vim.api.nvim_set_hl(0, "LspSagaDiagnosticHint",          { bg = "NONE", fg = "#9
 vim.api.nvim_set_hl(0, "LspSagaDiagnosticSource",        { bg = "NONE", fg = "#C53B82", })
 vim.api.nvim_set_hl(0, "LspSagaDiagnosticTruncateLine",  { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaErrorTrunCateLine",       { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaFinderSelection",         { bg = "NONE", fg = "#ffffff", })
+vim.api.nvim_set_hl(0, "LspSagaFinderSelection",         { bg = "NONE", fg = "#888888", })
 vim.api.nvim_set_hl(0, "LspSagaHintTrunCateLine",        { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaHoverTrunCateLine",       { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaInfoTrunCateLine",        { bg = "NONE", fg = "#353535", })
@@ -180,3 +183,33 @@ vim.api.nvim_set_hl(0, "OutlineIndentOdd",        { bg = "NONE", fg = "#ffffff",
 vim.api.nvim_set_hl(0, "OutlineFoldPrefix",       { bg = "NONE", fg = "#000000", })
 vim.api.nvim_set_hl(0, "OutlineDetail",           { bg = "NONE", fg = "#383838", })
 
+vim.api.nvim_set_hl(0, "LSOutLineFile",          { bg = "NONE", fg = "#AF87D7" })
+vim.api.nvim_set_hl(0, "LSOutLineModule",        { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineNamespace",     { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLinePackage",       { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineClass",         { bg = "NONE", fg = "#BBE73D", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "LSOutLineMethod",        { bg = "NONE", fg = "#C53B82", italic = true })
+vim.api.nvim_set_hl(0, "LSOutLineProperty",      { bg = "NONE", fg = "#6A5A9D" })
+vim.api.nvim_set_hl(0, "LSOutLineField",         { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineConstructor",   { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineEnum",          { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineInterface",     { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineFunction",      { bg = "NONE", fg = "#C53B82", italic = true })
+vim.api.nvim_set_hl(0, "LSOutLineVariable",      { bg = "NONE", fg = "#696969" })
+vim.api.nvim_set_hl(0, "LSOutLineConstant",      { bg = "NONE", fg = "#C53B82", bold = true })
+vim.api.nvim_set_hl(0, "LSOutLineString",        { bg = "NONE", fg = "#444444" })
+vim.api.nvim_set_hl(0, "LSOutLineNumber",        { bg = "NONE", fg = "#AFC460" })
+vim.api.nvim_set_hl(0, "LSOutLineBoolean",       { bg = "NONE", fg = "#C53B82" })
+vim.api.nvim_set_hl(0, "LSOutLineArray",         { bg = "NONE", fg = "#614F97" })
+vim.api.nvim_set_hl(0, "LSOutLineObject",        { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineKey",           { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineNull",          { bg = "NONE", fg = "#C53B82" })
+vim.api.nvim_set_hl(0, "LSOutLineEnummember",    { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineStruct",        { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineEvent",         { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineOperator",      { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineTypeparameter", { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineTypealias",     { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineParameter",     { bg = "NONE", fg = "#8567A3" })
+vim.api.nvim_set_hl(0, "LSOutLineStaticmethod",  { bg = "NONE", fg = "#666666" })
+vim.api.nvim_set_hl(0, "LSOutLineMacro",         { bg = "NONE", fg = "#666666" })

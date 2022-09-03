@@ -348,6 +348,7 @@ packer.startup {
         -- use { "glepnir/lspsaga.nvim",
         use { "NEX-S/lspsaga.nvim",
             after = 'nvim-lspconfig',
+            ft = "markdown",
             -- keys = { "gd", "gi", "<C-r>", ";x", ";o" },
             config = [[ require "LSP.lsp-saga" ]]
         }
@@ -401,8 +402,8 @@ packer.startup {
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
         -- use { 'stevearc/aerial.nvim',
-        --     -- ft = 'markdown',
-        --     -- after = "lualine.nvim",
+        --     ft = "markdown",
+        --     cmd = "AerialToggle",
         --     module = "aerial",
         --     config = [[ require "LSP.aerial" ]]
         -- }
@@ -528,11 +529,11 @@ packer.startup {
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
         use { 'voldikss/vim-translator',
-            keys = ';t',
+            keys = 'gt',
             config = [[
                 vim.g.translator_default_engines = { 'google' }
-                vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
-                vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
+                vim.keymap.set('n', 'gt', '<PLUG>TranslateW', { noremap = true, silent = true })
+                vim.keymap.set('v', 'gt', '<PLUG>TranslateWV', { noremap = true, silent = true })
             ]]
         }
 
@@ -590,7 +591,7 @@ packer.startup {
             config = [[ require "plugins.treesitter" ]]
         }
         use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
-        use { 'nvim-treesitter/nvim-treesitter-textobjects', commit = "e581902a35f315b6998d8354d20cc4a0dfc0cf6e", after = "nvim-treesitter"  }
+        use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter", }
         use { 'p00f/nvim-ts-rainbow', after = "nvim-treesitter" }
         -- use { 'm-demare/hlargs.nvim',
         --     after = "nvim-treesitter",

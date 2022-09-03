@@ -97,7 +97,11 @@
     "printf": {
         "prefix": "printf",
         "description": "- GENERIC PRINTF() SNIPPET",
-        "body": ["printf(\"${1:content}\"${0});"]
+        "body": ["printf(\"${1:content}\\n\"${0});"]
+    },
+    "printf%": {
+        "prefix": "printf(\"%\", );",
+        "body": "printf(\"%${1:d}\\n\", $0);"
     },
     "scanf": {
         "prefix": "scanf",
