@@ -40,8 +40,8 @@ require "lspsaga".init_lsp_saga {
         split = "s",
         tabe = "t",
         quit = "<ESC>",
-        scroll_down = "<A-n>",
-        scroll_up = "<A-p>", -- quit can be a table
+        scroll_down = "<C-j>",
+        scroll_up = "<C-k>", -- quit can be a table
     },
     code_action_keys = {
         quit = "<ESC>",
@@ -196,7 +196,7 @@ vim.api.nvim_set_hl(0, "LSOutLineEnum",          { bg = "NONE", fg = "#666666" }
 vim.api.nvim_set_hl(0, "LSOutLineInterface",     { bg = "NONE", fg = "#666666" })
 vim.api.nvim_set_hl(0, "LSOutLineFunction",      { bg = "NONE", fg = "#C53B82", italic = true })
 vim.api.nvim_set_hl(0, "LSOutLineVariable",      { bg = "NONE", fg = "#696969" })
-vim.api.nvim_set_hl(0, "LSOutLineConstant",      { bg = "NONE", fg = "#C53B82", bold = true })
+vim.api.nvim_set_hl(0, "LSOutLineConstant",      { bg = "NONE", fg = "#C53B82" })
 vim.api.nvim_set_hl(0, "LSOutLineString",        { bg = "NONE", fg = "#444444" })
 vim.api.nvim_set_hl(0, "LSOutLineNumber",        { bg = "NONE", fg = "#AFC460" })
 vim.api.nvim_set_hl(0, "LSOutLineBoolean",       { bg = "NONE", fg = "#C53B82" })
