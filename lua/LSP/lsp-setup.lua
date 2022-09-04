@@ -77,7 +77,9 @@ lspconfig.marksman.setup {
 }
 
 -- lspconfig.grammarly.setup {
---     on_attach = M.on_attach,
---     capabilities = M.capabilities,
---     single_file_support = true,
+--     -- on_attach = M.on_attach,
+--     -- capabilities = M.capabilities,
+--     init_options = { clientId = 'client_BaDkMgx4X19X9UxxYRCXZo', },
+--     root_dir = root_dir('md')
+--     -- single_file_support = true,
 -- }

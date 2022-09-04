@@ -23,6 +23,8 @@ require "telescope".setup {
                 ["j"] = actions.move_selection_next,
                 ["k"] = actions.move_selection_previous,
                 ['l'] = actions.select_tab,
+                ['o'] = actions.select_tab,
+                ['<TAB>'] = actions.select_tab,
 
                 ["gg"] = actions.move_to_top,
                 ["G"] = actions.move_to_bottom,
@@ -51,7 +53,7 @@ vim.api.nvim_set_hl(0, "TelescopePreviewNormal",  { bg = "NONE", fg = "#614F97",
 vim.api.nvim_set_hl(0, "TelescopePromptPrefix",   { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeResultsTitle",   { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopePreviewTitle",   { bg = "NONE", fg = "#9EB73D", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopePreviewLine",    { bg = "NONE", fg = "#C53B82", bold = true,  italic = false  })
+vim.api.nvim_set_hl(0, "TelescopePreviewLine",    { bg = "NONE", fg = "#C53B82", bold = true,  italic = false })
 vim.api.nvim_set_hl(0, "TelescopeSelection",      { bg = "NONE", fg = "#C53B82", bold = true,  italic = false })
 vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeMatching",       { bg = "NONE", fg = "#C53B82", bold = false, italic = false })
@@ -80,16 +82,16 @@ vim.api.nvim_set_hl(0, "TelescopeResultsField",  { bg = "NONE", fg = "#000000", 
 vim.api.nvim_set_hl(0, "TelescopePreviewHyphen",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopePreviewSocket",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopePreviewSticky",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopeResultsLineNr",   { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopeResultsMethod",   { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopeResultsNumber",   { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsLineNr",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsMethod",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsNumber",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeResultsStruct",   { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeMultiSelection",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopePreviewCharDev",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopePreviewExecute",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopePreviewMessage",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopeResultsComment",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
-vim.api.nvim_set_hl(0, "TelescopeResultsDiffAdd",  { bg = "NONE", fg = "#ffffff", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewExecute",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopePreviewMessage",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsComment",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
+vim.api.nvim_set_hl(0, "TelescopeResultsDiffAdd",  { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeResultsConstant",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeResultsFileIcon",    { bg = "NONE", fg = "#000000", bold = false, italic = false })
 vim.api.nvim_set_hl(0, "TelescopeResultsFunction",    { bg = "NONE", fg = "#000000", bold = false, italic = false })

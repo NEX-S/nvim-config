@@ -271,12 +271,14 @@ packer.startup {
         --     ]]
         -- }
 
-        -- AUTO-PAIRS --
+        -- HTML AUTO TAGS
+        use { 'windwp/nvim-ts-autotag', ft = "html" }
+
+        -- AUTO-PAIRS
         use { 'windwp/nvim-autopairs',
             event = 'InsertEnter',
             config = function ()
                 local autopairs = require "nvim-autopairs"
-
                 autopairs.setup {
                     disable_filetype = { 'TelescopePrompt' },
                     disable_in_macro = true,
@@ -317,20 +319,60 @@ packer.startup {
 
         -- LSP-INSTALLER --
         -- ~/.config/nvim/lua/LSP/lsp-config.lua
+        -- use { "neovim/nvim-lspconfig", module = "lspconfig" }
+        -- use { "williamboman/nvim-lsp-installer",
+        --     event = { "CursorHold", "CursorHoldI", "CursorMoved", "InsertEnter" },
+        --     config = [[
+        --         require "nvim-lsp-installer".setup {
+        --             automatic_installation = true,
+        --             ensure_installed = { 'sumneko_lua', 'intelephense', 'pyright', 'clangd' },
+        --             ui = {
+        --                 icons = {
+        --                     server_installed = ' ',
+        --                     server_pending = ' ',
+        --                     server_uninstalled = ' ',
+        --                 },
+        --             },
+        --         }
+        --         require "LSP.lsp-setup"
+        --     ]]
+        -- }
+
+        -- MASON --
+        -- ~/.config/nvim/lua/LSP/lsp-config.lua
+        -- ~/.config/nvim/lua/LSP/lsp-setup.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
-        use { "williamboman/nvim-lsp-installer",
+        use { "williamboman/mason.nvim",
             event = { "CursorHold", "CursorHoldI", "CursorMoved", "InsertEnter" },
             config = [[
-                require "nvim-lsp-installer".setup {
+                require "mason".setup {
                     automatic_installation = true,
-                    ensure_installed = { 'sumneko_lua', 'intelephense', 'pyright', 'clangd' },
                     ui = {
+                        border = "single",
                         icons = {
                             server_installed = ' ',
                             server_pending = ' ',
                             server_uninstalled = ' ',
                         },
+                        check_outdated_packages_on_open = true,
                     },
+                    keymaps = {
+                        toggle_package_expand = "<TAB>",
+                        install_package = "i",
+                        update_package = "u",
+                        update_all_packages = "U",
+                        uninstall_package = "x",
+                    },
+                    -- install_root_dir = "~/.local/share/nvim/data/mason"
+                }
+            ]]
+        }
+        use { "williamboman/mason-lspconfig.nvim",
+            after = "mason.nvim",
+            config = [[
+                require "mason-lspconfig".setup {
+                    automatic_installation = true,
+                    ensure_installed = { 'sumneko_lua', 'intelephense', 'pyright', 'clangd' },
                 }
                 require "LSP.lsp-setup"
             ]]
@@ -568,7 +610,7 @@ packer.startup {
         use { 'ethanholz/nvim-lastplace', config = [[ require "nvim-lastplace".setup {} ]] }
 
         -- 分屏变暗 --
-        use { 'sunjon/shade.nvim',
+        use { 'NEX-S/shade.nvim',
             -- event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
             config = [[
                 require "shade".setup {
@@ -626,7 +668,6 @@ packer.startup {
         --     end
         -- }
 
-        use { 'windwp/nvim-ts-autotag', ft = "html" }
         -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
 
         -- 聚焦当前 函数/方法

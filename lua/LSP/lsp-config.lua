@@ -35,7 +35,7 @@ vim.diagnostic.config {
     --     },
     -- },
     signs = true,
-    update_in_insert = true,
+    update_in_insert = false,
     underline = false,
     severity_sort = true,
     float = {
@@ -56,8 +56,8 @@ vim.diagnostic.config {
 -- )
 
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
 -- vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError", numhl = "DiagnosticErrorNr" })
 -- vim.fn.sign_define("DiagnosticSignHint",  { text = "--", texthl = "DiagnosticSignHint",  numhl = "DiagnosticHintNr"  })
@@ -147,6 +147,5 @@ vim.api.nvim_set_hl(0, "DiagnosticFloatingHint",  { bg = "NONE", fg = "#008FBF",
 vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo",  { bg = "NONE", fg = "#C7EB61", })
 vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn",  { bg = "NONE", fg = "#DEA600", })
 vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { bg = "NONE", fg = "#A70458", })
-
 
 return M

@@ -149,7 +149,7 @@ vim.api.nvim_set_hl(0, "Title",        { bg = "NONE", fg = "#C53B82", bold = tru
 vim.api.nvim_set_hl(0, "Type",         { bg = "NONE", fg = "#8567A3", italic = true })
 vim.api.nvim_set_hl(0, "Comment",      { bg = "NONE", fg = "#525252", italic = true })
 vim.api.nvim_set_hl(0, "Float",        { bg = "NONE", fg = "#afc460", italic = true })
-vim.api.nvim_set_hl(0, "String",       { bg = "NONE", fg = "#8567A3", italic = true })
+vim.api.nvim_set_hl(0, "String",       { bg = "NONE", fg = "#8567A3", })
 vim.api.nvim_set_hl(0, "Repeat",       { bg = "NONE", fg = "#8567A3", italic = true })
 vim.api.nvim_set_hl(0, "Include",      { bg = "NONE", fg = "#BBE73D", italic = true })
 vim.api.nvim_set_hl(0, "Define",       { bg = "NONE", fg = "#C53B82", italic = true })
