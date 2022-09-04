@@ -52,7 +52,7 @@
         "prefix": "for",
         "description": "- FOR LOOP",
         "body": [
-            "for ( ${1:init-statement}; ${2:condition}; ${3:expression}) {",
+            "for (${1:init-statement}; ${2:condition}; ${3:expression}) {",
             "\t${0:- CODE}",
             "}"
         ]
@@ -94,13 +94,13 @@
             "\tbreak;$0"
         ]
     },
-    "printf": {
-        "prefix": "printf",
+    "print": {
+        "prefix": "print",
         "description": "- GENERIC PRINTF() SNIPPET",
-        "body": ["printf(\"${1:content}\\n\"${0});"]
+        "body": ["printf(\"${1}\\n\"${0});"]
     },
-    "printf%": {
-        "prefix": "printf(\"%\", );",
+    "printf": {
+        "prefix": "print-f",
         "body": "printf(\"%${1:d}\\n\", $0);"
     },
     "scanf": {

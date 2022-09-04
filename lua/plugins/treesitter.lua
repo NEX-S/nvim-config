@@ -30,8 +30,8 @@ require "nvim-treesitter.configs".setup {
                 -- ["ia"] = "@attribute.inner",
                 -- ["aa"] = "@attribute.outer",
 
-                ["ib"] = "@block.inner",
-                ["ab"] = "@block.outer",
+                ["iB"] = "@block.inner",
+                ["aB"] = "@block.outer",
 
                 ["c"] = "@call.inner",  -- all call args
                 ["C"] = "@call.outer",

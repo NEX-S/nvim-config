@@ -571,11 +571,11 @@ packer.startup {
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
         use { 'voldikss/vim-translator',
-            keys = 'gt',
+            keys = '<C-t>',
             config = [[
                 vim.g.translator_default_engines = { 'google' }
-                vim.keymap.set('n', 'gt', '<PLUG>TranslateW', { noremap = true, silent = true })
-                vim.keymap.set('v', 'gt', '<PLUG>TranslateWV', { noremap = true, silent = true })
+                vim.keymap.set('n', '<C-t>', '<PLUG>TranslateW', { noremap = true, silent = true })
+                vim.keymap.set('v', '<C-t>', '<PLUG>TranslateWV', { noremap = true, silent = true })
             ]]
         }
 
