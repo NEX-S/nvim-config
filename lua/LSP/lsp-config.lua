@@ -1,8 +1,8 @@
 
-vim.api.nvim_set_hl(0, "DiagnosticSignHint",  { bg = "NONE", fg = "#8567a3", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticSignWarn",  { bg = "NONE", fg = "#8567a3", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticSignInfo",  { bg = "NONE", fg = "#8567a3", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticSignError", { bg = "NONE", fg = "#8567a3", italic = true })
+vim.api.nvim_set_hl(0, "DiagnosticSignHint",  { bg = "NONE", fg = "#8567a3" })
+vim.api.nvim_set_hl(0, "DiagnosticSignWarn",  { bg = "NONE", fg = "#8567a3" })
+vim.api.nvim_set_hl(0, "DiagnosticSignInfo",  { bg = "NONE", fg = "#8567a3" })
+vim.api.nvim_set_hl(0, "DiagnosticSignError", { bg = "NONE", fg = "#8567a3" })
 
 vim.api.nvim_set_hl(0, "DiagnosticHintNr",  { bg = "NONE", fg = "#008FBF", italic = true })
 vim.api.nvim_set_hl(0, "DiagnosticInfoNr",  { bg = "NONE", fg = "#C7EB61", italic = true })

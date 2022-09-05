@@ -91,13 +91,15 @@ require "lualine".setup {
         lualine_c = {
             { '[ %F -  %p%% ]', type = 'stl' },
         },
-        lualine_x = { { sym_node }, "os.date('%H:%M %a')", },
+        lualine_x = { { sym_node }, "os.date('%H:%M %a')", { test } },
         lualine_y = { '%c -  %B' },
         lualine_z = { '%l - %L' },
     },
 }
 
 vim.api.nvim_set_hl(0, "lualine_a_diagnostics_hint_normal", { bg = "#404040", fg = "#AFC460" })
+vim.api.nvim_set_hl(0, "lualine_a_diagnostics_hint_visual", { bg = "#404040", fg = "#AFC460" })
+vim.api.nvim_set_hl(0, "lualine_a_diagnostics_hint_insert", { bg = "#404040", fg = "#AFC460" })
 
 vim.api.nvim_set_hl(0, "LspSagaWinbarSep",   { bg = "#292929", fg = "#555555" })
 vim.api.nvim_set_hl(0, "LspSagaWinbarKey",   { bg = "#292929", fg = "#686868" })
