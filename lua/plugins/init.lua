@@ -275,46 +275,46 @@ packer.startup {
         use { 'windwp/nvim-ts-autotag', ft = "html" }
 
         -- AUTO-PAIRS
-        -- use { 'windwp/nvim-autopairs',
-        --     event = 'InsertEnter',
-        --     config = function ()
-        --         local autopairs = require "nvim-autopairs"
-        --         autopairs.setup {
-        --             disable_filetype = { 'TelescopePrompt' },
-        --             disable_in_macro = true,
-        --             disable_in_visualblock = true,
-        --             enalbe_moveright = true,
-        --             enable_afterquote = true,  -- add bracket pairs after quote
-        --             enable_check_bracket_line = true,  --- check bracket in same line
-        --             enable_bracket_in_quote = true, --
-        --             break_undo = true, -- switch for basic rule break undo sequence
-        --             check_ts = false,
-        --             map_cr = true,
-        --             map_bs = true,  -- map the <BS> key
-        --             map_c_h = false,  -- Map the <C-h> key to delete a pair
-        --             map_c_w = false, -- map <c-w> to delete a pair if possible
-        --             fast_wrap = {
-        --                 map = '<S-TAB>',
-        --                 chars = { '{', '[', '(', '"', "'" },
-        --                 pattern = [=[[%'%"%)%>%]%)%}%,]]=],
-        --                 end_key = '$',
-        --                 keys = 'qwertyuiopzxcvbnmasdfghjkl',
-        --                 check_comma = true,
-        --                 highlight = 'Search',
-        --                 highlight_grey='Comment'
-        --             },
-        --         }
-        --         local Rule = require "nvim-autopairs.rule"
-        --         local cond = require "nvim-autopairs.conds"
-        --
-        --         -- C/CPP <harder.h> FIX
-        --         autopairs.add_rules {
-        --             Rule(">", ">", { "c", "cpp" })
-        --            :with_pair(cond.none())
-        --            :with_move(cond.done()),
-        --         }
-        --     end
-        -- }
+        use { 'windwp/nvim-autopairs',
+            event = 'InsertEnter',
+            config = function ()
+                local autopairs = require "nvim-autopairs"
+                autopairs.setup {
+                    disable_filetype = { 'TelescopePrompt' },
+                    disable_in_macro = true,
+                    disable_in_visualblock = true,
+                    enalbe_moveright = true,
+                    enable_afterquote = true,  -- add bracket pairs after quote
+                    enable_check_bracket_line = true,  --- check bracket in same line
+                    enable_bracket_in_quote = true, --
+                    break_undo = true, -- switch for basic rule break undo sequence
+                    check_ts = false,
+                    map_cr = true,
+                    map_bs = true,  -- map the <BS> key
+                    map_c_h = false,  -- Map the <C-h> key to delete a pair
+                    map_c_w = false, -- map <c-w> to delete a pair if possible
+                    fast_wrap = {
+                        map = '<S-TAB>',
+                        chars = { '{', '[', '(', '"', "'" },
+                        pattern = [=[[%'%"%)%>%]%)%}%,]]=],
+                        end_key = '$',
+                        keys = 'qwertyuiopzxcvbnmasdfghjkl',
+                        check_comma = true,
+                        highlight = 'Search',
+                        highlight_grey='Comment'
+                    },
+                }
+                local Rule = require "nvim-autopairs.rule"
+                local cond = require "nvim-autopairs.conds"
+
+                -- C/CPP <harder.h> FIX
+                autopairs.add_rules {
+                    Rule(">", ">", { "c", "cpp" })
+                   :with_pair(cond.none())
+                   :with_move(cond.done()),
+                }
+            end
+        }
 
 
         -- LSP-INSTALLER --
@@ -668,7 +668,7 @@ packer.startup {
         --     end
         -- }
 
-        use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
+        -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
 
         -- 聚焦当前 函数/方法
         use { 'folke/twilight.nvim',

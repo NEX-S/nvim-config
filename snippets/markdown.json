@@ -74,5 +74,15 @@
         "${0}",
         "```"
     ]
+  },
+  "Fold": {
+    "prefix": "<details>",
+    "body": [
+        "<details>",
+        "<summary>${1:SUMMARY}</summary>",
+        "<br />",
+        "$0",
+        "</details>"
+    ]
   }
 }
