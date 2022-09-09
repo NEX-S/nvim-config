@@ -79,10 +79,9 @@
     "prefix": "<details>",
     "body": [
         "<details>",
-        "<summary>${1:SUMMARY}</summary>",
-        "<br />",
+        "<summary>${1:SUMMARY}</summary><br />",
         "$0",
-        "</details>"
+        "</details><br />"
     ]
   }
 }

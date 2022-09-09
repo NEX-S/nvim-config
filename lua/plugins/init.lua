@@ -219,7 +219,7 @@ packer.startup {
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
         use { 'norcalli/nvim-colorizer.lua',
-            ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown' },
+            ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
             config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
         }
 
