@@ -60,7 +60,7 @@ packer.startup {
                     },
                     filetype = {
                         python = "time python3 -u",
-                        c = "cd $dir && clang $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
+                        c = "cd $dir && gcc $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
                         php = "time php $fileName",
                         sh = "time sh $fileName",
                         html = function ()
@@ -443,12 +443,12 @@ packer.startup {
 
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
-        -- use { 'stevearc/aerial.nvim',
-        --     ft = "markdown",
-        --     cmd = "AerialToggle",
-        --     module = "aerial",
-        --     config = [[ require "LSP.aerial" ]]
-        -- }
+        use { 'stevearc/aerial.nvim',
+            ft = "markdown",
+            cmd = "AerialToggle",
+            module = "aerial",
+            config = [[ require "LSP.aerial" ]]
+        }
 
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua

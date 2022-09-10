@@ -8,9 +8,7 @@ require "lspsaga".init_lsp_saga {
     -- },
     move_in_saga = { next = '<C-n>', prev = '<C-p>' },
     diagnostic_header = { " ", " ", " ", " " },
-    show_diagnostic_source = true,
     -- add bracket or something with diagnostic source, just have 2 elements
-    diagnostic_source_bracket = {},
     -- use emoji lightbulb in default
     code_action_icon = "",
     -- if true can press number to execute the codeaction in codeaction window
@@ -30,7 +28,11 @@ require "lspsaga".init_lsp_saga {
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 10,
     definition_action_keys = {
-        quit = "<ESC>",
+        edit = '<CR>',
+        vsplit = '<C-c>v',
+        split = '<C-c>i',
+        tabe = '<C-c>t',
+        quit = 'q',
     },
     -- definition_preview_quit = '<ESC>',
     -- finder_preview_hl_ns = 8,
@@ -49,7 +51,6 @@ require "lspsaga".init_lsp_saga {
     },
     rename_action_quit = "<ESC>",
     rename_in_select = true,
-    definition_preview_icon = " ",
     -- 顶栏
     symbol_in_winbar = {
         enable = true,
@@ -108,7 +109,7 @@ local opt = { noremap = true, silent = true }
 
 vim.keymap.set("n", "gh", "<CMD>Lspsaga hover_doc<CR>", opt)
 vim.keymap.set("n", "gs", "<CMD>Lspsaga signature_help<CR>", opt)
-vim.keymap.set("n", "gd", "<CMD>Lspsaga preview_definition<CR>", opt)
+vim.keymap.set("n", "gd", "<CMD>Lspsaga peek_definition<CR>", opt)
 vim.keymap.set("n", "gi", "<CMD>Lspsaga lsp_finder<CR>", opt)
 
 vim.keymap.set("n", "ga",    "<CMD>Lspsaga code_action<CR>",             opt)
@@ -137,41 +138,50 @@ vim.api.nvim_set_hl(0, "LspSagaAutoPreview",             { bg = "NONE", fg = "#3
 vim.api.nvim_set_hl(0, "LspSagaBorderTitle",             { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaCodeActionBorder",        { bg = "NONE", fg = "#353535", })
 vim.api.nvim_set_hl(0, "LspSagaCodeActionContent",       { bg = "NONE", fg = "#000000", })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionTitle",         { bg = "NONE", fg = "#000000", })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionTrunCateLine",  { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaDefPreviewBorder",        { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticBorder",        { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticHeader",        { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticError",         { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticWarn",          { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticInfo",          { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticHint",          { bg = "NONE", fg = "#929292", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticSource",        { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "LspSagaDiagnosticTruncateLine",  { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaErrorTrunCateLine",       { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaFinderSelection",         { bg = "NONE", fg = "#888888", })
-vim.api.nvim_set_hl(0, "LspSagaHintTrunCateLine",        { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaHoverTrunCateLine",       { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaInfoTrunCateLine",        { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaLightBulb",               { bg = "NONE", fg = "#BBE73D", })
-vim.api.nvim_set_hl(0, "LspSagaLspFinderBorder",         { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaRenameBorder",            { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaRenameMatch",             { bg = "NONE", fg = "#C53B82", })
-vim.api.nvim_set_hl(0, "LspSagaShTrunCateLine",          { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaSignatureHelpBorder",     { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "LspSagaTrunCatgeLine",           { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaCodeActionTitle",           { bg = "NONE", fg = "#000000", })
+vim.api.nvim_set_hl(0, "LspSagaCodeActionTrunCateLine",    { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "DefinitionBorder",                 { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "DefinitionArror",                  { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "DefinitionSearch",                 { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "DefinitionFile",                   { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticSource",          { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticQuickFix",        { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticMap",             { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticLineCol",         { bg = "NONE", fg = "#929292", })
 
-vim.api.nvim_set_hl(0, "TargetFileName",          { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "FinderParam",             { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "FinderVirtText",          { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "DefinitionsIcon",         { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "Definitions",             { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "ReferencesIcon",          { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "References",              { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "DefinitionCount",         { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "ReferencesCount",         { bg = "NONE", fg = "#666666", })
-vim.api.nvim_set_hl(0, "FinderSpinnerBorder",     { bg = "NONE", fg = "#353535", })
-vim.api.nvim_set_hl(0, "FinderSpinnerTitle",      { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticBorder",          { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticHeader",          { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticError",           { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticWarn",            { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticInfo",            { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticHint",            { bg = "NONE", fg = "#929292", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticSource",          { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "LspSagaDiagnosticTruncateLine",    { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaErrorTrunCateLine",         { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaFinderSelection",           { bg = "NONE", fg = "#888888", })
+vim.api.nvim_set_hl(0, "LspSagaHintTrunCateLine",          { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaHoverTrunCateLine",         { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaInfoTrunCateLine",          { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaLightBulb",                 { bg = "NONE", fg = "#BBE73D", })
+vim.api.nvim_set_hl(0, "LspSagaLspFinderBorder",           { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaRenameBorder",              { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaRenameMatch",               { bg = "NONE", fg = "#C53B82", })
+vim.api.nvim_set_hl(0, "LspSagaShTrunCateLine",            { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaSignatureHelpBorder",       { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "LspSagaTrunCatgeLine",             { bg = "NONE", fg = "#353535", })
+
+vim.api.nvim_set_hl(0, "TargetFileName",                   { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "FinderParam",                      { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "FinderVirtText",                   { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "DefinitionsIcon",                  { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "Definitions",                      { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "ReferencesIcon",                   { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "References",                       { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "DefinitionCount",                  { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "ReferencesCount",                  { bg = "NONE", fg = "#666666", })
+vim.api.nvim_set_hl(0, "FinderPreviewSearch",              { bg = "NONE", fg = "#888888", })
+vim.api.nvim_set_hl(0, "FinderSpinnerBorder",              { bg = "NONE", fg = "#353535", })
+vim.api.nvim_set_hl(0, "FinderSpinnerTitle",               { bg = "NONE", fg = "#C53B82", })
 vim.api.nvim_set_hl(0, "FinderSpinner",           { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "DefinitionPreviewTitle",  { bg = "NONE", fg = "#666666", })
 vim.api.nvim_set_hl(0, "SagaShadow",              { bg = "NONE", fg = "#000000", })

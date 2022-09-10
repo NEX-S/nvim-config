@@ -3,4 +3,4 @@
 DEPENDENCIES:
 + ripgrep
 + xclip
-+ npm
++ npm [ nodejs-lts-gallium ]
