@@ -7,8 +7,8 @@
         "prefix": "#include <>",
         "body": "#include <${1:header.h}>$0"
     },
-    "main": {
-        "prefix": "main",
+    "!": {
+        "prefix": "!",
         "description": "- STANDARD C TEMPLATE",
         "body": [
             "#include <stdio.h>",
@@ -16,7 +16,18 @@
             "",
             "int main (int argc, char * argv[])",
             "{",
-            "\t${0:- CODE}",
+            "\t${0:}",
+            "\treturn 0;",
+            "}"
+        ]
+    },
+    "main": {
+        "prefix": "int main",
+        "description": "- STANDARD C TEMPLATE",
+        "body": [
+            "int main (int argc, char * argv[])",
+            "{",
+            "\t${0:}",
             "\treturn 0;",
             "}"
         ]
@@ -40,10 +51,10 @@
         ]
     },
     "else if": {
-        "prefix": "elif",
+        "prefix": "else if",
         "description": "- ELSE IF STATEMENT",
         "body": [
-            "else if {",
+            "else if (${1:condition}) {",
             "\t${0:statement}",
             "}"
         ]
@@ -100,7 +111,7 @@
         "body": ["printf(\"${1}\\n\"${0});"]
     },
     "printf": {
-        "prefix": "print-f",
+        "prefix": "printf",
         "body": "printf(\"%${1:d}\\n\", $0);"
     },
     "scanf": {

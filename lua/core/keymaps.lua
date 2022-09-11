@@ -180,7 +180,7 @@ vim.keymap.set('n', '<S-TAB>', '<C-w>p', { noremap = true, silent = true })
 vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 
 -- vim.keymap.set('x', ';r', ':SnipRun<CR>', { noremap = true, silent = false })
-vim.keymap.set('n', ';r', '<CMD>w | RunCode<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';r', '<CMD>w | RunFile<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';v', '<CMD>vs<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ';s', '<CMD>sp<CR>', { noremap = true, silent = true })

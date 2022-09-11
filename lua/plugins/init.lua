@@ -60,7 +60,7 @@ packer.startup {
                     },
                     filetype = {
                         python = "time python3 -u",
-                        c = "cd $dir && gcc $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
+                        c = "cd $dir && clang $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
                         php = "time php $fileName",
                         sh = "time sh $fileName",
                         html = function ()
