@@ -108,7 +108,7 @@
     "print": {
         "prefix": "print",
         "description": "- GENERIC PRINTF() SNIPPET",
-        "body": ["printf(\"${1}\\n\"${0});"]
+        "body": ["printf(\"${0:content}\\n\");"]
     },
     "printf": {
         "prefix": "printf",

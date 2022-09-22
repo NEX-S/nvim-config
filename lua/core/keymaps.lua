@@ -107,8 +107,8 @@ vim.keymap.set('o', '<SPACE>', ';', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'U', '<C-r>', { noremap = true, silent = true })
 
--- vim.keymap.set('n', 'm', '%', { remap = true, silent = true })
-vim.keymap.set('n', 'm', '%', { remap = true, silent = true })
+vim.keymap.set('n', 'm', '%', { noremap = true, silent = true })
+vim.keymap.set('v', 'm', '%', { noremap = true, silent = true })
 
 vim.keymap.set('n', ';m', 'm', { noremap = true, silent = true })
 

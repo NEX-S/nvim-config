@@ -32,7 +32,7 @@ require "lspsaga".init_lsp_saga {
         vsplit = '<C-c>v',
         split = '<C-c>i',
         tabe = '<C-c>t',
-        quit = 'q',
+        quit = '<ESC>',
     },
     -- definition_preview_quit = '<ESC>',
     -- finder_preview_hl_ns = 8,

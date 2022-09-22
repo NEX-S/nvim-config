@@ -1,5 +1,7 @@
 # COLORS
 
+TODO: 写一篇和高亮有关的文档 如 TSString 在什么语言里是什么
+
 > FAVORITE
 ```
 #000000

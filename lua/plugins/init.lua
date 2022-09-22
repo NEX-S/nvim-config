@@ -46,6 +46,15 @@ packer.startup {
         use { 'RRethy/nvim-align', cmd = 'Align' }
         -- use { 'Vonr/align.nvim', module = 'align' }
 
+        -- use { 'https://github.com/lvimuser/lsp-inlayhints.nvim',
+        --     branch = 'anticonceal',
+        --     after = 'lsp-config',
+        --     config = [[
+        --
+        --     ]]
+        -- }
+
+
         use { 'CRAG666/code_runner.nvim',
             requires = 'nvim-lua/plenary.nvim',
             cmd = { 'RunFile', 'RunCode' },
@@ -212,7 +221,14 @@ packer.startup {
                 require "indent_blankline".setup {
                     char = "¦",
                     show_first_indent_level = true,
+                    show_end_of_line = true,
+                    space_char_blankline = "-",
+                    show_current_context = true,
+                    show_current_context_start = true,
                 }
+                vim.g.indent_blankline_context_char = "¦";
+                vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { bg = "NONE", fg = "#6C5B9E" })
+                vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", { bg = "NONE", fg = "#9D7CD8", bold = true })
             ]]
         }
 
@@ -436,10 +452,10 @@ packer.startup {
 
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
-        use { "nvim-lualine/lualine.nvim",
-            after = "lspsaga.nvim",
-            config = [[ require "plugins.lualine" ]]
-        }
+        -- use { "nvim-lualine/lualine.nvim",
+        --     after = "lspsaga.nvim",
+        --     config = [[ require "plugins.lualine" ]]
+        -- }
 
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
@@ -785,7 +801,7 @@ packer.startup {
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = { "init.lua" },
     callback = function ()
-        vim.cmd "source <afile> | PackerSync"
+        vim.cmd "source <afile> | PackerCompile"
     end
 })
 
