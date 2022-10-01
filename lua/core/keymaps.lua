@@ -69,8 +69,8 @@ vim.keymap.set('x', '<C-k>', ":move '<-2<CR>gv-gv", { noremap = true, silent = t
 vim.keymap.set('n', '<A-u>', 'viw~e', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-u>', '<ESC>viw~ea', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<C-j>', '<C-i>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-k>', '<C-o>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-j>', '<C-i>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', '<C-o>', { noremap = true, silent = true })
 
 vim.keymap.set('i', '<A-j>', '<C-n>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-k>', '<C-p>', { noremap = true, silent = true })

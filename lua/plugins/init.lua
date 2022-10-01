@@ -452,10 +452,10 @@ packer.startup {
 
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
-        -- use { "nvim-lualine/lualine.nvim",
-        --     after = "lspsaga.nvim",
-        --     config = [[ require "plugins.lualine" ]]
-        -- }
+        use { "nvim-lualine/lualine.nvim",
+            after = "lspsaga.nvim",
+            config = [[ require "plugins.lualine" ]]
+        }
 
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua

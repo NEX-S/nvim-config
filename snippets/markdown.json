@@ -1,7 +1,7 @@
 {
   "function": {
     "prefix": "func",
-    "body":["[ `${1:CODE}` ] $0"]
+    "body":["[ `${1:CODE}` ]$0"]
   },
   "italic": {
     "prefix": "itaic",
@@ -19,69 +19,21 @@
     "prefix": "line",
     "body":["----\n$0"]
   },
-  "Python Code": {
-    "prefix": "pycode",
-    "body": [
-        "```python",
-        "${0}",
-        "```"
-    ]
-  },
-  "PHP Code": {
-    "prefix": "phpcode",
-    "body": [
-        "```php",
-        "${0}",
-        "```"
-    ]
-  },
-  "HTML Code": {
-    "prefix": "htmlcode",
-    "body": [
-        "```html",
-        "${0}",
-        "```"
-    ]
-  },
-  "Lua Code": {
-    "prefix": "luacode",
-    "body": [
-        "```lua",
-        "${0}",
-        "```"
-    ]
-  },
-  "JAVA Code": {
-    "prefix": "javacode",
-    "body": [
-        "```java",
-        "${0}",
-        "```"
-    ]
-  },
-  "Bash Code": {
-    "prefix": "bashcode",
-    "body": [
-        "```bash",
-        "${0}",
-        "```"
-    ]
-  },
   "C Code": {
-    "prefix": "ccode",
+    "prefix": "code",
     "body": [
-        "```c",
-        "${0}",
+        "```${0:text}",
+        "${1:CODE}",
         "```"
     ]
   },
   "Fold": {
-    "prefix": "<details>",
+    "prefix": "details",
     "body": [
         "<details>",
         "<summary>${1:SUMMARY}</summary><br />",
         "$0",
-        "</details><br />"
+        "</details>"
     ]
   }
 }
