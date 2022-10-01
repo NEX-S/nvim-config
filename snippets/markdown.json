@@ -16,23 +16,41 @@
     "body":["***${1:CODE}*** $0"]
   },
   "line": {
-    "prefix": "line",
+    "prefix": "l",
     "body":["----\n$0"]
   },
-  "C Code": {
-    "prefix": "code",
+  "Code Block": {
+    "prefix": "block",
     "body": [
-        "```${0:text}",
-        "${1:CODE}",
+        "```${1:text}",
+        "${0:CODE}",
         "```"
     ]
+  },
+  "Code": {
+    "prefix": "code",
+    "body": "<code>${0:CODE}</code>"
+  },
+  "Space": {
+    "prefix": "nbsp",
+    "body": "&nbsp;"
+  },
+  "Tab": {
+    "prefix": "emsp",
+    "body": "&emsp;"
+  },
+  "bold": {
+    "prefix": "space",
+    "body": "&nbsp;"
   },
   "Fold": {
     "prefix": "details",
     "body": [
         "<details>",
         "<summary>${1:SUMMARY}</summary><br />",
+        "",
         "$0",
+        "",
         "</details>"
     ]
   }

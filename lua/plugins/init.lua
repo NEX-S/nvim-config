@@ -55,15 +55,16 @@ packer.startup {
         -- }
 
 
-        use { 'CRAG666/code_runner.nvim',
+        -- use { 'CRAG666/code_runner.nvim',
+        use { 'NEX-S/code_runner.nvim',
             requires = 'nvim-lua/plenary.nvim',
             cmd = { 'RunFile', 'RunCode' },
             config = [[
                 require "code_runner".setup {
                     mode = "float",
                     startinsert = true,
-                    close_key = '<ESC>',
                     float = {
+                        close_key = '<ESC>',
                         border = "single",
                         blend = 20,
                     },
