@@ -52,6 +52,7 @@ nvim_cmp.setup {
     -- 补全边框
     window = {
         completion = {
+            scrolloff = 3,
             col_offset = 0,
             side_padding = 1,
         },
@@ -72,6 +73,7 @@ nvim_cmp.setup {
     -- 补全图标
     formatting = {
         fields = { "kind", "abbr", "menu" },
+        expandable_indicator = false,
         format = function (entry, vim_item)
             -- Kind icons
             vim_item.menu = ({

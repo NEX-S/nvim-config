@@ -55,8 +55,7 @@ packer.startup {
         -- }
 
 
-        -- use { 'CRAG666/code_runner.nvim',
-        use { 'NEX-S/code_runner.nvim',
+        use { 'CRAG666/code_runner.nvim',
             requires = 'nvim-lua/plenary.nvim',
             cmd = { 'RunFile', 'RunCode' },
             config = [[
@@ -229,7 +228,8 @@ packer.startup {
                 }
                 vim.g.indent_blankline_context_char = "¦";
                 vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { bg = "NONE", fg = "#6C5B9E" })
-                vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", { bg = "NONE", fg = "#9D7CD8", bold = true })
+                -- vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", { bg = "NONE", fg = "#9D7CD8", bold = true })
+                vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", { bg = "NONE", fg = "NONE", bold = true })
             ]]
         }
 
@@ -469,7 +469,8 @@ packer.startup {
 
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
-        use { 'NEX-S/nvim-cmp',
+        -- use { 'NEX-S/nvim-cmp',
+        use { 'hrsh7th/nvim-cmp',
             module = "cmp",
             event = { 'CmdlineEnter', 'InsertEnter' },
             config = [[ require "plugins.nvim-cmp" ]]
