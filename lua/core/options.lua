@@ -27,7 +27,7 @@ vim.opt.smarttab      = true
 
 -- vim.opt.autochdir     = true
 
-vim.opt.mouse = ''
+vim.opt.mouse = 'nv'
 vim.opt.fileformats = 'unix,mac,dos'
 vim.opt.magic = true
 vim.opt.virtualedit = 'block'

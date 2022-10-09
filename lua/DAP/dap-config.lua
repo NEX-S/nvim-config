@@ -53,39 +53,40 @@ vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#292929", fg = "NONE", })
 --     },
 -- }
 
-dap.adapters.codelldb = {
-    type = 'server',
-    port = "${port}",
-    executable = {
-        -- ABSOLUTE PATH!!!
-        command = '/home/nex/.local/share/nvim/mason/bin/codelldb',
-        args = {"--port", "${port}"},
-    }
-}
-
-dap.configurations.cpp = {
-    {
-        name = "Launch file",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-            vim.cmd ":w"
-
-            local dir = vim.fn.expand("%:p:h")
-            local fileName = vim.fn.expand("%:t")
-            local fileNameWithoutExt = vim.fn.expand("%:t:r")
-
-            vim.fn.system("cd "..dir.." && clang -std=gnu2x -g "..fileName.." -I ./ ".."-o ./bin/"..fileNameWithoutExt)
-
-            return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = true,
-    },
-}
-
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
+-- dap.adapters.codelldb = {
+--     type = 'server',
+--     port = "${port}",
+--     host = "127.0.0.1",
+--     executable = {
+--         -- ABSOLUTE PATH!!!
+--         command = '/home/nex/.local/share/nvim/mason/bin/codelldb',
+--         args = {"--port", "${port}"},
+--     }
+-- }
+--
+-- dap.configurations.cpp = {
+--     {
+--         name = "Launch file",
+--         type = "codelldb",
+--         request = "launch",
+--         program = function()
+--             vim.cmd ":w"
+--
+--             local dir = vim.fn.expand("%:p:h")
+--             local fileName = vim.fn.expand("%:t")
+--             local fileNameWithoutExt = vim.fn.expand("%:t:r")
+--
+--             vim.fn.system("cd "..dir.." && clang -std=gnu2x -g "..fileName.." -I ./ ".."-o ./bin/"..fileNameWithoutExt)
+--
+--             return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
+--         end,
+--         cwd = '${workspaceFolder}',
+--         stopOnEntry = true,
+--     },
+-- }
+--
+-- dap.configurations.c = dap.configurations.cpp
+-- dap.configurations.rust = dap.configurations.cpp
 
 -- dap.adapters.cppdbg = {
 --     id = 'cppdbg',
@@ -137,51 +138,51 @@ dap.configurations.rust = dap.configurations.cpp
 -- dap.configurations.c = dap.configurations.cpp
 -- dap.configurations.rust = dap.configurations.cpp
 
--- dap.adapters.lldb = {
---     type = 'executable',
---     command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
---     name = 'lldb'
--- }
+dap.adapters.lldb = {
+    type = 'executable',
+    command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+    name = 'lldb'
+}
 
--- dap.configurations.cpp = {
---     {
---         name = 'Launch',
---         type = 'lldb',
---         request = 'launch',
---         program = function ()
---             local dir = vim.fn.expand("%:p:h")
---             local fileName = vim.fn.expand("%:t")
---             local fileNameWithoutExt = vim.fn.expand("%:t:r")
---
---             vim.cmd ":w"
---             vim.fn.system("cd "..dir.." && clang -std=gnu2x -g "..fileName.." -I ./ ".."-o ./bin/"..fileNameWithoutExt)
---
---             -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
---             -- return vim.fn.input('Path to executable: ', vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r"), 'file')
---             return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
---         end,
---         cwd = '${workspaceFolder}',
---         stopOnEntry = false,
---         args = {},
---
---         -- 💀
---         -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
---         --
---         --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
---         --
---         -- Otherwise you might get the following error:
---         --
---         --    Error on launch: Failed to attach to the target process
---         --
---         -- But you should be aware of the implications:
---         -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
---         -- runInTerminal = false,
---     },
--- }
+dap.configurations.cpp = {
+    {
+        name = 'Launch',
+        type = 'lldb',
+        request = 'launch',
+        program = function ()
+            local dir = vim.fn.expand("%:p:h")
+            local fileName = vim.fn.expand("%:t")
+            local fileNameWithoutExt = vim.fn.expand("%:t:r")
 
--- require "dap.ext.vscode".load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
+            vim.cmd ":w"
+            vim.fn.system("cd "..dir.." && clang -std=gnu2x -g "..fileName.." -I ./ ".."-o ./bin/"..fileNameWithoutExt)
 
--- dap.configurations.c = dap.configurations.cpp
+            -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            -- return vim.fn.input('Path to executable: ', vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r"), 'file')
+            return vim.fn.expand("%:p:h") .. '/bin/' .. vim.fn.expand("%:t:r")
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
+
+        -- 💀
+        -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+        --
+        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+        --
+        -- Otherwise you might get the following error:
+        --
+        --    Error on launch: Failed to attach to the target process
+        --
+        -- But you should be aware of the implications:
+        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+        -- runInTerminal = false,
+    },
+}
+
+require "dap.ext.vscode".load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
+
+dap.configurations.c = dap.configurations.cpp
 
 -- dap.configurations.lua = {
 --     {
@@ -200,10 +201,10 @@ dap.configurations.rust = dap.configurations.cpp
 -- vim.keymap.set('n', '<F3>', require "osv".run_this, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<C-d>', dap.continue,  { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', '<C-o>', dap.step_out,  { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', '<C-i>', dap.step_into, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<A-o>', dap.step_out,  { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<A-i>', dap.step_into, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<C-s>', dap.terminate, { noremap = true, silent = true, buffer = true })
-vim.keymap.set('n', '<C-j>', dap.step_over, { noremap = true, silent = true, buffer = true })
+vim.keymap.set('n', '<A-j>', dap.step_over, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', '<TAB>', dap.step_over, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', ';;'   , dap.toggle_breakpoint, { noremap = true, silent = true, buffer = true })
 

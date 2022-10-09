@@ -58,5 +58,13 @@ local function trim_spaces(opts, preview_ns, preview_buf)
         return 2
     end
 end
+
 -- Create the user command
 vim.api.nvim_create_user_command("TrimSpaces", trim_spaces, { nargs = '?', range = '%', addr = 'lines', preview = trim_spaces })
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = { "*" },
+    callback = function ()
+        vim.cmd "TrimSpaces"
+    end
+})

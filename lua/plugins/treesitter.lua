@@ -112,7 +112,7 @@ vim.api.nvim_set_hl(0, "rainbowcol7",  { bg = "NONE", fg = "#666666", })    -- {
 
 -- TS HIGHLIGHT --
 vim.api.nvim_set_hl(0, "TSAnnotation",          { bg = "NONE", fg = "#000000", })
-vim.api.nvim_set_hl(0, "TSAttribute",           { bg = "NONE", fg = "#000000", })
+vim.api.nvim_set_hl(0, "TSAttribute",           { bg = "NONE", fg = "#C53B82", })   -- C: __attribute__
 vim.api.nvim_set_hl(0, "TSBoolean",             { bg = "NONE", fg = "#C53B82", })
 vim.api.nvim_set_hl(0, "TSCharacter",           { bg = "NONE", fg = "#555555", })
 vim.api.nvim_set_hl(0, "TSCharacterSpecial",    { bg = "NONE", fg = "#000000", })

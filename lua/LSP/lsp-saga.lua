@@ -26,7 +26,7 @@ require "lspsaga".init_lsp_saga {
         link = '  ',
     },
     -- preview lines of lsp_finder and definition preview
-    max_preview_lines = 10,
+    max_preview_lines = 5,
     definition_action_keys = {
         edit = '<CR>',
         vsplit = '<C-c>v',
@@ -65,9 +65,9 @@ require "lspsaga".init_lsp_saga {
         min_with = '',
         win_width = 40,
         auto_enter = false,
-        auto_preview = false,
+        auto_preview = true,
         virt_text = 'x',
-        jump_key = 'o',
+        jump_key = 'l',
         -- auto refresh when change buffer
         auto_refresh = true,
     },
@@ -115,7 +115,7 @@ vim.keymap.set("n", "gi", "<CMD>Lspsaga lsp_finder<CR>", opt)
 vim.keymap.set("n", "ga",    "<CMD>Lspsaga code_action<CR>",             opt)
 vim.keymap.set("v", "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>",  opt)
 vim.keymap.set("n", ";d",    "<CMD>Lspsaga show_line_diagnostics<CR>",   opt)
-vim.keymap.set("n", ";x",    "<CMD>Lspsaga open_floaterm<CR>",           opt)
+vim.keymap.set("n", ";x",    "<CMD>Lspsaga open_floaterm fish<CR>",           opt)
 vim.keymap.set("n", ";D",    "<CMD>Lspsaga show_cursor_diagnostics<CR>", opt)
 
 vim.keymap.set("n", ";o",    "<CMD>LSoutlineToggle<CR>",         opt)
@@ -224,3 +224,12 @@ vim.api.nvim_set_hl(0, "LSOutLineTypealias",     { bg = "NONE", fg = "#666666" }
 vim.api.nvim_set_hl(0, "LSOutLineParameter",     { bg = "NONE", fg = "#8567A3" })
 vim.api.nvim_set_hl(0, "LSOutLineStaticmethod",  { bg = "NONE", fg = "#666666" })
 vim.api.nvim_set_hl(0, "LSOutLineMacro",         { bg = "NONE", fg = "#666666" })
+
+
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- callback = function ()
+--     if #vim.api.nvim_list_wins() == 1 and vim.bo.filetype == "lspsagaoutline" then
+--     vim.cmd "quit"
+--     end
+-- end
+-- })

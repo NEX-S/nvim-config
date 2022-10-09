@@ -406,6 +406,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-saga.lua
         -- use { "glepnir/lspsaga.nvim",
         use { "NEX-S/lspsaga.nvim",
+            branch = 'nex',
             after = 'nvim-lspconfig',
             ft = "markdown",
             -- keys = { "gd", "gi", "<C-r>", ";x", ";o" },
@@ -469,7 +470,6 @@ packer.startup {
 
         -- NVIM-CMP --
         -- ~/.config/nvim/lua/plugins/nvim-cmp.lua
-        -- use { 'NEX-S/nvim-cmp',
         use { 'hrsh7th/nvim-cmp',
             module = "cmp",
             event = { 'CmdlineEnter', 'InsertEnter' },
