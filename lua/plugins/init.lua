@@ -105,7 +105,7 @@ packer.startup {
         -- ~/.config/nvim/lua/plugins/bufferline.lua
         use { 'akinsho/bufferline.nvim',
             tag = "v2.*",
-            event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
+            -- event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
             config = [[ require "plugins.bufferline" ]]
         }
 
@@ -360,7 +360,7 @@ packer.startup {
         -- ~/.config/nvim/lua/LSP/lsp-setup.lua
         use { "neovim/nvim-lspconfig", module = "lspconfig" }
         use { "williamboman/mason.nvim",
-            event = { "CursorHold", "CursorHoldI", "CursorMoved", "InsertEnter" },
+            -- event = { "CursorHold", "CursorHoldI", "CursorMoved", "InsertEnter" },
             config = [[
                 require "mason".setup {
                     automatic_installation = true,
@@ -455,7 +455,7 @@ packer.startup {
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
         use { "nvim-lualine/lualine.nvim",
-            after = "lspsaga.nvim",
+            -- after = "lspsaga.nvim",
             config = [[ require "plugins.lualine" ]]
         }
 

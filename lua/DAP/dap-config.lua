@@ -208,3 +208,21 @@ vim.keymap.set('n', '<A-j>', dap.step_over, { noremap = true, silent = true, buf
 vim.keymap.set('n', '<TAB>', dap.step_over, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', ';;'   , dap.toggle_breakpoint, { noremap = true, silent = true, buffer = true })
 
+dap.listeners.after.event_initialized['dap.keys'] = function()
+    vim.keymap.set("n", "j", dap.step_over)
+    vim.keymap.set("n", "o", dap.step_out)
+    vim.keymap.set("n", "i", dap.step_into)
+    vim.keymap.set("n", "s", dap.terminate)
+    vim.keymap.set("n", "c", dap.continue)
+end
+local reset_keys = function()
+    pcall(vim.keymap.del, "n", "j")
+    pcall(vim.keymap.del, "n", "o")
+    pcall(vim.keymap.del, "n", "i")
+    pcall(vim.keymap.del, "n", "i")
+    pcall(vim.keymap.del, "n", "s")
+    pcall(vim.keymap.del, "n", "c")
+end
+
+dap.listeners.after.event_terminated['dap.keys'] = reset_keys
+dap.listeners.after.disconnected['dap.keys'] = reset_keys

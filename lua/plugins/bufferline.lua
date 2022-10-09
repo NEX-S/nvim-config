@@ -1,6 +1,6 @@
 
 -- local present, bufferline = pcall(require, "bufferline")
--- 
+--
 -- if not present then
 --     return
 -- end
@@ -19,7 +19,7 @@ require "bufferline".setup {
         show_buffer_icons = true,
         color_icons = true,
         show_tab_indicators = true,
-        always_show_bufferline = false,
+        always_show_bufferline = true,
         offsets = {
             { filetype = "NvimTree", text = "  [ FILE EXPLORER ] ", text_align = "center" }
         },

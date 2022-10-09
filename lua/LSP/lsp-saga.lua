@@ -72,8 +72,8 @@ require "lspsaga".init_lsp_saga {
         auto_refresh = true,
     },
     custom_kind = {
-        File          =  { "", },
-        Module        =  { "", },
+        File          =  { " " },
+        Module        =  { " " },
         Namespace     =  { "ﱕ " },
         Package       =  { " " },
         Class         =  { " " },
@@ -115,7 +115,7 @@ vim.keymap.set("n", "gi", "<CMD>Lspsaga lsp_finder<CR>", opt)
 vim.keymap.set("n", "ga",    "<CMD>Lspsaga code_action<CR>",             opt)
 vim.keymap.set("v", "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>",  opt)
 vim.keymap.set("n", ";d",    "<CMD>Lspsaga show_line_diagnostics<CR>",   opt)
-vim.keymap.set("n", ";x",    "<CMD>Lspsaga open_floaterm fish<CR>",           opt)
+vim.keymap.set("n", ";x",    "<CMD>Lspsaga open_floaterm fish<CR>", opt)
 vim.keymap.set("n", ";D",    "<CMD>Lspsaga show_cursor_diagnostics<CR>", opt)
 
 vim.keymap.set("n", ";o",    "<CMD>LSoutlineToggle<CR>",         opt)
