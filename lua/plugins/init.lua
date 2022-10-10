@@ -407,9 +407,10 @@ packer.startup {
         -- use { "glepnir/lspsaga.nvim",
         use { "NEX-S/lspsaga.nvim",
             branch = 'nex',
-            after = 'nvim-lspconfig',
+            -- after = 'nvim-lspconfig',
+            -- cmd = "Lspsaga",
             ft = "markdown",
-            -- keys = { "gd", "gi", "<C-r>", ";x", ";o" },
+            keys = { "gd", "gi", "<C-r>", ";x", ";o" },
             config = [[ require "LSP.lsp-saga" ]]
         }
 
