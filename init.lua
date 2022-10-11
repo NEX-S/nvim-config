@@ -12,8 +12,8 @@ require 'core.options'  -- ~/.config/nvim/lua/core/options.lua
 require 'core.autocmd'  -- ~/.config/nvim/lua/core/autocmd.lua
 require 'core.x-color'  -- ~/.config/nvim/lua/core/x-color.lua
 
-pcall(vim.cmd, "luafile ~/.cache/nvim/packer_compiled.lua")
+pcall(vim.cmd, "luafile /home/nex/.cache/nvim/packer_compiled.lua")
 
 require "plugins"  -- ~/.config/nvim/lua/plugins/init.lua
 
-vim.cmd [[autocmd FileType c ++once luafile ~/.config/nvim/lua/plugins/GDB.lua]]
+vim.cmd [[autocmd FileType c ++once luafile /home/nex/.config/nvim/lua/plugins/GDB.lua]]

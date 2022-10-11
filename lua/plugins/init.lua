@@ -407,10 +407,10 @@ packer.startup {
         -- use { "glepnir/lspsaga.nvim",
         use { "NEX-S/lspsaga.nvim",
             branch = 'nex',
-            -- after = 'nvim-lspconfig',
+            after = 'nvim-lspconfig',
             -- cmd = "Lspsaga",
             ft = "markdown",
-            keys = { "gd", "gi", "<C-r>", ";x", ";o" },
+            -- keys = { "gd", "gi", "<C-r>", ";x", ";o" },
             config = [[ require "LSP.lsp-saga" ]]
         }
 
@@ -456,7 +456,7 @@ packer.startup {
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
         use { "nvim-lualine/lualine.nvim",
-            -- after = "lspsaga.nvim",
+            after = "lspsaga.nvim",
             config = [[ require "plugins.lualine" ]]
         }
 
@@ -511,10 +511,10 @@ packer.startup {
 
         -- COPILOT
         -- ~/.config/nvim/lua/plugins/copilot.lua
-        use { 'github/copilot.vim',
-            after = "nvim-lspconfig",
-            config = [[ require "plugins.copilot" ]]
-        }
+        -- use { 'github/copilot.vim',
+        --     after = "nvim-lspconfig",
+        --     config = [[ require "plugins.copilot" ]]
+        -- }
 
         -- use { 'hrsh7th/cmp-copilot', after = 'cmp-path' }
 

@@ -3,8 +3,8 @@ local dir = vim.fn.expand("%:p:h")
 local fileName = vim.fn.expand("%:t")
 local fileNameWithoutExt = vim.fn.expand("%:t:r")
 
-local gdb_cmd = "sudo gdb -q ./bin/" .. fileNameWithoutExt
-local compile_cmd = "gcc -O0 -std=gnu2x -I ./ -g "..fileName.." -o ./bin/"..fileNameWithoutExt
+local gdb_cmd = "sudo lldb ./bin/" .. fileNameWithoutExt
+local compile_cmd = "clang -std=gnu2x -I ./ -g "..fileName.." -o ./bin/"..fileNameWithoutExt
 
 local function GDB_DEBUG ()
     vim.cmd "w"
@@ -18,4 +18,4 @@ local function GDB_DEBUG ()
     vim.cmd "startinsert"
 end
 
-vim.api.nvim_create_user_command("GDB", GDB_DEBUG, {})
+vim.api.nvim_create_user_command("LLDB", GDB_DEBUG, {})
