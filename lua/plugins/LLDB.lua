@@ -6,7 +6,7 @@ local fileNameWithoutExt = vim.fn.expand("%:t:r")
 local gdb_cmd = "sudo lldb ./bin/" .. fileNameWithoutExt
 local compile_cmd = "clang -std=gnu2x -I ./ -g "..fileName.." -o ./bin/"..fileNameWithoutExt
 
-local function GDB_DEBUG ()
+local function LLDB_DEBUG ()
     vim.cmd "w"
     vim.cmd "vs"
     vim.cmd ":normal! <C-w>l"
@@ -18,4 +18,4 @@ local function GDB_DEBUG ()
     vim.cmd "startinsert"
 end
 
-vim.api.nvim_create_user_command("LLDB", GDB_DEBUG, {})
+vim.api.nvim_create_user_command("LLDB", LLDB_DEBUG, {})
