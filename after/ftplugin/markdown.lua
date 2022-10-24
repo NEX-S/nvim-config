@@ -1,5 +1,5 @@
 
-vim.keymap.set( { 'i', 'n', }, '<C-v>', function ()
+vim.keymap.set('i', '<C-v>', function ()
     local folder_path = vim.fn.expand("%:p:h") .. "/images/"
 
     local default_name =  os.date('%F_%H:%M') .. '.png'
