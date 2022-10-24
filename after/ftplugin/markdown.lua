@@ -1,5 +1,9 @@
 
-vim.keymap.set('i', '<C-v>', function ()
+vim.cmd [[
+    iabbrev d -
+]]
+
+vim.keymap.set('i', "<C-v>", function ()
     local images_folder = vim.fn.expand("%:p:h") .. "/images/"
 
     local images_name = vim.fn.input('Image Name: ')
