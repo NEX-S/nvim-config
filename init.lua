@@ -18,3 +18,6 @@ require "plugins"  -- ~/.config/nvim/lua/plugins/init.lua
 
 vim.cmd [[autocmd FileType c ++once luafile /home/nex/.config/nvim/lua/plugins/LLDB.lua]]
 
+vim.keymap.set('n',';c',':ComComment<CR>', { noremap = true, silent = true })
+vim.keymap.set('x',';c',':ComComment<CR>gv', { noremap = true, silent = true })
+
