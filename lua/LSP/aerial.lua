@@ -19,7 +19,6 @@ require "aerial".setup {
         -- Raw indentation
         whitespace = " ",
     },
-    min_width = 35,
     backends = { "lsp", "treesitter", "markdown" },
     -- backends = {
     --     ['_']        = { "lsp", "treesitter" },
