@@ -472,9 +472,9 @@ packer.startup {
         -- AERIAL --
         -- ~/.config/nvim/lua/LSP/aerial.lua
         use { 'stevearc/aerial.nvim',
-            ft = "markdown",
+            -- ft = "markdown",
             cmd = "AerialToggle",
-            module = "aerial",
+            -- module = "aerial",
             config = [[ require "LSP.aerial" ]]
         }
 
@@ -572,29 +572,29 @@ packer.startup {
 
         -- SCROLLBAR
         -- ~/.config/nvim/lua/plugins/scrollbar.lua
-        use { 'petertriho/nvim-scrollbar',
-            event = { "CursorMoved", "CursorHold", "InsertEnter" },
-            config = [[
-                require "plugins.scrollbar"
-            ]]
-        }
+        -- use { 'petertriho/nvim-scrollbar',
+        --     event = { "CursorMoved", "CursorHold", "InsertEnter" },
+        --     config = [[
+        --         require "plugins.scrollbar"
+        --     ]]
+        -- }
 
-        use { 'kevinhwang91/nvim-hlslens',
-            module = "hlslens",
-            -- event = "CmdlineEnter",
-            -- keys = { '*', '#', '?', },
-            config = [[
-                require "hlslens".setup {
-                    calm_down = true,
-                    auto_enable = true,
-                    enable_incsearch = false,
-                    nearest_only = true,
-                    nearest_float_when = 'auto',
-                    float_shadow_blend = 20,
-                    virt_priority = 100,
-                }
-            ]]
-        }
+        -- use { 'kevinhwang91/nvim-hlslens',
+        --     module = "hlslens",
+        --     event = "CmdlineEnter",
+        --     keys = { '*', '#', '?', },
+        --     config = [[
+        --         require "hlslens".setup {
+        --             calm_down = true,
+        --             auto_enable = true,
+        --             enable_incsearch = false,
+        --             nearest_only = true,
+        --             nearest_float_when = 'auto',
+        --             float_shadow_blend = 20,
+        --             virt_priority = 100,
+        --         }
+        --     ]]
+        -- }
 
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
@@ -657,7 +657,7 @@ packer.startup {
         -- ~/.config/nvim/lua/plugins/treesitter.lua
         use { 'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
-            ft = { 'c', 'lua', 'php', 'markdown', 'python', 'html', 'vim', 'http', 'json' },
+            ft = { 'c', 'lua', 'php', 'python', 'markdown' },
             config = [[ require "plugins.treesitter" ]]
         }
         use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
@@ -807,6 +807,17 @@ packer.startup {
                 }
             ]]
         }
+
+        -- NOICE --
+        -- ~/.config/nvim/lua/plugins/noice.lua
+        use { "folke/noice.nvim",
+            requires = {
+                "MunifTanjim/nui.nvim",
+                "rcarriga/nvim-notify",
+            },
+            config = [[ require "plugins.noice" ]]
+        }
+
     end
 }
 
