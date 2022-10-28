@@ -86,7 +86,7 @@ nvim_cmp.setup {
                 -- treesitter  = " - TS",
                 cmp_tabnine = " - TABNINE",
                 copilot     = " - COPILOT",
-                nvim_lsp_signature_help = " - SIGNATURE",
+                -- nvim_lsp_signature_help = " - SIGNATURE",
             })[entry.source.name]
             vim_item.kind = string.format("%s", cmp_icons[vim_item.kind])
             return vim_item
@@ -99,7 +99,7 @@ nvim_cmp.setup {
         { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
-        { name = 'nvim_lsp_signature_help' },
+        -- { name = 'nvim_lsp_signature_help' },
         -- { name = 'treesitter' },     -- TREESITTER
         -- { name = 'copilot' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
@@ -135,7 +135,7 @@ nvim_cmp.setup.filetype('lua', {
         { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
-        { name = 'nvim_lsp_signature_help' },
+        -- { name = 'nvim_lsp_signature_help' },
         -- { name = 'rg', option = { additional_arguments = "--smart-case --hidden --max-depth = 10 -m 5", debonce = 2000 } },
     },
 })

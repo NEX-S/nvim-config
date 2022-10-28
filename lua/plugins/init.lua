@@ -493,8 +493,8 @@ packer.startup {
         -- INSERT ONLY COMPLETION
         use { 'hrsh7th/cmp-path', event = 'InsertEnter' }
         use { 'saadparwaiz1/cmp_luasnip', after = 'cmp-path' }
-        use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp_luasnip' }
-        use { 'hrsh7th/cmp-calc', after = 'cmp-nvim-lsp-signature-help' }
+        -- use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'cmp_luasnip' }
+        use { 'hrsh7th/cmp-calc', after = 'cmp-path' }
 
         -- LSP COMPLETION
         use { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" }
@@ -827,4 +827,3 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         vim.cmd "source <afile> | PackerCompile"
     end
 })
-
