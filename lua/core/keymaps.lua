@@ -192,6 +192,8 @@ vim.keymap.set('x', '<A-b>', ':<C-u>lua require "b64".encode()<CR>', { noremap =
 
 vim.keymap.set('x', '<A-B>', ':<C-u>lua require "b64".decode()<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('x', '<C-a>', 'g<C-a>', { noremap = true, silent = true })
+
 -- vim.keymap.set('n', '*',  "*<CMD>lua require 'hlslens'.start()<CR>",  { noremap = true, silent = true })
 -- vim.keymap.set('n', '#',  "#<CMD>lua require 'hlslens'.start()<CR>",  { noremap = true, silent = true })
 -- vim.keymap.set('n', 'g*', "g*<CMD>lua require 'hlslens'.start()<CR>", { noremap = true, silent = true })

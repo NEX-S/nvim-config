@@ -71,6 +71,7 @@ packer.startup {
                     filetype = {
                         python = "time python3 -u",
                         c = "cd $dir && clang $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
+                        asm = "cd $dir && clang $fileName -o $fileNameWithoutExt && printf '\\n' && time ./$fileNameWithoutExt",
                         php = "time php $fileName",
                         sh = "time sh $fileName",
                         html = function ()
@@ -78,7 +79,7 @@ packer.startup {
                             vim.fn.system("google-chrome-stable "..file)
                         end,
                         lua = "lua $fileName",
-                        http = require "rest-nvim".run,
+                        -- http = require "rest-nvim".run,
                         vim = function ()
                             vim.cmd "w | source $MYVIMRC | source %"
                         end,
@@ -221,7 +222,7 @@ packer.startup {
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
-        use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
+        -- use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
@@ -244,10 +245,10 @@ packer.startup {
 
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
-        use { 'norcalli/nvim-colorizer.lua',
-            ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
-            config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
-        }
+        -- use { 'norcalli/nvim-colorizer.lua',
+        --     ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
+        --     config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
+        -- }
 
         -- use { "max397574/colortils.nvim",
         --     cmd = "Colortils",
@@ -393,6 +394,7 @@ packer.startup {
                 }
             ]]
         }
+
         use { "williamboman/mason-lspconfig.nvim",
             after = "mason.nvim",
             config = [[
@@ -451,17 +453,6 @@ packer.startup {
             -- end
         }
 
-        use { "ferrine/md-img-paste.vim",
-            after = 'markdown-preview.nvim',
-            setup = [[
-                vim.g.mdip_imgdir = './images'
-                vim.g.mdip_imgname = 'image'
-                local bufopts = { noremap = true, silent = truel, buffer = true }
-                vim.keymap.set('n', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
-                vim.keymap.set('i', "<A-v>", "<CMD>call mdip#MarkdownClipboardImage()<CR>", bufopts)
-            ]]
-        }
-
         -- LUALINE --
         -- ~/.config/nvim/lua/plugins/lualine.lua
         use { "nvim-lualine/lualine.nvim",
@@ -499,24 +490,24 @@ packer.startup {
         -- LSP COMPLETION
         use { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" }
 
-        use { 'tzachar/cmp-tabnine',
-            after = "cmp-path",
-            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh",
-            config = function ()
-                -- :CmpTabnineHub
-                require "cmp_tabnine.config".setup {
-                    max_lines = 300,
-                    max_num_results = 10,
-                    sort = true,
-                    run_on_every_keystroke = true,
-                    snippet_placeholder = '..',
-                    ignored_file_types = {
-                        -- html = true
-                    },
-                    show_prediction_strength = true
-                }
-            end
-        }
+        -- use { 'tzachar/cmp-tabnine',
+        --     after = "cmp-path",
+        --     run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh",
+        --     config = function ()
+        --         -- :CmpTabnineHub
+        --         require "cmp_tabnine.config".setup {
+        --             max_lines = 300,
+        --             max_num_results = 10,
+        --             sort = true,
+        --             run_on_every_keystroke = true,
+        --             snippet_placeholder = '..',
+        --             ignored_file_types = {
+        --                 -- html = true
+        --             },
+        --             show_prediction_strength = true
+        --         }
+        --     end
+        -- }
 
         -- COPILOT
         -- ~/.config/nvim/lua/plugins/copilot.lua
@@ -599,11 +590,11 @@ packer.startup {
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
         use { 'voldikss/vim-translator',
-            keys = '<C-t>',
+            keys = ';t',
             config = [[
                 vim.g.translator_default_engines = { 'google' }
-                vim.keymap.set('n', '<C-t>', '<PLUG>TranslateW', { noremap = true, silent = true })
-                vim.keymap.set('v', '<C-t>', '<PLUG>TranslateWV', { noremap = true, silent = true })
+                vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
+                vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
             ]]
         }
 
@@ -663,6 +654,7 @@ packer.startup {
         use { 'nvim-treesitter/nvim-treesitter-context', module = "treesitter-context", }
         use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter", }
         use { 'p00f/nvim-ts-rainbow', after = "nvim-treesitter" }
+
         -- use { 'm-demare/hlargs.nvim',
         --     after = "nvim-treesitter",
         --     config = function ()
@@ -699,34 +691,34 @@ packer.startup {
         -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
 
         -- 聚焦当前 函数/方法
-        use { 'folke/twilight.nvim',
-            cmd = 'Twilight',
-            config = [[
-                require('twilight').setup {
-                    dimming = {
-                        alpha = 0.25, -- amount of dimming
-                        -- we try to get the foreground from the highlight groups or fallback color
-                        color = { "Normal", "#ffffff" },
-                        inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
-                    },
-                    context = 10, -- amount of lines we will try to show around the current line
-                    treesitter = true, -- use treesitter when available for the filetype
-                    -- treesitter is used to automatically expand the visible text,
-                    -- but you can further control the types of nodes that should always be fully expanded
-                    expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-                        "function",
-                        "method",
-                        "table",
-                        "if_statement",
-                    },
-                    exclude = {}, -- exclude these filetypes
-                }
-            ]]
-        }
+        -- use { 'folke/twilight.nvim',
+        --     cmd = 'Twilight',
+        --     config = [[
+        --         require('twilight').setup {
+        --             dimming = {
+        --                 alpha = 0.25, -- amount of dimming
+        --                 -- we try to get the foreground from the highlight groups or fallback color
+        --                 color = { "Normal", "#ffffff" },
+        --                 inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+        --             },
+        --             context = 10, -- amount of lines we will try to show around the current line
+        --             treesitter = true, -- use treesitter when available for the filetype
+        --             -- treesitter is used to automatically expand the visible text,
+        --             -- but you can further control the types of nodes that should always be fully expanded
+        --             expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+        --                 "function",
+        --                 "method",
+        --                 "table",
+        --                 "if_statement",
+        --             },
+        --             exclude = {}, -- exclude these filetypes
+        --         }
+        --     ]]
+        -- }
 
         -- NVIM-DAP --
         -- ~/.config/nvim/lua/DAP/dap-config.lua
-            use { 'mfussenegger/nvim-dap',
+        use { 'mfussenegger/nvim-dap',
             module = 'dap',
             config = [[ require "DAP.dap-config" ]]
         }
@@ -772,41 +764,41 @@ packer.startup {
         -- }
 
         -- DECREPT BASE64
-        use { "taybart/b64.nvim",
-            -- key = { '<A-b>', '<A-B>' },
-            module = 'b64',
-        }
+        -- use { "taybart/b64.nvim",
+        --     -- key = { '<A-b>', '<A-B>' },
+        --     module = 'b64',
+        -- }
 
-        use { "NTBBloodbath/rest.nvim",
-            module = "rest-nvim",
-            requires = "nvim-lua/plenary.nvim",
-            config = [[
-                require "rest-nvim".setup {
-                    -- Open request results in a horizontal split
-                    result_split_horizontal = false,
-                    -- Keep the http file buffer above|left when split horizontal|vertical
-                    result_split_in_place = false,
-                    -- Skip SSL verification, useful for unknown certificates
-                    skip_ssl_verification = false,
-                    -- Highlight request on run
-                    highlight = {
-                        enabled = true,
-                        timeout = 150,
-                    },
-                    result = {
-                        -- toggle showing URL, HTTP info, headers at top the of result window
-                        show_url = true,
-                        show_http_info = true,
-                        show_headers = true,
-                    },
-                    -- Jump to request line on run
-                    jump_to_request = false,
-                    env_file = '.env',
-                    custom_dynamic_variables = {},
-                    yank_dry_run = true,
-                }
-            ]]
-        }
+        -- use { "NTBBloodbath/rest.nvim",
+        --     module = "rest-nvim",
+        --     requires = "nvim-lua/plenary.nvim",
+        --     config = [[
+        --         require "rest-nvim".setup {
+        --             -- Open request results in a horizontal split
+        --             result_split_horizontal = false,
+        --             -- Keep the http file buffer above|left when split horizontal|vertical
+        --             result_split_in_place = false,
+        --             -- Skip SSL verification, useful for unknown certificates
+        --             skip_ssl_verification = false,
+        --             -- Highlight request on run
+        --             highlight = {
+        --                 enabled = true,
+        --                 timeout = 150,
+        --             },
+        --             result = {
+        --                 -- toggle showing URL, HTTP info, headers at top the of result window
+        --                 show_url = true,
+        --                 show_http_info = true,
+        --                 show_headers = true,
+        --             },
+        --             -- Jump to request line on run
+        --             jump_to_request = false,
+        --             env_file = '.env',
+        --             custom_dynamic_variables = {},
+        --             yank_dry_run = true,
+        --         }
+        --     ]]
+        -- }
 
         -- NOICE --
         -- ~/.config/nvim/lua/plugins/noice.lua
@@ -819,6 +811,7 @@ packer.startup {
         }
 
         use { "lewis6991/satellite.nvim",
+            event = { "CursorMoved" },
             config = [[
                 require "satellite".setup {}
             ]]
