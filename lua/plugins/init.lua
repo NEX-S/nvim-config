@@ -818,6 +818,12 @@ packer.startup {
             config = [[ require "plugins.noice" ]]
         }
 
+        use { "lewis6991/satellite.nvim",
+            config = [[
+                require "satellite".setup {}
+            ]]
+        }
+
     end
 }
 
