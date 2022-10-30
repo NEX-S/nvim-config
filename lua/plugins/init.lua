@@ -31,9 +31,10 @@ packer.init {
 packer.startup {
     function (use)
         -- COLORS --
-        -- use 'folke/tokyonight.nvim'
-        -- use 'rafamadriz/neon'
+        use 'folke/tokyonight.nvim'
+        use 'rafamadriz/neon'
         -- use 'shaunsingh/nord.nvim'
+        use 'glepnir/zephyr-nvim'
 
         -- PLUGINS --
         use { 'wbthomason/packer.nvim', module = "packer" }
@@ -222,7 +223,7 @@ packer.startup {
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
-        -- use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
+        use { 'NEX-S/dashboard-nvim', config = [[ require "plugins.dashboard" ]] }
 
         -- INDENT-BLANKLINE --
         use { 'lukas-reineke/indent-blankline.nvim',
@@ -245,10 +246,10 @@ packer.startup {
 
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
-        -- use { 'norcalli/nvim-colorizer.lua',
-        --     ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
-        --     config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
-        -- }
+        use { 'norcalli/nvim-colorizer.lua',
+            ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
+            config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
+        }
 
         -- use { "max397574/colortils.nvim",
         --     cmd = "Colortils",
@@ -490,24 +491,24 @@ packer.startup {
         -- LSP COMPLETION
         use { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" }
 
-        -- use { 'tzachar/cmp-tabnine',
-        --     after = "cmp-path",
-        --     run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh",
-        --     config = function ()
-        --         -- :CmpTabnineHub
-        --         require "cmp_tabnine.config".setup {
-        --             max_lines = 300,
-        --             max_num_results = 10,
-        --             sort = true,
-        --             run_on_every_keystroke = true,
-        --             snippet_placeholder = '..',
-        --             ignored_file_types = {
-        --                 -- html = true
-        --             },
-        --             show_prediction_strength = true
-        --         }
-        --     end
-        -- }
+        use { 'tzachar/cmp-tabnine',
+            after = "cmp-path",
+            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh",
+            config = function ()
+                -- :CmpTabnineHub
+                require "cmp_tabnine.config".setup {
+                    max_lines = 300,
+                    max_num_results = 10,
+                    sort = true,
+                    run_on_every_keystroke = true,
+                    snippet_placeholder = '..',
+                    ignored_file_types = {
+                        -- html = true
+                    },
+                    show_prediction_strength = true
+                }
+            end
+        }
 
         -- COPILOT
         -- ~/.config/nvim/lua/plugins/copilot.lua
@@ -630,7 +631,7 @@ packer.startup {
 
         -- 分屏变暗 --
         -- use { 'NEX-S/shade.nvim',
-        --     -- event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
+        --     event = { 'BufAdd', 'BufCreate', 'BufNewFile', 'TabEnter' },
         --     config = [[
         --         require "shade".setup {
         --             overlay_opacity = 60,
@@ -655,38 +656,38 @@ packer.startup {
         use { 'nvim-treesitter/nvim-treesitter-textobjects', after = "nvim-treesitter", }
         use { 'p00f/nvim-ts-rainbow', after = "nvim-treesitter" }
 
-        -- use { 'm-demare/hlargs.nvim',
-        --     after = "nvim-treesitter",
-        --     config = function ()
-        --         require "hlargs".setup {
-        --             color = '#9D7CD8',
-        --             highlight = {},
-        --             excluded_filetypes = {},
-        --             paint_arg_declarations = true,
-        --             paint_arg_usages = true,
-        --             hl_priority = 10000,
-        --             excluded_argnames = {
-        --                 declarations = {},
-        --                 usages = {
-        --                     python = { 'self', 'cls' },
-        --                     lua = { 'self' }
-        --                 }
-        --             },
-        --             performance = {
-        --                 parse_delay = 1,
-        --                 slow_parse_delay = 50,
-        --                 max_iterations = 400,
-        --                 max_concurrent_partial_parses = 30,
-        --                 debounce = {
-        --                     partial_parse = 3,
-        --                     partial_insert_mode = 100,
-        --                     total_parse = 700,
-        --                     slow_parse = 5000
-        --                 }
-        --             }
-        --         }
-        --     end
-        -- }
+        use { 'm-demare/hlargs.nvim',
+            after = "nvim-treesitter",
+            config = function ()
+                require "hlargs".setup {
+                    color = '#9D7CD8',
+                    highlight = {},
+                    excluded_filetypes = {},
+                    paint_arg_declarations = true,
+                    paint_arg_usages = true,
+                    hl_priority = 10000,
+                    excluded_argnames = {
+                        declarations = {},
+                        usages = {
+                            python = { 'self', 'cls' },
+                            lua = { 'self' }
+                        }
+                    },
+                    performance = {
+                        parse_delay = 1,
+                        slow_parse_delay = 50,
+                        max_iterations = 400,
+                        max_concurrent_partial_parses = 30,
+                        debounce = {
+                            partial_parse = 3,
+                            partial_insert_mode = 100,
+                            total_parse = 700,
+                            slow_parse = 5000
+                        }
+                    }
+                }
+            end
+        }
 
         -- use { 'm4xshen/autoclose.nvim', event = "InsertEnter", }
 
@@ -826,3 +827,4 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         vim.cmd "source <afile> | PackerCompile"
     end
 })
+

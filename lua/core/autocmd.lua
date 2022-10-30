@@ -2,8 +2,8 @@
 vim.cmd "autocmd!"
 
 -- Switch input method --
-local input_status
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+local input_status = 0
+vim.api.nvim_create_autocmd({ "InsertLeavePre", "InsertLeave" }, {
     pattern = { "*" },
     callback = function ()
         input_status = tonumber(vim.fn.system("fcitx5-remote"))

@@ -201,36 +201,21 @@ dap.configurations.c = dap.configurations.cpp
 -- vim.keymap.set('n', '<F3>', require "osv".run_this, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<C-d>', dap.continue,  { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<A-o>', dap.step_out,  { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<A-i>', dap.step_into, { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<C-s>', dap.terminate, { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<A-j>', dap.step_over, { noremap = true, silent = true, buffer = true })
--- vim.keymap.set('n', '<TAB>', dap.step_over, { noremap = true, silent = true, buffer = true })
 vim.keymap.set('n', ';;'   , dap.toggle_breakpoint, { noremap = true, silent = true, buffer = true })
 
 dap.listeners.after.event_initialized['dap.keys'] = function()
-    vim.keymap.set("n", "j", dap.step_over, { noremap = true, silent = true })
+    vim.keymap.set("n", "n", dap.step_over, { noremap = true, silent = true })
     vim.keymap.set("n", "o", dap.step_out,  { noremap = true, silent = true })
     vim.keymap.set("n", "i", dap.step_into, { noremap = true, silent = true })
     vim.keymap.set("n", "s", dap.terminate, { noremap = true, silent = true })
-    vim.keymap.set("n", "q", dap.terminate, { noremap = true, silent = true })
     vim.keymap.set("n", "c", dap.continue,  { noremap = true, silent = true })
-    -- vim.keymap.set("n", "H", "<C-w>h", { noremap = true, silent = true })
-    -- vim.keymap.set("n", "J", "<C-w>j", { noremap = true, silent = true })
-    -- vim.keymap.set("n", "K", "<C-w>k", { noremap = true, silent = true })
-    -- vim.keymap.set("n", "L", "<C-w>l", { noremap = true, silent = true })
 end
 local reset_keys = function()
-    pcall(vim.keymap.del, "n", "j")
-    pcall(vim.keymap.del, "n", "q")
+    pcall(vim.keymap.del, "n", "n")
     pcall(vim.keymap.del, "n", "o")
     pcall(vim.keymap.del, "n", "i")
     pcall(vim.keymap.del, "n", "s")
     pcall(vim.keymap.del, "n", "c")
-    -- pcall(vim.keymap.del, "n", "H")
-    -- pcall(vim.keymap.del, "n", "J")
-    -- pcall(vim.keymap.del, "n", "K")
-    -- pcall(vim.keymap.del, "n", "L")
 end
 
 dap.listeners.after.event_terminated['dap.keys'] = reset_keys

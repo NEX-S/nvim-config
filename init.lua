@@ -20,4 +20,3 @@ vim.cmd [[autocmd FileType c ++once luafile /home/nex/.config/nvim/lua/plugins/L
 
 vim.keymap.set('n',';c',':ComComment<CR>', { noremap = true, silent = true })
 vim.keymap.set('x',';c',':ComComment<CR>gv', { noremap = true, silent = true })
-
