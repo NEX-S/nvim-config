@@ -82,8 +82,8 @@ vim.api.nvim_set_hl(0, "Structure",    { bg = "NONE", fg = "#BBE73D", italic = f
 vim.api.nvim_set_hl(0, "Macro",        { bg = "NONE", fg = "#BBE73D", italic = false })
 vim.api.nvim_set_hl(0, "StorageClass", { bg = "NONE", fg = "#BBE73D", italic = false })
 
-vim.api.nvim_set_hl(0, "LineNr",       { bg = "#252525", fg = "#6F6F6F", italic = true })
 vim.api.nvim_set_hl(0, "Folded",       { bg = "#232323", fg = "#494949", })
+vim.api.nvim_set_hl(0, "LineNr",       { bg = "#252525", fg = "#6F6F6F", italic = true })
 vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#282828", fg = "#6c5b9e", italic = true })
 
 vim.api.nvim_set_hl(0, "Underlined",   { bg = "NONE", fg = "#6C5B9E", underline = true })

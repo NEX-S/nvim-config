@@ -31,14 +31,15 @@ packer.init {
 packer.startup {
     function (use)
         -- COLORS --
-        use 'folke/tokyonight.nvim'
-        use 'rafamadriz/neon'
+        -- use 'folke/tokyonight.nvim'
+        -- use 'rafamadriz/neon'
         -- use 'shaunsingh/nord.nvim'
-        use 'glepnir/zephyr-nvim'
+        -- use 'glepnir/zephyr-nvim'
+        use 'atelierbram/Base2Tone-vim'
 
         -- PLUGINS --
         use { 'wbthomason/packer.nvim', module = "packer" }
-        use 'lewis6991/impatient.nvim'
+        use { 'lewis6991/impatient.nvim' }
         -- use 'dstein64/vim-startuptime'
         -- use 'yianwillis/vimcdoc'
 
@@ -801,15 +802,35 @@ packer.startup {
         --     ]]
         -- }
 
+        use { "rcarriga/nvim-notify",
+            config = [[
+                require "notify".setup {
+                    fps = 60,
+                    render = "minimal",
+                    icons = {
+                        WARN  = "",
+                        INFO  = "",
+                        ERROR = "",
+                        TRACE = "",
+                        DEBUG = "",
+                    },
+                    minimum_width = 50,
+                    stages = "fade",
+                    timeout = 3000,
+                    top_down = true,
+                    background_colour = "Normal",
+                }
+            ]]
+        }
+
         -- NOICE --
         -- ~/.config/nvim/lua/plugins/noice.lua
         use { "folke/noice.nvim",
-            requires = {
-                "MunifTanjim/nui.nvim",
-                "rcarriga/nvim-notify",
-            },
+            requires = "MunifTanjim/nui.nvim",
+            after = "nvim-notify",
             config = [[ require "plugins.noice" ]]
         }
+
 
         use { "lewis6991/satellite.nvim",
             event = { "CursorMoved" },

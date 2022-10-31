@@ -7,10 +7,12 @@
 
 pcall(require, "impatient")
 
+vim.cmd "color Base2Tone_SeaDark"
+
 require 'core.keymaps'  -- ~/.config/nvim/lua/core/keymaps.lua
 require 'core.options'  -- ~/.config/nvim/lua/core/options.lua
 require 'core.autocmd'  -- ~/.config/nvim/lua/core/autocmd.lua
-require 'core.x-color'  -- ~/.config/nvim/lua/core/x-color.lua
+-- require 'core.x-color'  -- ~/.config/nvim/lua/core/x-color.lua
 
 pcall(vim.cmd, "luafile /home/nex/.cache/nvim/packer_compiled.lua")
 
@@ -20,3 +22,10 @@ vim.cmd [[autocmd FileType c ++once luafile /home/nex/.config/nvim/lua/plugins/L
 
 vim.keymap.set('n',';c',':ComComment<CR>', { noremap = true, silent = true })
 vim.keymap.set('x',';c',':ComComment<CR>gv', { noremap = true, silent = true })
+
+vim.keymap.set('n','<F1>',':color Base2Tone_SeaDark<CR>', { noremap = true, silent = true })
+vim.keymap.set('n','<F2>',':color Base2Tone_ForestDark<CR>', { noremap = true, silent = true })
+vim.keymap.set('n','<F3>',':color Base2Tone_FieldDark<CR>', { noremap = true, silent = true })
+vim.keymap.set('n','<F4>',':color Base2Tone_DesertDark<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_hl(0, "NonText",      { bg = "NONE", fg = "#323232", })

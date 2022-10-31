@@ -55,12 +55,6 @@ vim.keymap.set('i', '<A-.>', '<ESC>>>A', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-u>', 'viw~e', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-u>', '<ESC>viw~ea', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<RIGHT>', '<CMD>resize +2<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<LEFT>', '<CMD>resize -2<CR>', { noremap = true, silent = true })
-
-vim.keymap.set('n', '<DOWN>', '<CMD>vertical resize -2<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<UP>', '<CMD>vertical resize +2<CR>', { noremap = true, silent = true })
-
 vim.keymap.set('x', '<', '<gv', { noremap = true, silent = true })
 vim.keymap.set('x', '>', '>gv', { noremap = true, silent = true })
 
@@ -199,6 +193,11 @@ vim.keymap.set('x', '<A-B>', ':<C-u>lua require "b64".decode()<CR>', { noremap =
 vim.keymap.set('x', '<C-a>', 'g<C-a>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<C-;>', 'i', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<LEFT>',  ':bp<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<RIGHT>', ':bn<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<UP>',    '<C-o>',   { noremap = true, silent = true })
+vim.keymap.set('n', '<DOWN>',  '<C-i>',   { noremap = true, silent = true })
 
 
 -- vim.keymap.set('n', '*',  "*<CMD>lua require 'hlslens'.start()<CR>",  { noremap = true, silent = true })
