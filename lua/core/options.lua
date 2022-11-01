@@ -62,7 +62,7 @@ vim.opt.listchars:append("nbsp:+")
 vim.opt.listchars:append("extends:c")
 vim.opt.listchars:append("precedes:d")
 
-vim.opt.iskeyword:remove('_')
+-- vim.opt.iskeyword:remove('_')
 
 vim.opt.background = 'dark'
 vim.opt.signcolumn = 'yes:1'

@@ -199,6 +199,9 @@ vim.keymap.set('n', '<RIGHT>', ':bn<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<UP>',    '<C-o>',   { noremap = true, silent = true })
 vim.keymap.set('n', '<DOWN>',  '<C-i>',   { noremap = true, silent = true })
 
+vim.keymap.set('n', 'cc',  'S',   { noremap = true, silent = true })
+
+
 
 -- vim.keymap.set('n', '*',  "*<CMD>lua require 'hlslens'.start()<CR>",  { noremap = true, silent = true })
 -- vim.keymap.set('n', '#',  "#<CMD>lua require 'hlslens'.start()<CR>",  { noremap = true, silent = true })

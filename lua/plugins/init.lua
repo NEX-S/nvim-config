@@ -72,7 +72,7 @@ packer.startup {
                     },
                     filetype = {
                         python = "time python3 -u",
-                        c = "cd $dir && clang $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && time ./bin/$fileNameWithoutExt",
+                        c = "cd $dir && clang $fileName -std=gnu2x -I ./ -g -o ./bin/$fileNameWithoutExt -Wall && printf '\\n' && bash -c 'time ./bin/$fileNameWithoutExt'",
                         asm = "cd $dir && clang $fileName -o $fileNameWithoutExt && printf '\\n' && time ./$fileNameWithoutExt",
                         php = "time php $fileName",
                         sh = "time sh $fileName",
@@ -139,7 +139,7 @@ packer.startup {
         -- COMMENT --
         --
         use { 'glepnir/coman.nvim',
-            command = "ComComment",
+            cmd = "ComComment",
             config = [[
             ]]
         }
@@ -591,14 +591,14 @@ packer.startup {
 
         -- TRANSLATOR --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/vim-translator
-        use { 'voldikss/vim-translator',
-            keys = ';t',
-            config = [[
-                vim.g.translator_default_engines = { 'google' }
-                vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
-                vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
-            ]]
-        }
+        -- use { 'voldikss/vim-translator',
+        --     keys = ';t',
+        --     config = [[
+        --         vim.g.translator_default_engines = { 'google' }
+        --         vim.keymap.set('n', ';t', '<PLUG>TranslateW', { noremap = true, silent = true })
+        --         vim.keymap.set('v', ';t', '<PLUG>TranslateWV', { noremap = true, silent = true })
+        --     ]]
+        -- }
 
         -- use { 'uga-rosa/translate.nvim',
         --     cmd = 'Translate',
@@ -675,7 +675,7 @@ packer.startup {
                         }
                     },
                     performance = {
-                        parse_delay = 1,
+                        parse_delay = 0,
                         slow_parse_delay = 50,
                         max_iterations = 400,
                         max_concurrent_partial_parses = 30,
@@ -832,10 +832,16 @@ packer.startup {
         }
 
 
-        use { "lewis6991/satellite.nvim",
+        use { "NEX-S/satellite.nvim",
             event = { "CursorMoved" },
             config = [[
-                require "satellite".setup {}
+                require "satellite".setup {
+                    handlers = {
+                        marks = {
+                            key = '8'
+                        }
+                    }
+                }
             ]]
         }
 
