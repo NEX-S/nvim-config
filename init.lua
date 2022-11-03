@@ -37,8 +37,9 @@ vim.keymap.set('n', ";t", function ()
     local cursor_word = vim.fn.expand('<cword>')
 
     vim.cmd("vs term://fish -c'trans -hl en -to zh -j -speak -indent 4 " .. cursor_word .. "'")
-    vim.cmd "vertical resize 40"
+    vim.cmd "vertical resize 60"
 
     vim.keymap.set('n', '<ESC>', ":q<CR>", { noremap = true, silent = true, buffer = true })
 end,
 { noremap = true, silent = true })
+
