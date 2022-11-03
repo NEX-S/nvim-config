@@ -59,6 +59,12 @@ vim.diagnostic.config {
 -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
+-- vim.lsp.handlers["textDocument/Completion"] = vim.lsp.with(
+--     vim.lsp.handlers.completion, {
+--         "snippetSupport" = false,
+--     }
+-- )
+
 -- vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError", numhl = "DiagnosticErrorNr" })
 -- vim.fn.sign_define("DiagnosticSignHint",  { text = "--", texthl = "DiagnosticSignHint",  numhl = "DiagnosticHintNr"  })
 -- vim.fn.sign_define("DiagnosticSignWarn",  { text = " ", texthl = "DiagnosticSignWarn",  numhl = "DiagnosticWarnNr"  })
@@ -73,6 +79,16 @@ local M = {}
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require "cmp_nvim_lsp".default_capabilities(M.capabilities)
+
+-- for k, v in pairs(M.capabilities) do
+--     for k1, v1 in pairs(v) do
+--         for k2, v2 in pairs(v1) do
+--                 for k3, v3 in pairs(v2) do
+--                     print(k3,  ": ", v3)
+--                 end
+--         end
+--     end
+-- end
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -98,7 +114,7 @@ function M.on_attach(client, bufnr)
     -- vim.keymap.set('n', ';;h', vim.lsp.buf.hover, bufopts)
     -- vim.keymap.set('n', ';;i', vim.lsp.buf.implementation, bufopts)
     -- vim.keymap.set('n', ';;r', vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "<C-=>", vim.lsp.buf.format, bufopts)
+    vim.keymap.set("n", "<A-=>", vim.lsp.buf.format, bufopts)
     vim.keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, bufopts)
     -- vim.keymap.set('n', ';;wa', vim.lsp.buf.add_workspace_folder, bufopts)
     -- vim.keymap.set('n', ';;wr', vim.lsp.buf.remove_workspace_folder, bufopts)

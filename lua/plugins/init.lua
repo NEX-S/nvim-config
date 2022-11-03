@@ -137,7 +137,6 @@ packer.startup {
         }
 
         -- COMMENT --
-        --
         use { 'glepnir/coman.nvim',
             cmd = "ComComment",
             config = [[
@@ -675,8 +674,8 @@ packer.startup {
                         }
                     },
                     performance = {
-                        parse_delay = 0,
-                        slow_parse_delay = 50,
+                        parse_delay = 1,
+                        slow_parse_delay = 10,
                         max_iterations = 400,
                         max_concurrent_partial_parses = 30,
                         debounce = {
@@ -832,7 +831,7 @@ packer.startup {
         }
 
 
-        use { "NEX-S/satellite.nvim",
+        use { "lewis6991/satellite.nvim",
             event = { "CursorMoved" },
             config = [[
                 require "satellite".setup {

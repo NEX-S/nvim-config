@@ -28,6 +28,9 @@ vim.keymap.set('n','<F2>',':color Base2Tone_ForestDark<CR>', { noremap = true, s
 vim.keymap.set('n','<F3>',':color Base2Tone_FieldDark<CR>',  { noremap = true, silent = true })
 vim.keymap.set('n','<F4>',':color Base2Tone_DesertDark<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', ";j", "G", { noremap = true, silent = true })
+vim.keymap.set('n', ";k", "gg", { noremap = true, silent = true })
+
 vim.api.nvim_set_hl(0, "NonText",      { bg = "NONE", fg = "#323232", })
 
 vim.keymap.set('n', ";t", function ()
@@ -39,4 +42,3 @@ vim.keymap.set('n', ";t", function ()
     vim.keymap.set('n', '<ESC>', ":q<CR>", { noremap = true, silent = true, buffer = true })
 end,
 { noremap = true, silent = true })
-

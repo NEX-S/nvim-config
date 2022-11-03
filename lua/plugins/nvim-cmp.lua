@@ -94,10 +94,10 @@ nvim_cmp.setup {
     },
     sources = nvim_cmp.config.sources {
         { name = 'path' },          -- PATH COMPLETION
+        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'luasnip' },       -- LUASNIP COMPLETION
         { name = 'buffer' },        -- BUFFER COMPLETION
         { name = 'cmp_tabnine' },   -- TABNINE COMPLETION
-        { name = 'nvim_lsp' },      -- LSP COMPLETION
         { name = 'calc' },          -- CLAC COMPLETION
         -- { name = 'nvim_lsp_signature_help' },
         -- { name = 'treesitter' },     -- TREESITTER

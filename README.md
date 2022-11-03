@@ -2,6 +2,6 @@
 
 DEPENDENCIES:
 + ripgrep
-+ xclip
++ xsel
 + lldb-git
 + npm [ nodejs-lts-gallium ]

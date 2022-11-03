@@ -1,8 +1,4 @@
 
-vim.cmd [[
-    iabbrev d -
-]]
-
 vim.keymap.set('i', "<C-v>", function ()
     local images_folder = vim.fn.expand("%:p:h") .. "/images/"
 
@@ -18,5 +14,4 @@ vim.keymap.set('i', "<C-v>", function ()
     vim.fn.system("mv ~/Pictures/Screenshots/Screenshot* " .. images_path)
 
     vim.cmd("normal!i<img height=150 src=\"./images/" .. images_name .. "\" />")
-end,
-{ noremap = true, silent = true })
+end, { noremap = true, silent = true })

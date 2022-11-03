@@ -9,20 +9,45 @@ local function root_dir(ft)
         or vim.fn.getcwd()
 end
 
+-- print(vim.pretty_print(M.capabilities))
+-- https://github.com/sumneko/lua-language-server/blob/master/locale/zh-cn/setting.lua
 lspconfig.sumneko_lua.setup {
     on_attach = M.on_attach,
-    capabilities = M.capabilities,
+    -- capabilities = M.capabilities,
+    capabilities = {
+        textDocument = {
+            completion = {
+                completionItem = {
+                    commitCharactersSupport = true,
+                    deprecatedSupport = true,
+                    insertReplaceSupport = true,
+                    labelDetailsSupport = true,
+                    preselectSupport = true,
+                    resolveSupport = {
+                        properties = { "documentation", "detail", "additionalTextEdits" }
+                    },
+                    snippetSupport = false,
+                    tagSupport = {
+                        valueSet = { 1 }
+                    }
+                }
+            }
+        }
+    },
     single_file_support = true,
     root_dir = root_dir('lua'),
     settings = {
         Lua = {
             diagnostics = { globals = { 'vim', 'use' } },
-            workspace = {
-                library = {
-                    [ vim.fn.expand("$VIMRUNTIME/lua") ] = true,
-                    [ vim.fn.stdpath("config") .. "/lua" ] = true,
-                },
+            completion = {
+                keywordSnippet = "Disable",
             },
+            -- workspace = {
+            --     library = {
+            --         [ vim.fn.expand("$VIMRUNTIME/lua") ] = true,
+            --         [ vim.fn.stdpath("config") .. "/lua" ] = true,
+            --     },
+            -- },
         }
     },
 }
@@ -43,18 +68,38 @@ lspconfig.pyright.setup {
 
 lspconfig.clangd.setup {
     on_attach = M.on_attach,
-    capabilities = M.capabilities,
+    capabilities = {
+        textDocument = {
+            completion = {
+                completionItem = {
+                    commitCharactersSupport = true,
+                    deprecatedSupport = true,
+                    insertReplaceSupport = true,
+                    labelDetailsSupport = true,
+                    preselectSupport = true,
+                    resolveSupport = {
+                        properties = { "documentation", "detail", "additionalTextEdits" }
+                    },
+                    snippetSupport = false,
+                    tagSupport = {
+                        valueSet = { 1 }
+                    }
+                }
+            }
+        }
+    },
     -- single_file_support = true,
     -- root_dir = root_dir('c'),
-    -- cmd = {
-    --     "clangd",
-    --     -- "--background-index",
-    --     -- "--clang-tidy",
-    --     -- "--clang-tidy-checks=performance-*,bugprone-*",
-    --     -- "--all-scopes-completion",
-    --     -- "--completion-style=detailed",
-    --     -- "--header-insertion=iwyu",
-    -- }
+    filetyped = { "c", "cpp" },
+    cmd = {
+        "clangd",
+        "--enable-config",
+        -- "--clang-tidy",
+        -- "--all-scopes-completion=false",
+        "--background-index",
+        "--header-insertion=iwyu",
+        "--pch-storage=memory"
+    }
 }
 
 lspconfig.intelephense.setup {
