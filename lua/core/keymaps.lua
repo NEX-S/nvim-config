@@ -173,8 +173,8 @@ vim.keymap.set('n', '<A-f>', '<CMD>Telescope live_grep<CR>', { noremap = true, s
 
 vim.keymap.set('n', '<F2>', '<CMD>w | source $MYVIMRC<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<TAB>', '<C-w><C-w>', { noremap = true, silent = true })
-vim.keymap.set('n', '<S-TAB>', '<C-w>p', { noremap = true, silent = true })
+vim.keymap.set('n', '<TAB>', '<C-w>p', { noremap = true, silent = true })
+vim.keymap.set('n', '<S-TAB>', '<C-w><C-w>', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'q', 'za', { noremap = true, silent = true })
 
@@ -248,3 +248,15 @@ vim.keymap.set('n', 'cc',  'S',   { noremap = true, silent = true })
 
 -- vim.keymap.set('n', '<A-.>', 'n', NS)
 -- vim.keymap.set('n', '<A-,>', 'N', NS)
+
+-- vim.keymap.set('n',';c',':ComComment<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('x',';c',':ComComment<CR>gv', { noremap = true, silent = true })
+
+vim.keymap.set('n','<F1>',':color Base2Tone_SeaDark<CR>',    { noremap = true, silent = true })
+vim.keymap.set('n','<F2>',':color Base2Tone_ForestDark<CR>', { noremap = true, silent = true })
+vim.keymap.set('n','<F3>',':color Base2Tone_FieldDark<CR>',  { noremap = true, silent = true })
+vim.keymap.set('n','<F4>',':color Base2Tone_DesertDark<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', ";j", "G", { noremap = true, silent = true })
+vim.keymap.set('n', ";k", "gg", { noremap = true, silent = true })
+

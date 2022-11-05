@@ -137,89 +137,89 @@ packer.startup {
         }
 
         -- COMMENT --
-        use { 'glepnir/coman.nvim',
-            cmd = "ComComment",
-            config = [[
-            ]]
-        }
+        -- use { 'glepnir/coman.nvim',
+        --     cmd = "ComComment",
+        --     config = [[
+        --     ]]
+        -- }
 
         -- COMMENT --
         -- ~/.config/nvim/lua/plugins/comment.lua
-        -- use { 'numToStr/Comment.nvim',
-        --     -- keys = { ';c', ';bc' },
-        --     config = [[
-        --         require "Comment".setup {
-        --             -- Add a space b/w comment and the line
-        --             -- @type boolean|fun():boolean
-        --             padding = true,
-        --
-        --             -- Whether the cursor should stay at its position
-        --             -- NOTE: This only affects NORMAL mode mappings and doesn't work with dot-repeat
-        --             -- @type boolean
-        --             sticky = true,
-        --
-        --             -- Lines to be ignored while comment/uncomment.
-        --             -- Could be a regex string or a function that returns a regex string.
-        --             -- Example: Use '^$' to ignore empty lines
-        --             -- @type string|fun():string
-        --             ignore = nil,
-        --
-        --             -- LHS of toggle mappings in NORMAL + VISUAL mode
-        --             -- @type table
-        --             -- toggler = {
-        --             --     Line-comment toggle keymap
-        --                 -- line = ';c',
-        --                 -- Block-comment toggle keymap
-        --                 -- block = ';b',
-        --             -- },
-        --
-        --             -- LHS of operator-pending mappings in NORMAL + VISUAL mode
-        --             -- @type table
-        --             opleader = {
-        --                 -- Line-comment keymap
-        --                line = 'gc',
-        --                 -- Block-comment keymap
-        --                 block = 'gb',
-        --             },
-        --
-        --             -- LHS of extra mappings
-        --             -- @type table
-        --             extra = {
-        --                 -- Add comment on the line above
-        --                 above = 'gcO',
-        --                 -- Add comment on the line below
-        --                 below = 'gco',
-        --                 -- Add comment at the end of line
-        --                 eol = 'gcA',
-        --             },
-        --
-        --             -- Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
-        --             -- NOTE: If `mappings = false` then the plugin won't create any mappings
-        --             -- @type boolean|table
-        --             mappings = {
-        --                 -- Operator-pending mapping
-        --                 -- Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
-        --                 -- NOTE: These mappings can be changed individually by `opleader` and `toggler` config
-        --                 basic = true,
-        --                 -- Extra mapping
-        --                 -- Includes `gco`, `gcO`, `gcA`
-        --                 extra = true,
-        --                 -- Extended mapping
-        --                 -- Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-        --                 extended = false,
-        --             },
-        --
-        --             -- Pre-hook, called before commenting the line
-        --             -- @type fun(ctx: CommentCtx):string
-        --             pre_hook = nil,
-        --
-        --             -- Post-hook, called after commenting is done
-        --             -- @type fun(ctx: CommentCtx)
-        --             post_hook = nil,
-        --         }
-        --         vim.keymap.set('v', ';c', 'gcgv', { remap = true, silent = true })
-        --     ]]
-        -- }
+        use { 'numToStr/Comment.nvim',
+            keys = { ';c', ';bc' },
+            config = [[
+                require "Comment".setup {
+                    -- Add a space b/w comment and the line
+                    -- @type boolean|fun():boolean
+                    padding = true,
+
+                    -- Whether the cursor should stay at its position
+                    -- NOTE: This only affects NORMAL mode mappings and doesn't work with dot-repeat
+                    -- @type boolean
+                    sticky = true,
+
+                    -- Lines to be ignored while comment/uncomment.
+                    -- Could be a regex string or a function that returns a regex string.
+                    -- Example: Use '^$' to ignore empty lines
+                    -- @type string|fun():string
+                    ignore = nil,
+
+                    -- LHS of toggle mappings in NORMAL + VISUAL mode
+                    -- @type table
+                    toggler = {
+                        -- Line-comment toggle keymap
+                        line = ';c',
+                        -- Block-comment toggle keymap
+                        block = 'gb',
+                    },
+
+                    -- LHS of operator-pending mappings in NORMAL + VISUAL mode
+                    -- @type table
+                    opleader = {
+                        -- Line-comment keymap
+                       line = 'gc',
+                        -- Block-comment keymap
+                        block = 'gb',
+                    },
+
+                    -- LHS of extra mappings
+                    -- @type table
+                    extra = {
+                        -- Add comment on the line above
+                        above = 'gcO',
+                        -- Add comment on the line below
+                        below = 'gco',
+                        -- Add comment at the end of line
+                        eol = 'gcA',
+                    },
+
+                    -- Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
+                    -- NOTE: If `mappings = false` then the plugin won't create any mappings
+                    -- @type boolean|table
+                    mappings = {
+                        -- Operator-pending mapping
+                        -- Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
+                        -- NOTE: These mappings can be changed individually by `opleader` and `toggler` config
+                        basic = true,
+                        -- Extra mapping
+                        -- Includes `gco`, `gcO`, `gcA`
+                        extra = true,
+                        -- Extended mapping
+                        -- Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
+                        extended = false,
+                    },
+
+                    -- Pre-hook, called before commenting the line
+                    -- @type fun(ctx: CommentCtx):string
+                    pre_hook = nil,
+
+                    -- Post-hook, called after commenting is done
+                    -- @type fun(ctx: CommentCtx)
+                    post_hook = nil,
+                }
+                vim.keymap.set('v', ';c', 'gcgv', { remap = true, silent = true })
+            ]]
+        }
 
         -- DASHBOARD --
         -- ~/.config/nvim/lua/plugins/dashboard.lua
@@ -246,10 +246,10 @@ packer.startup {
 
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
-        use { 'norcalli/nvim-colorizer.lua',
-            ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
-            config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
-        }
+        -- use { 'norcalli/nvim-colorizer.lua',
+        --     ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
+        --     config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
+        -- }
 
         -- use { "max397574/colortils.nvim",
         --     cmd = "Colortils",
@@ -491,24 +491,24 @@ packer.startup {
         -- LSP COMPLETION
         use { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" }
 
-        use { 'tzachar/cmp-tabnine',
-            after = "cmp-path",
-            run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh",
-            config = function ()
-                -- :CmpTabnineHub
-                require "cmp_tabnine.config".setup {
-                    max_lines = 300,
-                    max_num_results = 10,
-                    sort = true,
-                    run_on_every_keystroke = true,
-                    snippet_placeholder = '..',
-                    ignored_file_types = {
-                        -- html = true
-                    },
-                    show_prediction_strength = true
-                }
-            end
-        }
+        -- use { 'tzachar/cmp-tabnine',
+        --     after = "cmp-path",
+        --     run = "cd ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine && ./install.sh",
+        --     config = function ()
+        --         -- :CmpTabnineHub
+        --         require "cmp_tabnine.config".setup {
+        --             max_lines = 300,
+        --             max_num_results = 10,
+        --             sort = true,
+        --             run_on_every_keystroke = true,
+        --             snippet_placeholder = '..',
+        --             ignored_file_types = {
+        --                 -- html = true
+        --             },
+        --             show_prediction_strength = true
+        --         }
+        --     end
+        -- }
 
         -- COPILOT
         -- ~/.config/nvim/lua/plugins/copilot.lua
@@ -831,18 +831,18 @@ packer.startup {
         }
 
 
-        use { "lewis6991/satellite.nvim",
-            event = { "CursorMoved" },
-            config = [[
-                require "satellite".setup {
-                    handlers = {
-                        marks = {
-                            key = '8'
-                        }
-                    }
-                }
-            ]]
-        }
+        -- use { "lewis6991/satellite.nvim",
+        --     event = { "CursorMoved" },
+        --     config = [[
+        --         require "satellite".setup {
+        --             handlers = {
+        --                 marks = {
+        --                     key = '8'
+        --                 }
+        --             }
+        --         }
+        --     ]]
+        -- }
 
     end
 }
