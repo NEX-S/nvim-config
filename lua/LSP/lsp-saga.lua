@@ -25,6 +25,7 @@ require "lspsaga".init_lsp_saga {
         ref = '諭 ',
         link = '  ',
     },
+    preview_lines_above = 0,
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 5,
     definition_action_keys = {
@@ -110,7 +111,7 @@ local opt = { noremap = true, silent = true }
 vim.keymap.set("n", "gh", "<CMD>Lspsaga hover_doc<CR>", opt)
 vim.keymap.set("n", "gs", "<CMD>Lspsaga signature_help<CR>", opt)
 vim.keymap.set("n", "gd", "<CMD>Lspsaga peek_definition<CR>", opt)
-vim.keymap.set("n", "gi", "<CMD>Lspsaga lsp_finder<CR>", opt)
+vim.keymap.set("n", "gr", "<CMD>Lspsaga lsp_finder<CR>", opt)
 
 vim.keymap.set("n", "ga",    "<CMD>Lspsaga code_action<CR>",             opt)
 vim.keymap.set("v", "ga",    "<CMD><C-u>Lspsaga range_code_action<CR>",  opt)
@@ -122,7 +123,7 @@ vim.keymap.set("n", ";o",    "<CMD>LSoutlineToggle<CR>",         opt)
 
 -- vim.keymap.set("n", ";o", LSOutLineHighLight,         opt)
 
-vim.keymap.set("n", "<C-r>", "<CMD>Lspsaga rename<CR>",               opt)
+-- vim.keymap.set("n", "<C-r>", "<CMD>Lspsaga rename<CR>",               opt)
 vim.keymap.set("n", "<A-p>", "<CMD>Lspsaga diagnostic_jump_prev<CR>", opt)
 vim.keymap.set("n", "<A-n>", "<CMD>Lspsaga diagnostic_jump_next<CR>", opt)
 -- vim.keymap.set("n", "<ESC>", "<CMD>set hls! | Lspsaga close_floaterm<CR>", opt)

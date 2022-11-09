@@ -49,6 +49,23 @@ require "noice".setup {
 
 vim.api.nvim_set_hl(0, "NoiceCmdlinePopup", { bg = "NONE", fg = "NONE", bold = true })
 
+require "notify".setup {
+    fps = 60,
+    render = "minimal",
+    icons = {
+        WARN  = "",
+        INFO  = "",
+        ERROR = "",
+        TRACE = "",
+        DEBUG = "",
+    },
+    minimum_width = 50,
+    stages = "fade",
+    timeout = 3000,
+    top_down = true,
+    background_colour = "Normal",
+}
+
 -- NoiceCmdline
 -- NoiceCmdlineIcon
 -- NoiceCmdlineIconCmdline

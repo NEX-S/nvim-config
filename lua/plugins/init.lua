@@ -146,7 +146,7 @@ packer.startup {
         -- COMMENT --
         -- ~/.config/nvim/lua/plugins/comment.lua
         use { 'numToStr/Comment.nvim',
-            keys = { ';c', ';bc' },
+            keys = { ';c', },
             config = [[
                 require "Comment".setup {
                     -- Add a space b/w comment and the line
@@ -246,10 +246,10 @@ packer.startup {
 
         -- NVIM-COLORIZER --
         -- ~/.config/nvim/lua/UNEXPECTED/configs/nvim-colorizer.lua
-        -- use { 'norcalli/nvim-colorizer.lua',
-        --     ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
-        --     config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
-        -- }
+        use { 'norcalli/nvim-colorizer.lua',
+            ft = { 'vim', 'lua', 'html', 'css', 'yaml', 'markdown', 'ini' },
+            config = [[ require "colorizer".setup({ '*'; }, { mode = 'foreground' }) ]]
+        }
 
         -- use { "max397574/colortils.nvim",
         --     cmd = "Colortils",
@@ -801,31 +801,34 @@ packer.startup {
         --     ]]
         -- }
 
-        use { "rcarriga/nvim-notify",
-            config = [[
-                require "notify".setup {
-                    fps = 60,
-                    render = "minimal",
-                    icons = {
-                        WARN  = "",
-                        INFO  = "",
-                        ERROR = "",
-                        TRACE = "",
-                        DEBUG = "",
-                    },
-                    minimum_width = 50,
-                    stages = "fade",
-                    timeout = 3000,
-                    top_down = true,
-                    background_colour = "Normal",
-                }
-            ]]
-        }
+        -- use { "rcarriga/nvim-notify",
+        --     config = [[
+        --         require "notify".setup {
+        --             fps = 60,
+        --             render = "minimal",
+        --             icons = {
+        --                 WARN  = "",
+        --                 INFO  = "",
+        --                 ERROR = "",
+        --                 TRACE = "",
+        --                 DEBUG = "",
+        --             },
+        --             minimum_width = 50,
+        --             stages = "fade",
+        --             timeout = 3000,
+        --             top_down = true,
+        --             background_colour = "Normal",
+        --         }
+        --     ]]
+        -- }
 
         -- NOICE --
         -- ~/.config/nvim/lua/plugins/noice.lua
         use { "folke/noice.nvim",
-            requires = "MunifTanjim/nui.nvim",
+            requires = {
+                "MunifTanjim/nui.nvim",
+                "rcarriga/nvim-notify",
+            },
             after = "nvim-notify",
             config = [[ require "plugins.noice" ]]
         }

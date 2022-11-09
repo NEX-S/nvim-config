@@ -25,7 +25,10 @@ vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn",  { bg = "NONE", fg = "#DEA600",
 vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { bg = "NONE", fg = "#A70458", })
 
 vim.diagnostic.config {
-    virtual_text = true,
+    virtual_text = {
+        -- prefix = '',
+        prefix = ''
+    },
     -- signs = {
     --     active = {
     --         { name = "DiagnosticSignError", text =" " },
@@ -110,9 +113,10 @@ function M.on_attach(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
     -- vim.keymap.set('n', ';;D', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set("n", "<C-d>", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", ";d", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", ";D", vim.lsp.buf.declaration, bufopts)
     -- vim.keymap.set('n', ';;h', vim.lsp.buf.hover, bufopts)
-    -- vim.keymap.set('n', ';;i', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', ';i', vim.lsp.buf.implementation, bufopts)
     -- vim.keymap.set('n', ';;r', vim.lsp.buf.references, bufopts)
     vim.keymap.set("n", "<A-=>", vim.lsp.buf.format, bufopts)
     vim.keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, bufopts)
@@ -121,8 +125,8 @@ function M.on_attach(client, bufnr)
     -- vim.keymap.set('n', ';;wl', function()
     --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     -- end, bufopts)
-    -- vim.keymap.set('n', ';;D', vim.lsp.buf.type_definition, bufopts)
-    -- vim.keymap.set('n', ';;rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<C-d>', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<C-r>', vim.lsp.buf.rename, bufopts)
     -- vim.keymap.set('n', ';;ca', vim.lsp.buf.code_action, bufopts)
     -- vim.keymap.set('n', ';;f', vim.lsp.buf.formatting, bufopts)
 

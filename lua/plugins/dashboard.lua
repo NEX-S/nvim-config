@@ -29,16 +29,16 @@ dashboard.custom_center = {
     { icon = "  ", desc = " NVIM CONFIG  ", shortcut = '  \t\t\tSPC X          ', action = ':edit $MYVIMRC' },
 }
 
-dashboard.custom_key = {
-    ['a']     = ':Telescope oldfiles<CR>',
-    ['s']     = ':Telescope find_files<CR>',
-    ['d']     = ':Telescope live_grep<CR>',
-    ['f']     = ':edit $MYVIMRC<CR>',
-    ['q']     = '<CMD>q!<CR>',
-    ['l']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
-    ['o']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
-    ['<CR>']  = '<CMD>lua require "dashboard".call_line_action()<CR>',
-}
+-- dashboard.custom_key = {
+--     ['a']     = ':Telescope oldfiles<CR>',
+--     ['s']     = ':Telescope find_files<CR>',
+--     ['d']     = ':Telescope live_grep<CR>',
+--     ['f']     = ':edit $MYVIMRC<CR>',
+--     ['q']     = '<CMD>q!<CR>',
+--     ['l']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
+--     ['o']     = '<CMD>lua require "dashboard".call_line_action()<CR>',
+--     ['<CR>']  = '<CMD>lua require "dashboard".call_line_action()<CR>',
+-- }
 
 dashboard.custom_footer = {
     '',

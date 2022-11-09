@@ -16,7 +16,7 @@ require 'core.autocmd'  -- ~/.config/nvim/lua/core/autocmd.lua
 
 pcall(vim.cmd, "luafile /home/nex/.cache/nvim/packer_compiled.lua")
 
--- require "plugins"  -- ~/.config/nvim/lua/plugins/init.lua
+require "plugins"  -- ~/.config/nvim/lua/plugins/init.lua
 
 vim.cmd [[autocmd FileType c ++once luafile /home/nex/.config/nvim/lua/plugins/LLDB.lua]]
 
