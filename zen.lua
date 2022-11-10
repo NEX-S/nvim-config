@@ -171,11 +171,11 @@ api.nvim_create_autocmd( "FileType", {
         keymap("n", ";r", function ()
             local file = vim.fn.expand("%")
             local fileNoExt = vim.fn.expand("%<")
-            local compiledCmd = "clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
+            local compiledCmd = "vs term://clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
 
             vim.cmd "w!"
-            vim.fn.system(compiledCmd)
-            vim.cmd "vs term://bin/test || vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>"
+            vim.cmd (compiledCmd .. " && bash -c 'echo;echo  && time ./bin/test'")
+            vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>"
         end, NS)
     end
 })
