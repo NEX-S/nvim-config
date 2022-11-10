@@ -1,6 +1,7 @@
 local api = vim.api
 local keymap = vim.keymap.set
 
+vim.cmd "au!"
 vim.cmd "syntax off"
 
 vim.opt.termguicolors = true
@@ -28,11 +29,11 @@ vim.opt.numberwidth   = 5
 vim.opt.scrolloff     = 6
 vim.opt.sidescrolloff = 10
 
-vim.opt.listchars:append "eol:⸥"
-vim.opt.listchars:append "space:·"
-vim.opt.listchars:append "trail:-"
+-- vim.opt.listchars:append "eol:⸥"
+-- vim.opt.listchars:append "space:·"
+-- vim.opt.listchars:append "trail:-"
 
-local NS = { noremap = true, silent = true }
+local NS = { noremap = true, silent = false }
 
 keymap("n", ";q", "<CMD>exit!<CR>", NS)
 keymap("n", ";w", "<CMD>write!<CR>", NS)
@@ -112,6 +113,21 @@ keymap("n", "<A-k>", "<C-o>", NS)
 keymap("n", "<A-h>", "<CMD>bp<CR>", NS)
 keymap("n", "<A-l>", "<CMD>bn<CR>", NS)
 
+-- AUTO PARI --
+keymap('i', "(", "()<LEFT>", NS)
+keymap('i', "{", "{}<LEFT>", NS)
+keymap('i', "[", "[]<LEFT>", NS)
+keymap('i', "'", "''<LEFT>", NS)
+keymap('i', '"', '""<LEFT>', NS)
+
+keymap('i', ")", "<RIGHT>", NS)
+keymap('i', "}", "<RIGHT>", NS)
+keymap('i', "]", "<RIGHT>", NS)
+
+keymap('i', "<F10>", ")", NS)
+keymap('i', "<C-]>", "]", NS)
+keymap('i', "<A-]>", "}", NS)
+
 -- COMMENT --
 api.nvim_create_autocmd( "FileType", {
     pattern = "c",
@@ -129,17 +145,6 @@ api.nvim_create_autocmd( "FileType", {
         keymap('n', ";c", "I-- <ESC>", NS)
     end
 })
-
--- AUTO PARI --
-keymap('i', "(", "()<LEFT>", NS)
-keymap('i', "{", "{}<LEFT>", NS)
-keymap('i', "[", "[]<LEFT>", NS)
-keymap('i', "'", "''<LEFT>", NS)
-keymap('i', '"', '""<LEFT>', NS)
-
--- keymap('i', ")", "<RIGHT>", NS)
--- keymap('i', "}", "<RIGHT>", NS)
--- keymap('i', "]", "<RIGHT>", NS)
 
 -- TRANSLATE --
 keymap("n", ";t", function ()
@@ -186,5 +191,3 @@ api.nvim_set_hl(0, "IncSearch",    { bg = "NONE", fg = "#AE91E8" })
 api.nvim_set_hl(0, "Visual",       { bg = "NONE", fg = "#aaaaaa", bold = true })
 api.nvim_set_hl(0, "CursorLine",   { bg = "NONE", fg = "#999999", bold = true })
 api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE", fg = "#505050", bold = true })
-
-api.nvim_set_hl(0, "Boolean",      { bg = "NONE", fg = "#C53B82" })
