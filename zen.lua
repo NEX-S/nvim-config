@@ -173,27 +173,26 @@ api.nvim_create_autocmd( "InsertEnter", {
     end
 })
 
--- C PLUGIN --
+-- RUN CODE --
+local function run_code (shell_cmd)
+    vim.cmd("write! || vs term://" .. shell_cmd)
+    vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <ESC> :q!<CR>"
+end
+
 api.nvim_create_autocmd( "FileType", {
     pattern = "c",
     once = true,
     callback = function ()
-        -- COMMENT --
-        keymap('n', ";c", "I// <ESC>", NS)
-        keymap('n', ";b", "a/*  */<LEFT><LEFT><LEFT>", NS)
-
-        -- RUN CODE --
-        keymap("n", ";r", function ()
+        keymap('n', ";r", function ()
             local file = vim.fn.expand("%")
             local fileNoExt = vim.fn.expand("%<")
-            local compiledCmd = "vs term://clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
-
-            vim.cmd "w!"
-            vim.cmd (compiledCmd .. " && bash -c 'echo;echo  && time ./bin/test'")
-            vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>"
+            local compile_cmd = "clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
+            local shell_cmd =  compile_cmd .. " && bash -c 'echo;echo  && time ./bin/" .. fileNoExt .."'"
+            run_code(shell_cmd)
         end, NS)
     end
 })
+
 
 
 -- COMMENT --
