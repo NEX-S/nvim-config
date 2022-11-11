@@ -1,6 +1,8 @@
 local api = vim.api
 local keymap = vim.keymap.set
 
+-- vim.fn.getpos(".") { 0, line_num, column_num, 0 }
+
 vim.cmd "au!"
 
 vim.opt.syntax = "on"
@@ -18,6 +20,7 @@ vim.opt.smartindent   = true
 vim.opt.expandtab     = true
 vim.opt.splitbelow    = true
 vim.opt.splitright    = true
+vim.opt.wrap          = false
 vim.opt.showmode      = false
 vim.opt.swapfile      = false
 
@@ -123,23 +126,25 @@ keymap("n", "<F10>", "<CMD>bp<CR>", NS)
 keymap("n", "<F11>", "<CMD>bn<CR>", NS)
 
 -- AUTO PARI --
+-- TODO: 用奇偶判断行内符号是否匹配 奇数为非匹配 偶数为匹配
 api.nvim_create_autocmd( "InsertEnter", {
     pattern = "*",
     once = true,
     callback = function ()
-
         keymap('i', "(", "()<LEFT>", NS)
         keymap('i', "{", "{}<LEFT>", NS)
         keymap('i', "[", "[]<LEFT>", NS)
-        keymap('i', "'", "''<LEFT>", NS)
-        keymap('i', '"', '""<LEFT>', NS)
-        keymap('i', '`', '``<LEFT>', NS)
 
         local function get_cursor_right ()
-            local cursor_colm = vim.fn.getpos('.')[3]
+            local cursor_colm = vim.fn.getpos(".")[3]
             local cursor_line = vim.api.nvim_get_current_line()
-            -- local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
             return string.sub(cursor_line, cursor_colm, cursor_colm)
+        end
+
+        local function get_cursor_left ()
+            local cursor_colm = vim.fn.getpos(".")[3]
+            local cursor_line = vim.api.nvim_get_current_line()
+            return string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
         end
 
         keymap('i', ")", function ()
@@ -162,30 +167,77 @@ api.nvim_create_autocmd( "InsertEnter", {
             return get_cursor_right() == '"' and "<RIGHT>" or [[""<LEFT>]]
         end, { expr = true })
 
-        keymap('i', "``", function ()
+        keymap('i', "`", function ()
             return get_cursor_right() == "`" and "<RIGHT>" or [[``<LEFT>]]
         end, { expr = true })
+    end
+})
 
+-- C PLUGIN --
+api.nvim_create_autocmd( "FileType", {
+    pattern = "c",
+    once = true,
+    callback = function ()
+        -- COMMENT --
+        keymap('n', ";c", "I// <ESC>", NS)
+        keymap('n', ";b", "a/*  */<LEFT><LEFT><LEFT>", NS)
+
+        -- RUN CODE --
+        keymap("n", ";r", function ()
+            local file = vim.fn.expand("%")
+            local fileNoExt = vim.fn.expand("%<")
+            local compiledCmd = "vs term://clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
+
+            vim.cmd "w!"
+            vim.cmd (compiledCmd .. " && bash -c 'echo;echo  && time ./bin/test'")
+            vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>"
+        end, NS)
     end
 })
 
 
--- COMPLETION --
-keymap('i', "<TAB>", function ()
-    return vim.fn.pumvisible() == 1 and "<TAB>" or "<C-n>"
-end, { expr = true, remap = false })    
+-- COMMENT --
+local function comment_check (num)
+    local cursor_line_str = api.nvim_get_current_line()
+    local ltrim_spaces_res = cursor_line_str:match("^%s*(.*)")
+    return string.sub(ltrim_spaces_res, 0, num)
+end
 
--- keymap('i', "<TAB>", "<C-n>", { expr = false, remap = false })
--- keymap('i', "<S-TAB>", "<C-p>", { expr = false, remap = false })
-
--- LUA PLUGIN --
+-- LUA --
 api.nvim_create_autocmd( "FileType", {
     pattern = "lua",
     once = true,
     callback = function ()
-        keymap('n', ";c", "I-- <ESC>", NS)
+        keymap('n', ";c", function ()
+            return comment_check(3) == "-- " and "^3x$" or "I-- <ESC>$"
+        end, { expr = true })
+        keymap('n', ";b", "i--[[  ]]<LEFT><LEFT><LEFT>", NS)
+        keymap('v', ";b", "A ]]<ESC>gvo<ESC>i--[[ <ESC>gvo6l", NS)
     end
 })
+
+-- C / CPP --
+api.nvim_create_autocmd( "FileType", {
+    pattern = "c",
+    once = true,
+    callback = function ()
+        keymap('n', ";c", function ()
+            return comment_check(3) == "// " and "^3x$" or "I// <ESC>$"
+        end, { expr = true })
+
+        keymap('n', ";b", "i/*  */<LEFT><LEFT><LEFT>", NS)
+        keymap('v', ";b", "A */<ESC>gvo<ESC>i/* <ESC>gvo6l", NS)
+    end
+})
+
+-- COMPLETION --
+-- keymap('i', "<TAB>", function ()
+--     return vim.fn.pumvisible() == 1 and "<TAB>" or "<C-n>"
+-- end, { expr = true, remap = false })    
+
+keymap('i', "<TAB>", "<C-n>", { expr = false, remap = false })
+keymap('i', "<S-TAB>", "<C-p>", { expr = false, remap = false })
+
 
 -- TRANSLATE --
 keymap("n", ";t", function ()
@@ -211,29 +263,11 @@ keymap("n", ";e", function ()
     -- keymap('n', ";e", "<CMD>quit!<CR>", { buffer = true, remap = false })
 end, NS)
 
--- C PLUGIN --
-api.nvim_create_autocmd( "FileType", {
-    pattern = "c",
-    once = true,
-    callback = function ()
-        -- COMMENT --
-        keymap('n', ";c", "I// <ESC>", NS)
-        keymap('n', ";b", "a/*  */<LEFT><LEFT><LEFT>", NS)
-
-        -- RUN CODE --
-        keymap("n", ";r", function ()
-            local file = vim.fn.expand("%")
-            local fileNoExt = vim.fn.expand("%<")
-            local compiledCmd = "vs term://clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
-
-            vim.cmd "w!"
-            vim.cmd (compiledCmd .. " && bash -c 'echo;echo  && time ./bin/test'")
-            vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>"
-        end, NS)
-    end
-})
-
 -- HIGHLIGHT --
+
+keymap('n', "<F1>", "<CMD>hi Normal guibg = NONE guifg = #777777<CR>", NS)
+keymap('n', "<F2>", "<CMD>hi Normal guibg = #232323 guifg = #777777<CR>", NS)
+
 
 api.nvim_set_hl(0, "Normal",       { bg = "NONE", fg = "#777777" })
 api.nvim_set_hl(0, "VertSplit",    { bg = "NONE", fg = "#333333" })
@@ -273,3 +307,17 @@ api.nvim_set_hl(0, "SpecialChar", { bg = "NONE", fg = "#9C8FDC" })
 -- Lua HIGHLIGHT --
 api.nvim_set_hl(0, "LuaFunc", { bg = "NONE", fg = "#9C8FDC" })
 
+-- keymap('n', ";x", function ()
+--     api.nvim_open_win(0, true, {
+--         title = "HelloNEX",
+--         relative = 'win',
+--         width = 120,
+--         height = 10,
+--         border = "single",
+--         win = 1001,
+--         row = 20,
+--         col = 20,
+--         -- zindex = zindex,
+--     })
+--     -- keymap('n', "<ESC>", "<CMD>quit!<CR>", { buffer = true })
+-- end, NS)
