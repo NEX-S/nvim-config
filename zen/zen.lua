@@ -127,6 +127,15 @@ api.nvim_create_autocmd( "InsertEnter", {
     pattern = "*",
     once = true,
     callback = function ()
+        local col = vim.fn.getpos(".")[3]
+        local cursor_line = vim.api.nvim_get_current_line()
+        local cursor_left = string.sub(cursor_line, col - 1, col - 1)
+        local cursor_position = string.sub(cursor_line, col, col)
+
+        print("col" .. col)
+        print("cursor_line" .. cursor_line)
+        print("cursor_left" .. cursor_left)
+        print("cursor_position" .. cursor_position)
 
         keymap('i', "(", "()<LEFT>", NS)
         keymap('i', "{", "{}<LEFT>", NS)
@@ -135,40 +144,12 @@ api.nvim_create_autocmd( "InsertEnter", {
         keymap('i', '"', '""<LEFT>', NS)
         keymap('i', '`', '``<LEFT>', NS)
 
-        local function get_cursor_right ()
-            local cursor_colm = vim.fn.getpos('.')[3]
-            local cursor_line = vim.api.nvim_get_current_line()
-            -- local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
-            return string.sub(cursor_line, cursor_colm, cursor_colm)
-        end
-
-        keymap('i', ")", function ()
-            return get_cursor_right() == ")" and "<RIGHT>" or ")"
-        end, { expr = true })
-
-        keymap('i', "}", function ()
-            return get_cursor_right() == "}" and "<RIGHT>" or "}"
-        end, { expr = true })
-
-        keymap('i', "]", function ()
-            return get_cursor_right() == "]" and "<RIGHT>" or "]"
-        end, { expr = true })
-
-        keymap('i', "'", function ()
-            return get_cursor_right() == "'" and "<RIGHT>" or [[''<LEFT>]]
-        end, { expr = true })
-
-        keymap('i', '"', function ()
-            return get_cursor_right() == '"' and "<RIGHT>" or [[""<LEFT>]]
-        end, { expr = true })
-
-        keymap('i', "``", function ()
-            return get_cursor_right() == "`" and "<RIGHT>" or [[``<LEFT>]]
-        end, { expr = true })
-
+        -- 判断当前光标右边是不是) } ] 是的话就进行下面的mapping
+        -- keymap('i', ")", "<RIGHT>", NS)
+        -- keymap('i', "}", "<RIGHT>", NS)
+        -- keymap('i', "]", "<RIGHT>", NS)
     end
 })
-
 
 -- COMPLETION --
 keymap('i', "<TAB>", function ()
@@ -272,4 +253,3 @@ api.nvim_set_hl(0, "SpecialChar", { bg = "NONE", fg = "#9C8FDC" })
 
 -- Lua HIGHLIGHT --
 api.nvim_set_hl(0, "LuaFunc", { bg = "NONE", fg = "#9C8FDC" })
-
