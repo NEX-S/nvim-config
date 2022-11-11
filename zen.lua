@@ -176,7 +176,7 @@ api.nvim_create_autocmd( "InsertEnter", {
 -- RUN CODE --
 local function run_code (shell_cmd)
     vim.cmd("write! || vs term://" .. shell_cmd)
-    vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <ESC> :q!<CR>"
+    vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>"
 end
 
 api.nvim_create_autocmd( "FileType", {
@@ -257,7 +257,7 @@ keymap("n", ";e", function ()
     vim.g.netrw_banner = 0       -- Hide banner
     vim.g.netrw_browse_split = 4 -- Open in previous window
     vim.g.netrw_liststyle = 3    -- Tree-style view
-    vim.cmd "Vexplore || syntax on || nmap <buffer> l <CR> || nnoremap <buffer> ;e <CMD>quit!<CR>"
+    vim.cmd "Vexplore || syntax on || nmap <buffer> l <CR> || nnoremap <buffer> <silent> ;e <CMD>quit!<CR>"
     -- keymap('n', "l", "<CR>", { buffer = true, remap = true })
     -- keymap('n', ";e", "<CMD>quit!<CR>", { buffer = true, remap = false })
 end, NS)
