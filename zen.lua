@@ -2,11 +2,12 @@ local api = vim.api
 local keymap = vim.keymap.set
 
 vim.cmd "au!"
-vim.cmd "syntax off"
+vim.cmd "syntax on"
 
 vim.opt.termguicolors = true
 vim.opt.number        = true
 vim.opt.smartcase     = true
+vim.opt.ignorecase    = true
 vim.opt.hlsearch      = true
 vim.opt.incsearch     = true
 vim.opt.cursorline    = true
@@ -119,6 +120,8 @@ keymap("n", "<A-j>", "<C-i>", NS)
 keymap("n", "<A-k>", "<C-o>", NS)
 keymap("n", "<A-h>", "<CMD>bp<CR>", NS)
 keymap("n", "<A-l>", "<CMD>bn<CR>", NS)
+keymap("n", "<C-,>", "<CMD>bp<CR>", NS)
+keymap("n", "<C-.>", "<CMD>bn<CR>", NS)
 
 -- AUTO PARI --
 api.nvim_create_autocmd( "InsertEnter", {
@@ -149,7 +152,7 @@ api.nvim_create_autocmd( "FileType", {
 -- TRANSLATE --
 keymap("n", ";t", function ()
     local word = vim.fn.expand("<cword>")
-    vim.cmd("vs term://trans -hl zh -to zh -j -speak -indent 8 " .. word)
+    vim.cmd("vs term://trans -hl zh -to zh -j -speak -indent 2 " .. word)
     vim.cmd("vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>")
 end, NS)
 
@@ -170,10 +173,6 @@ keymap("n", ";e", function ()
     keymap('n', "l", "<CR>", BNS)
     keymap('n', ";e", "<CMD>quit!<CR>", BNS)
 end, NS)
-
--- api.nvim_create_autocmd("TextYankPost", {
---     command = "silent! lua vim.highlight.on_yank()",
--- })
 
 -- C PLUGIN --
 api.nvim_create_autocmd( "FileType", {
@@ -204,12 +203,23 @@ api.nvim_set_hl(0, "VertSplit",    { bg = "NONE", fg = "#333333" })
 api.nvim_set_hl(0, "LineNr",       { bg = "NONE", fg = "#383838" })
 api.nvim_set_hl(0, "Search",       { bg = "NONE", fg = "#AE91E8" })
 api.nvim_set_hl(0, "IncSearch",    { bg = "NONE", fg = "#AE91E8" })
-api.nvim_set_hl(0, "CursorLine",   { bg = "NONE", fg = "#999999" })
+api.nvim_set_hl(0, "MatchParen",   { bg = "NONE", fg = "#C53B82" })
+api.nvim_set_hl(0, "CursorLine",   { bg = "#232323", fg = "NONE" })
 
-api.nvim_set_hl(0, "Visual",       { bg = "NONE", fg = "#999999", bold = true })
 api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE", fg = "#505050", bold = true })
+api.nvim_set_hl(0, "Visual",       { bg = "NONE", fg = "#9C8FDC", bold = true })
 
 api.nvim_set_hl(0, "Pmenu",      { bg = "#282828", fg = "#757575" })
 api.nvim_set_hl(0, "PmenuSel",   { bg = "#383838", fg = "#888888", bold = true })
 api.nvim_set_hl(0, "PmenuSbar",  { bg = "#383838", fg = "NONE" })
 api.nvim_set_hl(0, "PmenuThumb", { bg = "#505050", fg = "NONE" })
+
+-- SYNTAX HIGHLIGHT --
+api.nvim_set_hl(0, "String",     { bg = "NONE", fg = "#585858" })
+api.nvim_set_hl(0, "Comment",    { bg = "NONE", fg = "#484848" })
+api.nvim_set_hl(0, "Number",     { bg = "NONE", fg = "#555555" })
+api.nvim_set_hl(0, "Function",   { bg = "NONE", fg = "#C53B82" })
+api.nvim_set_hl(0, "Statement",  { bg = "NONE", fg = "#777777" })
+api.nvim_set_hl(0, "Constant",   { bg = "NONE", fg = "#C53B82" })
+api.nvim_set_hl(0, "NonText",    { bg = "NONE", fg = "#303030" })
+api.nvim_set_hl(0, "Luatable",   { bg = "NONE", fg = "#777777" })

@@ -156,6 +156,8 @@ vim.keymap.set('o', 'p)', ':<C-u>normal! F)vi)<CR>', { noremap = true, silent = 
 
 vim.keymap.set('n', '<A-h>', ':bp<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-l>', ':bn<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-,>', '<CMD>bp<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-.>', '<CMD>bn<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-x>', ':bdelete<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('o', 'lb', ':<C-u>normal! f(vib<CR>', { noremap = true, silent = true })
