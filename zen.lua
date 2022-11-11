@@ -2,8 +2,8 @@ local api = vim.api
 local keymap = vim.keymap.set
 
 vim.cmd "au!"
-vim.cmd "syntax on"
 
+vim.opt.syntax = "on"
 vim.opt.termguicolors = true
 vim.opt.number        = true
 vim.opt.smartcase     = true
@@ -38,8 +38,7 @@ vim.opt.pumheight = 18
 -- vim.opt.listchars:append "space:·"
 -- vim.opt.listchars:append "trail:-"
 
-local NS = { noremap = true, silent = false }
-local BNS = { buffer = true, noremap = true, silent = false }
+local NS = { remap = false, silent = false }
 
 keymap("n", ";q", "<CMD>exit!<CR>", NS)
 keymap("n", ";w", "<CMD>write!<CR>", NS)
@@ -120,8 +119,8 @@ keymap("n", "<A-j>", "<C-i>", NS)
 keymap("n", "<A-k>", "<C-o>", NS)
 keymap("n", "<A-h>", "<CMD>bp<CR>", NS)
 keymap("n", "<A-l>", "<CMD>bn<CR>", NS)
-keymap("n", "<C-,>", "<CMD>bp<CR>", NS)
-keymap("n", "<C-.>", "<CMD>bn<CR>", NS)
+keymap("n", "<F10>", "<CMD>bp<CR>", NS)
+keymap("n", "<F11>", "<CMD>bn<CR>", NS)
 
 -- AUTO PARI --
 api.nvim_create_autocmd( "InsertEnter", {
@@ -164,14 +163,13 @@ api.nvim_create_autocmd("BufWritePost", {
 
 -- FILE EXPLORER --
 keymap("n", ";e", function ()
-    vim.g.netrw_winsize = 25     -- Window size
+    vim.g.netrw_winsize = 15     -- Window size
     vim.g.netrw_banner = 0       -- Hide banner
     vim.g.netrw_browse_split = 4 -- Open in previous window
-    -- vim.g.netrw_altv = 1         -- Open with right splitting
     vim.g.netrw_liststyle = 3    -- Tree-style view
-    vim.cmd "Vexplore"
-    keymap('n', "l", "<CR>", BNS)
-    keymap('n', ";e", "<CMD>quit!<CR>", BNS)
+    vim.cmd "Vexplore || syntax on || nmap <buffer> l <CR> || nnoremap <buffer> ;e <CMD>quit!<CR>"
+    -- keymap('n', "l", "<CR>", { buffer = true, remap = true })
+    -- keymap('n', ";e", "<CMD>quit!<CR>", { buffer = true, remap = false })
 end, NS)
 
 -- C PLUGIN --
@@ -223,3 +221,16 @@ api.nvim_set_hl(0, "Statement",  { bg = "NONE", fg = "#777777" })
 api.nvim_set_hl(0, "Constant",   { bg = "NONE", fg = "#C53B82" })
 api.nvim_set_hl(0, "NonText",    { bg = "NONE", fg = "#303030" })
 api.nvim_set_hl(0, "Luatable",   { bg = "NONE", fg = "#777777" })
+api.nvim_set_hl(0, "Todo",       { bg = "NONE", fg = "#FF9164" })
+
+-- C HIGHLIGHT --
+api.nvim_set_hl(0, "Type",        { bg = "NONE", fg = "#7a70ac" })
+api.nvim_set_hl(0, "Structure",   { bg = "NONE", fg = "#7a70ac" })
+api.nvim_set_hl(0, "cInclude",    { bg = "NONE", fg = "#9C8FDC" })
+api.nvim_set_hl(0, "cTypedef",    { bg = "NONE", fg = "#9C8FDC" })
+api.nvim_set_hl(0, "cDefine",     { bg = "NONE", fg = "#C53B82" })
+api.nvim_set_hl(0, "SpecialChar", { bg = "NONE", fg = "#9C8FDC" })
+
+-- vim.cmd [[
+-- inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<C-n>"
+-- ]]
