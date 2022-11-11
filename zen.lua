@@ -29,11 +29,16 @@ vim.opt.numberwidth   = 5
 vim.opt.scrolloff     = 6
 vim.opt.sidescrolloff = 10
 
+vim.opt.winblend = 25
+vim.opt.pumblend = 25
+vim.opt.pumheight = 18
+
 -- vim.opt.listchars:append "eol:⸥"
 -- vim.opt.listchars:append "space:·"
 -- vim.opt.listchars:append "trail:-"
 
 local NS = { noremap = true, silent = false }
+local BNS = { buffer = true, noremap = true, silent = false }
 
 keymap("n", ";q", "<CMD>exit!<CR>", NS)
 keymap("n", ";w", "<CMD>write!<CR>", NS)
@@ -77,6 +82,8 @@ keymap("o", "<SPACE>", ";", NS)
 
 keymap("n", "U", "<C-r>", NS)
 
+keymap("n", ";s", "<CMD>split<CR>", NS)
+keymap("n", ";v", "<CMD>vertical split<CR>", NS)
 
 keymap("n", "d", '"dd', NS)
 keymap("v", "d", '"dd', NS)
@@ -114,30 +121,23 @@ keymap("n", "<A-h>", "<CMD>bp<CR>", NS)
 keymap("n", "<A-l>", "<CMD>bn<CR>", NS)
 
 -- AUTO PARI --
-keymap('i', "(", "()<LEFT>", NS)
-keymap('i', "{", "{}<LEFT>", NS)
-keymap('i', "[", "[]<LEFT>", NS)
-keymap('i', "'", "''<LEFT>", NS)
-keymap('i', '"', '""<LEFT>', NS)
-
-keymap('i', ")", "<RIGHT>", NS)
-keymap('i', "}", "<RIGHT>", NS)
-keymap('i', "]", "<RIGHT>", NS)
-
-keymap('i', "<F10>", ")", NS)
-keymap('i', "<C-]>", "]", NS)
-keymap('i', "<A-]>", "}", NS)
-
--- COMMENT --
-api.nvim_create_autocmd( "FileType", {
-    pattern = "c",
+api.nvim_create_autocmd( "InsertEnter", {
+    pattern = "*",
     once = true,
     callback = function ()
-        keymap('n', ";c", "I// <ESC>", NS)
-        keymap('n', ";b", "a/*  */<LEFT><LEFT><LEFT>", NS)
+        keymap('i', "(", "()<LEFT>", NS)
+        keymap('i', "{", "{}<LEFT>", NS)
+        keymap('i', "[", "[]<LEFT>", NS)
+        keymap('i', "'", "''<LEFT>", NS)
+        keymap('i', '"', '""<LEFT>', NS)
+
+        -- 判断当前光标右边是不是) } ] 是的话就进行下面的mapping
+        -- keymap('i', ")", "<RIGHT>", NS)
+        -- keymap('i', "}", "<RIGHT>", NS)
+        -- keymap('i', "]", "<RIGHT>", NS)
     end
 })
-
+-- LUA PLUGIN --
 api.nvim_create_autocmd( "FileType", {
     pattern = "lua",
     once = true,
@@ -159,15 +159,32 @@ api.nvim_create_autocmd("BufWritePost", {
     command = "source %",
 })
 
+-- FILE EXPLORER --
+keymap("n", ";e", function ()
+    vim.g.netrw_winsize = 25     -- Window size
+    vim.g.netrw_banner = 0       -- Hide banner
+    vim.g.netrw_browse_split = 4 -- Open in previous window
+    -- vim.g.netrw_altv = 1         -- Open with right splitting
+    vim.g.netrw_liststyle = 3    -- Tree-style view
+    vim.cmd "Vexplore"
+    keymap('n', "l", "<CR>", BNS)
+    keymap('n', ";e", "<CMD>quit!<CR>", BNS)
+end, NS)
+
 -- api.nvim_create_autocmd("TextYankPost", {
 --     command = "silent! lua vim.highlight.on_yank()",
 -- })
 
--- RUN CODE --
+-- C PLUGIN --
 api.nvim_create_autocmd( "FileType", {
     pattern = "c",
     once = true,
     callback = function ()
+        -- COMMENT --
+        keymap('n', ";c", "I// <ESC>", NS)
+        keymap('n', ";b", "a/*  */<LEFT><LEFT><LEFT>", NS)
+
+        -- RUN CODE --
         keymap("n", ";r", function ()
             local file = vim.fn.expand("%")
             local fileNoExt = vim.fn.expand("%<")
@@ -187,7 +204,12 @@ api.nvim_set_hl(0, "VertSplit",    { bg = "NONE", fg = "#333333" })
 api.nvim_set_hl(0, "LineNr",       { bg = "NONE", fg = "#383838" })
 api.nvim_set_hl(0, "Search",       { bg = "NONE", fg = "#AE91E8" })
 api.nvim_set_hl(0, "IncSearch",    { bg = "NONE", fg = "#AE91E8" })
+api.nvim_set_hl(0, "CursorLine",   { bg = "NONE", fg = "#999999" })
 
-api.nvim_set_hl(0, "Visual",       { bg = "NONE", fg = "#aaaaaa", bold = true })
-api.nvim_set_hl(0, "CursorLine",   { bg = "NONE", fg = "#999999", bold = true })
+api.nvim_set_hl(0, "Visual",       { bg = "NONE", fg = "#999999", bold = true })
 api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE", fg = "#505050", bold = true })
+
+api.nvim_set_hl(0, "Pmenu",      { bg = "#282828", fg = "#757575" })
+api.nvim_set_hl(0, "PmenuSel",   { bg = "#383838", fg = "#888888", bold = true })
+api.nvim_set_hl(0, "PmenuSbar",  { bg = "#383838", fg = "NONE" })
+api.nvim_set_hl(0, "PmenuThumb", { bg = "#505050", fg = "NONE" })
