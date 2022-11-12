@@ -1,7 +1,10 @@
 local api = vim.api
 local keymap = vim.keymap.set
 
--- vim.fn.getpos(".") { 0, line_num, column_num, 0 }
+-- vim.fn.getpos(".")         -> { 0, line_num, column_num, 0 }
+-- api.nvim_win_get_cursor(0) -> { line_num, column_num }
+-- api.nvim_get_current_line()-> Get cursorline string
+-- vim.fn.getline(".")        -> Get cursorline string
 
 vim.cmd "au!"
 
@@ -147,6 +150,28 @@ api.nvim_create_autocmd( "InsertEnter", {
             return string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
         end
 
+        local function get_match_sign ()
+            local cursor_left = get_cursor_left()
+            if cursor_left == "{" then
+                return "}"
+            elseif cursor_left == "[" then
+                return "]"
+            elseif cursor_left == "(" then
+                return ")"
+            end
+        end
+
+        -- AUTO INDENT --
+        keymap('i', "<CR>", function ()
+            return get_cursor_right() == get_match_sign() and "<CR><ESC>O" or "<CR>"
+        end, { expr = true })
+
+        -- AUTO DELETE -- 
+        keymap('i', "<BS>", function ()
+            return get_cursor_right() == get_cursor_left() and "<BS><DEL>" or "<BS>"
+        end, { expr = true })
+
+        -- AUTO MOVE --
         keymap('i', ")", function ()
             return get_cursor_right() == ")" and "<RIGHT>" or ")"
         end, { expr = true })
@@ -194,22 +219,23 @@ api.nvim_create_autocmd( "FileType", {
 })
 
 
-
 -- COMMENT --
-local function comment_check (num)
+local function comment_status (cms)
     local cursor_line_str = api.nvim_get_current_line()
-    local ltrim_spaces_res = cursor_line_str:match("^%s*(.*)")
-    return string.sub(ltrim_spaces_res, 0, num)
+    return cursor_line_str:match("^%s*(" .. cms .. ").*") == cms
 end
 
--- LUA --
+keymap('n', ";c", function ()
+    local cms = vim.bo.cms:match("(.*)%%s")
+    return comment_status(cms) and "^3x$" or "I" .. cms .. "<ESC>$"
+end, { expr = true })
+
+-- Lua --
 api.nvim_create_autocmd( "FileType", {
     pattern = "lua",
     once = true,
     callback = function ()
-        keymap('n', ";c", function ()
-            return comment_check(3) == "-- " and "^3x$" or "I-- <ESC>$"
-        end, { expr = true })
+        vim.bo.cms = "-- %s"
         keymap('n', ";b", "i--[[  ]]<LEFT><LEFT><LEFT>", NS)
         keymap('v', ";b", "A ]]<ESC>gvo<ESC>i--[[ <ESC>gvo6l", NS)
     end
@@ -220,10 +246,7 @@ api.nvim_create_autocmd( "FileType", {
     pattern = "c",
     once = true,
     callback = function ()
-        keymap('n', ";c", function ()
-            return comment_check(3) == "// " and "^3x$" or "I// <ESC>$"
-        end, { expr = true })
-
+        vim.bo.cms = "// %s"
         keymap('n', ";b", "i/*  */<LEFT><LEFT><LEFT>", NS)
         keymap('v', ";b", "A */<ESC>gvo<ESC>i/* <ESC>gvo6l", NS)
     end
@@ -257,7 +280,7 @@ keymap("n", ";e", function ()
     vim.g.netrw_banner = 0       -- Hide banner
     vim.g.netrw_browse_split = 4 -- Open in previous window
     vim.g.netrw_liststyle = 3    -- Tree-style view
-    vim.cmd "Vexplore || syntax on || nmap <buffer> l <CR> || nnoremap <buffer> <silent> ;e <CMD>quit!<CR>"
+    vim.cmd "Vexplore || syntax on || nmap <buffer> l <CR> || nnoremap <buffer> <silent> ;e <CMD>quit!<CR>"{}
     -- keymap('n', "l", "<CR>", { buffer = true, remap = true })
     -- keymap('n', ";e", "<CMD>quit!<CR>", { buffer = true, remap = false })
 end, NS)
@@ -288,7 +311,8 @@ api.nvim_set_hl(0, "PmenuThumb", { bg = "#505050", fg = "NONE" })
 api.nvim_set_hl(0, "String",     { bg = "NONE", fg = "#585858" })
 api.nvim_set_hl(0, "Comment",    { bg = "NONE", fg = "#484848" })
 api.nvim_set_hl(0, "Number",     { bg = "NONE", fg = "#555555" })
-api.nvim_set_hl(0, "Function",   { bg = "NONE", fg = "#C53B82" })
+-- api.nvim_set_hl(0, "Function",   { bg = "NONE", fg = "#C53B82" })
+api.nvim_set_hl(0, "Function",   { bg = "NONE", fg = "#9C8FDC" })
 api.nvim_set_hl(0, "Statement",  { bg = "NONE", fg = "#777777" })
 api.nvim_set_hl(0, "Constant",   { bg = "NONE", fg = "#C53B82" })
 api.nvim_set_hl(0, "NonText",    { bg = "NONE", fg = "#303030" })
