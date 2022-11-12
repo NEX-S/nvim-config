@@ -2,13 +2,46 @@ local api = vim.api
 local opt = vim.opt
 local keymap = vim.keymap.set
 
+local custom_kind = {
+    File          =  { " " },
+    Module        =  { " " },
+    Namespace     =  { "ﱕ " },
+    Package       =  { " " },
+    Class         =  { " " },
+    Method        =  { " " },
+    Property      =  { " " },
+    Field         =  { "ﯟ " },
+    Constructor   =  { " " },
+    Enum          =  { " " },
+    Interface     =  { " " },
+    Function      =  { " " },
+    Variable      =  { " " },
+    Constant      =  { " " },
+    String        =  { " " },
+    Number        =  { " " },
+    Boolean       =  { " " },
+    Array         =  { " " },
+    Object        =  { " " },
+    Key           =  { "- " },
+    Null          =  { " " },
+    EnumMember    =  { " " },
+    Struct        =  { " " },
+    Event         =  { " " },
+    Operator      =  { " " },
+    TypeParameter =  { " " },
+    TypeAlias     =  { " " },
+    Parameter     =  { " " },
+    StaticMethod  =  { " " },
+    Macro         =  { "廓" },
+},
 
 -- vim.fn.getpos(".")         -> { 0, line_num, column_num, 0 }
 -- api.nvim_win_get_cursor(0) -> { line_num, column_num }
 -- api.nvim_get_current_line()-> Get cursorline string
 -- vim.fn.getline(".")        -> Get cursorline string
 
-vim.cmd "au!"
+vim.cmd "autocmd!"
+
 opt.syntax = "on"
 opt.termguicolors = true
 opt.number        = true
@@ -49,6 +82,8 @@ local NS = { remap = false, silent = false }
 
 keymap("n", ";q", "<CMD>exit!<CR>", NS)
 keymap("n", ";w", "<CMD>write!<CR>", NS)
+
+keymap("n", "q", "<NOP>", NS)
 
 keymap("n", "J", "8j", NS)
 keymap("n", "K", "8k", NS)
@@ -130,7 +165,7 @@ keymap("n", "<F10>", "<CMD>bp<CR>", NS)
 keymap("n", "<F11>", "<CMD>bn<CR>", NS)
 
 -- COMPLETION --
--- TODO: 改 TAB 为默认选择第一个
+-- TODO: 改 TAB 为默认选择第一个 ?
 opt.completeopt = "menu,menuone,noselect"
 keymap('i', '<TAB>', function ()
     local cursor_colm = vim.fn.getpos(".")[3]
@@ -138,12 +173,6 @@ keymap('i', '<TAB>', function ()
     local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
     return (cursor_left == "" or cursor_left == " ") and "<TAB>" or "<C-n>"
 end, { expr = true })
-
--- TERMINAL --
-
-keymap("n", ";x", function ()
-    vim.cmd "sp term://fish || resize 20 || set nonu || nnoremap <buffer> <silent> <ESC> <CMD>quit!<CR> || startinsert!"
-end, NS)
 
 -- AUTO PARI --
 -- TODO: 用奇偶判断行内符号是否匹配 奇数为非匹配 偶数为匹配
@@ -215,27 +244,6 @@ api.nvim_create_autocmd( "InsertEnter", {
     end
 })
 
--- RUN CODE --
-local function run_code (shell_cmd)
-    vim.cmd("write! || vs term://" .. shell_cmd)
-    vim.cmd "vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>"
-end
-
-api.nvim_create_autocmd( "FileType", {
-    pattern = "c",
-    once = true,
-    callback = function ()
-        keymap('n', ";r", function ()
-            local file = vim.fn.expand("%")
-            local fileNoExt = vim.fn.expand("%<")
-            local compile_cmd = "clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
-            local shell_cmd =  compile_cmd .. " && bash -c 'echo;echo  && time ./bin/" .. fileNoExt .."'"
-            run_code(shell_cmd)
-        end, NS)
-    end
-})
-
-
 -- COMMENT --
 local function comment_status (cms)
     local cursor_line_str = api.nvim_get_current_line()
@@ -269,13 +277,6 @@ api.nvim_create_autocmd( "FileType", {
     end
 })
 
--- TRANSLATE --
-keymap("n", ";t", function ()
-    local word = vim.fn.expand("<cword>")
-    vim.cmd("vs term://trans -hl zh -to zh -j -speak -indent 2 " .. word)
-    vim.cmd("vert resize 40 || set nonu || nnoremap <buffer> <silent> <ESC> :q!<CR>")
-end, NS)
-
 -- AUTO SOURCE --
 api.nvim_create_autocmd("BufWritePost", {
     pattern = "zen.lua",
@@ -295,11 +296,11 @@ end, NS)
 
 -- HIGHLIGHT --
 
-keymap('n', "<F1>", "<CMD>hi Normal guibg = NONE guifg = #777777<CR>", NS)
-keymap('n', "<F2>", "<CMD>hi Normal guibg = #232323 guifg = #777777<CR>", NS)
+keymap("n", "<F1>", "<CMD>hi Normal guibg = NONE guifg = #777777<CR>", NS)
 
+api.nvim_set_hl(0, "Normal",       { bg = "#202020", fg = "#777777" })
 
-api.nvim_set_hl(0, "Normal",       { bg = "NONE", fg = "#777777" })
+api.nvim_set_hl(0, "FloatTitle",   { bg = "NONE", fg = "#AD475F" })
 api.nvim_set_hl(0, "VertSplit",    { bg = "NONE", fg = "#333333" })
 api.nvim_set_hl(0, "LineNr",       { bg = "NONE", fg = "#383838" })
 api.nvim_set_hl(0, "Search",       { bg = "NONE", fg = "#AE91E8" })
@@ -319,7 +320,6 @@ api.nvim_set_hl(0, "PmenuThumb", { bg = "#505050", fg = "NONE" })
 api.nvim_set_hl(0, "String",     { bg = "NONE", fg = "#585858" })
 api.nvim_set_hl(0, "Comment",    { bg = "NONE", fg = "#484848" })
 api.nvim_set_hl(0, "Number",     { bg = "NONE", fg = "#555555" })
--- api.nvim_set_hl(0, "Function",   { bg = "NONE", fg = "#C53B82" })
 api.nvim_set_hl(0, "Function",   { bg = "NONE", fg = "#9C8FDC" })
 api.nvim_set_hl(0, "Statement",  { bg = "NONE", fg = "#777777" })
 api.nvim_set_hl(0, "Constant",   { bg = "NONE", fg = "#C53B82" })
@@ -338,6 +338,9 @@ api.nvim_set_hl(0, "SpecialChar", { bg = "NONE", fg = "#9C8FDC" })
 -- Lua HIGHLIGHT --
 api.nvim_set_hl(0, "LuaFunc", { bg = "NONE", fg = "#9C8FDC" })
 
+-- FLOAT TERM --
+api.nvim_set_hl(0, "FloatTermNormal", { bg = "#202020", fg = "NONE" })
+
 -- keymap('n', ";x", function ()
 --     api.nvim_open_win(0, true, {
 --         title = "HelloNEX",
@@ -352,4 +355,103 @@ api.nvim_set_hl(0, "LuaFunc", { bg = "NONE", fg = "#9C8FDC" })
 --     })
 --     -- keymap('n', "<ESC>", "<CMD>quit!<CR>", { buffer = true })
 -- end, NS)
+
+-- Switch input method --
+local input_status = 0
+api.nvim_create_autocmd("InsertLeave", {
+    pattern = { "*" },
+    callback = function ()
+        input_status = tonumber(vim.fn.system("fcitx5-remote"))
+        if input_status == 2 then
+            vim.fn.system("fcitx5-remote -c")
+        end
+    end
+})
+
+api.nvim_create_autocmd({ "InsertEnter" }, {
+    pattern = { "*" },
+    callback = function ()
+        if input_status == 2 then
+            vim.fn.system("fcitx5-remote -o")
+        end
+    end
+})
+
+-- TERMINAL --
+-- TODO: 隐藏 Float Term （可能会导致死循环进程无法杀死？）
+local function open_term_vert (shell_cmd, size)
+    vim.cmd("write! || vs term://" .. shell_cmd)
+    vim.cmd("vert resize " .. size .. " || set nonu")
+    keymap("n", "<ESC>", "<CMD>quit!<CR>", { buffer = true })
+end
+
+local function open_term_float (shell_cmd)
+
+    -- Get dimensions
+    local width = api.nvim_get_option("columns")
+    local height = api.nvim_get_option("lines")
+
+    -- Calculate floating window size
+    local win_height = math.ceil(height * 0.7)
+    local win_width = math.ceil(width * 0.7)
+
+    -- Calculate floating term starting position
+    local row = math.ceil((height - win_height) * 0.4)
+    local col = math.ceil((width - win_width) * 0.5)
+
+    local opts = {
+        row       = row,
+        col       = col,
+        width     = win_width,
+        height    = win_height,
+        title     = "  UNEXPECTED 廓",
+        title_pos = "right",
+        relative  = "editor",
+        style     = "minimal",
+        border    = "single",
+    }
+
+    local buf = api.nvim_create_buf(false, true)
+    local win = api.nvim_open_win(buf, true, opts)
+
+    vim.fn.termopen(shell_cmd or os.getenv("SHELL"))
+
+    -- vim.cmd "wincmd p"
+
+    api.nvim_win_set_option(win, "winhl", "Normal:FloatTermNormal")
+    api.nvim_win_set_option(win, "winblend", 25)
+
+    vim.cmd "startinsert!"
+
+    keymap("n", "<ESC>", "<CMD>quit!<CR>", { buffer = true })
+
+    -- keymap("n", "<ESC>", function ()
+    --     api.nvim_win_hide(win)
+    -- end, { buffer = true })
+end
+
+keymap("n", ";x", function ()
+    open_term_float()
+end, NS)
+
+api.nvim_create_autocmd( "FileType", {
+    pattern = "c",
+    once = true,
+    callback = function ()
+        keymap('n', ";r", function ()
+            local file = vim.fn.expand("%")
+            local fileNoExt = vim.fn.expand("%<")
+            local compile_cmd = "clang -Wall " .. file .. " -o ./bin/" .. fileNoExt
+            local shell_cmd =  compile_cmd .. " && bash -c 'echo;echo  && time ./bin/" .. fileNoExt .."'"
+            open_term_float(shell_cmd)
+        end, NS)
+    end
+})
+
+-- TRANSLATE --
+keymap("n", ";t", function ()
+    local word = vim.fn.expand("<cword>")
+    open_term_float("trans -hl zh -to zh -j -speak -indent 2 " .. word)
+end, NS)
+
 
