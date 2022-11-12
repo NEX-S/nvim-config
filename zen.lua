@@ -54,6 +54,7 @@ opt.showcmd       = true
 opt.lazyredraw    = true
 opt.undofile      = true
 opt.smartindent   = true
+opt.smarttab      = true
 opt.expandtab     = true
 opt.splitbelow    = true
 opt.splitright    = true
