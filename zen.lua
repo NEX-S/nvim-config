@@ -1,5 +1,7 @@
 local api = vim.api
+local opt = vim.opt
 local keymap = vim.keymap.set
+
 
 -- vim.fn.getpos(".")         -> { 0, line_num, column_num, 0 }
 -- api.nvim_win_get_cursor(0) -> { line_num, column_num }
@@ -7,41 +9,41 @@ local keymap = vim.keymap.set
 -- vim.fn.getline(".")        -> Get cursorline string
 
 vim.cmd "au!"
-vim.opt.syntax = "on"
-vim.opt.termguicolors = true
-vim.opt.number        = true
-vim.opt.smartcase     = true
-vim.opt.ignorecase    = true
-vim.opt.hlsearch      = true
-vim.opt.incsearch     = true
-vim.opt.cursorline    = true
-vim.opt.showcmd       = true
-vim.opt.lazyredraw    = true
-vim.opt.undofile      = true
-vim.opt.smartindent   = true
-vim.opt.expandtab     = true
-vim.opt.splitbelow    = true
-vim.opt.splitright    = true
-vim.opt.wrap          = false
-vim.opt.showmode      = false
-vim.opt.swapfile      = false
+opt.syntax = "on"
+opt.termguicolors = true
+opt.number        = true
+opt.smartcase     = true
+opt.ignorecase    = true
+opt.hlsearch      = true
+opt.incsearch     = true
+opt.cursorline    = true
+opt.showcmd       = true
+opt.lazyredraw    = true
+opt.undofile      = true
+opt.smartindent   = true
+opt.expandtab     = true
+opt.splitbelow    = true
+opt.splitright    = true
+opt.wrap          = false
+opt.showmode      = false
+opt.swapfile      = false
 
-vim.opt.tabstop       = 4
-vim.opt.softtabstop   = 4
-vim.opt.shiftwidth    = 4
-vim.opt.cmdheight     = 1
-vim.opt.laststatus    = 0
-vim.opt.numberwidth   = 5
-vim.opt.scrolloff     = 6
-vim.opt.sidescrolloff = 10
+opt.tabstop       = 4
+opt.softtabstop   = 4
+opt.shiftwidth    = 4
+opt.cmdheight     = 1
+opt.laststatus    = 0
+opt.numberwidth   = 5
+opt.scrolloff     = 6
+opt.sidescrolloff = 10
 
-vim.opt.winblend = 25
-vim.opt.pumblend = 25
-vim.opt.pumheight = 18
+opt.winblend = 25
+opt.pumblend = 25
+opt.pumheight = 18
 
--- vim.opt.listchars:append "eol:⸥"
--- vim.opt.listchars:append "space:·"
--- vim.opt.listchars:append "trail:-"
+-- opt.listchars:append "eol:⸥"
+-- opt.listchars:append "space:·"
+-- opt.listchars:append "trail:-"
 
 local NS = { remap = false, silent = false }
 
@@ -128,15 +130,20 @@ keymap("n", "<F10>", "<CMD>bp<CR>", NS)
 keymap("n", "<F11>", "<CMD>bn<CR>", NS)
 
 -- COMPLETION --
+-- TODO: 改 TAB 为默认选择第一个
+opt.completeopt = "menu,menuone,noselect"
 keymap('i', '<TAB>', function ()
-    local function tab_trigger_check ()
-        local cursor_colm = vim.fn.getpos(".")[3]
-        local cursor_line = api.nvim_get_current_line()
-        local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
-        return cursor_left == "" or cursor_left == " "
-    end
-    return tab_trigger_check() and "<TAB>" or "<C-n>"
+    local cursor_colm = vim.fn.getpos(".")[3]
+    local cursor_line = api.nvim_get_current_line()
+    local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
+    return (cursor_left == "" or cursor_left == " ") and "<TAB>" or "<C-n>"
 end, { expr = true })
+
+-- TERMINAL --
+
+keymap("n", ";x", function ()
+    vim.cmd "sp term://fish || resize 20 || set nonu || nnoremap <buffer> <silent> <ESC> <CMD>quit!<CR> || startinsert!"
+end, NS)
 
 -- AUTO PARI --
 -- TODO: 用奇偶判断行内符号是否匹配 奇数为非匹配 偶数为匹配
@@ -281,7 +288,7 @@ keymap("n", ";e", function ()
     vim.g.netrw_banner = 0       -- Hide banner
     vim.g.netrw_browse_split = 4 -- Open in previous window
     vim.g.netrw_liststyle = 3    -- Tree-style view
-    vim.cmd "Vexplore || syntax on || nmap <buffer> l <CR> || nnoremap <buffer> <silent> ;e <CMD>quit!<CR>"{}
+    vim.cmd "Vexplore || syntax on || nmap <buffer> l <CR> || nnoremap <buffer> <silent> ;e <CMD>quit!<CR>"
     -- keymap('n', "l", "<CR>", { buffer = true, remap = true })
     -- keymap('n', ";e", "<CMD>quit!<CR>", { buffer = true, remap = false })
 end, NS)
@@ -345,3 +352,4 @@ api.nvim_set_hl(0, "LuaFunc", { bg = "NONE", fg = "#9C8FDC" })
 --     })
 --     -- keymap('n', "<ESC>", "<CMD>quit!<CR>", { buffer = true })
 -- end, NS)
+
