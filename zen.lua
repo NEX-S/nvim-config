@@ -7,7 +7,6 @@ local keymap = vim.keymap.set
 -- vim.fn.getline(".")        -> Get cursorline string
 
 vim.cmd "au!"
-
 vim.opt.syntax = "on"
 vim.opt.termguicolors = true
 vim.opt.number        = true
@@ -127,6 +126,17 @@ keymap("n", "<A-h>", "<CMD>bp<CR>", NS)
 keymap("n", "<A-l>", "<CMD>bn<CR>", NS)
 keymap("n", "<F10>", "<CMD>bp<CR>", NS)
 keymap("n", "<F11>", "<CMD>bn<CR>", NS)
+
+-- COMPLETION --
+keymap('i', '<TAB>', function ()
+    local function tab_trigger_check ()
+        local cursor_colm = vim.fn.getpos(".")[3]
+        local cursor_line = api.nvim_get_current_line()
+        local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
+        return cursor_left == "" or cursor_left == " "
+    end
+    return tab_trigger_check() and "<TAB>" or "<C-n>"
+end, { expr = true })
 
 -- AUTO PARI --
 -- TODO: 用奇偶判断行内符号是否匹配 奇数为非匹配 偶数为匹配
@@ -335,21 +345,3 @@ api.nvim_set_hl(0, "LuaFunc", { bg = "NONE", fg = "#9C8FDC" })
 --     })
 --     -- keymap('n', "<ESC>", "<CMD>quit!<CR>", { buffer = true })
 -- end, NS)
-
-
--- COMPLETION --
--- keymap('i', "<TAB>", function ()
-    -- return vim.fn.pumvisible() == 1 and "<C-n>" or "<TAB>"
--- end, { expr = true })    
-
-local function tab_trigger_check ()
-    local cursor_colm = vim.fn.getpos(".")[3]
-    local cursor_line = api.nvim_get_current_line()
-    local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
-    return cursor_left == "" or cursor_left == " "
-end
-
-keymap('i', '<TAB>', function ()
-    return tab_trigger_check() and "<TAB>" or "<C-n>"
-end, { expr = true })
-                
