@@ -140,13 +140,13 @@ api.nvim_create_autocmd( "InsertEnter", {
 
         local function get_cursor_right ()
             local cursor_colm = vim.fn.getpos(".")[3]
-            local cursor_line = vim.api.nvim_get_current_line()
+            local cursor_line = api.nvim_get_current_line()
             return string.sub(cursor_line, cursor_colm, cursor_colm)
         end
 
         local function get_cursor_left ()
             local cursor_colm = vim.fn.getpos(".")[3]
-            local cursor_line = vim.api.nvim_get_current_line()
+            local cursor_line = api.nvim_get_current_line()
             return string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
         end
 
@@ -252,15 +252,6 @@ api.nvim_create_autocmd( "FileType", {
     end
 })
 
--- COMPLETION --
--- keymap('i', "<TAB>", function ()
---     return vim.fn.pumvisible() == 1 and "<TAB>" or "<C-n>"
--- end, { expr = true, remap = false })    
-
-keymap('i', "<TAB>", "<C-n>", { expr = false, remap = false })
-keymap('i', "<S-TAB>", "<C-p>", { expr = false, remap = false })
-
-
 -- TRANSLATE --
 keymap("n", ";t", function ()
     local word = vim.fn.expand("<cword>")
@@ -344,3 +335,21 @@ api.nvim_set_hl(0, "LuaFunc", { bg = "NONE", fg = "#9C8FDC" })
 --     })
 --     -- keymap('n', "<ESC>", "<CMD>quit!<CR>", { buffer = true })
 -- end, NS)
+
+
+-- COMPLETION --
+-- keymap('i', "<TAB>", function ()
+    -- return vim.fn.pumvisible() == 1 and "<C-n>" or "<TAB>"
+-- end, { expr = true })    
+
+local function tab_trigger_check ()
+    local cursor_colm = vim.fn.getpos(".")[3]
+    local cursor_line = api.nvim_get_current_line()
+    local cursor_left = string.sub(cursor_line, cursor_colm - 1, cursor_colm - 1)
+    return cursor_left == "" or cursor_left == " "
+end
+
+keymap('i', '<TAB>', function ()
+    return tab_trigger_check() and "<TAB>" or "<C-n>"
+end, { expr = true })
+                
